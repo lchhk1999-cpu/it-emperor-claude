@@ -21,6 +21,8 @@
 | P2-03 | 發佈模式只載 approved | question-import-engineer | — | 測試：release 模式過濾非 approved；release 打包不含非 approved 題 | DONE（core + 打包檢查） |
 | P2-04 | 抽題覆蓋率、防重複 | gameplay-engineer | — | 測試：無重複、可按 Topic 篩選 | DONE（core 基本版） |
 | P3-05 | 公會副本 demo（玩家自建公會、共享 Boss、每日 1 次限時作答、週結攻擊總量） | guild-systems-designer | P1 完成 | 規則依 docs/07「用戶確認的公會規則」；只用虛構資料；數值標 PLACEHOLDER | DONE（單機示範，2026-10-30）：加入／建立公會、公會首頁、限時副本、結算；多人共享需後端（P4，待批准） |
+| P3-06 | 單機故事模式（Story_Questions 129 題、43 關） | gameplay-engineer + question-import-engineer | P2-02 | 只讀 Story_Questions；按 level_id 配對；練習抽題＋小 Boss；答對攻擊、答錯中文解說並稍後重答；過關解鎖下一關；本機存檔；離線可玩；教師審核後才進正式版 | DOING（2026-10-30：A-01–A-03 完成並測試；其餘 40 關待開放） |
+| P3-07 | 開放故事模式其餘 40 關 | gameplay-engineer | P3-06、教師審核 | 逐世界加入 `STORY_RULES.enabledLevels`；每關實玩測試 | TODO |
 
 ## 優先次序（下一步）
 1. 用戶：安裝 Command Line Tools（解鎖 git、Python）→ P0-02a。

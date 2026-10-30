@@ -6,14 +6,13 @@
   ITE.questionBank = {
  "meta": {
   "source_file": "IT_Emperor_DseMcQs.xlsx",
-  "source_sha256": "6a3da5101698ae8201a0d3290b557d68c6db61ed94247444a9fd9cfb0266733d",
-  "imported_at": "2026-10-30T09:05:29Z",
+  "source_sha256": "93f04990806f97f3014dcdd7403451ee8d8745daa0f4ffd6fe3adf9b1d019459",
+  "imported_at": "2026-10-30T09:53:44Z",
   "total": 414,
   "accepted": 382,
   "rejected": 32,
   "by_status": {
-   "approved": 14,
-   "review": 368
+   "approved": 382
   }
  },
  "topics": {
@@ -317,7 +316,7 @@
    "wrong_tip": "COUNTIF 會計算重複值。",
    "tags": "COUNTIF",
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35
   },
@@ -336,7 +335,7 @@
    "wrong_tip": "逐個檢查 $ 固定的是列還是欄。",
    "tags": "mixed reference",
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -355,7 +354,7 @@
    "wrong_tip": "文字及空白不計入 COUNT。",
    "tags": "COUNT",
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35
   },
@@ -374,7 +373,7 @@
    "wrong_tip": "姓名可能重複。",
    "tags": "primary key",
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35
   },
@@ -393,7 +392,7 @@
    "wrong_tip": "單獨訂單編號會重複。",
    "tags": "composite key",
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -412,7 +411,7 @@
    "wrong_tip": "COUNT(*) 才計全部列。",
    "tags": "COUNT NULL",
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35
   },
@@ -431,7 +430,7 @@
    "wrong_tip": "先辨認需要保留的資料表。",
    "tags": "LEFT JOIN",
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -450,7 +449,7 @@
    "wrong_tip": "WHERE 與 HAVING 的篩選時機不同。",
    "tags": "GROUP BY HAVING",
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -469,7 +468,7 @@
    "wrong_tip": "虛擬記憶體並非額外的實體 RAM。",
    "tags": "virtual memory",
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35
   },
@@ -488,7 +487,7 @@
    "wrong_tip": "先把 bit 轉 byte。",
    "tags": "image storage",
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -507,7 +506,7 @@
    "wrong_tip": "不要混淆 MAC 與 IP。",
    "tags": "switch flooding",
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35
   },
@@ -526,7 +525,7 @@
    "wrong_tip": "辨認網絡層功能。",
    "tags": "NAT",
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -545,7 +544,7 @@
    "wrong_tip": "不要直接使用可疑訊息中的連結。",
    "tags": "phishing",
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35
   },
@@ -564,7 +563,7 @@
    "wrong_tip": "安全連線不等於可信內容。",
    "tags": "TLS",
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -583,7 +582,7 @@
    "wrong_tip": "負索引從尾端開始。",
    "tags": "sort indexing",
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35
   },
@@ -602,7 +601,7 @@
    "wrong_tip": "終點 8 不包括在內。",
    "tags": "range loop",
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -621,7 +620,7 @@
    "wrong_tip": "不存在的目標亦要考慮。",
    "tags": "binary search",
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -640,7 +639,7 @@
    "wrong_tip": "F 代表 15。",
    "tags": "hex",
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35
   },
@@ -659,7 +658,7 @@
    "wrong_tip": "留意 byte 與 bit。",
    "tags": "bandwidth",
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -678,7 +677,7 @@
    "wrong_tip": "視覺真實感不等於真確。",
    "tags": "AI literacy",
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35
   },
@@ -697,7 +696,7 @@
    "wrong_tip": "不要混淆「格式/範圍是否合理」與「是否與原始資料一致」。",
    "tags": "validation;verification",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q1｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 30
   },
@@ -716,7 +715,7 @@
    "wrong_tip": "Unicode 並不保證較小檔案，亦不是加密方法。",
    "tags": "unicode;ascii",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q2｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 30
   },
@@ -735,7 +734,7 @@
    "wrong_tip": "留意「在相若畫質下」；壓縮效率不等於完全無損。",
    "tags": "codec;H265;compression",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q3｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40
   },
@@ -754,7 +753,7 @@
    "wrong_tip": "用於檢查的位元不能同時計算為資料位元。",
    "tags": "parity;binary;counting",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q4｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40
   },
@@ -773,7 +772,7 @@
    "wrong_tip": "二補碼表示範圍並非正負完全對稱。",
    "tags": "twos-complement;overflow",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q5｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 55
   },
@@ -792,7 +791,7 @@
    "wrong_tip": "同時檢查排名次序與複製公式時的儲存格參照。",
    "tags": "RANK;absolute-reference",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q6｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40
   },
@@ -811,7 +810,7 @@
    "wrong_tip": "「平均」不等於「最高」或「總數」。",
    "tags": "pivot;average",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q7｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 30
   },
@@ -830,7 +829,7 @@
    "wrong_tip": "資訊處理並非只指算數運算。",
    "tags": "information-processing;representation",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q8｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40
   },
@@ -849,7 +848,7 @@
    "wrong_tip": "WHERE 先篩記錄，再 GROUP BY，最後 HAVING 篩群組。",
    "tags": "sql;group-by;having",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q9｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 55
   },
@@ -868,7 +867,7 @@
    "wrong_tip": "控制與驗證數據不等同提升速度或壓縮。",
    "tags": "data-control;data-integrity",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q10｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 30
   },
@@ -887,7 +886,7 @@
    "wrong_tip": "別將 GPU 誤認為只會輸出畫面。",
    "tags": "cpu;gpu;parallel",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q11｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40
   },
@@ -906,7 +905,7 @@
    "wrong_tip": "Fetch 取得指令；Decode 判斷指令含義。",
    "tags": "fetch-decode-execute",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q12｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40
   },
@@ -925,7 +924,7 @@
    "wrong_tip": "多工可由切換實現，但此處特別有多核心同時執行。",
    "tags": "multiprocessing;os",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q13｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40
   },
@@ -944,7 +943,7 @@
    "wrong_tip": "注意工作是否需要即時輸出。",
    "tags": "batch-processing",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q14｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 30
   },
@@ -963,7 +962,7 @@
    "wrong_tip": "「備份」比調整外觀或網絡參數更優先。",
    "tags": "backup;os-upgrade",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q15｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 30
   },
@@ -982,7 +981,7 @@
    "wrong_tip": "RAM 斷電後通常會失去資料。",
    "tags": "rom;firmware",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q16｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40
   },
@@ -1001,7 +1000,7 @@
    "wrong_tip": "MAC 位址轉發是交換器的典型功能。",
    "tags": "switch;mac",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q17｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40
   },
@@ -1020,7 +1019,7 @@
    "wrong_tip": "連接慢要先分辨訊號品質、擁塞與本機設定。",
    "tags": "wifi;congestion",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q18｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40
   },
@@ -1039,7 +1038,7 @@
    "wrong_tip": "比較傳輸距離、電量與資料量需要。",
    "tags": "bluetooth;ble",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q19｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 30
   },
@@ -1058,7 +1057,7 @@
    "wrong_tip": "分清 TCP 的可靠傳輸和 IP 的路由尋址。",
    "tags": "tcp;retransmission",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q20｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40
   },
@@ -1077,7 +1076,7 @@
    "wrong_tip": "防火牆不等於防毒掃描或身份驗證。",
    "tags": "firewall;access-control",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q21｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 30
   },
@@ -1096,7 +1095,7 @@
    "wrong_tip": "可在網上看到，不等於可自由宣稱作者身份。",
    "tags": "copyright;ethics",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q22｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40
   },
@@ -1115,7 +1114,7 @@
    "wrong_tip": "VPN 加密連線不能代替帳戶身份驗證。",
    "tags": "mfa;account-security",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q23｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40
   },
@@ -1134,7 +1133,7 @@
    "wrong_tip": "別把釣魚局限於電子郵件。",
    "tags": "malware;phishing;smishing",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q24｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40
   },
@@ -1153,7 +1152,7 @@
    "wrong_tip": "HTTPS/TLS 不等於能阻止所有網絡攻擊。",
    "tags": "https;tls",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q25｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 30
   },
@@ -1172,7 +1171,7 @@
    "wrong_tip": "先計算比較，再依 and、or 優先次序判斷。",
    "tags": "boolean;precedence",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q26｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40
   },
@@ -1191,7 +1190,7 @@
    "wrong_tip": "同一輪中，第二條賦值使用的是更新後的 y。",
    "tags": "pseudocode;trace;loop",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q27｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 55
   },
@@ -1210,7 +1209,7 @@
    "wrong_tip": "陣列原地修改，必須依執行次序追蹤。",
    "tags": "array;inplace-update",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q28｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 55
   },
@@ -1229,7 +1228,7 @@
    "wrong_tip": "邊界值分析要測分界前、分界上及分界後。",
    "tags": "testing;boundary-values",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q29｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40
   },
@@ -1248,7 +1247,7 @@
    "wrong_tip": "先確認是否會讀到已修改的元素。",
    "tags": "array;trace;sum",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q30｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 55
   },
@@ -1267,7 +1266,7 @@
    "wrong_tip": "先判斷巢狀條件是否可能成立。",
    "tags": "nested-if;logic",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q31｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 55
   },
@@ -1286,7 +1285,7 @@
    "wrong_tip": "迴圈邊界的 < 與 ≤ 決定是否包括最後一項。",
    "tags": "while;range;accumulator",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q32｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40
   },
@@ -1305,7 +1304,7 @@
    "wrong_tip": "必須在每輪「開始」時判斷兩個條件。",
    "tags": "while;and;trace",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q33｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40
   },
@@ -1324,7 +1323,7 @@
    "wrong_tip": "判斷是否每次都朝着令條件變成 False 的方向前進。",
    "tags": "infinite-loop;termination",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q34｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40
   },
@@ -1343,7 +1342,7 @@
    "wrong_tip": "留意 Python 的 range 終點不包括，以及最後一次 n 被重設的位置。",
    "tags": "python;nested-loop;mod",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q35｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 55
   },
@@ -1362,7 +1361,7 @@
    "wrong_tip": "每輪必須同時保留舊 b 的值，避免賦值次序出錯。",
    "tags": "gcd;modulo;euclid",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q36｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40
   },
@@ -1381,7 +1380,7 @@
    "wrong_tip": "要求兩項都有效，迴圈的延續條件是「至少一項無效」。",
    "tags": "input-validation;boolean",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q37｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40
   },
@@ -1400,7 +1399,7 @@
    "wrong_tip": "相同優先次序的 /、* 按由左至右運算。",
    "tags": "python;operator-precedence",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q38｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40
   },
@@ -1419,7 +1418,7 @@
    "wrong_tip": "HTTPS 的身份信任關乎證書驗證，不是網站外觀。",
    "tags": "digital-certificate;https;ca",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q39｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40
   },
@@ -1438,7 +1437,7 @@
    "wrong_tip": "「開放源碼」不等於「沒有授權限制」。",
    "tags": "open-source;license;copyright",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q40｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40
   },
@@ -1457,7 +1456,7 @@
    "wrong_tip": "固定不變的參數要使用絕對參照。",
    "tags": "excel;absolute_reference",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q1｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -1476,7 +1475,7 @@
    "wrong_tip": "分辨處理設備和輸出設備。",
    "tags": "cpu;performance",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q2｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -1495,7 +1494,7 @@
    "wrong_tip": "留意資料與資訊的分別。",
    "tags": "data;information",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q3｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -1514,7 +1513,7 @@
    "wrong_tip": "有號整數的正數最大值比無號整數小。",
    "tags": "twos_complement;range",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q4｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -1533,7 +1532,7 @@
    "wrong_tip": "分析不是單純記錄數據。",
    "tags": "collection;analysis",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q5｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -1552,7 +1551,7 @@
    "wrong_tip": "安全密碼應避免個人資訊與重複使用。",
    "tags": "password;authentication",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q6｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -1571,7 +1570,7 @@
    "wrong_tip": "色彩數目等於 2 的位元數次方。",
    "tags": "colour_depth;bits",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q7｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -1590,7 +1589,7 @@
    "wrong_tip": "網頁正文標題與瀏覽器標籤不同。",
    "tags": "html;heading",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q8｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -1609,7 +1608,7 @@
    "wrong_tip": "想想固定版面與網頁可變排版的區別。",
    "tags": "pdf;file_format",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q9｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -1628,7 +1627,7 @@
    "wrong_tip": "同一筆紀錄不能同時等於兩個不同的 HOUSE 值。",
    "tags": "sql;in",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q10｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -1647,7 +1646,7 @@
    "wrong_tip": "驗證是檢查格式與合理性。",
    "tags": "validation;length",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q11｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -1666,7 +1665,7 @@
    "wrong_tip": "不要把一般應用軟件功能當成作業系統核心功能。",
    "tags": "os;resource_management",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q12｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -1685,7 +1684,7 @@
    "wrong_tip": "隔離執行環境是重點。",
    "tags": "virtualization;vm",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q13｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -1704,7 +1703,7 @@
    "wrong_tip": "多工不一定表示單核心 CPU 真正同時運算。",
    "tags": "multitasking;scheduling",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q14｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -1723,7 +1722,7 @@
    "wrong_tip": "找出保護網絡傳輸的措施。",
    "tags": "https;tls",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q15｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -1742,7 +1741,7 @@
    "wrong_tip": "比較 volatile 與 non-volatile。",
    "tags": "ram;volatile",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q16｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -1761,7 +1760,7 @@
    "wrong_tip": "RAM 容量與 CPU 速度不是同一概念。",
    "tags": "memory;capacity",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q17｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -1780,7 +1779,7 @@
    "wrong_tip": "IPv4 每節對應 8 位元。",
    "tags": "ipv4;address",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q18｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -1799,7 +1798,7 @@
    "wrong_tip": "沒有一種傳輸媒介完全無風險。",
    "tags": "wired;wireless",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q19｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -1818,7 +1817,7 @@
    "wrong_tip": "共用不是代表任何人都可以任意刪除。",
    "tags": "lan;sharing",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q20｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -1837,7 +1836,7 @@
    "wrong_tip": "先處理依賴條件，再執行後續步驟。",
    "tags": "workflow;order",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q21｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -1856,7 +1855,7 @@
    "wrong_tip": "找出頁面正文顯示的格式元素。",
    "tags": "html;linebreak",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q22｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -1875,7 +1874,7 @@
    "wrong_tip": "顯示差異不等於網站故障。",
    "tags": "rendering;browser",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q23｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -1894,7 +1893,7 @@
    "wrong_tip": "比較 TCP 與 UDP。",
    "tags": "tcp;reliability",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q24｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -1913,7 +1912,7 @@
    "wrong_tip": "協定通常位於 :// 之前。",
    "tags": "url;protocol",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q25｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -1932,7 +1931,7 @@
    "wrong_tip": "先逐項求真偽，再做 or/and。",
    "tags": "boolean;logic",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q26｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -1951,7 +1950,7 @@
    "wrong_tip": "注意檢查條件是在每次迭代的開首。",
    "tags": "while;loop",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q27｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -1970,7 +1969,7 @@
    "wrong_tip": "先做與後做條件檢查會產生不同次數。",
    "tags": "pretest;posttest",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q28｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -1989,7 +1988,7 @@
    "wrong_tip": "與後置條件循環比較。",
    "tags": "while;condition",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q29｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2008,7 +2007,7 @@
    "wrong_tip": "區間需要兩個條件同時成立。",
    "tags": "range;and",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q30｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2027,7 +2026,7 @@
    "wrong_tip": "驗證是檢查輸入是否合法。",
    "tags": "input_validation;type",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q31｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2046,7 +2045,7 @@
    "wrong_tip": "追蹤條件成立與不成立兩條分支。",
    "tags": "if_else;equivalence",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q32｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2065,7 +2064,7 @@
    "wrong_tip": "最後一次更新後仍要檢查終止條件。",
    "tags": "while;trace",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q33｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2084,7 +2083,7 @@
    "wrong_tip": "K 每輪增加 2，留意邊界包含 4。",
    "tags": "for;trace",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q34｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2103,7 +2102,7 @@
    "wrong_tip": "逐輪更新 A 和 K，先賦值後增加 K。",
    "tags": "array;trace",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q35｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2122,7 +2121,7 @@
    "wrong_tip": "迴圈主體要恰好計算 4 次。",
    "tags": "iteration;arithmetic",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q36｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2141,7 +2140,7 @@
    "wrong_tip": "臨時變數保留更新前的 x 值。",
    "tags": "trace;variables",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q37｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2160,7 +2159,7 @@
    "wrong_tip": "每輪先加進總數，再依條件更新 A。",
    "tags": "nested_if;while",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q38｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2179,7 +2178,7 @@
    "wrong_tip": "完整開發需考慮需求、設計、測試。",
    "tags": "sdlc;testing",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q39｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2198,7 +2197,7 @@
    "wrong_tip": "標註來源不等於取得所有使用權。",
    "tags": "copyright;licensing",
    "source_note": "2025 HKDSE ICT 卷一甲部 Q40｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2217,7 +2216,7 @@
    "wrong_tip": "補碼的正數上限比負數絕對值少 1。",
    "tags": "twos_complement",
    "source_note": "2024 HKDSE ICT Paper 1A Q1｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2236,7 +2235,7 @@
    "wrong_tip": "留意題目重點是固定版面，不是方便修改。",
    "tags": "pdf;format",
    "source_note": "2024 HKDSE ICT Paper 1A Q2｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2255,7 +2254,7 @@
    "wrong_tip": "比較圖像和影音檔案格式。",
    "tags": "vector;file_format",
    "source_note": "2024 HKDSE ICT Paper 1A Q3｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2274,7 +2273,7 @@
    "wrong_tip": "要的是分類彙總，而不是單純排序。",
    "tags": "pivot;sum",
    "source_note": "2024 HKDSE ICT Paper 1A Q4｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2293,7 +2292,7 @@
    "wrong_tip": "ASCII 無法涵蓋一般中文字符。",
    "tags": "unicode;utf8",
    "source_note": "2024 HKDSE ICT Paper 1A Q5｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2312,7 +2311,7 @@
    "wrong_tip": "n 位元共有 2^n 個組合。",
    "tags": "mac;binary",
    "source_note": "2024 HKDSE ICT Paper 1A Q6｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2331,7 +2330,7 @@
    "wrong_tip": "表單主要方便資料輸入；報告主要用於輸出呈現。",
    "tags": "query;database",
    "source_note": "2024 HKDSE ICT Paper 1A Q7｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2350,7 +2349,7 @@
    "wrong_tip": "不要把輸入介面和顯示報告混淆。",
    "tags": "form;database",
    "source_note": "2024 HKDSE ICT Paper 1A Q8｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2369,7 +2368,7 @@
    "wrong_tip": "空白儲存格不計入 COUNT。",
    "tags": "count;function",
    "source_note": "2024 HKDSE ICT Paper 1A Q11｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2388,7 +2387,7 @@
    "wrong_tip": "COUNT 是計數；SUM 是加總數值。",
    "tags": "sql;count;where",
    "source_note": "2024 HKDSE ICT Paper 1A Q12｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2407,7 +2406,7 @@
    "wrong_tip": "二選一的狀態適合布爾值。",
    "tags": "boolean;datatype",
    "source_note": "2024 HKDSE ICT Paper 1A Q13｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2426,7 +2425,7 @@
    "wrong_tip": "先判斷理論數值有否超出 -128 至 127。",
    "tags": "overflow;twos_complement",
    "source_note": "2024 HKDSE ICT Paper 1A Q14｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 60
   },
@@ -2445,7 +2444,7 @@
    "wrong_tip": "分辨輸出畫面介面和打印機傳輸介面。",
    "tags": "printer;usb",
    "source_note": "2024 HKDSE ICT Paper 1A Q15｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2464,7 +2463,7 @@
    "wrong_tip": "停電時 RAM 資料通常會流失。",
    "tags": "autosave;storage",
    "source_note": "2024 HKDSE ICT Paper 1A Q16｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2483,7 +2482,7 @@
    "wrong_tip": "驅動程式不是替換硬件功能。",
    "tags": "driver;webcam",
    "source_note": "2024 HKDSE ICT Paper 1A Q17｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2502,7 +2501,7 @@
    "wrong_tip": "開機所需韌體要在斷電後仍存在。",
    "tags": "firmware;rom",
    "source_note": "2024 HKDSE ICT Paper 1A Q19｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2521,7 +2520,7 @@
    "wrong_tip": "關鍵是高速、貼近處理器的暫存。",
    "tags": "cache;cpu",
    "source_note": "2024 HKDSE ICT Paper 1A Q20｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2540,7 +2539,7 @@
    "wrong_tip": "分辨作業系統與應用軟件的功能。",
    "tags": "os;resource",
    "source_note": "2024 HKDSE ICT Paper 1A Q21｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2559,7 +2558,7 @@
    "wrong_tip": "寄存器名稱通常反映儲存的內容。",
    "tags": "register;ir",
    "source_note": "2024 HKDSE ICT Paper 1A Q22｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 60
   },
@@ -2578,7 +2577,7 @@
    "wrong_tip": "由右至左判斷主域名是否完整保留。",
    "tags": "dns;subdomain",
    "source_note": "2024 HKDSE ICT Paper 1A Q23｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2597,7 +2596,7 @@
    "wrong_tip": "DNS 負責名稱解析，不是直接傳送音樂檔。",
    "tags": "dns;streaming",
    "source_note": "2024 HKDSE ICT Paper 1A Q24｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2616,7 +2615,7 @@
    "wrong_tip": "從訪客載入速度和易用性考慮。",
    "tags": "web;usability",
    "source_note": "2024 HKDSE ICT Paper 1A Q26｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2635,7 +2634,7 @@
    "wrong_tip": "逐一加上迴圈內的 i。",
    "tags": "for;accumulator",
    "source_note": "2024 HKDSE ICT Paper 1A Q27｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2654,7 +2653,7 @@
    "wrong_tip": "先按先後順序檢查分支條件。",
    "tags": "nested_if",
    "source_note": "2024 HKDSE ICT Paper 1A Q28｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2673,7 +2672,7 @@
    "wrong_tip": "重複迴圈至少會執行一次。",
    "tags": "repeat_until",
    "source_note": "2024 HKDSE ICT Paper 1A Q29｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2692,7 +2691,7 @@
    "wrong_tip": "先累加，再更新 n，最後檢查停止條件。",
    "tags": "loop;trace",
    "source_note": "2024 HKDSE ICT Paper 1A Q30｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2711,7 +2710,7 @@
    "wrong_tip": "需同時滿足「未越界」與「未找到」。",
    "tags": "linear_search;flag",
    "source_note": "2024 HKDSE ICT Paper 1A Q31｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 60
   },
@@ -2730,7 +2729,7 @@
    "wrong_tip": "FLAG 是狀態標記，不是數據陣列。",
    "tags": "flag;search",
    "source_note": "2024 HKDSE ICT Paper 1A Q32｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2749,7 +2748,7 @@
    "wrong_tip": "分辨便利開發與保證執行效能。",
    "tags": "modular;function",
    "source_note": "2024 HKDSE ICT Paper 1A Q33｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2768,7 +2767,7 @@
    "wrong_tip": "留意關鍵字是篩選網絡流量。",
    "tags": "firewall",
    "source_note": "2024 HKDSE ICT Paper 1A Q34｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2787,7 +2786,7 @@
    "wrong_tip": "圖像驗證不是取代帳戶驗證。",
    "tags": "captcha;bot",
    "source_note": "2024 HKDSE ICT Paper 1A Q35｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2806,7 +2805,7 @@
    "wrong_tip": "不要將「能收電郵」等同完整身分認證。",
    "tags": "email;verification",
    "source_note": "2024 HKDSE ICT Paper 1A Q36｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2825,7 +2824,7 @@
    "wrong_tip": "PKI 不是萬能安全保證。",
    "tags": "pki;certificate",
    "source_note": "2024 HKDSE ICT Paper 1A Q40｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 60
   },
@@ -2844,7 +2843,7 @@
    "wrong_tip": "留意「無須由開頭依序讀取」。",
    "tags": "2023;IA;Q1;改編",
    "source_note": "2023 DSE ICT Paper 1A Q1（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2863,7 +2862,7 @@
    "wrong_tip": "2 的燈數次方，再扣除全關。",
    "tags": "2023;IA;Q2;改編",
    "source_note": "2023 DSE ICT Paper 1A Q2（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2882,7 +2881,7 @@
    "wrong_tip": "「離線」不表示不能即時處理。",
    "tags": "2023;IA;Q3;改編",
    "source_note": "2023 DSE ICT Paper 1A Q3（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2901,7 +2900,7 @@
    "wrong_tip": "先核對可表示範圍，再判斷同號相加。",
    "tags": "2023;IA;Q4;改編",
    "source_note": "2023 DSE ICT Paper 1A Q4（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2920,7 +2919,7 @@
    "wrong_tip": "先 WHERE 後 ORDER BY。",
    "tags": "2023;IA;Q5;改編",
    "source_note": "2023 DSE ICT Paper 1A Q5（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2939,7 +2938,7 @@
    "wrong_tip": "不要只測全部合格或全部不合格。",
    "tags": "2023;IA;Q6;改編",
    "source_note": "2023 DSE ICT Paper 1A Q6（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2958,7 +2957,7 @@
    "wrong_tip": "UPPER 會轉成全部大寫。",
    "tags": "2023;IA;Q8;改編",
    "source_note": "2023 DSE ICT Paper 1A Q8（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2977,7 +2976,7 @@
    "wrong_tip": "不要將相片常見格式與透明角色貼圖混淆。",
    "tags": "2023;IA;Q11;改編",
    "source_note": "2023 DSE ICT Paper 1A Q11（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -2996,7 +2995,7 @@
    "wrong_tip": "跨語言要考慮字元集覆蓋範圍。",
    "tags": "2023;IA;Q13;改編",
    "source_note": "2023 DSE ICT Paper 1A Q13（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3015,7 +3014,7 @@
    "wrong_tip": "核心數量不等於同時開啟的程式數目上限。",
    "tags": "2023;IA;Q14;改編",
    "source_note": "2023 DSE ICT Paper 1A Q14（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3034,7 +3033,7 @@
    "wrong_tip": "不要和負責跨網絡轉發的路由器混淆。",
    "tags": "2023;IA;Q15;改編",
    "source_note": "2023 DSE ICT Paper 1A Q15（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3053,7 +3052,7 @@
    "wrong_tip": "區分系統資源管理與永久資料儲存。",
    "tags": "2023;IA;Q16;改編",
    "source_note": "2023 DSE ICT Paper 1A Q16（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3072,7 +3071,7 @@
    "wrong_tip": "投影機常見指標包括亮度和解析度。",
    "tags": "2023;IA;Q17;改編",
    "source_note": "2023 DSE ICT Paper 1A Q17（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3091,7 +3090,7 @@
    "wrong_tip": "根據慢的工作類型選擇升級項目。",
    "tags": "2023;IA;Q18;改編",
    "source_note": "2023 DSE ICT Paper 1A Q18（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3110,7 +3109,7 @@
    "wrong_tip": "即插即用不代表沒有裝置驅動程式。",
    "tags": "2023;IA;Q19;改編",
    "source_note": "2023 DSE ICT Paper 1A Q19（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3129,7 +3128,7 @@
    "wrong_tip": "問的是「索取網頁內容」。",
    "tags": "2023;IA;Q20;改編",
    "source_note": "2023 DSE ICT Paper 1A Q20（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3148,7 +3147,7 @@
    "wrong_tip": "Cookie 不是直接讀取整部電腦的通行證。",
    "tags": "2023;IA;Q21;改編",
    "source_note": "2023 DSE ICT Paper 1A Q21（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3167,7 +3166,7 @@
    "wrong_tip": "從查找網址、傳送資料到網頁協定分層考慮。",
    "tags": "2023;IA;Q22;改編",
    "source_note": "2023 DSE ICT Paper 1A Q22（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3186,7 +3185,7 @@
    "wrong_tip": "IP 不負責保證封包按序抵達。",
    "tags": "2023;IA;Q24;改編",
    "source_note": "2023 DSE ICT Paper 1A Q24（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3205,7 +3204,7 @@
    "wrong_tip": "網域名稱與 IP 位址的對應。",
    "tags": "2023;IA;Q25;改編",
    "source_note": "2023 DSE ICT Paper 1A Q25（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3224,7 +3223,7 @@
    "wrong_tip": "「靈活接達」是關鍵。",
    "tags": "2023;IA;Q26;改編",
    "source_note": "2023 DSE ICT Paper 1A Q26（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3243,7 +3242,7 @@
    "wrong_tip": "逐次寫出進入迴圈時 n 的數值。",
    "tags": "2023;IA;Q27;改編",
    "source_note": "2023 DSE ICT Paper 1A Q27（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3262,7 +3261,7 @@
    "wrong_tip": "先數迴圈次數。",
    "tags": "2023;IA;Q28;改編",
    "source_note": "2023 DSE ICT Paper 1A Q28（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3281,7 +3280,7 @@
    "wrong_tip": "留意索引起點和停止條件。",
    "tags": "2023;IA;Q29;改編",
    "source_note": "2023 DSE ICT Paper 1A Q29（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3300,7 +3299,7 @@
    "wrong_tip": "迴圈的上下界都包括。",
    "tags": "2023;IA;Q30;改編",
    "source_note": "2023 DSE ICT Paper 1A Q30（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3319,7 +3318,7 @@
    "wrong_tip": "分辨迴圈中輸出與最後輸出。",
    "tags": "2023;IA;Q31;改編",
    "source_note": "2023 DSE ICT Paper 1A Q31（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3338,7 +3337,7 @@
    "wrong_tip": "每一輪只在發現更大數時更新。",
    "tags": "2023;IA;Q32;改編",
    "source_note": "2023 DSE ICT Paper 1A Q32（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3357,7 +3356,7 @@
    "wrong_tip": "模組化主要改善管理與測試。",
    "tags": "2023;IA;Q33;改編",
    "source_note": "2023 DSE ICT Paper 1A Q33（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3376,7 +3375,7 @@
    "wrong_tip": "公會排行榜不需要公開敏感資料。",
    "tags": "2023;IA;Q35;改編",
    "source_note": "2023 DSE ICT Paper 1A Q35（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3395,7 +3394,7 @@
    "wrong_tip": "辨認網絡流量控制工具。",
    "tags": "2023;IA;Q36;改編",
    "source_note": "2023 DSE ICT Paper 1A Q36（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3414,7 +3413,7 @@
    "wrong_tip": "數碼隔閡首先與接達、設備和技能相關。",
    "tags": "2023;IA;Q37;改編",
    "source_note": "2023 DSE ICT Paper 1A Q37（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3433,7 +3432,7 @@
    "wrong_tip": "加密傳輸不等於全面防止所有攻擊。",
    "tags": "2023;IA;Q38;改編",
    "source_note": "2023 DSE ICT Paper 1A Q38（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3452,7 +3451,7 @@
    "wrong_tip": "更新的核心安全目的是補漏洞。",
    "tags": "2023;IA;Q40;改編",
    "source_note": "2023 DSE ICT Paper 1A Q40（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3471,7 +3470,7 @@
    "wrong_tip": "先數 1 的數目，再檢查偶數或奇數。",
    "tags": "2022;IA;Q1;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q1 原題答案A；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3490,7 +3489,7 @@
    "wrong_tip": "先篩選，再排序；DESC 是降序。",
    "tags": "2022;IA;Q2;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q2 原題答案D；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3509,7 +3508,7 @@
    "wrong_tip": "「有效日期」與「真實正確日期」是兩回事。",
    "tags": "2022;IA;Q3;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q3 原題答案B；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3528,7 +3527,7 @@
    "wrong_tip": "確認有號整數範圍，再看運算結果。",
    "tags": "2022;IA;Q4;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q4 原題答案C；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3547,7 +3546,7 @@
    "wrong_tip": "像素數量乘每像素位元數。",
    "tags": "2022;IA;Q5;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q5 原題答案A；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3566,7 +3565,7 @@
    "wrong_tip": "分辨收集、準備和處理。",
    "tags": "2022;IA;Q6;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q6 原題答案B；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3585,7 +3584,7 @@
    "wrong_tip": "檔案格式和壓縮方式是關鍵。",
    "tags": "2022;IA;Q7;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q7 原題答案A；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3604,7 +3603,7 @@
    "wrong_tip": "目標格必須是計算公式，變數格是可調整輸入。",
    "tags": "2022;IA;Q10;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q10 原題答案C；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3623,7 +3622,7 @@
    "wrong_tip": "字元需要以位元形式儲存。",
    "tags": "2022;IA;Q11;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q11 原題答案A；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3642,7 +3641,7 @@
    "wrong_tip": "判斷可靠性不能只靠人氣。",
    "tags": "2022;IA;Q12;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q12 原題答案B；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3661,7 +3660,7 @@
    "wrong_tip": "先定義問題與需求。",
    "tags": "2022;IA;Q13;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q13 原題答案D；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3680,7 +3679,7 @@
    "wrong_tip": "別把容量、處理速度和解像度混淆。",
    "tags": "2022;IA;Q14;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q14 原題答案C；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3699,7 +3698,7 @@
    "wrong_tip": "離線情況不應先怪網絡卡。",
    "tags": "2022;IA;Q15;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q15 原題答案A；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3718,7 +3717,7 @@
    "wrong_tip": "NIC 是網絡連接的介面。",
    "tags": "2022;IA;Q17;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q17 原題答案D；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3737,7 +3736,7 @@
    "wrong_tip": "辨認更新能改善甚麼。",
    "tags": "2022;IA;Q18;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q18 原題答案D；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3756,7 +3755,7 @@
    "wrong_tip": "實時不代表完全零延遲。",
    "tags": "2022;IA;Q19;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q19 原題答案B；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3775,7 +3774,7 @@
    "wrong_tip": "OS 是硬件及軟件之間重要的一層。",
    "tags": "2022;IA;Q21;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q21 原題答案B；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3794,7 +3793,7 @@
    "wrong_tip": "分清協定、主機名稱與路徑。",
    "tags": "2022;IA;Q22;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q22 原題答案C；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3813,7 +3812,7 @@
    "wrong_tip": "從玩家角度評估。",
    "tags": "2022;IA;Q24;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q24 原題答案D；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3832,7 +3831,7 @@
    "wrong_tip": "考慮距離與頻寬需求。",
    "tags": "2022;IA;Q25;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q25 原題答案C；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3851,7 +3850,7 @@
    "wrong_tip": "通訊協定不是硬件品牌。",
    "tags": "2022;IA;Q26;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q26 原題答案A；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3870,7 +3869,7 @@
    "wrong_tip": "使用德摩根定律，OR 變 AND。",
    "tags": "2022;IA;Q28;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q28 原題答案C；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3889,7 +3888,7 @@
    "wrong_tip": "檢查迴圈條件內的變數有否更新。",
    "tags": "2022;IA;Q29;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q29 原題答案C；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3908,7 +3907,7 @@
    "wrong_tip": "先判斷終止值是否計入運算。",
    "tags": "2022;IA;Q30;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q30 原題答案C；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3927,7 +3926,7 @@
    "wrong_tip": "留意用來終止的特殊值。",
    "tags": "2022;IA;Q31;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q31 原題答案A；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3946,7 +3945,7 @@
    "wrong_tip": "定義問題不等於完成解決。",
    "tags": "2022;IA;Q32;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q32 原題答案A；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3965,7 +3964,7 @@
    "wrong_tip": "模組化着重可管理性與重用。",
    "tags": "2022;IA;Q33;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q33 原題答案D；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -3984,7 +3983,7 @@
    "wrong_tip": "測試數據應含正常、邊界、異常。",
    "tags": "2022;IA;Q34;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q34 原題答案D；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4003,7 +4002,7 @@
    "wrong_tip": "先控制擴散範圍。",
    "tags": "2022;IA;Q35;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q35 原題答案B；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4022,7 +4021,7 @@
    "wrong_tip": "只提供必要的個人資料。",
    "tags": "2022;IA;Q38;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q38 原題答案A；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4041,7 +4040,7 @@
    "wrong_tip": "版權使用許可看授權範圍。",
    "tags": "2022;IA;Q39;concept-rewrite",
    "source_note": "2022 DSE ICT Paper 1A Q39 原題答案A；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4060,7 +4059,7 @@
    "wrong_tip": "分清資料驗證與資料核對。",
    "tags": "2020;IA;Q1;concept-rewrite",
    "source_note": "2020 DSE ICT Paper 1A Q1 (原題答案 C); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4079,7 +4078,7 @@
    "wrong_tip": "8位元二補碼負數可用無號值減256。",
    "tags": "2020;IA;Q2;concept-rewrite",
    "source_note": "2020 DSE ICT Paper 1A Q2 (原題答案 D); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4098,7 +4097,7 @@
    "wrong_tip": "壓縮不等於提高像素。",
    "tags": "2020;IA;Q3;concept-rewrite",
    "source_note": "2020 DSE ICT Paper 1A Q3 (原題答案 A); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4117,7 +4116,7 @@
    "wrong_tip": "找出最小的n使2^n不少於種類數。",
    "tags": "2020;IA;Q4;concept-rewrite",
    "source_note": "2020 DSE ICT Paper 1A Q4 (原題答案 C); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4136,7 +4135,7 @@
    "wrong_tip": "把每個子條件先判斷。",
    "tags": "2020;IA;Q5;concept-rewrite",
    "source_note": "2020 DSE ICT Paper 1A Q5 (原題答案 D); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4155,7 +4154,7 @@
    "wrong_tip": "ASCII 不足以完整表示多種語言。",
    "tags": "2020;IA;Q6;concept-rewrite",
    "source_note": "2020 DSE ICT Paper 1A Q6 (原題答案 B); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4174,7 +4173,7 @@
    "wrong_tip": "報告用來有組織地呈現資料。",
    "tags": "2020;IA;Q9;concept-rewrite",
    "source_note": "2020 DSE ICT Paper 1A Q9 (原題答案 A); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4193,7 +4192,7 @@
    "wrong_tip": "「不同假設」對應情境分析。",
    "tags": "2020;IA;Q10;concept-rewrite",
    "source_note": "2020 DSE ICT Paper 1A Q10 (原題答案 B); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4212,7 +4211,7 @@
    "wrong_tip": "先按type分組再計每組總和。",
    "tags": "2020;IA;Q11;concept-rewrite",
    "source_note": "2020 DSE ICT Paper 1A Q11 (原題答案 D); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4231,7 +4230,7 @@
    "wrong_tip": "未經整理或計算的觀測資料屬收集。",
    "tags": "2020;IA;Q13;concept-rewrite",
    "source_note": "2020 DSE ICT Paper 1A Q13 (原題答案 A); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4250,7 +4249,7 @@
    "wrong_tip": "GHz 不是儲存容量。",
    "tags": "2020;IA;Q14;concept-rewrite",
    "source_note": "2020 DSE ICT Paper 1A Q14 (原題答案 A); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4269,7 +4268,7 @@
    "wrong_tip": "啟動主要依賴讀取系統檔案。",
    "tags": "2020;IA;Q15;concept-rewrite",
    "source_note": "2020 DSE ICT Paper 1A Q15 (原題答案 C); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4288,7 +4287,7 @@
    "wrong_tip": "分清「可以做到」與「做得較好」。",
    "tags": "2020;IA;Q16;concept-rewrite",
    "source_note": "2020 DSE ICT Paper 1A Q16 (原題答案 C); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4307,7 +4306,7 @@
    "wrong_tip": "硬件與OS溝通常需要驅動程式。",
    "tags": "2020;IA;Q17;concept-rewrite",
    "source_note": "2020 DSE ICT Paper 1A Q17 (原題答案 B); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4326,7 +4325,7 @@
    "wrong_tip": "分清提取、譯碼及執行。",
    "tags": "2020;IA;Q18;concept-rewrite",
    "source_note": "2020 DSE ICT Paper 1A Q18 (原題答案 A); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4345,7 +4344,7 @@
    "wrong_tip": "順序存取不能像磁碟直接跳到任意位置。",
    "tags": "2020;IA;Q21;concept-rewrite",
    "source_note": "2020 DSE ICT Paper 1A Q21 (原題答案 B); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4364,7 +4363,7 @@
    "wrong_tip": "三種匯流排：位址／數據／控制。",
    "tags": "2020;IA;Q22;concept-rewrite",
    "source_note": "2020 DSE ICT Paper 1A Q22 (原題答案 D); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4383,7 +4382,7 @@
    "wrong_tip": "辨認傳輸與畫面擷取因素。",
    "tags": "2020;IA;Q24;concept-rewrite",
    "source_note": "2020 DSE ICT Paper 1A Q24 (原題答案 C); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4402,7 +4401,7 @@
    "wrong_tip": "分清名稱解析與傳輸。",
    "tags": "2020;IA;Q25;concept-rewrite",
    "source_note": "2020 DSE ICT Paper 1A Q25 (原題答案 D); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4421,7 +4420,7 @@
    "wrong_tip": "網絡裝置定址看IP。",
    "tags": "2020;IA;Q26;concept-rewrite",
    "source_note": "2020 DSE ICT Paper 1A Q26 (原題答案 B); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4440,7 +4439,7 @@
    "wrong_tip": "驗證碼屬身份核實。",
    "tags": "2020;IA;Q28;concept-rewrite",
    "source_note": "2020 DSE ICT Paper 1A Q28 (原題答案 D); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4459,7 +4458,7 @@
    "wrong_tip": "先列出每次進入迴圈的n。",
    "tags": "2020;IA;Q31;concept-rewrite",
    "source_note": "2020 DSE ICT Paper 1A Q31 (原題答案 C); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4478,7 +4477,7 @@
    "wrong_tip": "每次記下(a,b)的新數值。",
    "tags": "2020;IA;Q32;concept-rewrite",
    "source_note": "2020 DSE ICT Paper 1A Q32 (原題答案 B); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4497,7 +4496,7 @@
    "wrong_tip": "UNTIL在每次執行後判斷停止。",
    "tags": "2020;IA;Q33;concept-rewrite",
    "source_note": "2020 DSE ICT Paper 1A Q33 (原題答案 D); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4516,7 +4515,7 @@
    "wrong_tip": "邊界值及異常值都要測。",
    "tags": "2020;IA;Q34;concept-rewrite",
    "source_note": "2020 DSE ICT Paper 1A Q34 (原題答案 C); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4535,7 +4534,7 @@
    "wrong_tip": "預防入侵與災後還原是不同功能。",
    "tags": "2020;IA;Q36;concept-rewrite",
    "source_note": "2020 DSE ICT Paper 1A Q36 (原題答案 C); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4554,7 +4553,7 @@
    "wrong_tip": "開放源碼不等於無條件任意使用。",
    "tags": "2020;IA;Q37;concept-rewrite",
    "source_note": "2020 DSE ICT Paper 1A Q37 (原題答案 B); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4573,7 +4572,7 @@
    "wrong_tip": "學校玩家資料尤其需要謹慎保護。",
    "tags": "2020;IA;Q38;concept-rewrite",
    "source_note": "2020 DSE ICT Paper 1A Q38 (原題答案 D); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4592,7 +4591,7 @@
    "wrong_tip": "與網絡流量許可相關的是防火牆。",
    "tags": "2020;IA;Q39;concept-rewrite",
    "source_note": "2020 DSE ICT Paper 1A Q39 (原題答案 A); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4611,7 +4610,7 @@
    "wrong_tip": "留意題目中的關鍵條件，逐一排除不合適選項。",
    "tags": "2021;IA;Q2;concept-rewrite",
    "source_note": "2021 HKDSE ICT Paper 1A Q2（原卷答案 D）；AI 重新創作，答案獨立核算",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4630,7 +4629,7 @@
    "wrong_tip": "留意題目中的關鍵條件，逐一排除不合適選項。",
    "tags": "2021;IA;Q3;concept-rewrite",
    "source_note": "2021 HKDSE ICT Paper 1A Q3（原卷答案 C）；AI 重新創作，答案獨立核算",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4649,7 +4648,7 @@
    "wrong_tip": "留意題目中的關鍵條件，逐一排除不合適選項。",
    "tags": "2021;IA;Q4;concept-rewrite",
    "source_note": "2021 HKDSE ICT Paper 1A Q4（原卷答案 B）；AI 重新創作，答案獨立核算",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4668,7 +4667,7 @@
    "wrong_tip": "留意題目中的關鍵條件，逐一排除不合適選項。",
    "tags": "2021;IA;Q5;concept-rewrite",
    "source_note": "2021 HKDSE ICT Paper 1A Q5（原卷答案 B）；AI 重新創作，答案獨立核算",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4687,7 +4686,7 @@
    "wrong_tip": "留意題目中的關鍵條件，逐一排除不合適選項。",
    "tags": "2021;IA;Q9;concept-rewrite",
    "source_note": "2021 HKDSE ICT Paper 1A Q9（原卷答案 B）；AI 重新創作，答案獨立核算",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4706,7 +4705,7 @@
    "wrong_tip": "留意題目中的關鍵條件，逐一排除不合適選項。",
    "tags": "2021;IA;Q11;concept-rewrite",
    "source_note": "2021 HKDSE ICT Paper 1A Q11（原卷答案 A）；AI 重新創作，答案獨立核算",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4725,7 +4724,7 @@
    "wrong_tip": "留意題目中的關鍵條件，逐一排除不合適選項。",
    "tags": "2021;IA;Q13;concept-rewrite",
    "source_note": "2021 HKDSE ICT Paper 1A Q13（原卷答案 D）；AI 重新創作，答案獨立核算",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4744,7 +4743,7 @@
    "wrong_tip": "留意題目中的關鍵條件，逐一排除不合適選項。",
    "tags": "2021;IA;Q14;concept-rewrite",
    "source_note": "2021 HKDSE ICT Paper 1A Q14（原卷答案 D）；AI 重新創作，答案獨立核算",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4763,7 +4762,7 @@
    "wrong_tip": "留意題目中的關鍵條件，逐一排除不合適選項。",
    "tags": "2021;IA;Q15;concept-rewrite",
    "source_note": "2021 HKDSE ICT Paper 1A Q15（原卷答案 B）；AI 重新創作，答案獨立核算",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4782,7 +4781,7 @@
    "wrong_tip": "留意題目中的關鍵條件，逐一排除不合適選項。",
    "tags": "2021;IA;Q16;concept-rewrite",
    "source_note": "2021 HKDSE ICT Paper 1A Q16（原卷答案 C）；AI 重新創作，答案獨立核算",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4801,7 +4800,7 @@
    "wrong_tip": "留意題目中的關鍵條件，逐一排除不合適選項。",
    "tags": "2021;IA;Q17;concept-rewrite",
    "source_note": "2021 HKDSE ICT Paper 1A Q17（原卷答案 B）；AI 重新創作，答案獨立核算",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4820,7 +4819,7 @@
    "wrong_tip": "留意題目中的關鍵條件，逐一排除不合適選項。",
    "tags": "2021;IA;Q19;concept-rewrite",
    "source_note": "2021 HKDSE ICT Paper 1A Q19（原卷答案 C）；AI 重新創作，答案獨立核算",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4839,7 +4838,7 @@
    "wrong_tip": "留意題目中的關鍵條件，逐一排除不合適選項。",
    "tags": "2021;IA;Q21;concept-rewrite",
    "source_note": "2021 HKDSE ICT Paper 1A Q21（原卷答案 D）；AI 重新創作，答案獨立核算",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4858,7 +4857,7 @@
    "wrong_tip": "留意題目中的關鍵條件，逐一排除不合適選項。",
    "tags": "2021;IA;Q22;concept-rewrite",
    "source_note": "2021 HKDSE ICT Paper 1A Q22（原卷答案 C）；AI 重新創作，答案獨立核算",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4877,7 +4876,7 @@
    "wrong_tip": "留意題目中的關鍵條件，逐一排除不合適選項。",
    "tags": "2021;IA;Q23;concept-rewrite",
    "source_note": "2021 HKDSE ICT Paper 1A Q23（原卷答案 A）；AI 重新創作，答案獨立核算",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4896,7 +4895,7 @@
    "wrong_tip": "留意題目中的關鍵條件，逐一排除不合適選項。",
    "tags": "2021;IA;Q24;concept-rewrite",
    "source_note": "2021 HKDSE ICT Paper 1A Q24（原卷答案 D）；AI 重新創作，答案獨立核算",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4915,7 +4914,7 @@
    "wrong_tip": "留意題目中的關鍵條件，逐一排除不合適選項。",
    "tags": "2021;IA;Q25;concept-rewrite",
    "source_note": "2021 HKDSE ICT Paper 1A Q25（原卷答案 D）；AI 重新創作，答案獨立核算",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4934,7 +4933,7 @@
    "wrong_tip": "留意題目中的關鍵條件，逐一排除不合適選項。",
    "tags": "2021;IA;Q26;concept-rewrite",
    "source_note": "2021 HKDSE ICT Paper 1A Q26（原卷答案 D）；AI 重新創作，答案獨立核算",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4953,7 +4952,7 @@
    "wrong_tip": "留意題目中的關鍵條件，逐一排除不合適選項。",
    "tags": "2021;IA;Q27;concept-rewrite",
    "source_note": "2021 HKDSE ICT Paper 1A Q27（原卷答案 A）；AI 重新創作，答案獨立核算",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4972,7 +4971,7 @@
    "wrong_tip": "留意題目中的關鍵條件，逐一排除不合適選項。",
    "tags": "2021;IA;Q28;concept-rewrite",
    "source_note": "2021 HKDSE ICT Paper 1A Q28（原卷答案 A）；AI 重新創作，答案獨立核算",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -4991,7 +4990,7 @@
    "wrong_tip": "留意題目中的關鍵條件，逐一排除不合適選項。",
    "tags": "2021;IA;Q29;concept-rewrite",
    "source_note": "2021 HKDSE ICT Paper 1A Q29（原卷答案 D）；AI 重新創作，答案獨立核算",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5010,7 +5009,7 @@
    "wrong_tip": "留意題目中的關鍵條件，逐一排除不合適選項。",
    "tags": "2021;IA;Q30;concept-rewrite",
    "source_note": "2021 HKDSE ICT Paper 1A Q30（原卷答案 B）；AI 重新創作，答案獨立核算",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5029,7 +5028,7 @@
    "wrong_tip": "留意題目中的關鍵條件，逐一排除不合適選項。",
    "tags": "2021;IA;Q31;concept-rewrite",
    "source_note": "2021 HKDSE ICT Paper 1A Q31（原卷答案 D）；AI 重新創作，答案獨立核算",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5048,7 +5047,7 @@
    "wrong_tip": "留意題目中的關鍵條件，逐一排除不合適選項。",
    "tags": "2021;IA;Q32;concept-rewrite",
    "source_note": "2021 HKDSE ICT Paper 1A Q32（原卷答案 A）；AI 重新創作，答案獨立核算",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5067,7 +5066,7 @@
    "wrong_tip": "留意題目中的關鍵條件，逐一排除不合適選項。",
    "tags": "2021;IA;Q33;concept-rewrite",
    "source_note": "2021 HKDSE ICT Paper 1A Q33（原卷答案 C）；AI 重新創作，答案獨立核算",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5086,7 +5085,7 @@
    "wrong_tip": "留意題目中的關鍵條件，逐一排除不合適選項。",
    "tags": "2021;IA;Q34;concept-rewrite",
    "source_note": "2021 HKDSE ICT Paper 1A Q34（原卷答案 D）；AI 重新創作，答案獨立核算",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5105,7 +5104,7 @@
    "wrong_tip": "留意題目中的關鍵條件，逐一排除不合適選項。",
    "tags": "2021;IA;Q35;concept-rewrite",
    "source_note": "2021 HKDSE ICT Paper 1A Q35（原卷答案 C）；AI 重新創作，答案獨立核算",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5124,7 +5123,7 @@
    "wrong_tip": "留意題目中的關鍵條件，逐一排除不合適選項。",
    "tags": "2021;IA;Q37;concept-rewrite",
    "source_note": "2021 HKDSE ICT Paper 1A Q37（原卷答案 A）；AI 重新創作，答案獨立核算",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5143,7 +5142,7 @@
    "wrong_tip": "留意題目中的關鍵條件，逐一排除不合適選項。",
    "tags": "2021;IA;Q38;concept-rewrite",
    "source_note": "2021 HKDSE ICT Paper 1A Q38（原卷答案 A）；AI 重新創作，答案獨立核算",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5162,7 +5161,7 @@
    "wrong_tip": "留意題目中的關鍵條件，逐一排除不合適選項。",
    "tags": "2021;IA;Q40;concept-rewrite",
    "source_note": "2021 HKDSE ICT Paper 1A Q40（原卷答案 B）；AI 重新創作，答案獨立核算",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5181,7 +5180,7 @@
    "wrong_tip": "最大值是 2 的 7 次方減 1。",
    "tags": "2019;IA;Q1;concept-rewrite",
    "source_note": "2019 DSE ICT Paper 1A Q1; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5200,7 +5199,7 @@
    "wrong_tip": "多種方案的比較不只是排序。",
    "tags": "2019;IA;Q3;concept-rewrite",
    "source_note": "2019 DSE ICT Paper 1A Q3; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5219,7 +5218,7 @@
    "wrong_tip": "先使用題目指定的編碼方式。",
    "tags": "2019;IA;Q4;concept-rewrite",
    "source_note": "2019 DSE ICT Paper 1A Q4; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5238,7 +5237,7 @@
    "wrong_tip": "編號與供計算的數字並不一樣。",
    "tags": "2019;IA;Q5;concept-rewrite",
    "source_note": "2019 DSE ICT Paper 1A Q5; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5257,7 +5256,7 @@
    "wrong_tip": "主鍵必須唯一並不可空白。",
    "tags": "2019;IA;Q6;concept-rewrite",
    "source_note": "2019 DSE ICT Paper 1A Q6; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5276,7 +5275,7 @@
    "wrong_tip": "分組統計需要 GROUP BY。",
    "tags": "2019;IA;Q7;concept-rewrite",
    "source_note": "2019 DSE ICT Paper 1A Q7; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5295,7 +5294,7 @@
    "wrong_tip": "分清有損與無損壓縮。",
    "tags": "2019;IA;Q9;concept-rewrite",
    "source_note": "2019 DSE ICT Paper 1A Q9; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5314,7 +5313,7 @@
    "wrong_tip": "Validation 與 Verification 不相同。",
    "tags": "2019;IA;Q10;concept-rewrite",
    "source_note": "2019 DSE ICT Paper 1A Q10; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5333,7 +5332,7 @@
    "wrong_tip": "n 個位元有 2^n 組合。",
    "tags": "2019;IA;Q11;concept-rewrite",
    "source_note": "2019 DSE ICT Paper 1A Q11; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5352,7 +5351,7 @@
    "wrong_tip": "數一數整組內所有1的數目。",
    "tags": "2019;IA;Q12;concept-rewrite",
    "source_note": "2019 DSE ICT Paper 1A Q12; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5371,7 +5370,7 @@
    "wrong_tip": "先把 KiB 換成 Bytes，再扣除已佔容量。",
    "tags": "2019;IA;Q13;concept-rewrite",
    "source_note": "2019 DSE ICT Paper 1A Q13; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5390,7 +5389,7 @@
    "wrong_tip": "想想 CPU 內儲存中間結果的寄存器。",
    "tags": "2019;IA;Q15;concept-rewrite",
    "source_note": "2019 DSE ICT Paper 1A Q15; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5409,7 +5408,7 @@
    "wrong_tip": "頻率與功耗的關係較直接。",
    "tags": "2019;IA;Q16;concept-rewrite",
    "source_note": "2019 DSE ICT Paper 1A Q16; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5428,7 +5427,7 @@
    "wrong_tip": "需要多節點合作處理。",
    "tags": "2019;IA;Q18;concept-rewrite",
    "source_note": "2019 DSE ICT Paper 1A Q18; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5447,7 +5446,7 @@
    "wrong_tip": "資料距離 CPU 越近通常越快。",
    "tags": "2019;IA;Q19;concept-rewrite",
    "source_note": "2019 DSE ICT Paper 1A Q19; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5466,7 +5465,7 @@
    "wrong_tip": "OS 不會取代實體網絡裝置。",
    "tags": "2019;IA;Q20;concept-rewrite",
    "source_note": "2019 DSE ICT Paper 1A Q20; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5485,7 +5484,7 @@
    "wrong_tip": "LAN 一般涵蓋較小地理區域。",
    "tags": "2019;IA;Q22;concept-rewrite",
    "source_note": "2019 DSE ICT Paper 1A Q22; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5504,7 +5503,7 @@
    "wrong_tip": "域名解析 = DNS。",
    "tags": "2019;IA;Q23;concept-rewrite",
    "source_note": "2019 DSE ICT Paper 1A Q23; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5523,7 +5522,7 @@
    "wrong_tip": "專線的重點是服務品質而非免費。",
    "tags": "2019;IA;Q24;concept-rewrite",
    "source_note": "2019 DSE ICT Paper 1A Q24; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5542,7 +5541,7 @@
    "wrong_tip": "連結不是檔案本身。",
    "tags": "2019;IA;Q26;concept-rewrite",
    "source_note": "2019 DSE ICT Paper 1A Q26; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5561,7 +5560,7 @@
    "wrong_tip": "邊界值測試要緊貼條件臨界點。",
    "tags": "2019;IA;Q28;concept-rewrite",
    "source_note": "2019 DSE ICT Paper 1A Q28; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5580,7 +5579,7 @@
    "wrong_tip": "否定 OR 會轉成 AND。",
    "tags": "2019;IA;Q29;concept-rewrite",
    "source_note": "2019 DSE ICT Paper 1A Q29; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5599,7 +5598,7 @@
    "wrong_tip": "留意 REPEAT UNTIL 在更新後才檢查。",
    "tags": "2019;IA;Q32;concept-rewrite",
    "source_note": "2019 DSE ICT Paper 1A Q32; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5618,7 +5617,7 @@
    "wrong_tip": "range(1,4)包含1、2、3，不包含4。",
    "tags": "2019;IA;Q33;concept-rewrite",
    "source_note": "2019 DSE ICT Paper 1A Q33; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5637,7 +5636,7 @@
    "wrong_tip": "Wi-Fi 密碼不代表全部傳輸都安全。",
    "tags": "2019;IA;Q35;concept-rewrite",
    "source_note": "2019 DSE ICT Paper 1A Q35; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5656,7 +5655,7 @@
    "wrong_tip": "數碼隔閡包括設備、連線及能力。",
    "tags": "2019;IA;Q37;concept-rewrite",
    "source_note": "2019 DSE ICT Paper 1A Q37; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5675,7 +5674,7 @@
    "wrong_tip": "先阻止擴散及通報。",
    "tags": "2019;IA;Q38;concept-rewrite",
    "source_note": "2019 DSE ICT Paper 1A Q38; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5694,7 +5693,7 @@
    "wrong_tip": "開放源碼不等於公有領域。",
    "tags": "2019;IA;Q39;concept-rewrite",
    "source_note": "2019 DSE ICT Paper 1A Q39; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5713,7 +5712,7 @@
    "wrong_tip": "留意 MAX、WHERE 及 <> 的作用。",
    "tags": "2018;IA;Q2;concept-rewrite",
    "source_note": "2018 DSE ICT Paper 1A Q2; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5732,7 +5731,7 @@
    "wrong_tip": "與檢查密碼長度的有效性驗證不同。",
    "tags": "2018;IA;Q3;concept-rewrite",
    "source_note": "2018 DSE ICT Paper 1A Q3; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5751,7 +5750,7 @@
    "wrong_tip": "分辨字元編碼的涵蓋範圍。",
    "tags": "2018;IA;Q5;concept-rewrite",
    "source_note": "2018 DSE ICT Paper 1A Q5; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5770,7 +5769,7 @@
    "wrong_tip": "有 n 位元，就有 2^n 種組合。",
    "tags": "2018;IA;Q7;concept-rewrite",
    "source_note": "2018 DSE ICT Paper 1A Q7; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5789,7 +5788,7 @@
    "wrong_tip": "逐個欄位看資料的性質。",
    "tags": "2018;IA;Q8;concept-rewrite",
    "source_note": "2018 DSE ICT Paper 1A Q8; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5808,7 +5807,7 @@
    "wrong_tip": "負數二補碼：反轉正數位元後加一。",
    "tags": "2018;IA;Q9;concept-rewrite",
    "source_note": "2018 DSE ICT Paper 1A Q9; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5827,7 +5826,7 @@
    "wrong_tip": "1 byte = 8 bits。",
    "tags": "2018;IA;Q11;concept-rewrite",
    "source_note": "2018 DSE ICT Paper 1A Q11; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5846,7 +5845,7 @@
    "wrong_tip": "比較一維與二維編碼方式。",
    "tags": "2018;IA;Q13;concept-rewrite",
    "source_note": "2018 DSE ICT Paper 1A Q13; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5865,7 +5864,7 @@
    "wrong_tip": "分辨交換器與路由器的主要用途。",
    "tags": "2018;IA;Q16;concept-rewrite",
    "source_note": "2018 DSE ICT Paper 1A Q16; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5884,7 +5883,7 @@
    "wrong_tip": "作業系統管理硬件與系統資源。",
    "tags": "2018;IA;Q17;concept-rewrite",
    "source_note": "2018 DSE ICT Paper 1A Q17; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5903,7 +5902,7 @@
    "wrong_tip": "想想機械式硬碟的活動零件。",
    "tags": "2018;IA;Q18;concept-rewrite",
    "source_note": "2018 DSE ICT Paper 1A Q18; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5922,7 +5921,7 @@
    "wrong_tip": "記住 HDD 與 SSD 的維護差異。",
    "tags": "2018;IA;Q19;concept-rewrite",
    "source_note": "2018 DSE ICT Paper 1A Q19; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5941,7 +5940,7 @@
    "wrong_tip": "寄存器提供 CPU 內部暫存。",
    "tags": "2018;IA;Q22;concept-rewrite",
    "source_note": "2018 DSE ICT Paper 1A Q22; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5960,7 +5959,7 @@
    "wrong_tip": "留意感熱紙的特性。",
    "tags": "2018;IA;Q23;concept-rewrite",
    "source_note": "2018 DSE ICT Paper 1A Q23; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5979,7 +5978,7 @@
    "wrong_tip": "檢查最後一次要否處理 1²。",
    "tags": "2018;IA;Q30;concept-rewrite",
    "source_note": "2018 DSE ICT Paper 1A Q30; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -5998,7 +5997,7 @@
    "wrong_tip": "好的 UI 應可預測、易理解。",
    "tags": "2018;IA;Q35;concept-rewrite",
    "source_note": "2018 DSE ICT Paper 1A Q35; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6017,7 +6016,7 @@
    "wrong_tip": "保密傳輸與速度不是同一回事。",
    "tags": "2018;IA;Q37;concept-rewrite",
    "source_note": "2018 DSE ICT Paper 1A Q37; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6036,7 +6035,7 @@
    "wrong_tip": "分辨機密性、完整性與可用性。",
    "tags": "2018;IA;Q38;concept-rewrite",
    "source_note": "2018 DSE ICT Paper 1A Q38; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6055,7 +6054,7 @@
    "wrong_tip": "浮水印與防火牆的用途不同。",
    "tags": "2018;IA;Q39;concept-rewrite",
    "source_note": "2018 DSE ICT Paper 1A Q39; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6074,7 +6073,7 @@
    "wrong_tip": "不要使用「永遠／必定」等過度絕對說法。",
    "tags": "2018;IA;Q40;concept-rewrite",
    "source_note": "2018 DSE ICT Paper 1A Q40; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6093,7 +6092,7 @@
    "wrong_tip": "分辨圖像壓縮、像素數與透明度。",
    "tags": "jpg;bmp;compression",
    "source_note": "2017 DSE ICT P1A Q4；參考原題概念重新創作；原卷與2017答案表核對",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6112,7 +6111,7 @@
    "wrong_tip": "考慮長寬比例而非檔案大小。",
    "tags": "aspect_ratio;printing",
    "source_note": "2017 DSE ICT P1A Q5；參考原題概念重新創作；原卷與2017答案表核對",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6131,7 +6130,7 @@
    "wrong_tip": "十六進制每位有 16 種可能。",
    "tags": "hex;rgb",
    "source_note": "2017 DSE ICT P1A Q14；參考原題概念重新創作；原卷與2017答案表核對",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6150,7 +6149,7 @@
    "wrong_tip": "分辨系統軟件與應用軟件。",
    "tags": "system_software;driver",
    "source_note": "2017 DSE ICT P1A Q15；參考原題概念重新創作；原卷與2017答案表核對",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6169,7 +6168,7 @@
    "wrong_tip": "鍵盤與平板之間是周邊裝置連接。",
    "tags": "bluetooth;keyboard",
    "source_note": "2017 DSE ICT P1A Q21；參考原題概念重新創作；原卷與2017答案表核對",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6188,7 +6187,7 @@
    "wrong_tip": "不要把投影機或顯示器規格混進來。",
    "tags": "printer;ppm;dpi",
    "source_note": "2017 DSE ICT P1A Q25；參考原題概念重新創作；原卷與2017答案表核對",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6207,7 +6206,7 @@
    "wrong_tip": "留意問題問的是檔案可否還原。",
    "tags": "ransomware;backup",
    "source_note": "2017 DSE ICT P1A Q38；參考原題概念重新創作；原卷與2017答案表核對",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6226,7 +6225,7 @@
    "wrong_tip": "人體工學關注使用者舒適與安全。",
    "tags": "ergonomics;health",
    "source_note": "2017 DSE ICT P1A Q39；參考原題概念重新創作；原卷與2017答案表核對",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6245,7 +6244,7 @@
    "wrong_tip": "無障礙不等於單純增加硬件數量。",
    "tags": "accessibility;assistive_tech",
    "source_note": "2017 DSE ICT P1A Q40；參考原題概念重新創作；原卷與2017答案表核對",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6264,7 +6263,7 @@
    "wrong_tip": "考慮這個欄位需否進行算術運算。",
    "tags": "excel;cell_format;leading_zero",
    "source_note": "2016 DSE ICT P1A Q1；根據可核對原題概念獨立改寫；原題答案見2016 P1A MS",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6283,7 +6282,7 @@
    "wrong_tip": "數字字符「7」在字串中仍然是字符。",
    "tags": "string;byte;character",
    "source_note": "2016 DSE ICT P1A Q2；根據可核對原題概念獨立改寫；原題答案見2016 P1A MS",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6302,7 +6301,7 @@
    "wrong_tip": "檢查每一筆 level 是否全部符合 WHERE 條件。",
    "tags": "sql;where;filter",
    "source_note": "2016 DSE ICT P1A Q3；根據可核對原題概念獨立改寫；原題答案見2016 P1A MS",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6321,7 +6320,7 @@
    "wrong_tip": "先加總前五位，再求下一個 10 的倍數。",
    "tags": "check_digit;validation",
    "source_note": "2016 DSE ICT P1A Q5；根據可核對原題概念獨立改寫；原題答案見2016 P1A MS",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6340,7 +6339,7 @@
    "wrong_tip": "最高位元為 1，對二補碼而言代表負數。",
    "tags": "twos_complement;binary",
    "source_note": "2016 DSE ICT P1A Q8；根據可核對原題概念獨立改寫；原題答案見2016 P1A MS",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6359,7 +6358,7 @@
    "wrong_tip": "分清連網需要的基本通訊資料與不相關的硬件。",
    "tags": "iot;ip_address",
    "source_note": "2016 DSE ICT P1A Q23；根據可核對原題概念獨立改寫；原題答案見2016 P1A MS",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6378,7 +6377,7 @@
    "wrong_tip": "各個獨立開關的可能性要相乘。",
    "tags": "DATA_REP;2013;concept-adapted",
    "source_note": "2013 DSE ICT Paper 1A Q6（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6397,7 +6396,7 @@
    "wrong_tip": "分辨 WHERE 和 ORDER BY。",
    "tags": "SQL;2013;concept-adapted",
    "source_note": "2013 DSE ICT Paper 1A Q8（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6416,7 +6415,7 @@
    "wrong_tip": "思考哪一項是永久不變的事實。",
    "tags": "DATABASE;2013;concept-adapted",
    "source_note": "2013 DSE ICT Paper 1A Q10（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6435,7 +6434,7 @@
    "wrong_tip": "先找出有符號 8 位元的上下限。",
    "tags": "DATA_REP;2014;concept-adapted",
    "source_note": "2014 DSE ICT Paper 1A Q3（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6454,7 +6453,7 @@
    "wrong_tip": "分清表格結構與輸入的記錄。",
    "tags": "DATABASE;2014;concept-adapted",
    "source_note": "2014 DSE ICT Paper 1A Q11（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6473,7 +6472,7 @@
    "wrong_tip": "SUMIF 按條件加總，不是計算全部數字。",
    "tags": "EXCEL;2015;concept-adapted",
    "source_note": "2015 DSE ICT Paper 1A Q10（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6492,7 +6491,7 @@
    "wrong_tip": "關鍵是「且」而不是「或」。",
    "tags": "SQL;2015;concept-adapted",
    "source_note": "2015 DSE ICT Paper 1A Q14（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6511,7 +6510,7 @@
    "wrong_tip": "分清 Cache、RAM 及 SSD。",
    "tags": "HARDWARE;2015;concept-adapted",
    "source_note": "2015 DSE ICT Paper 1A Q17（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6530,7 +6529,7 @@
    "wrong_tip": "時鐘週期不必然等於一條指令。",
    "tags": "HARDWARE;2016;concept-adapted",
    "source_note": "2016 DSE ICT Paper 1A Q20（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6549,7 +6548,7 @@
    "wrong_tip": "比較 ROM/Flash 和 RAM 斷電後的情況。",
    "tags": "HARDWARE;2016;concept-adapted",
    "source_note": "2016 DSE ICT Paper 1A Q22（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6568,7 +6567,7 @@
    "wrong_tip": "UTF-8 的不同字符可使用不同長度。",
    "tags": "DATA_REP;2017;concept-adapted",
    "source_note": "2017 DSE ICT Paper 1A Q1（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6587,7 +6586,7 @@
    "wrong_tip": "同號相加結果超出 −128 至 +127 才會上溢。",
    "tags": "DATA_REP;2017;concept-adapted",
    "source_note": "2017 DSE ICT Paper 1A Q12（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6606,7 +6605,7 @@
    "wrong_tip": "先從記憶體取得指令，才可解讀和執行。",
    "tags": "HARDWARE;2017;concept-adapted",
    "source_note": "2017 DSE ICT Paper 1A Q16（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6625,7 +6624,7 @@
    "wrong_tip": "先轉為相同進位制。",
    "tags": "DATA_REP;2016;concept-adapted",
    "source_note": "2016 DSE ICT Paper 1A Q7；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6644,7 +6643,7 @@
    "wrong_tip": "公式參照的來源值改變會影響計算結果。",
    "tags": "EXCEL;2016;concept-adapted",
    "source_note": "2016 DSE ICT Paper 1A Q10；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6663,7 +6662,7 @@
    "wrong_tip": "要按資訊系統的組成部分分類。",
    "tags": "INFO_PROCESS;2016;concept-adapted",
    "source_note": "2016 DSE ICT Paper 1A Q13；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6682,7 +6681,7 @@
    "wrong_tip": "編碼與加密是不同概念。",
    "tags": "DATA_REP;2016;concept-adapted",
    "source_note": "2016 DSE ICT Paper 1A Q16；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6701,7 +6700,7 @@
    "wrong_tip": "注意終端位置分散、資料需要協調。",
    "tags": "INFO_PROCESS;2016;concept-adapted",
    "source_note": "2016 DSE ICT Paper 1A Q17；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6720,7 +6719,7 @@
    "wrong_tip": "檢查網域及身分，不要只看國家頂級域名。",
    "tags": "SECURITY;2016;concept-adapted",
    "source_note": "2016 DSE ICT Paper 1A Q36；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6739,7 +6738,7 @@
    "wrong_tip": "數碼隔閡不只涉及硬件，亦涉及技能與接達。",
    "tags": "SOCIAL;2016;concept-adapted",
    "source_note": "2016 DSE ICT Paper 1A Q37；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6758,7 +6757,7 @@
    "wrong_tip": "只提供完成主要功能所必需的權限。",
    "tags": "SECURITY;2016;concept-adapted",
    "source_note": "2016 DSE ICT Paper 1A Q40；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6777,7 +6776,7 @@
    "wrong_tip": "檔案格式互轉不必然涉及模擬轉數碼。",
    "tags": "DATA_REP;2017;concept-adapted",
    "source_note": "2017 DSE ICT Paper 1A Q8；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6796,7 +6795,7 @@
    "wrong_tip": "固定的像素不會增加組合數目。",
    "tags": "DATA_REP;2017;concept-adapted",
    "source_note": "2017 DSE ICT Paper 1A Q9；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6815,7 +6814,7 @@
    "wrong_tip": "這題問改變變數對結果的影響。",
    "tags": "EXCEL;2017;concept-adapted",
    "source_note": "2017 DSE ICT Paper 1A Q11；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6834,7 +6833,7 @@
    "wrong_tip": "分清連接埠數量與運算效能。",
    "tags": "HARDWARE;2017;concept-adapted",
    "source_note": "2017 DSE ICT Paper 1A Q17；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6853,7 +6852,7 @@
    "wrong_tip": "監察現時系統資源，而不是預測或顯示秘密。",
    "tags": "OS;2017;concept-adapted",
    "source_note": "2017 DSE ICT Paper 1A Q19；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6872,7 +6871,7 @@
    "wrong_tip": "理解 HTML img 的 src 屬性。",
    "tags": "WEB;2017;concept-adapted",
    "source_note": "2017 DSE ICT Paper 1A Q28；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6891,7 +6890,7 @@
    "wrong_tip": "驗證身分與防毒或水印不同。",
    "tags": "SECURITY;2017;concept-adapted",
    "source_note": "2017 DSE ICT Paper 1A Q34；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6910,7 +6909,7 @@
    "wrong_tip": "避免「所有」「必定」等絕對化描述。",
    "tags": "SOCIAL;2017;concept-adapted",
    "source_note": "2017 DSE ICT Paper 1A Q37；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6929,7 +6928,7 @@
    "wrong_tip": "留意 FALSE 精確配對、欄索引與絕對參照。",
    "tags": "EXCEL;2013;concept-adapted",
    "source_note": "2013 DSE ICT Paper 1A Q7（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6948,7 +6947,7 @@
    "wrong_tip": "位元數與可定址記憶體有關。",
    "tags": "HARDWARE;2013;concept-adapted",
    "source_note": "2013 DSE ICT Paper 1A Q21（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6967,7 +6966,7 @@
    "wrong_tip": "記住 MAR=Address，MDR=Data。",
    "tags": "HARDWARE;2013;concept-adapted",
    "source_note": "2013 DSE ICT Paper 1A Q22（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -6986,7 +6985,7 @@
    "wrong_tip": "HTML 是標記語言，常用於格式化內容。",
    "tags": "WEB;2013;concept-adapted",
    "source_note": "2013 DSE ICT Paper 1A Q26（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -7005,7 +7004,7 @@
    "wrong_tip": "分辨類比轉數碼和數碼檔案轉換。",
    "tags": "DATA_REP;2014;concept-adapted",
    "source_note": "2014 DSE ICT Paper 1A Q1（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -7024,7 +7023,7 @@
    "wrong_tip": "計算 2 的位元數次方。",
    "tags": "DATA_REP;2014;concept-adapted",
    "source_note": "2014 DSE ICT Paper 1A Q4（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -7043,7 +7042,7 @@
    "wrong_tip": "相對參照隨複製方向改變。",
    "tags": "EXCEL;2014;concept-adapted",
    "source_note": "2014 DSE ICT Paper 1A Q6（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -7062,7 +7061,7 @@
    "wrong_tip": "分清取樣率和位元深度。",
    "tags": "MULTIMEDIA;2014;concept-adapted",
    "source_note": "2014 DSE ICT Paper 1A Q15（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -7081,7 +7080,7 @@
    "wrong_tip": "即插即用仍有驅動程式支援。",
    "tags": "OS;2014;concept-adapted",
    "source_note": "2014 DSE ICT Paper 1A Q18（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -7100,7 +7099,7 @@
    "wrong_tip": "保安更新與漏洞修補有關。",
    "tags": "SECURITY;2014;concept-adapted",
    "source_note": "2014 DSE ICT Paper 1A Q36（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -7119,7 +7118,7 @@
    "wrong_tip": "無障礙設計要支援不同輸入與閱讀方式。",
    "tags": "WEB;2014;concept-adapted",
    "source_note": "2014 DSE ICT Paper 1A Q37（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -7138,7 +7137,7 @@
    "wrong_tip": "不要把防火牆當成萬能防毒軟件。",
    "tags": "SECURITY;2014;concept-adapted",
    "source_note": "2014 DSE ICT Paper 1A Q40（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -7157,7 +7156,7 @@
    "wrong_tip": "事件紀錄與個人主檔可分開儲存。",
    "tags": "DATABASE;2015;concept-adapted",
    "source_note": "2015 DSE ICT Paper 1A Q4（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -7176,7 +7175,7 @@
    "wrong_tip": "找最小的 n 令 2ⁿ≥9000。",
    "tags": "DATA_REP;2015;concept-adapted",
    "source_note": "2015 DSE ICT Paper 1A Q5（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -7195,7 +7194,7 @@
    "wrong_tip": "OCR 須先看清字形才能識別。",
    "tags": "HARDWARE;2015;concept-adapted",
    "source_note": "2015 DSE ICT Paper 1A Q7（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -7214,7 +7213,7 @@
    "wrong_tip": "包括 000 和 999 兩個端點。",
    "tags": "DATA_REP;2015;concept-adapted",
    "source_note": "2015 DSE ICT Paper 1A Q15（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -7233,7 +7232,7 @@
    "wrong_tip": "封閉式選項有助有效性檢驗。",
    "tags": "WEB;2015;concept-adapted",
    "source_note": "2015 DSE ICT Paper 1A Q22（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -7252,7 +7251,7 @@
    "wrong_tip": "副檔名可提示檔案類型及風險。",
    "tags": "SECURITY;2015;concept-adapted",
    "source_note": "2015 DSE ICT Paper 1A Q23（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -7271,7 +7270,7 @@
    "wrong_tip": "8 位元 × 3 個顏色通道。",
    "tags": "DATA_REP;2015;concept-adapted",
    "source_note": "2015 DSE ICT Paper 1A Q27（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   },
@@ -7290,7 +7289,7 @@
    "wrong_tip": "保安權標是身分認證工具。",
    "tags": "SECURITY;2015;concept-adapted",
    "source_note": "2015 DSE ICT Paper 1A Q35（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45
   }

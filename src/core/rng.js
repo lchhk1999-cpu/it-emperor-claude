@@ -3,7 +3,11 @@
   const ITE = (root.ITE = root.ITE || {});
 
   function createRng(seed) {
-    let a = seed >>> 0;
+    // Scramble the seed first: raw mulberry32 gives correlated first values for
+    // neighbouring seeds (seeds 1..6 all start above 0.5).
+    let a = Math.imul((seed >>> 0) ^ 0x9e3779b9, 0x85ebca6b) >>> 0;
+    a = Math.imul(a ^ (a >>> 13), 0xc2b2ae35) >>> 0;
+    a = (a ^ (a >>> 16)) >>> 0;
     // mulberry32
     return function next() {
       a = (a + 0x6d2b79f5) >>> 0;

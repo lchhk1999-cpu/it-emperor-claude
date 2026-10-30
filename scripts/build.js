@@ -13,6 +13,8 @@ html = html.replace(/<link rel="stylesheet" href="([^"]+)" \/>/g, (_, href) => `
 html = html.replace(/<script src="([^"]+)"><\/script>/g, (_, src) => {
   if (mode === "release" && src.includes("dev_sample_questions")) return "";
   if (mode === "release" && src === "src/data/question_bank.js") src = "src/data/question_bank.release.js";
+  if (mode === "release" && src === "src/data/story_bank.js") src = "src/data/story_bank.release.js";
+  if (mode === "release" && src === "src/ui/review.js") return ""; // teacher review is dev-only
   return `<script>\n${readFile(src).replace(/<\/script/gi, "<\\/script")}</script>`;
 });
 html = html.replace("<body>", `<body>\n<script>(globalThis.ITE = globalThis.ITE || {}).BUILD_MODE = ${JSON.stringify(mode)};</script>`);

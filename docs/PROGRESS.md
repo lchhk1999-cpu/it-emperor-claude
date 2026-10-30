@@ -87,3 +87,28 @@
   - 合併衝突（docs 表格、進度、測試清單、樣式表）均為雙方新增內容，全部保留
 - **Verification (actual):** `./scripts/test.sh` → `54 passed, 0 failed` + Python `Ran 10 tests OK` + `✓ release bundle: no dev samples; all 14 questions are approved`；瀏覽器 375×812：主畫面、選關、戰鬥（答對／答錯表情）、公會首頁；無橫向捲動；所有按鈕 ≥44px
 - **Still PLACEHOLDER:** 角色仍為程式繪製 SVG，正式插畫待製作
+
+## Run 7 — 2026-10-30（HKT，coordinator）
+- **Branch:** `feat/story-mode`（基於 `main`，已含 PR #2 公會、#3 題庫、#4 美術）
+- **Task:** P3-06 單機故事模式：先完成 A-01–A-03
+- **What changed:**
+  - `tools/import_story_bank.py`：只讀 `Story_Questions`；`Levels`／`Worlds` 提供關卡資料；驗證（level_id、答案、四選項、sequence、boss_eligible、重複 ID）；教師審核 CSV（最嚴格者優先）；SHA-256；答案分佈警告 → `src/data/story_bank.js`（129 題）、`story_bank.release.js`（0 題 approved）、`docs/STORY_BANK_IMPORT_REPORT.md`
+  - `src/core/story.js`：關卡建立、解鎖、練習抽題＋小 Boss、答對按分數攻擊、答錯重排、星數、進度紀錄、審核 CSV 匯出（防 Excel 公式注入）
+  - `src/ui/story.js`：故事地圖（5 個世界 43 關，A-01–A-03 可玩，其餘「即將開放」）、關卡介紹、戰鬥、過關畫面（星數、溫習答錯題、下一關）
+  - `src/ui/review.js`：開發版「教師審核」畫面（審核人、逐關檢視答案及解說、核准／退回＋原因、匯出 CSV）；正式版不打包
+  - `src/core/save.js`：存檔加入 `story`（舊存檔相容、損壞記錄修復）；`src/core/rng.js`：種子先打散（相鄰種子首值相關）
+  - 主畫面：故事模式／DSE 題庫挑戰／校際公會／教師審核（開發版）
+- **Verification (actual):**
+  - `./scripts/test.sh` → JS `68 passed, 0 failed` + Python `Ran 18 tests OK` + `✓ release bundle: no dev samples; all 14 questions are approved`（亦檢查正式版不含教師審核畫面）
+  - 瀏覽器 375×812 實玩：A-01 故意答錯一題 → 顯示中文解說、題目在小 Boss 後重現 → 2 星過關、解鎖 A-02；A-02、A-03 全對 3 星；A-03 後顯示「A-04 即將開放」；地圖星數 8；無橫向捲動；按鈕 ≥44px
+  - 教師審核畫面：未填審核人、退回未寫原因均被阻止；匯出 CSV 內容正確
+  - 端對端（在臨時副本，未改動正式檔案）：CSV 核准 A-01 三題、退回 A-02-02 → 匯入 → 正式版只有該 3 題、A-01 可玩、A-02／A-03「等待老師審核」、A-02-02 完全不在正式版、無審核畫面
+  - 本機 HTTP 伺服器（真正 localStorage）：過關後重新整理，進度及解鎖仍在；遊玩期間沒有任何外部網絡請求
+- **DSE 題庫重新匯入：未採用。** 17:21 版 `Questions` 表 414 題全部改為 approved，但 Topic_* 檢閱表、`DSE_來源追蹤`（320 題 review，「待教師最後確認」）及 `2024_可行性評估`（33 題待覆核）均顯示未經教師審核，且題目內容沒有任何改動。維持上一版（14 題 approved），待用戶確認。
+- **Human decisions needed:** DSE 題庫 382 題是否真的已由教師審核；選項是否打亂（故事題庫 0 個 D 答案）；`STORY-A-02-02`「資料驗證」用詞與 DSE 題庫「數據核對」不一致；教師開始審核故事題目
+## Run 8 — 2026-10-30（HKT，coordinator）
+- **Branch:** `feat/dse-bank-approved`（基於 `main`）
+- **Task:** 重新匯入 DSE 題庫（17:21 版），用戶確認 382 題已經教師審核
+- **What changed:** `src/data/question_bank.js`、`question_bank.release.js`、`docs/QUESTION_BANK_IMPORT_REPORT.md`（加入審核確認紀錄）、`docs/05_DECISIONS.md`
+- **Import result:** 414 → 382 匯入（全部 approved）、32 拒絕（課題代碼不在 Topics 表：ALGORITHM 13、NETWORK 12、DATA 5、INFO 1、NETDEVICE 1）；題目內容與上一版相同，只有狀態改變
+- **Follow-up:** 活頁簿內 Topic_*、DSE_來源追蹤、2024_可行性評估 狀態未同步；32 題課題代碼待修正；D 答案只佔 3%

@@ -90,10 +90,14 @@
         h(
           "div",
           { class: "menu" },
-          resume ? h("button", { class: "btn btn-primary", onclick: resumeBattle }, "繼續戰鬥") : null,
-          h("button", { class: resume ? "btn" : "btn btn-primary", onclick: showStages }, "開始冒險"),
+          resume ? h("button", { class: "btn btn-primary", onclick: resumeBattle }, "繼續 DSE 挑戰") : null,
+          h("button", { class: resume ? "btn" : "btn btn-primary", onclick: () => root.ITE.storyUi.show() }, "故事模式"),
+          h("button", { class: "btn", onclick: showStages }, "DSE 題庫挑戰"),
+          h("button", { class: "btn btn-guild", onclick: () => root.ITE.guildUi.show() }, "校際公會"),
           h("button", { class: "btn", disabled: "" }, "角色隊伍（未開放）"),
-          h("button", { class: "btn btn-guild", onclick: () => root.ITE.guildUi.show() }, "校際公會")
+          BUILD_MODE === "dev" && root.ITE.reviewUi
+            ? h("button", { class: "btn btn-review", onclick: () => root.ITE.reviewUi.show() }, "教師審核（開發版）")
+            : null
         ),
         loaded.status === "recovered" ? h("p", { class: "note" }, "存檔讀取失敗，已建立新存檔（舊資料已備份）。") : null,
         loaded.status === "repaired" ? h("p", { class: "note" }, "存檔部分資料損壞，已自動修復。") : null,
@@ -332,11 +336,15 @@
     render,
     bar,
     questionPool,
+    buildMode: BUILD_MODE,
+    storage,
     getSave: () => save,
     setSave: (next) => {
       save = next;
       persist();
     },
   };
-  showHome();
+  // Wait for every script (guild, story, review screens) before the first render.
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", showHome);
+  else showHome();
 })(globalThis);

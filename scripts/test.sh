@@ -18,6 +18,9 @@ fi
 if grep -q '"review_status": "\(review\|draft\|rejected\)"' dist/it-emperor-release.html; then
   echo "✗ release bundle contains non-approved questions"; exit 1
 fi
+if grep -q "教師審核（故事模式）" dist/it-emperor-release.html; then
+  echo "✗ release bundle contains the dev-only teacher review screen"; exit 1
+fi
 total=$(grep -o '"review_status": "[a-z]*"' dist/it-emperor-release.html | wc -l | tr -d ' ')
 approved=$(grep -o '"review_status": "approved"' dist/it-emperor-release.html | wc -l | tr -d ' ')
 if [ "$total" != "$approved" ]; then
