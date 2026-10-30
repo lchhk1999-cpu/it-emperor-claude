@@ -43,3 +43,11 @@
 - **Blockers:** 無新增。未做獨立 reviewer 複審。
 - **Next task:** P3-05 UI 畫面（積分榜 demo 頁）；QA 複審 Run 1 修正。
 - **Human decisions needed:** docs/07 的 7 項 OPEN_DECISION（尤其 #4 計分方式：本次以「前 N 名平均」作示範，請確認或否決）；仍需 Excel、參考圖、GitHub 合併 feat 分支。
+
+## Run 3 — 2026-10-30（HKT，coordinator，接續 PR #2）
+- **Branch:** `routine/20261030-P3-05`（同一 draft PR #2）
+- **Why:** 用戶確認公會規則（見 `docs/07` 新章節）：玩家自建公會；共享高血量 Boss；每人每天 1 次限時作答，答對造成傷害；週結按攻擊總量排名，人多有利屬刻意設計。Run 2 的「前 N 名平均」方案因此作廢。
+- **What changed:** 刪除 `src/core/guild.js`、`tests/guild.test.js`；新增 `src/core/guildRaid.js`（香港時間日／週、建立及加入公會、限時攻擊、每日一次、同日並行只計一次、週轉換開新 Boss、溢出傷害計入、週排名）；改寫 `src/data/demo_guilds.js`（虛構公會＋攻擊紀錄）；`tests/guildRaid.test.js` 10 項。`docs/05`、`docs/07`、`docs/09` 已更新。
+- **Verification (actual):** `./scripts/test.sh` → `44 passed, 0 failed, 44 total` + `✓ release bundle contains no dev sample questions`，exit 0。突變測試：移除每日限制 → `42 passed, 2 failed`（測試確實能捕捉），還原後 44 passed。
+- **Not done:** 公會畫面 UI；伺服器判分（Phase 4，需批准）。尚未經 QA 複審（今日 17:08 Routine B）。
+- **Human decisions needed:** `docs/07` 公會「仍待決定」7 項（時限、Boss 血量、Boss 被打倒後處理、人數上限／轉會、真實校名授權、獎勵、防作弊）。

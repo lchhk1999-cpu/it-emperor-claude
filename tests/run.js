@@ -26,8 +26,8 @@ globalThis.assert = {
   },
 };
 
-["src/core/rng.js", "src/core/questions.js", "src/core/battle.js", "src/core/save.js", "src/core/guild.js", "src/data/demo_guilds.js", "src/data/stages.js", "src/data/dev_sample_questions.js"].forEach((f) => load(f));
-["tests/questions.test.js", "tests/battle.test.js", "tests/save.test.js", "tests/guild.test.js"].forEach((f) => load(f));
+["src/core/rng.js", "src/core/questions.js", "src/core/battle.js", "src/core/save.js", "src/core/guildRaid.js", "src/data/demo_guilds.js", "src/data/stages.js", "src/data/dev_sample_questions.js"].forEach((f) => load(f));
+["tests/questions.test.js", "tests/battle.test.js", "tests/save.test.js", "tests/guildRaid.test.js"].forEach((f) => load(f));
 
 let failed = 0;
 for (const t of tests) {
