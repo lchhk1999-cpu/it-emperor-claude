@@ -26,6 +26,15 @@
     assert.equal(new Set(idle).size, idle.length);
   });
 
+  test("sprites: every variant design (品種) is valid and looks different", () => {
+    const ids = ITE.sprites.CHARACTER_IDS;
+    assert.ok(ids.length >= 31);
+    const idle = ids.map((id) => ITE.sprites.character(id, "idle"));
+    idle.forEach((svg, i) => assert.ok(balanced(svg) && !/undefined|NaN/.test(svg), ids[i]));
+    assert.equal(new Set(idle).size, ids.length);
+    assert.equal(new Set(Object.values(ITE.sprites.CHARACTER_FAMILIES)).size, 7, "seven families");
+  });
+
   test("sprites: an unknown character falls back to the hero", () => {
     assert.ok(ITE.sprites.character("CH-NEW", "idle").includes('aria-label="主角"'));
   });

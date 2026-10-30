@@ -255,3 +255,11 @@
 - **Verification (actual):** `./scripts/test.sh` → JS `124 passed, 0 failed`（新增 11 項，包括 4,000 次抽蛋機率接近 77/20/3%、第 80 抽保底）+ Python `Ran 27 tests OK` + `✓ release bundle: … all 382 questions are approved`；本機伺服器 375×812：新玩家只擁有 IT狗＋AI 模型、其餘角色灰色「未擁有」、寶石不足時按鈕停用、抽 3 次角色（2 新 1 重複 → 金幣 30）及 1 次裝備（重複 → 金幣 50）、保底倒數 77、重新整理後擁有權保留、抽到的數據庫師可換上隊伍；無橫向捲動
 - **Found & fixed while play-testing:** 裝備結果卡名稱重複及空白 → 改為裝備圖示
 - **Human/ChatGPT follow-up:** Excel `Equipment` 表補上稀有度欄
+
+## Run 19 — 2026-10-30（HKT，coordinator）— 提案，待核准
+- **Branch:** `feat/character-variants`
+- **Why:** 用戶說明抽蛋原意是「更多角色、同一角色有不同品種及稀有度」（例如 IT狗 有不同品種）。用戶決定：7 個系列全部有品種、每系列 4–5 個、稀有度越高稍強（SR +5%、SSR +10%）、由 Claude 起草名單及造型、用戶核准後由 ChatGPT 加入 Excel
+- **What changed:** `src/ui/characters.js` 改為「系列＋參數」繪圖，原有 7 個角色 28 張圖與之前逐一比對完全相同；新增 24 個品種造型（共 31 個）；`tools/character_variants_proposal.js` 產生 `docs/proposals/character_variants.csv`（可貼進 Excel `Characters` 表，新增 `family_id`／`family_name` 欄）及設計畫布「角色品種」圖鑑（由同一繪圖程式產生）
+- **Verification (actual):** `./scripts/test.sh` → JS `125 passed, 0 failed`（新增品種造型檢查）+ Python OK；31 個品種四種表情 SVG 全部完整且各不相同
+- **未接入遊戲:** 需用戶核准 → ChatGPT 把 CSV 加入 Excel → 重新匯入（匯入器需支援 family 欄）→ 抽蛋及角色畫面按系列顯示
+- **注意（經濟節奏）:** SSR 由 1 個增至 8 個；按每週約 40 寶石（約 4 抽）計，第 80 抽保底約需 20 週，集齊全部角色需時很長，可能要調整寶石收入或保底
