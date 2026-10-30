@@ -18,15 +18,15 @@
     return (gameData.equipment || []).find((e) => e.id === id) || null;
   }
 
-  // { [characterId]: equipmentId } limited to team members, supported items,
-  // and each item held by one member.
-  function cleanEquipment(map, team, gameData) {
+  // { [characterId]: equipmentId } limited to team members, supported (and,
+  // when `owned` is given, owned) items, and each item held by one member.
+  function cleanEquipment(map, team, gameData, owned) {
     const out = {};
     const used = new Set();
     for (const cid of team) {
       const eid = map && map[cid];
       const item = eid && itemById(gameData, eid);
-      if (item && item.supported && !used.has(eid)) {
+      if (item && item.supported && !used.has(eid) && (!owned || owned.equipment.includes(eid))) {
         out[cid] = eid;
         used.add(eid);
       }
@@ -45,15 +45,16 @@
       const item = itemById(gameData, equipmentId);
       if (!item) return { profile, error: "unknown_equipment" };
       if (!item.supported) return { profile, error: "not_supported" };
+      if (profile.owned && !profile.owned.equipment.includes(equipmentId)) return { profile, error: "not_owned" };
       for (const k of Object.keys(map)) if (map[k] === equipmentId) delete map[k];
       map[characterId] = equipmentId;
     }
-    return { profile: { ...profile, equipment: cleanEquipment(map, profile.team, gameData) }, error: null };
+    return { profile: { ...profile, equipment: cleanEquipment(map, profile.team, gameData, profile.owned) }, error: null };
   }
 
   // Snapshot for battle state: [{ id, name, type, holder, ...level-1 effect }].
   function battleLoadout(profile, gameData) {
-    const map = cleanEquipment(profile.equipment || {}, profile.team, gameData);
+    const map = cleanEquipment(profile.equipment || {}, profile.team, gameData, profile.owned);
     return Object.entries(map).map(([holder, eid]) => {
       const item = itemById(gameData, eid);
       const effect = { ...item.levels[0] };

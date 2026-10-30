@@ -117,6 +117,22 @@ class GameDataImporterTest(unittest.TestCase):
         self.assertEqual(gd.parse_effect("healing", "回復 22 HP"), {"heal": 22})
         self.assertIsNone(gd.parse_effect("healing", "回復很多"))
 
+    def test_pools_rates_must_sum_to_100(self):
+        head = ["pool_id", "pool_type", "rarity", "probability_pct", "pity_threshold", "note", "active"]
+        good = [head, ["CHAR", "character", "R", "77", "0", "", "yes"], ["CHAR", "character", "SR", "20", "0", "", "yes"],
+                ["CHAR", "character", "SSR", "3", "80", "", "yes"]]
+        _, rejected, data = self.run_import([ch("C1")], extra={"Pools": good})
+        self.assertEqual(rejected, [])
+        self.assertEqual([(r["rarity"], r["pct"], r["pity"]) for r in data["pools"]["character"]["rates"]],
+                         [("R", 77.0, 0), ("SR", 20.0, 0), ("SSR", 3.0, 80)])
+        bad = [head, ["EQ", "equipment", "R", "70", "0", "", "yes"], ["EQ", "equipment", "SSR", "3", "0", "", "yes"],
+               ["X", "pet", "R", "100", "0", "", "yes"]]
+        _, rejected, data = self.run_import([ch("C1")], extra={"Pools": bad})
+        self.assertEqual(data["pools"], {})
+        reasons = " ".join(" ".join(r["errors"]) for r in rejected)
+        self.assertIn("sum to 100", reasons)
+        self.assertIn("pool_type", reasons)
+
 
 if __name__ == "__main__":
     unittest.main()

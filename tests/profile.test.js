@@ -3,7 +3,9 @@
   const B = ITE.battle;
   const data = ITE.gameData;
   const stage = ITE.stages[0];
-  const fresh = () => P.defaultProfile(data);
+  // Owns every character, as if all had been drawn (ownership is tested in gacha.test.js).
+  const ownAll = (p) => ({ ...p, owned: { characters: data.characters.map((c) => c.id), equipment: data.equipment.map((e) => e.id) } });
+  const fresh = () => ownAll(P.defaultProfile(data));
   const byId = (id) => P.characterById(data, id);
 
   test("profile: workbook data imported (7 characters, specialties, config)", () => {

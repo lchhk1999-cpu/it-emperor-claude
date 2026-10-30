@@ -227,6 +227,42 @@ def import_equipment(sheets):
     return out, rejected
 
 
+def import_pools(sheets):
+    """Pools sheet: one row per pool and rarity. Each pool's percentages must sum to 100."""
+    out, rejected = {}, []
+    if "Pools" not in sheets:  # optional
+        return out, rejected
+    cols = ["pool_id", "pool_type", "rarity", "probability_pct", "pity_threshold", "active"]
+    rows = {}
+    for row, d in _rows(sheets, "Pools", cols):
+        if d["active"].lower() == "no":
+            continue
+        errors = []
+        if d["pool_type"] not in ("character", "equipment"):
+            errors.append(f"pool_type must be character/equipment, got '{d['pool_type']}'")
+        if d["rarity"] not in RARITIES:
+            errors.append(f"rarity must be R/SR/SSR, got '{d['rarity']}'")
+        try:
+            pct = float(d["probability_pct"])
+            pity = _num(d["pity_threshold"] or "0", int)
+            if not 0 < pct <= 100 or pity < 0:
+                errors.append("probability_pct must be 0-100 and pity_threshold >= 0")
+        except ValueError:
+            errors.append("probability_pct / pity_threshold must be numbers")
+        if errors:
+            rejected.append({"row": row, "id": d["pool_id"], "errors": errors})
+            continue
+        rows.setdefault((d["pool_id"], d["pool_type"]), []).append({"rarity": d["rarity"], "pct": pct, "pity": pity})
+    for (pool_id, pool_type), rates in rows.items():
+        total = round(sum(r["pct"] for r in rates), 6)
+        rarities = [r["rarity"] for r in rates]
+        if total != 100 or len(set(rarities)) != len(rarities):
+            rejected.append({"row": "-", "id": pool_id, "errors": [f"rates must cover each rarity once and sum to 100 (got {total})"]})
+            continue
+        out[pool_type] = {"id": pool_id, "rates": sorted(rates, key=lambda r: RARITIES.index(r["rarity"]))}
+    return out, rejected
+
+
 def import_config(sheets):
     config, problems = {}, []
     raw = {d["config_key"]: d.get("value", "") for _, d in _rows(sheets, "GameConfig", ["config_key", "value"])}
@@ -256,7 +292,8 @@ def run(xlsx, out_dir=".", now=None):
     missions, rejected_missions = import_missions(sheets)
     titles, rejected_titles = import_titles(sheets, topics)
     equipment, rejected_equipment = import_equipment(sheets)
-    rejected = rejected + rejected_missions + rejected_titles + rejected_equipment
+    pools, rejected_pools = import_pools(sheets)
+    rejected = rejected + rejected_missions + rejected_titles + rejected_equipment + rejected_pools
     if config_problems:
         raise ImportError_("; ".join(config_problems))
     if not characters:
@@ -272,7 +309,7 @@ def run(xlsx, out_dir=".", now=None):
         "rejected": len(rejected),
     }
     payload = {"meta": meta, "config": config, "characters": characters, "missions": missions, "titles": titles,
-               "equipment": equipment}
+               "equipment": equipment, "pools": pools}
     js_path = os.path.join(out_dir, "src", "data", "game_data.js")
     report_path = os.path.join(out_dir, "docs", "GAME_DATA_IMPORT_REPORT.md")
     for p in (js_path, report_path):
@@ -301,6 +338,12 @@ def run(xlsx, out_dir=".", now=None):
         lv = e["levels"][0]
         values = "、".join(f"{k}={v}" for k, v in lv.items() if k != "text")
         lines.append(f"| {e['id']} | {e['name']} | {e['type']} | {lv['text']} | {values} | {'✅' if e['supported'] else '❌ 即將開放'} |")
+    lines += ["", "## 抽蛋池（只用免費寶石）", "", "| 池 | 類型 | 稀有度 | 機率 | 保底 |", "|---|---|---|---|---|"]
+    for kind, pool in pools.items():
+        for r in pool["rates"]:
+            lines.append(f"| {pool['id']} | {kind} | {r['rarity']} | {r['pct']}% | {r['pity'] or '—'} |")
+    if "equipment" in pools and equipment:
+        lines += ["", "註：`Equipment` 表沒有稀有度欄，裝備池的稀有度機率暫時無法套用；遊戲內每件可用裝備機率相同，並清楚註明。建議在 Excel 加入 rarity 欄。"]
     lines += ["", "## 拒絕的資料", ""]
     if rejected:
         lines += ["| 列 | ID | 原因 |", "|---|---|---|"] + [f"| {r['row']} | {r['id']} | {'；'.join(r['errors'])} |" for r in rejected]

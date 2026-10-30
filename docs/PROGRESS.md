@@ -243,3 +243,15 @@
 - **Verification (actual):** `./scripts/test.sh` → JS `113 passed, 0 failed`（新增 10 項）+ Python `Ran 26 tests OK`（新增 2 項）+ `✓ release bundle: … all 382 questions are approved`；本機伺服器 375×812：4 名隊員各裝備 1 件、轉移裝備時自動卸下；AI 提示刪去的選項是錯誤選項並停用、冷卻顯示「6 題後」；電腦 + 答對 → 91 傷害並顯示「+40」；防毒 → 答錯受傷 18；眼藥水 83 → 93 HP 後顯示「已用」；故事模式沒有技能列；無橫向捲動
 - **Found while testing:** 測試腳本原本連續答對 6 題，但隊伍傷害令 Boss 第 5 題已倒下 → 改用夾雜答錯的情境（非程式錯誤）
 - **Next:** P4-03 抽蛋（待用戶批准設計）；角色／裝備進化未排期
+
+## Run 18 — 2026-10-30（HKT，coordinator）
+- **Branch:** `feat/gacha`（基於 `main`）
+- **Task:** P4-03 抽蛋（用戶 2026-10-30 批准設計：每次 10 寶石、重複換金幣、只靠抽蛋取得角色、新手 IT狗＋AI 模型）
+- **What changed:**
+  - `tools/import_game_data.py`：匯入 Excel `Pools`（每池機率須合計 100%、稀有度不重複）
+  - `src/core/gacha.js`：角色池按稀有度機率、同稀有度內平均；第 80 抽保底 SSR（抽到 SSR 即重置）；裝備池在可用裝備中平均抽（Excel 無稀有度）；重複換金幣；最近 20 次紀錄
+  - 擁有權：`profile.owned`；隊伍及裝備只可用已擁有的；舊存檔自動保留已在用的角色及裝備
+  - 畫面：主畫面「抽蛋」、抽蛋畫面（公開機率、保底倒數、結果、紀錄、「不設現金購買」說明）；角色隊伍顯示未擁有角色（灰色）
+- **Verification (actual):** `./scripts/test.sh` → JS `124 passed, 0 failed`（新增 11 項，包括 4,000 次抽蛋機率接近 77/20/3%、第 80 抽保底）+ Python `Ran 27 tests OK` + `✓ release bundle: … all 382 questions are approved`；本機伺服器 375×812：新玩家只擁有 IT狗＋AI 模型、其餘角色灰色「未擁有」、寶石不足時按鈕停用、抽 3 次角色（2 新 1 重複 → 金幣 30）及 1 次裝備（重複 → 金幣 50）、保底倒數 77、重新整理後擁有權保留、抽到的數據庫師可換上隊伍；無橫向捲動
+- **Found & fixed while play-testing:** 裝備結果卡名稱重複及空白 → 改為裝備圖示
+- **Human/ChatGPT follow-up:** Excel `Equipment` 表補上稀有度欄

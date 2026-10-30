@@ -6,7 +6,7 @@
  "meta": {
   "source_file": "IT_Emperor_DseMcQs.xlsx",
   "source_sha256": "93f04990806f97f3014dcdd7403451ee8d8745daa0f4ffd6fe3adf9b1d019459",
-  "imported_at": "2026-10-30T15:27:02Z",
+  "imported_at": "2026-10-30T15:36:07Z",
   "characters": 7,
   "missions": 5,
   "titles": 4,
@@ -282,6 +282,48 @@
    ],
    "supported": false
   }
- ]
+ ],
+ "pools": {
+  "character": {
+   "id": "CHAR-STD",
+   "rates": [
+    {
+     "rarity": "R",
+     "pct": 77.0,
+     "pity": 0
+    },
+    {
+     "rarity": "SR",
+     "pct": 20.0,
+     "pity": 0
+    },
+    {
+     "rarity": "SSR",
+     "pct": 3.0,
+     "pity": 80
+    }
+   ]
+  },
+  "equipment": {
+   "id": "EQUIP-STD",
+   "rates": [
+    {
+     "rarity": "R",
+     "pct": 75.0,
+     "pity": 0
+    },
+    {
+     "rarity": "SR",
+     "pct": 22.0,
+     "pity": 0
+    },
+    {
+     "rarity": "SSR",
+     "pct": 3.0,
+     "pity": 80
+    }
+   ]
+  }
+ }
 };
 })(globalThis);

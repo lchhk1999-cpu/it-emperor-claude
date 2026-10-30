@@ -5,7 +5,8 @@
   const data = ITE.gameData;
   const stage = ITE.stages[0];
   const pool = ITE.questionBank.questions;
-  const profileWith = (team, equipment) => ({ ...P.defaultProfile(data), level: 12, team, equipment: equipment || {} });
+  const ownAll = { characters: data.characters.map((c) => c.id), equipment: data.equipment.map((e) => e.id) };
+  const profileWith = (team, equipment) => ({ ...P.defaultProfile(data), level: 12, team, equipment: equipment || {}, owned: ownAll });
   const battleWith = (equipment, seed = 1) => {
     const p = profileWith(["CH-DB", "CH-HACK"], equipment);
     return B.createBattle(stage, pool, ITE.rng.createRng(seed), P.teamSnapshot(p, data), E.battleLoadout(p, data));

@@ -26,8 +26,8 @@ globalThis.assert = {
   },
 };
 
-["src/core/rng.js", "src/core/questions.js", "src/core/battle.js", "src/core/save.js", "src/core/guildRaid.js", "src/core/story.js", "src/core/profile.js", "src/core/missions.js", "src/core/equipment.js", "src/data/game_data.js", "src/data/demo_guilds.js", "src/data/story_bank.js", "src/data/stages.js", "src/data/dev_sample_questions.js", "src/data/question_bank.js", "src/ui/sprites.js", "src/ui/characters.js"].forEach((f) => load(f));
-["tests/questions.test.js", "tests/battle.test.js", "tests/save.test.js", "tests/guildRaid.test.js", "tests/bank.test.js", "tests/story.test.js", "tests/profile.test.js", "tests/sprites.test.js", "tests/missions.test.js", "tests/equipment.test.js"].forEach((f) => load(f));
+["src/core/rng.js", "src/core/questions.js", "src/core/battle.js", "src/core/save.js", "src/core/guildRaid.js", "src/core/story.js", "src/core/profile.js", "src/core/missions.js", "src/core/equipment.js", "src/core/gacha.js", "src/data/game_data.js", "src/data/demo_guilds.js", "src/data/story_bank.js", "src/data/stages.js", "src/data/dev_sample_questions.js", "src/data/question_bank.js", "src/ui/sprites.js", "src/ui/characters.js"].forEach((f) => load(f));
+["tests/questions.test.js", "tests/battle.test.js", "tests/save.test.js", "tests/guildRaid.test.js", "tests/bank.test.js", "tests/story.test.js", "tests/profile.test.js", "tests/sprites.test.js", "tests/missions.test.js", "tests/equipment.test.js", "tests/gacha.test.js"].forEach((f) => load(f));
 
 let failed = 0;
 for (const t of tests) {

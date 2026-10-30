@@ -2,7 +2,7 @@
 
 - 來源檔案：`IT_Emperor_DseMcQs.xlsx`
 - SHA-256：`93f04990806f97f3014dcdd7403451ee8d8745daa0f4ffd6fe3adf9b1d019459`
-- 匯入時間：2026-10-30T15:27:02Z
+- 匯入時間：2026-10-30T15:36:07Z
 - 工作表：`Characters`、`GameConfig`、`Missions`、`Titles`（Topics 用作檢查課題）
 
 ## 角色
@@ -57,6 +57,19 @@
 | EQ-COMPUTER | 電腦 | damage | 冷卻 6 題：額外傷害 40 | cooldown=6、bonus=40 | ✅ |
 | EQ-ANTIVIRUS | 防毒軟件 | defense | 受傷害 -10% | reduce_pct=10 | ✅ |
 | EQ-GLASSES | 眼鏡 | time | 每題 +3 秒 | seconds=3 | ❌ 即將開放 |
+
+## 抽蛋池（只用免費寶石）
+
+| 池 | 類型 | 稀有度 | 機率 | 保底 |
+|---|---|---|---|---|
+| CHAR-STD | character | R | 77.0% | — |
+| CHAR-STD | character | SR | 20.0% | — |
+| CHAR-STD | character | SSR | 3.0% | 80 |
+| EQUIP-STD | equipment | R | 75.0% | — |
+| EQUIP-STD | equipment | SR | 22.0% | — |
+| EQUIP-STD | equipment | SSR | 3.0% | 80 |
+
+註：`Equipment` 表沒有稀有度欄，裝備池的稀有度機率暫時無法套用；遊戲內每件可用裝備機率相同，並清楚註明。建議在 Excel 加入 rarity 欄。
 
 ## 拒絕的資料
 

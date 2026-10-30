@@ -28,8 +28,10 @@
   const P = root.ITE.profile;
   const gameData = root.ITE.gameData;
   {
-    const base = save.profile || P.defaultProfile(gameData);
-    save = { ...save, profile: { ...base, team: P.cleanTeam(base.team, base.level, gameData) } };
+    const base = P.ensureOwned(save.profile || P.defaultProfile(gameData), gameData);
+    const team = P.cleanTeam(base.team, base.level, gameData, base.owned);
+    const equipment = root.ITE.equipment.cleanEquipment(base.equipment || {}, team, gameData, base.owned);
+    save = { ...save, profile: { ...base, team, equipment } };
   }
   const Mi = root.ITE.missions;
   save = { ...save, progress: Mi.rollover(save.progress || Mi.defaultProgress(Date.now()), Date.now()) };
@@ -105,6 +107,7 @@
           h("button", { class: "btn", onclick: showStages }, "DSE 題庫挑戰"),
           h("button", { class: "btn btn-guild", onclick: () => root.ITE.guildUi.show() }, "校際公會"),
           h("button", { class: "btn", onclick: () => root.ITE.teamUi.show() }, "角色隊伍"),
+          h("button", { class: "btn", onclick: () => root.ITE.gachaUi.show() }, "抽蛋"),
           (() => {
             const n = Mi.claimableCount(save.progress, gameData.missions, Date.now());
             return h(
@@ -390,7 +393,7 @@
   // Adds a reward to the profile, saves, and returns what to show the player.
   function grantReward(reward) {
     const r = P.addReward(save.profile, reward, gameData);
-    save = { ...save, profile: { ...r.profile, team: P.cleanTeam(r.profile.team, r.profile.level, gameData) } };
+    save = { ...save, profile: { ...r.profile, team: P.cleanTeam(r.profile.team, r.profile.level, gameData, r.profile.owned) } };
     persist();
     return { reward, levelsGained: r.levelsGained, slotsUnlocked: r.slotsUnlocked, level: r.profile.level };
   }
