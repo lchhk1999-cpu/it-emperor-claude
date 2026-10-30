@@ -112,3 +112,43 @@
 - **What changed:** `src/data/question_bank.js`、`question_bank.release.js`、`docs/QUESTION_BANK_IMPORT_REPORT.md`（加入審核確認紀錄）、`docs/05_DECISIONS.md`
 - **Import result:** 414 → 382 匯入（全部 approved）、32 拒絕（課題代碼不在 Topics 表：ALGORITHM 13、NETWORK 12、DATA 5、INFO 1、NETDEVICE 1）；題目內容與上一版相同，只有狀態改變
 - **Follow-up:** 活頁簿內 Topic_*、DSE_來源追蹤、2024_可行性評估 狀態未同步；32 題課題代碼待修正；D 答案只佔 3%
+
+---
+## 每週簡報 — 2026-10-30（Routine C，涵蓋 2026-10-24 至 10-30）
+- **Branch:** `routine/weekly-20261030`（基於 `origin/main` @ `8fed601`；`src/core/battle.js` 已在 main）
+- **性質:** 只改文件；以下只記錄 commit／PR 及本次實際執行的測試可證實的內容。
+
+### 本週已完成
+- **PR #1**（已合併，`69b654a`）：可玩的四選項 Boss 戰原型（`5fcbbfe`）。
+- **PR #2**（已合併，`74970a1`）：虛構公會計分核心（`a356c05`）、每週公會副本取代 top-N 計分（`975b733`）、公會畫面單機示範（`c458552`）。
+- **PR #3／#4**（已合併，`5068ec5`）：Excel 題庫匯入（`d957741`）；Q 版 2.5 頭身美術套用（`2257293`）。
+- **PR #5**（已合併，`456a5f9`）：故事模式 A-01–A-03 及教師審核流程（`91adb0e`）；匯入教師審核的 DSE 題庫 382 題（`73bf9dd`）。
+- **PR #6**（已合併，`8fed601`）：更新 backlog（`543cc40`）。
+- **測試（本次於 `origin/main` 實際執行 `./scripts/test.sh`）：** JS `68 passed, 0 failed, 68 total`；Python `Ran 18 tests ... OK`；`✓ release bundle: no dev samples; all 382 questions are approved`。
+- 註：PR #2–#6 在 GitHub 顯示 closed／merged 時間，但 API 的 `merged` 欄位為 false（head 合併進 main 的 merge commit 存在於歷史）；是否經人手批准合併 **未驗證**。各 PR 均無 review comment 紀錄可供查證（未逐一讀取）。
+- 瀏覽器實玩結果引用自 Run 4–7 的紀錄，本次**未重跑**，屬未重新驗證。
+
+### 未完成
+- 故事模式 A-04 之後（共 43 關，僅 A-01–A-03 可玩）；故事題庫 release 版 0 題 approved（待教師審核）。
+- 32 題 DSE 題目因 topic_id 不在 Topics 表被拒（ALGORITHM 13、NETWORK 12、DATA 5、INFO 1、NETDEVICE 1）。
+- 公會為單機示範，其他公會為虛構；多人共享未開始。
+- 角色美術仍為程式繪製 SVG 佔位。
+
+### 風險
+- 公會離開再加入可同日再挑戰；防作弊屬低優先（用戶已決定）。
+- 答案 D 只佔 DSE 題庫約 3%、故事題庫 0 個，答案分佈偏差；選項是否打亂未決定。
+- 題庫活頁簿內 Topic_*、DSE_來源追蹤、2024_可行性評估 狀態與 Questions 表未同步，審核紀錄可能不一致。
+- 故事題 `STORY-A-02-02`「資料驗證」與 DSE 題庫「數據核對」用詞不一致。
+- 本次執行環境測試以 Node 運行（非 JavaScriptCore／iOS 實機），未涵蓋真機表現。
+
+### 需要老師／用戶決定的事項
+1. 老師審核故事題庫 129 題（現時 release 為 0 題）。
+2. 請 ChatGPT 修正 32 題 topic_id 後重新匯入。
+3. 是否在遊戲中打亂選項次序。
+4. 公會多人共享所需後端選型（需明確批准，不會自行開通付費服務）。
+5. 統一 `資料驗證`／`數據核對` 用詞。
+
+### 下週三項重點
+1. 故事模式 A-04 起的關卡（視乎老師審核進度）。
+2. 重新匯入修正後的 32 題 DSE 題目並更新匯入報告。
+3. 公會後端選型方案文件（僅提案，待批准）。
