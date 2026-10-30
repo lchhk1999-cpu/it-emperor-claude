@@ -20,7 +20,7 @@
 | P2-02 | `Questions` 匯入器 + 報告 | question-import-engineer | P2-01 | 成功／拒絕／重複／Topic 數／checksum 報告；公式保留文字 | DONE（2026-10-30：414 題 → 382 匯入、32 拒絕） |
 | P2-03 | 發佈模式只載 approved | question-import-engineer | — | 測試：release 模式過濾非 approved；release 打包不含非 approved 題 | DONE（core + 打包檢查） |
 | P2-04 | 抽題覆蓋率、防重複 | gameplay-engineer | — | 測試：無重複、可按 Topic 篩選 | DONE（core 基本版） |
-| P3-05 | 虛構學校公會 UI demo | guild-systems-designer | P1 完成 | 只用虛構資料；規則標 PROPOSAL | TODO |
+| P3-05 | 公會副本 demo（玩家自建公會、共享 Boss、每日 1 次限時作答、週結攻擊總量） | guild-systems-designer | P1 完成 | 規則依 docs/07「用戶確認的公會規則」；只用虛構資料；數值標 PLACEHOLDER | DONE（單機示範，2026-10-30）：加入／建立公會、公會首頁、限時副本、結算；多人共享需後端（P4，待批准） |
 
 ## 優先次序（下一步）
 1. 用戶：安裝 Command Line Tools（解鎖 git、Python）→ P0-02a。

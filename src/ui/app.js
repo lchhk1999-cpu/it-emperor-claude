@@ -93,7 +93,7 @@
           resume ? h("button", { class: "btn btn-primary", onclick: resumeBattle }, "繼續戰鬥") : null,
           h("button", { class: resume ? "btn" : "btn btn-primary", onclick: showStages }, "開始冒險"),
           h("button", { class: "btn", disabled: "" }, "角色隊伍（未開放）"),
-          h("button", { class: "btn", disabled: "" }, "校際公會（未開放）")
+          h("button", { class: "btn btn-guild", onclick: () => root.ITE.guildUi.show() }, "校際公會")
         ),
         loaded.status === "recovered" ? h("p", { class: "note" }, "存檔讀取失敗，已建立新存檔（舊資料已備份）。") : null,
         loaded.status === "repaired" ? h("p", { class: "note" }, "存檔部分資料損壞，已自動修復。") : null,
@@ -325,6 +325,18 @@
     );
   }
 
-  root.ITE.app = { showHome };
+  // Shared with src/ui/guild.js.
+  root.ITE.app = {
+    showHome,
+    h,
+    render,
+    bar,
+    questionPool,
+    getSave: () => save,
+    setSave: (next) => {
+      save = next;
+      persist();
+    },
+  };
   showHome();
 })(globalThis);
