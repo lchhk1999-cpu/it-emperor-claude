@@ -10,12 +10,14 @@
 
   const STORY_RULES = {
     practiceCount: 2,
-    // Rolled out step by step; other levels show 「即將開放」.
+    // Rolled out world by world (A-01..A-03 first, then A..E); every level is
+    // now open in dev builds. Release builds still need teacher-approved questions.
     enabledLevels: [
       "A-01", "A-02", "A-03", "A-04", "A-05", "A-06", "A-07", "A-08", "A-09",
       "B-01", "B-02", "B-03", "B-04", "B-05", "B-06", "B-07", "B-08",
       "C-01", "C-02", "C-03", "C-04", "C-05", "C-06", "C-07", "C-08", "C-09", "C-10",
       "D-01", "D-02", "D-03", "D-04", "D-05", "D-06", "D-07", "D-08", "D-09", "D-10",
+      "E-01", "E-02", "E-03", "E-04", "E-05", "E-06",
     ],
   };
 

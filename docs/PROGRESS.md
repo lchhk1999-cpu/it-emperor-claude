@@ -196,3 +196,11 @@
 - **Content check（非正式審核）:** 逐題閱讀 30 題，答案與解說一致
 - **Verification (actual):** `./scripts/test.sh` → JS `77 passed, 0 failed` + Python `Ran 18 tests OK` + `✓ release bundle: … all 382 questions are approved`；瀏覽器 375×812：由 A-01 順序打到 D-10 共 37 關，全部 ★★★、C-10 解鎖 D-01、D-10 後顯示「E-01 即將開放」、地圖 111 星、無橫向捲動；D-03-03／D-04-03／D-05-03 按原本 4 行顯示；正式版 `ICT-2024-IA-29` 按 6 行顯示並保留縮排
 - **Next:** 世界 E（E-01–E-06）
+
+## Run 14 — 2026-10-30（HKT，coordinator）
+- **Branch:** `feat/story-world-e`（基於 `main`）
+- **Task:** P3-07 完成：開放故事模式世界 E（未來科技都市）E-01–E-06，43 關全部開放（開發版）
+- **What changed:** `STORY_RULES.enabledLevels` 包含全部 43 關（與 Levels 表次序相同）；最後一關 E-06 過關後顯示「完成全部 43 關」祝賀（未全部完成則提示回地圖）；地圖頂部顯示全部完成及總星數；測試改為檢查 5 個世界全部開放、D-10 開啟 E-01、E-06 為最後一關
+- **Content check（非正式審核）:** 逐題閱讀 18 題，答案與解說一致
+- **Verification (actual):** `./scripts/test.sh` → JS `77 passed, 0 failed` + Python `Ran 18 tests OK` + `✓ release bundle: … all 382 questions are approved`；瀏覽器 375×812：由 A-01 順序打到 E-06 共 43 關，43/43 過關、全部 ★★★、地圖 129/129 星並顯示「全部 43 關完成」、E-06 顯示完成祝賀、無橫向捲動
+- **正式版:** 不受影響（故事題目 0 題 approved，待教師審核）

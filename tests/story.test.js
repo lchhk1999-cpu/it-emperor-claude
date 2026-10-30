@@ -23,7 +23,7 @@
     assert.deepEqual(levels.slice(0, 3).map((l) => l.id), ["A-01", "A-02", "A-03"]);
     assert.deepEqual(levels.filter((l) => l.playable).map((l) => l.id), St.STORY_RULES.enabledLevels);
     const firstClosed = levels.find((l) => !St.STORY_RULES.enabledLevels.includes(l.id));
-    assert.equal(firstClosed.blocked, "coming_soon");
+    if (firstClosed) assert.equal(firstClosed.blocked, "coming_soon");
     assert.ok(levels.every((l) => l.questions.every((q) => q.level_id === l.id)), "questions matched by level_id");
   });
 
@@ -185,8 +185,10 @@
     if (after) assert.ok(St.isUnlocked(levels, progress, after.id) && !after.playable, "next level is unlocked but still coming soon");
   });
 
-  test("story: worlds A-D are fully open (A-01..A-09, B-01..B-08, C-01..C-10, D-01..D-10)", () => {
-    for (const [world, count] of [["A", 9], ["B", 8], ["C", 10], ["D", 10]]) {
+  test("story: all five worlds are fully open (43 levels)", () => {
+    assert.equal(St.STORY_RULES.enabledLevels.length, 43);
+    assert.deepEqual(St.STORY_RULES.enabledLevels, bank.levels.map((l) => l.id), "same order as the Levels sheet");
+    for (const [world, count] of [["A", 9], ["B", 8], ["C", 10], ["D", 10], ["E", 6]]) {
       const levels = devLevels().filter((l) => l.world_id === world);
       assert.equal(levels.length, count, `world ${world} level count`);
       assert.ok(levels.every((l) => l.playable), `world ${world} playable`);
@@ -194,5 +196,7 @@
     assert.ok(St.isUnlocked(devLevels(), { levels: { "A-09": { cleared: true, stars: 1, plays: 1 } } }, "B-01"), "clearing A-09 opens world B");
     assert.ok(St.isUnlocked(devLevels(), { levels: { "B-08": { cleared: true, stars: 1, plays: 1 } } }, "C-01"), "clearing B-08 opens world C");
     assert.ok(St.isUnlocked(devLevels(), { levels: { "C-10": { cleared: true, stars: 1, plays: 1 } } }, "D-01"), "clearing C-10 opens world D");
+    assert.ok(St.isUnlocked(devLevels(), { levels: { "D-10": { cleared: true, stars: 1, plays: 1 } } }, "E-01"), "clearing D-10 opens world E");
+    assert.equal(St.nextLevel(devLevels(), "E-06"), null, "E-06 is the final level");
   });
 })();
