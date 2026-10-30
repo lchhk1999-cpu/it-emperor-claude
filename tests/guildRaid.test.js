@@ -173,4 +173,10 @@
     assert.equal(s.log[0].damage, 50);
     assert.equal(s.log[1].questionId, s.deck[1].question_id);
   });
+
+  test("guildRaid: attack questions have shuffled options", () => {
+    const s = R.startAttack(R.createRaid("g1", WED, rules), guild(), "阿一", pool, rng(), WED, rules);
+    assert.ok(s.deck.every((q) => ITE.questions.isOptionOrder(q.option_order)));
+    assert.ok(s.deck.some((q) => q.option_order.join("") !== "ABCD"));
+  });
 })();

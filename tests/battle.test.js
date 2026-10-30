@@ -103,4 +103,17 @@
     const restored = JSON.parse(JSON.stringify(s));
     assert.deepEqual(B.next(restored), B.next(s));
   });
+
+  test("battle: deck options are shuffled and a resumed battle keeps the same order", () => {
+    const pool = ITE.devSampleQuestions;
+    const s = B.createBattle(stage, pool, ITE.rng.createRng(21));
+    assert.ok(s.deck.every((q) => ITE.questions.isOptionOrder(q.option_order)));
+    assert.ok(s.deck.some((q) => q.option_order.join("") !== "ABCD"), "at least one question reordered");
+    const saved = JSON.parse(JSON.stringify(s));
+    const resumed = B.rebindDeck(saved, pool);
+    assert.deepEqual(resumed.deck.map((q) => [q.option_a, q.option_b, q.option_c, q.option_d, q.answer]),
+      s.deck.map((q) => [q.option_a, q.option_b, q.option_c, q.option_d, q.answer]));
+    saved.deck[0].option_order = ["A", "A", "B", "C"];
+    assert.equal(B.rebindDeck(saved, pool), null, "tampered order is not resumed");
+  });
 })();

@@ -81,7 +81,9 @@
     const r = rules || DEFAULT_RAID_RULES;
     const check = canAttack(raid, guild, nickname, now);
     if (!check.ok) throw new Error(`cannot attack: ${check.reason}`);
-    const deck = ITE.questions.drawQuestions(questions, r.questionsPerAttack, rng);
+    const deck = ITE.questions
+      .drawQuestions(questions, r.questionsPerAttack, rng)
+      .map((q) => ITE.questions.shuffleOptions(q, rng));
     if (!deck.length) throw new Error("no questions available");
     return {
       nickname: cleanName(nickname),
