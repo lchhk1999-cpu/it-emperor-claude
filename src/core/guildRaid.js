@@ -7,8 +7,8 @@
 // - Weekly standings rank guilds by total damage (more members = more damage,
 //   by design).
 //
-// Everything here is client-side and therefore NOT cheat-proof. Real rankings
-// need server-issued questions, server timing and server scoring (Phase 4).
+// Everything here is client-side. Anti-cheat is deliberately light (user, 2026-10-30:
+// rankings are for encouragement); sharing a guild across phones still needs a backend.
 // All time-dependent functions take `now` (ms since epoch) for testability.
 (function (root) {
   const ITE = (root.ITE = root.ITE || {});
