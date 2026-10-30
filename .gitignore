@@ -1,0 +1,21 @@
+# Build output (regenerate with ./scripts/build.sh)
+dist/
+
+# Secrets / local config — never commit
+.env
+.env.*
+*.pem
+*.p12
+*.mobileprovision
+secrets/
+
+# Real question-bank workbooks are delivered separately (docs/04)
+data/question_bank/*.xlsx
+data/question_bank/*.xls
+
+# OS / editor
+.DS_Store
+*.swp
+.vscode/
+.idea/
+node_modules/
