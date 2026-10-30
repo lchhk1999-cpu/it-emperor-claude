@@ -217,3 +217,4 @@
 - **Verification (actual):** `./scripts/test.sh` → JS `90 passed, 0 failed`（新增 13 項）+ Python `Ran 22 tests OK`（新增遊戲資料匯入器 4 項） + `✓ release bundle: … all 382 questions are approved`；瀏覽器 375×812：Lv1 換上數據庫師、SQL 題造成 96 傷害並顯示「數據庫師 專長加成 +20%」、其他課題無加成；3 場勝利各 +50 經驗 +30 金幣，升至 Lv2、Lv3 並提示解鎖隊伍位置；Lv3 加入黑客成 2 人隊伍、第 3 人提示隊伍已滿；故事首次過關 +25 經驗 +30 金幣、重玩 +5 經驗；無橫向捲動
 - **Found & fixed while play-testing:** Lv1 只有一格時無法換角色（加入顯示已滿、移出又不准空隊）→ 單格時按另一角色即替換
 - **Next:** P3-08 每日任務＋稱號（排程可做）；P3-09 裝備；P4-03 抽蛋待用戶批准
+- **Run 15 補充（同一分支）:** 用戶核准 7 個角色造型並放進遊戲：`src/ui/characters.js`（7 角色 × 平時／答對／無語／驚訝）；未有造型的新角色自動改用主角圖；新增 `tests/sprites.test.js`（每個角色有獨立造型、四種表情各不相同、SVG 標籤完整、無遺漏數值）。`./scripts/test.sh` → JS `93 passed, 0 failed` + Python `Ran 22 tests OK`；本機伺服器 375×812：角色隊伍 7 個造型、黑客答對時笑／答錯時汗滴及嘴角向下。註：單檔已增至約 536 KB，超出預覽窗格直接開檔上限，改用本機伺服器檢查（不影響用戶在瀏覽器開啟）

@@ -28,7 +28,6 @@
   };
 
   // Lavender hoodie, round glasses, tiny crown pin, laptop with "</>".
-  // `color` recolours the hoodie so each character in the team looks different.
   function hero(expr, color) {
     const face = heroFaces[expr] || heroFaces.idle;
     const glasses = expr === "surprised" ? "" : `
@@ -89,17 +88,6 @@
   const bugKing = (expr) => bugBody(expr, "#c4b0e0", "#ad97cf", "Bug 王", false);
   const raidBoss = (expr) => bugBody(expr, "#a993cf", "#9580bd", "公會 Boss", true);
 
-  // PLACEHOLDER hoodie colours per character until real character art exists.
-  const CHARACTER_COLORS = {
-    "CH-ITDOG": "#f4d36b",
-    "CH-DB": "#8fc3e8",
-    "CH-GOLD": "#e8c27a",
-    "CH-HACK": "#a9adbb",
-    "CH-OFFICE": "#9fd4b4",
-    "CH-BROADBAND": "#f2b4b0",
-    "CH-AIBOT": "#c4b0e0",
-  };
-  const character = (id, expr) => hero(expr, CHARACTER_COLORS[id]);
-
-  ITE.sprites = { hero, bugKing, raidBoss, character, CHARACTER_COLORS };
+  // ITE.sprites.character(id, expr) is added by src/ui/characters.js.
+  ITE.sprites = { hero, bugKing, raidBoss, character: (id, expr) => hero(expr) };
 })(globalThis);
