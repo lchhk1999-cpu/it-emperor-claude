@@ -11,7 +11,7 @@
   const STORY_RULES = {
     practiceCount: 2,
     // Rolled out step by step; other levels show 「即將開放」.
-    enabledLevels: ["A-01", "A-02", "A-03"],
+    enabledLevels: ["A-01", "A-02", "A-03", "A-04", "A-05", "A-06", "A-07", "A-08", "A-09"],
   };
 
   // Levels in order, each with the questions this build mode may show.

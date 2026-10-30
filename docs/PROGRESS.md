@@ -160,3 +160,12 @@
 1. 故事模式 A-04 起的關卡（視乎老師審核進度）。
 2. 重新匯入修正後的 32 題 DSE 題目並更新匯入報告。
 3. 公會後端選型方案文件（僅提案，待批准）。
+
+## Run 10 — 2026-10-30（HKT，coordinator）
+- **Branch:** `feat/story-world-a`（基於 `main`）
+- **Task:** P3-07 第一步：開放故事模式世界 A 其餘關卡 A-04–A-09（開發版）
+- **What changed:** `STORY_RULES.enabledLevels` 加入 A-04–A-09；新增測試：每個已開放關卡可按次序過關並解鎖下一關、已開放關卡必須是連續前段（避免跳關）、世界 A 9 關全部可玩
+- **Content check（非正式審核）:** 逐題閱讀 A-04–A-09 共 18 題，答案與解說一致，未發現明顯錯誤；A-07 的公式選項以純文字匯入。正式正確性仍待教師審核
+- **Verification (actual):** `./scripts/test.sh` → JS `76 passed, 0 failed` + Python `Ran 18 tests OK` + `✓ release bundle: … all 382 questions are approved`；瀏覽器 375×812：由 A-01 順序打到 A-09，全部 ★★★、每關解鎖下一關、A-09 後顯示「B-01 即將開放」、地圖 27 星、無橫向捲動；A-09 長 SQL 選項分兩行顯示、無超出畫面
+- **正式版:** 不受影響，故事題目仍待教師審核（0 題 approved）
+- **Next:** 世界 B（B-01–B-08）

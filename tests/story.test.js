@@ -17,12 +17,13 @@
     return run;
   };
 
-  test("story: 43 levels in sheet order, A-01..A-03 playable in dev, rest coming soon", () => {
+  test("story: 43 levels in sheet order, enabled levels playable in dev, rest coming soon", () => {
     const levels = devLevels();
     assert.equal(levels.length, 43);
     assert.deepEqual(levels.slice(0, 3).map((l) => l.id), ["A-01", "A-02", "A-03"]);
-    assert.deepEqual(levels.filter((l) => l.playable).map((l) => l.id), ["A-01", "A-02", "A-03"]);
-    assert.equal(level("A-04").blocked, "coming_soon");
+    assert.deepEqual(levels.filter((l) => l.playable).map((l) => l.id), St.STORY_RULES.enabledLevels);
+    const firstClosed = levels.find((l) => !St.STORY_RULES.enabledLevels.includes(l.id));
+    assert.equal(firstClosed.blocked, "coming_soon");
     assert.ok(levels.every((l) => l.questions.every((q) => q.level_id === l.id)), "questions matched by level_id");
   });
 
@@ -161,5 +162,27 @@
       return first.option_order.join("") + ">" + r.queue[r.queue.length - 1].option_order.join("");
     }));
     assert.ok([...orders].some((o) => o.split(">")[0] !== o.split(">")[1]), "retry order differs at least sometimes");
+  });
+  test("story: every enabled level can be cleared in order, unlocking the next one", () => {
+    const levels = devLevels();
+    const enabled = St.STORY_RULES.enabledLevels;
+    assert.deepEqual(enabled, levels.slice(0, enabled.length).map((l) => l.id), "enabled levels are a prefix, so unlocks never skip");
+    let progress = { levels: {} };
+    for (const id of enabled) {
+      assert.ok(St.isUnlocked(levels, progress, id), `${id} unlocked after the previous level`);
+      const l = levels.find((x) => x.id === id);
+      assert.ok(l.questions.length >= 3 && l.questions.some((q) => q.boss), `${id} has practice and a mini-Boss`);
+      const run = playAll(St.createRun(l, rng(enabled.indexOf(id) + 1)));
+      assert.equal(run.bossHp, 0, `${id} boss defeated`);
+      progress = St.recordClear(progress, St.summary(run));
+    }
+    const after = St.nextLevel(levels, enabled[enabled.length - 1]);
+    if (after) assert.ok(St.isUnlocked(levels, progress, after.id) && !after.playable, "next level is unlocked but still coming soon");
+  });
+
+  test("story: world A is fully open (A-01..A-09)", () => {
+    const worldA = devLevels().filter((l) => l.world_id === "A");
+    assert.equal(worldA.length, 9);
+    assert.ok(worldA.every((l) => l.playable));
   });
 })();
