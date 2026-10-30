@@ -106,3 +106,9 @@
   - 本機 HTTP 伺服器（真正 localStorage）：過關後重新整理，進度及解鎖仍在；遊玩期間沒有任何外部網絡請求
 - **DSE 題庫重新匯入：未採用。** 17:21 版 `Questions` 表 414 題全部改為 approved，但 Topic_* 檢閱表、`DSE_來源追蹤`（320 題 review，「待教師最後確認」）及 `2024_可行性評估`（33 題待覆核）均顯示未經教師審核，且題目內容沒有任何改動。維持上一版（14 題 approved），待用戶確認。
 - **Human decisions needed:** DSE 題庫 382 題是否真的已由教師審核；選項是否打亂（故事題庫 0 個 D 答案）；`STORY-A-02-02`「資料驗證」用詞與 DSE 題庫「數據核對」不一致；教師開始審核故事題目
+## Run 8 — 2026-10-30（HKT，coordinator）
+- **Branch:** `feat/dse-bank-approved`（基於 `main`）
+- **Task:** 重新匯入 DSE 題庫（17:21 版），用戶確認 382 題已經教師審核
+- **What changed:** `src/data/question_bank.js`、`question_bank.release.js`、`docs/QUESTION_BANK_IMPORT_REPORT.md`（加入審核確認紀錄）、`docs/05_DECISIONS.md`
+- **Import result:** 414 → 382 匯入（全部 approved）、32 拒絕（課題代碼不在 Topics 表：ALGORITHM 13、NETWORK 12、DATA 5、INFO 1、NETDEVICE 1）；題目內容與上一版相同，只有狀態改變
+- **Follow-up:** 活頁簿內 Topic_*、DSE_來源追蹤、2024_可行性評估 狀態未同步；32 題課題代碼待修正；D 答案只佔 3%
