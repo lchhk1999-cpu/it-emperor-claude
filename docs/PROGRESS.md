@@ -178,3 +178,12 @@
 - **Verification (actual):** `./scripts/test.sh` → JS `76 passed, 0 failed` + Python `Ran 18 tests OK` + `✓ release bundle: … all 382 questions are approved`；瀏覽器 375×812：由 A-01 順序打到 B-08 共 17 關，全部 ★★★、A-09 解鎖 B-01、B-08 後顯示「C-01 即將開放」、地圖 51 星、無橫向捲動
 - **正式版:** 不受影響（故事題目 0 題 approved）
 - **Next:** 世界 C（C-01–C-10）
+
+## Run 12 — 2026-10-30（HKT，coordinator）
+- **Branch:** `feat/story-world-c`（基於 `main`）
+- **Task:** P3-07：開放故事模式世界 C（網絡與保安迷宮）C-01–C-10（開發版）
+- **What changed:** `STORY_RULES.enabledLevels` 加入 C-01–C-10；測試加入世界 C 全部可玩及 B-08 過關後開啟世界 C
+- **Content check（非正式審核）:** 逐題閱讀 30 題，答案與解說一致；發現 `STORY-C-01-01` 錯誤選項「PAN 全球網絡」把 PAN 說成全球網絡，已列入待老師處理事項（未改動題目）
+- **Verification (actual):** `./scripts/test.sh` → JS `76 passed, 0 failed` + Python `Ran 18 tests OK` + `✓ release bundle: … all 382 questions are approved`；瀏覽器 375×812：由 A-01 順序打到 C-10 共 27 關，全部 ★★★、B-08 解鎖 C-01、C-10 後顯示「D-01 即將開放」、地圖 81 星、無橫向捲動；C-07 選項 `<img>`／`<h1>` 等以純文字顯示，題目卡內沒有產生任何 HTML 元素
+- **正式版:** 不受影響（故事題目 0 題 approved）
+- **Next:** 世界 D（D-01–D-10）
