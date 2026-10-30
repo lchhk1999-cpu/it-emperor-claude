@@ -214,6 +214,6 @@
   - `src/core/battle.js`：可選隊伍（沒有隊伍時與以前完全一樣）；傷害 × 平均攻擊 ×（1＋專長加成）
   - `src/core/save.js`：存檔加入 `profile`（舊存檔相容、數值修復）
   - 畫面：主畫面等級列、`src/ui/team.js` 角色隊伍畫面、戰鬥顯示隊伍人數及專長加成、DSE 結算及故事過關顯示獎勵／升級／解鎖隊伍位置；角色以不同顏色衛衣區分（PLACEHOLDER）
-- **Verification (actual):** `./scripts/test.sh` → JS `90 passed, 0 failed`（新增 13 項）+ Python `Ran 18 tests OK` + `✓ release bundle: … all 382 questions are approved`；瀏覽器 375×812：Lv1 換上數據庫師、SQL 題造成 96 傷害並顯示「數據庫師 專長加成 +20%」、其他課題無加成；3 場勝利各 +50 經驗 +30 金幣，升至 Lv2、Lv3 並提示解鎖隊伍位置；Lv3 加入黑客成 2 人隊伍、第 3 人提示隊伍已滿；故事首次過關 +25 經驗 +30 金幣、重玩 +5 經驗；無橫向捲動
+- **Verification (actual):** `./scripts/test.sh` → JS `90 passed, 0 failed`（新增 13 項）+ Python `Ran 22 tests OK`（新增遊戲資料匯入器 4 項） + `✓ release bundle: … all 382 questions are approved`；瀏覽器 375×812：Lv1 換上數據庫師、SQL 題造成 96 傷害並顯示「數據庫師 專長加成 +20%」、其他課題無加成；3 場勝利各 +50 經驗 +30 金幣，升至 Lv2、Lv3 並提示解鎖隊伍位置；Lv3 加入黑客成 2 人隊伍、第 3 人提示隊伍已滿；故事首次過關 +25 經驗 +30 金幣、重玩 +5 經驗；無橫向捲動
 - **Found & fixed while play-testing:** Lv1 只有一格時無法換角色（加入顯示已滿、移出又不准空隊）→ 單格時按另一角色即替換
 - **Next:** P3-08 每日任務＋稱號（排程可做）；P3-09 裝備；P4-03 抽蛋待用戶批准
