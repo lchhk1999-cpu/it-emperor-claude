@@ -218,3 +218,16 @@
 - **Found & fixed while play-testing:** Lv1 只有一格時無法換角色（加入顯示已滿、移出又不准空隊）→ 單格時按另一角色即替換
 - **Next:** P3-08 每日任務＋稱號（排程可做）；P3-09 裝備；P4-03 抽蛋待用戶批准
 - **Run 15 補充（同一分支）:** 用戶核准 7 個角色造型並放進遊戲：`src/ui/characters.js`（7 角色 × 平時／答對／無語／驚訝）；未有造型的新角色自動改用主角圖；新增 `tests/sprites.test.js`（每個角色有獨立造型、四種表情各不相同、SVG 標籤完整、無遺漏數值）。`./scripts/test.sh` → JS `93 passed, 0 failed` + Python `Ran 22 tests OK`；本機伺服器 375×812：角色隊伍 7 個造型、黑客答對時笑／答錯時汗滴及嘴角向下。註：單檔已增至約 536 KB，超出預覽窗格直接開檔上限，改用本機伺服器檢查（不影響用戶在瀏覽器開啟）
+
+## Run 16 — 2026-10-30（HKT，coordinator）
+- **Branch:** `feat/missions-titles`（基於 `main`）
+- **Task:** P3-08 每日／每週任務＋稱號
+- **What changed:**
+  - `tools/import_game_data.py`：再匯入 Excel `Missions`（5）及 `Titles`（4），驗證週期、目標、獎勵、重複 ID、`topic_correct` 課題；遊戲未能計算的條件標為 `supported: false`；兩表為可選
+  - `src/core/missions.js`：每日／每週／累計計數（按香港時間重置）、任務進度及領獎（每期一次）、稱號自動取得及佩戴、SQL JOIN 題按標籤判斷
+  - 玩家資料加入免費「寶石」；存檔加入 `progress`（舊存檔相容、數值修復）
+  - DSE 挑戰、故事、公會每題作答計入；DSE 勝利及故事過關計入「過關」
+  - 畫面：`src/ui/missions.js`「任務與稱號」；主畫面按鈕顯示可領獎勵數目；等級列顯示寶石及佩戴的稱號
+- **Excel 對照:** 支援 M-DAILY-01、M-DAILY-02、M-WEEK-01、T-NEW、T-EXCEL、T-SQL；「即將開放」：M-WEEK-02（Excel 的 6 個世界未能對應遊戲關卡）、M-ACH-01（角色進化未做）、T-PVP（競技排名未做）
+- **Verification (actual):** `./scripts/test.sh` → JS `103 passed, 0 failed`（新增 10 項）+ Python `Ran 24 tests OK`（新增 2 項）+ `✓ release bundle: … all 382 questions are approved`；本機伺服器 375×812：一場 DSE（5 對 5 錯、勝利）→ 主畫面顯示 2 個可領獎勵 → 領取得寶石 5、金幣 +50；累積答對 50 題後佩戴「IT 新人王」並顯示於主畫面；重新整理後稱號、寶石、已領取狀態保留；故事一關計入 3 題及 1 次過關、公會挑戰計入作答；無橫向捲動、按鈕 ≥44px
+- **Next:** P3-09 裝備；P4-03 抽蛋待用戶批准設計

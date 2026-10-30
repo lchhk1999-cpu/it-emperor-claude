@@ -330,6 +330,7 @@
     const before = session.answered;
     session = R.answerAttack(session, letter, Date.now());
     if (session.answered === before) return finishRaid(); // time ran out; answer not counted
+    app.recordAnswer(session.deck[session.index - 1], session.lastResult.correct);
     showQuestion(true);
     const shown = session;
     setTimeout(() => {

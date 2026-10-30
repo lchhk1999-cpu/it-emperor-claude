@@ -31,6 +31,8 @@
     const base = save.profile || P.defaultProfile(gameData);
     save = { ...save, profile: { ...base, team: P.cleanTeam(base.team, base.level, gameData) } };
   }
+  const Mi = root.ITE.missions;
+  save = { ...save, progress: Mi.rollover(save.progress || Mi.defaultProgress(Date.now()), Date.now()) };
   let lastReward = null; // shown on the DSE result screen
   // Drop a saved battle whose questions this build no longer allows.
   if (save.activeBattle && !B.rebindDeck(save.activeBattle, questionPool)) {
@@ -103,6 +105,15 @@
           h("button", { class: "btn", onclick: showStages }, "DSE 題庫挑戰"),
           h("button", { class: "btn btn-guild", onclick: () => root.ITE.guildUi.show() }, "校際公會"),
           h("button", { class: "btn", onclick: () => root.ITE.teamUi.show() }, "角色隊伍"),
+          (() => {
+            const n = Mi.claimableCount(save.progress, gameData.missions, Date.now());
+            return h(
+              "button",
+              { class: "btn", onclick: () => root.ITE.missionsUi.show(), "aria-label": n ? `任務與稱號，${n} 個獎勵可領取` : "任務與稱號" },
+              "任務與稱號",
+              n ? h("span", { class: "badge" }, String(n)) : null
+            );
+          })(),
           BUILD_MODE === "dev" && root.ITE.reviewUi
             ? h("button", { class: "btn btn-review", onclick: () => root.ITE.reviewUi.show() }, "教師審核（開發版）")
             : null
@@ -185,7 +196,9 @@
   }
 
   function onAnswer(letter) {
+    const before = battleState;
     battleState = B.answer(battleState, letter);
+    if (battleState !== before) recordAnswer(B.currentQuestion(battleState), battleState.lastResult.correct, false);
     save = S.withActiveBattle(save, battleState);
     persist();
     showBattle();
@@ -196,6 +209,7 @@
     if (battleState.phase === "won" || battleState.phase === "lost") {
       const sum = B.summary(battleState);
       save = S.recordStageResult(save, battleState.stageId, sum);
+      if (sum.outcome === "won") recordStageClear();
       lastReward = grantReward(P.dseRewards(sum));
       showResult();
       return;
@@ -302,8 +316,24 @@
       { class: "profile-bar" },
       h("span", { class: "lv" }, `Lv ${p.level}`),
       h("span", {}, `經驗 ${p.exp} / ${P.PROFILE_RULES.expToNext(p.level)}`),
-      h("span", {}, `金幣 ${p.coins}`)
+      h("span", {}, `金幣 ${p.coins}`),
+      h("span", {}, `寶石 ${p.gems || 0}`),
+      (() => {
+        const t = Mi.equippedTitle(save.progress, gameData.titles);
+        return t ? h("span", { class: "title-badge" }, t.name) : null;
+      })()
     );
+  }
+
+  // Every answered question in any mode counts towards missions and titles.
+  function recordAnswer(q, correct, doPersist = true) {
+    save = { ...save, progress: Mi.recordAnswer(save.progress, q, correct, Date.now()) };
+    if (doPersist) persist();
+  }
+
+  function recordStageClear() {
+    save = { ...save, progress: Mi.recordStageClear(save.progress, Date.now()) };
+    persist();
   }
 
   function leaderSprite(state, expr) {
@@ -388,6 +418,8 @@
     grantReward,
     rewardPanel,
     profileBar,
+    recordAnswer,
+    recordStageClear,
     getSave: () => save,
     setSave: (next) => {
       save = next;

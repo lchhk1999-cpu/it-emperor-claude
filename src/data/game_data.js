@@ -6,8 +6,10 @@
  "meta": {
   "source_file": "IT_Emperor_DseMcQs.xlsx",
   "source_sha256": "93f04990806f97f3014dcdd7403451ee8d8745daa0f4ffd6fe3adf9b1d019459",
-  "imported_at": "2026-10-30T14:50:47Z",
+  "imported_at": "2026-10-30T15:11:24Z",
   "characters": 7,
+  "missions": 5,
+  "titles": 4,
   "rejected": 0
  },
  "config": {
@@ -80,6 +82,96 @@
    "attack": 105,
    "hp": 105,
    "bonus": 0.1
+  }
+ ],
+ "missions": [
+  {
+   "id": "M-DAILY-01",
+   "cycle": "daily",
+   "name": "完成每日 10 題",
+   "condition": "answer_questions",
+   "target": 10,
+   "gems": 3,
+   "coins": 0,
+   "supported": true
+  },
+  {
+   "id": "M-DAILY-02",
+   "cycle": "daily",
+   "name": "完成任意一場副本",
+   "condition": "clear_stage",
+   "target": 1,
+   "gems": 2,
+   "coins": 50,
+   "supported": true
+  },
+  {
+   "id": "M-WEEK-01",
+   "cycle": "weekly",
+   "name": "正確解答 50 題",
+   "condition": "answer_correct",
+   "target": 50,
+   "gems": 10,
+   "coins": 100,
+   "supported": true
+  },
+  {
+   "id": "M-WEEK-02",
+   "cycle": "weekly",
+   "name": "完成六個知識世界各一場",
+   "condition": "clear_distinct_world",
+   "target": 6,
+   "gems": 15,
+   "coins": 300,
+   "supported": false
+  },
+  {
+   "id": "M-ACH-01",
+   "cycle": "once",
+   "name": "完成第一次角色進化",
+   "condition": "evolve_character",
+   "target": 1,
+   "gems": 20,
+   "coins": 0,
+   "supported": false
+  }
+ ],
+ "titles": [
+  {
+   "id": "T-NEW",
+   "name": "IT 新人王",
+   "condition": "total_correct",
+   "target": 50,
+   "topic": null,
+   "description": "累計答對 50 題",
+   "supported": true
+  },
+  {
+   "id": "T-EXCEL",
+   "name": "公式達人",
+   "condition": "topic_correct",
+   "target": 100,
+   "topic": "EXCEL",
+   "description": "Excel 範疇累計答對 100 題",
+   "supported": true
+  },
+  {
+   "id": "T-SQL",
+   "name": "JOIN 大師",
+   "condition": "sql_join_correct",
+   "target": 100,
+   "topic": null,
+   "description": "SQL JOIN 累計答對 100 題",
+   "supported": true
+  },
+  {
+   "id": "T-PVP",
+   "name": "競技王者",
+   "condition": "season_rank",
+   "target": 100,
+   "topic": null,
+   "description": "當季結算進入前 100 名",
+   "supported": false
   }
  ]
 };
