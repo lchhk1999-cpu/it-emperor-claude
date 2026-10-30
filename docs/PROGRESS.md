@@ -31,3 +31,15 @@
   3. 提供 2 張畫風參考圖至 `assets/style_references/`
   4. 提供 ChatGPT 題庫 Excel 至 `data/question_bank/`
   5. 戰鬥原型數值（答錯扣 20 HP、10 題、Combo 加傷）是否可接受
+
+## Run 2 — 2026-10-30（HKT，routine A）
+- **Branch / base:** `routine/20261030-P3-05`，基於 `origin/feat/p1-boss-battle-prototype`（main 尚無 `src/core/battle.js`）。
+- **Task:** P3-05 虛構學校公會 demo — 第一步（計分 core，無 UI）。其餘 TODO 皆被阻塞（P2-02 依賴 P2-01 的真實 Excel）。
+- **What changed:**
+  - `src/core/guild.js`：個人成績（正確率 70% / 完成度 25% / 速度 5%）、學校分數＝前 N 名平均（預設 N=5）、參與人數不足者不排名、確定性排名。全部標示 PROPOSAL。
+  - `src/data/demo_guilds.js`：3 間虛構學校、虛構暱稱（無真實資料）。
+  - `tests/guild.test.js`：6 項測試；已登記於 `tests/run.js`。未接入 index.html／UI。
+- **Verification (actual):** `./scripts/test.sh` → `40 passed, 0 failed, 40 total` + `✓ release bundle contains no dev sample questions`，exit 0。（首次運行有 2 項測試預期值寫錯，已修正測試後重跑通過；非程式碼缺陷。）
+- **Blockers:** 無新增。未做獨立 reviewer 複審。
+- **Next task:** P3-05 UI 畫面（積分榜 demo 頁）；QA 複審 Run 1 修正。
+- **Human decisions needed:** docs/07 的 7 項 OPEN_DECISION（尤其 #4 計分方式：本次以「前 N 名平均」作示範，請確認或否決）；仍需 Excel、參考圖、GitHub 合併 feat 分支。

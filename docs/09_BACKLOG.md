@@ -19,7 +19,7 @@
 | P2-02 | `Questions` 匯入器 + 報告 | question-import-engineer | P2-01、Node/Python | 成功／拒絕／重複／Topic 數／checksum 報告；公式保留文字 | TODO（驗證器 core 已完成） |
 | P2-03 | 發佈模式只載 approved | question-import-engineer | — | 測試：release 模式過濾非 approved | DONE（core） |
 | P2-04 | 抽題覆蓋率、防重複 | gameplay-engineer | — | 測試：無重複、可按 Topic 篩選 | DONE（core 基本版） |
-| P3-05 | 虛構學校公會 UI demo | guild-systems-designer | P1 完成 | 只用虛構資料；規則標 PROPOSAL | TODO |
+| P3-05 | 虛構學校公會 UI demo | guild-systems-designer | P1 完成 | 只用虛構資料；規則標 PROPOSAL | DOING（2026-10-30：計分 core + 虛構資料 + 測試完成；UI 畫面待做） |
 
 ## 優先次序（下一步）
 1. 用戶：安裝 Command Line Tools（解鎖 git、Python）→ P0-02a。
