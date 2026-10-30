@@ -15,9 +15,9 @@
 | P1-04 | 存檔：中途退出重入不破壞資料 | gameplay-engineer | P1-02 | 測試：存檔往返、損壞存檔回退預設、版本不符處理；可「繼續戰鬥」 | DONE（原型） |
 | P1-05 | iOS 模擬器運行 | architect | 安裝 Xcode、ADR 確認 | Capacitor 包裝在模擬器啟動 | BLOCKED |
 | P1-06 | Art Bible + 3 張 mockup | ui-art-engineer | 用戶提供參考圖 | 用戶核准 | BLOCKED（無參考圖） |
-| P2-01 | Excel schema mapping | question-import-engineer | 取得 ChatGPT Excel | 對照真實活頁簿欄名的 mapping 文件 | BLOCKED（無 Excel） |
-| P2-02 | `Questions` 匯入器 + 報告 | question-import-engineer | P2-01、Node/Python | 成功／拒絕／重複／Topic 數／checksum 報告；公式保留文字 | TODO（驗證器 core 已完成） |
-| P2-03 | 發佈模式只載 approved | question-import-engineer | — | 測試：release 模式過濾非 approved | DONE（core） |
+| P2-01 | Excel schema mapping | question-import-engineer | 取得 ChatGPT Excel | 對照真實活頁簿欄名的 mapping 文件 | DONE（2026-10-30，`tools/import_question_bank.py` COLUMN_MAP） |
+| P2-02 | `Questions` 匯入器 + 報告 | question-import-engineer | P2-01 | 成功／拒絕／重複／Topic 數／checksum 報告；公式保留文字 | DONE（2026-10-30：414 題 → 382 匯入、32 拒絕） |
+| P2-03 | 發佈模式只載 approved | question-import-engineer | — | 測試：release 模式過濾非 approved；release 打包不含非 approved 題 | DONE（core + 打包檢查） |
 | P2-04 | 抽題覆蓋率、防重複 | gameplay-engineer | — | 測試：無重複、可按 Topic 篩選 | DONE（core 基本版） |
 | P3-05 | 虛構學校公會 UI demo | guild-systems-designer | P1 完成 | 只用虛構資料；規則標 PROPOSAL | TODO |
 
