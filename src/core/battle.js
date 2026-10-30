@@ -14,7 +14,10 @@
     partyMaxHp: 100,
   };
 
-  function createBattle(stage, questions, rng) {
+  // team (optional): character snapshots from ITE.profile.teamSnapshot. With a
+  // team, party HP is the members' average HP and damage scales with their
+  // average attack plus the best specialty bonus for the question's topic.
+  function createBattle(stage, questions, rng, team) {
     if (!questions.length) throw new Error("no questions available for this stage");
     const deck = ITE.questions
       .drawQuestions(questions, stage.questionCount, rng, stage.topicIds)
@@ -24,7 +27,11 @@
       stageId: stage.id,
       phase: "question",
       boss: { name: stage.boss.name, hp: stage.boss.maxHp, maxHp: stage.boss.maxHp, attack: stage.boss.attack },
-      party: { hp: BALANCE.partyMaxHp, maxHp: BALANCE.partyMaxHp },
+      party: (() => {
+        const hp = team && team.length ? ITE.profile.teamStats(team).hp : BALANCE.partyMaxHp;
+        return { hp, maxHp: hp };
+      })(),
+      team: team && team.length ? team : [],
       deck,
       index: 0,
       combo: 0,
@@ -48,7 +55,12 @@
     const q = currentQuestion(state);
     const correct = choice === q.answer;
     const combo = correct ? state.combo + 1 : 0;
-    const damage = correct ? damageFor(combo) : 0;
+    const team = state.team || [];
+    const bonus = correct && team.length ? ITE.profile.specialtyBonus(team, q.topic_id) : null;
+    let damage = correct ? damageFor(combo) : 0;
+    if (correct && team.length) {
+      damage = Math.round((damage * ITE.profile.teamStats(team).attack) / 100 * (1 + (bonus ? bonus.bonus : 0)));
+    }
     const taken = correct ? 0 : state.boss.attack;
     const boss = { ...state.boss, hp: Math.max(0, state.boss.hp - damage) };
     const party = { ...state.party, hp: Math.max(0, state.party.hp - taken) };
@@ -58,7 +70,7 @@
     else if (party.hp === 0) outcome = "lost";
     else if (state.index + 1 >= state.deck.length) outcome = "lost"; // ran out of questions
 
-    const lastResult = { questionId: q.question_id, choice, correct, damage, taken, combo };
+    const lastResult = { questionId: q.question_id, choice, correct, damage, taken, combo, bonus };
     return {
       ...state,
       phase: "feedback",
