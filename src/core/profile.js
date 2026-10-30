@@ -160,8 +160,10 @@
     return firstClear ? { exp: r.firstClearExp, coins: r.firstClearCoins } : { exp: r.replayExp, coins: 0 };
   }
 
-  // Groups characters by family (角色品種), keeping workbook order. A character
-  // without family columns forms its own group.
+  // Groups characters by family (角色品種): families in workbook order, members
+  // R → SR → SSR (workbook order within a rarity). A character without family
+  // columns forms its own group.
+  const RARITY_RANK = { R: 0, SR: 1, SSR: 2 };
   function familyGroups(characters) {
     const groups = [];
     const byKey = {};
@@ -170,6 +172,7 @@
       if (!byKey[key]) groups.push((byKey[key] = { id: key, name: c.familyName || c.name, characters: [] }));
       byKey[key].characters.push(c);
     }
+    groups.forEach((g) => g.characters.sort((a, b) => (RARITY_RANK[a.rarity] || 0) - (RARITY_RANK[b.rarity] || 0)));
     return groups;
   }
 

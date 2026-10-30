@@ -28,7 +28,14 @@
 | P3-08 | 每日／每週任務＋稱號 | gameplay-engineer | P3-01 | 資料來自 Excel `Missions`、`Titles`（匯入器驗證）；按香港時間每日／每週重置；任務獎勵寶石／金幣；稱號可在主畫面顯示；只用暱稱 | DONE（2026-10-30：3 個任務、3 個稱號可用；2 個任務及 1 個稱號待相關功能，顯示「即將開放」） |
 | P3-09 | 裝備（5 類、最多 3 格） | gameplay-engineer | P3-02 | 資料來自 Excel `Equipment`；只用於 DSE 挑戰；校際公會禁用（GameConfig pvp_stats_normalized=1）；AI 提示只刪去錯誤選項，不直接給答案 | DONE（2026-10-30：4 件可用、眼鏡待限時戰鬥；每位隊員 1 格，進化未做） |
 | P4-03 | 抽蛋（角色／裝備兩池） | gameplay-engineer | P3-08 | 只用遊戲內免費寶石（GameConfig gacha_paid_enabled=0）；遊戲內公開機率；保底規則；需用戶批准設計後才實作 | DONE（2026-10-30：用戶批准設計；角色池按 Excel 機率及保底；裝備池暫為平均機率，待 Excel 補稀有度） |
-| P4-06 | 角色品種（31 個）接入遊戲 | gameplay-engineer + ui-art-engineer | ChatGPT 把 `docs/proposals/character_variants.csv` 加入 Excel | 匯入器讀 family 欄；角色隊伍及抽蛋按系列顯示；機率表列出全部品種；測試及試玩 | BLOCKED（等 Excel 更新） |
+| P4-06 | 角色品種（31 個）接入遊戲 | gameplay-engineer + ui-art-engineer | ChatGPT 把 `docs/proposals/character_variants.csv` 加入 Excel | 匯入器讀 family 欄；角色隊伍及抽蛋按系列顯示；機率表列出全部品種；測試及試玩 | DONE 2026-10-31（Excel 已更新，31 個角色匯入） |
+| P5-01 | 背包＋進化素材（Excel `Materials`） | gameplay-engineer | — | 素材可存取、背包畫面、存檔修復 | PROPOSAL（用戶 2026-10-31 提出） |
+| P5-02 | DSE 挑戰分課題（A–E）及難度（簡單／中等／困難／究極）＋每週限定素材關（Excel `Stages`／`Events`） | gameplay-engineer + content-pipeline | P5-01 | 每關掉落素材；限定關掉落較多 | PROPOSAL |
+| P5-03 | 體力系統（Excel `Stages.stamina_cost`） | gameplay-engineer | P5-02 | 體力上限、回復時間、故事模式是否免體力 | PROPOSAL |
+| P5-04 | 角色／裝備升級及三階段進化；第三階段需重複角色分解碎片 | gameplay-engineer | P5-01 | 會改動「重複角色換金幣」規則，需用戶確認 | PROPOSAL |
+| P5-05 | 主頁改版（原創設計，參考手機 RPG 常見佈局，不複製 P&D 介面） | ui-art-engineer | — | 畫布候選稿先給用戶核准 | PROPOSAL |
+| P5-06 | 好友系統（好友支援角色） | backend（未建立） | 線上後端 | 需要伺服器及帳戶，屬付費服務及學生私隱決定 | NEEDS APPROVAL |
+| P5-07 | 排行榜（前 100 名、每月重置） | backend（未建立） | 線上後端 | `docs/05` 已列 OPEN_DECISION：學生資料、作弊、成本 | NEEDS APPROVAL |
 
 ## 優先次序（下一步）
 1. 用戶：安裝 Command Line Tools（解鎖 git、Python）→ P0-02a。

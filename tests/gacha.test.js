@@ -21,7 +21,7 @@
   test("gacha: workbook pool rates (77/20/3) and SSR pity at 80; no paid gacha", () => {
     const rates = G.characterRates(data);
     assert.deepEqual(rates.map((r) => [r.rarity, r.pct]), [["R", 77], ["SR", 20], ["SSR", 3]]);
-    assert.deepEqual(rates.map((r) => r.characters.length), [3, 3, 1]);
+    assert.deepEqual(rates.map((r) => r.characters.length), [11, 12, 8]);
     assert.equal(G.pityThreshold(data), 80);
     assert.equal(data.config.gacha_paid_enabled, 0);
     assert.equal(G.GACHA_RULES.cost, 10);

@@ -273,3 +273,11 @@
 - 試玩：本機 http 伺服器開啟 dev bundle，角色隊伍畫面正常（7 張角色卡，沒有系列標題）；在瀏覽器暫時加入系列資料後出現兩個系列標題，卡片數正確。
 - 阻塞：要等 ChatGPT 把 `docs/proposals/character_variants.csv` 加入 Excel `Characters` 表，用戶放回 `data/question_bank/` 後，才可重新匯入 31 個品種。
 - 待決定：寶石經濟節奏（8 個 SSR、保底 80 抽約 20 週）。
+
+## Run 21 — 2026-10-31：31 個角色品種接入遊戲
+- 用戶以 ChatGPT 更新 `IT_Emperor_DseMcQs.xlsx`。逐表比較新舊檔：只有 `Characters` 有改動（31 行），其餘 53 張工作表完全相同；31 行與 `docs/proposals/character_variants.csv` 逐欄比對，0 個差異。
+- 重新匯入：`python3 tools/import_game_data.py data/question_bank/IT_Emperor_DseMcQs.xlsx` → characters 31, rejected 0。題庫（Questions 表未變）沒有重新匯入。
+- 系列內角色改為 R → SR → SSR 排列。
+- 測試：`./scripts/test.sh` → JS 126 passed, 0 failed；release 檢查通過（382 題全部 approved）。Python 28 tests OK。
+- 試玩（本機 http 伺服器，dev bundle）：角色隊伍 31 張卡、7 個系列標題、全部角色都有自己的造型；抽蛋機率表列出 R 11／SR 12／SSR 8。
+- 用戶提出新系統清單，已加入 backlog P5-01 至 P5-07（等用戶確認次序）。

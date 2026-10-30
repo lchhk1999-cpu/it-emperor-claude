@@ -8,9 +8,15 @@
   const fresh = () => ownAll(P.defaultProfile(data));
   const byId = (id) => P.characterById(data, id);
 
-  test("profile: workbook data imported (7 characters, specialties, config)", () => {
-    assert.equal(data.characters.length, 7);
-    assert.deepEqual(data.characters.map((c) => c.specialty).sort(), ["ALL", "EXCEL", "HARDWARE", "NET_DEVICE", "PY_BASIC", "SECURITY", "SQL"]);
+  test("profile: workbook data imported (31 characters in 7 families, specialties, config)", () => {
+    assert.equal(data.characters.length, 31);
+    const groups = P.familyGroups(data.characters);
+    assert.deepEqual(groups.map((g) => g.characters.length), [5, 4, 4, 4, 5, 5, 4]);
+    // Every family shares one specialty; the seven families cover seven specialties.
+    groups.forEach((g) => assert.equal(new Set(g.characters.map((c) => c.specialty)).size, 1));
+    assert.deepEqual(groups.map((g) => g.characters[0].specialty).sort(), ["ALL", "EXCEL", "HARDWARE", "NET_DEVICE", "PY_BASIC", "SECURITY", "SQL"]);
+    // Every workbook character has its own drawn look.
+    data.characters.forEach((c) => assert.ok(ITE.sprites.CHARACTER_IDS.includes(c.id), c.id));
     assert.equal(byId("CH-AIBOT").bonus, 0.1);
     assert.equal(byId("CH-DB").bonus, 0.2);
     assert.equal(data.config.team_slots_max, 5);
@@ -18,14 +24,15 @@
     assert.equal(data.config.gacha_paid_enabled, 0);
   });
 
-  test("profile: characters group by family in workbook order", () => {
+  test("profile: characters group by family, R before SR before SSR", () => {
     const groups = ITE.profile.familyGroups([
-      { id: "A1", name: "甲一", family: "FAM-A", familyName: "甲系列" },
-      { id: "B1", name: "乙一" },
-      { id: "A2", name: "甲二", family: "FAM-A", familyName: "甲系列" },
+      { id: "A1", name: "甲一", rarity: "SR", family: "FAM-A", familyName: "甲系列" },
+      { id: "B1", name: "乙一", rarity: "R" },
+      { id: "A2", name: "甲二", rarity: "R", family: "FAM-A", familyName: "甲系列" },
+      { id: "A3", name: "甲三", rarity: "R", family: "FAM-A", familyName: "甲系列" },
     ]);
     assert.equal(groups.map((g) => g.name).join(","), "甲系列,乙一");
-    assert.equal(groups[0].characters.map((c) => c.id).join(","), "A1,A2");
+    assert.equal(groups[0].characters.map((c) => c.id).join(","), "A2,A3,A1");
   });
 
   test("profile: new player is level 1 with one team slot and one member", () => {
