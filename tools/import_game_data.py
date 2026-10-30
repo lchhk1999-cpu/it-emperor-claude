@@ -82,6 +82,10 @@ def import_characters(sheets, topics):
                     errors.append(f"{k} must be {lo}-{hi}, got {nums[k]}")
             except ValueError:
                 errors.append(f"{k} must be a number, got '{d[k]}'")
+        # Optional family columns (角色品種, approved 2026-10-30): both or neither.
+        family, family_name = d.get("family_id", ""), d.get("family_name", "")
+        if bool(family) != bool(family_name):
+            errors.append("family_id and family_name must both be filled or both be empty")
         if cid in seen:
             errors.append(f"duplicate character_id (first seen on row {seen[cid]})")
         elif cid:
@@ -89,7 +93,7 @@ def import_characters(sheets, topics):
         if errors:
             rejected.append({"row": row, "id": cid, "errors": errors})
             continue
-        accepted.append({
+        character = {
             "id": cid,
             "name": d["character_name"],
             "specialty": d["specialty_topic"],
@@ -97,7 +101,10 @@ def import_characters(sheets, topics):
             "attack": nums["base_attack"],
             "hp": nums["base_hp"],
             "bonus": nums["topic_bonus_pct"] / 100,
-        })
+        }
+        if family:
+            character.update(family=family, familyName=family_name)
+        accepted.append(character)
     return accepted, rejected
 
 

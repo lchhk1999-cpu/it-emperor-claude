@@ -28,6 +28,7 @@
 | P3-08 | 每日／每週任務＋稱號 | gameplay-engineer | P3-01 | 資料來自 Excel `Missions`、`Titles`（匯入器驗證）；按香港時間每日／每週重置；任務獎勵寶石／金幣；稱號可在主畫面顯示；只用暱稱 | DONE（2026-10-30：3 個任務、3 個稱號可用；2 個任務及 1 個稱號待相關功能，顯示「即將開放」） |
 | P3-09 | 裝備（5 類、最多 3 格） | gameplay-engineer | P3-02 | 資料來自 Excel `Equipment`；只用於 DSE 挑戰；校際公會禁用（GameConfig pvp_stats_normalized=1）；AI 提示只刪去錯誤選項，不直接給答案 | DONE（2026-10-30：4 件可用、眼鏡待限時戰鬥；每位隊員 1 格，進化未做） |
 | P4-03 | 抽蛋（角色／裝備兩池） | gameplay-engineer | P3-08 | 只用遊戲內免費寶石（GameConfig gacha_paid_enabled=0）；遊戲內公開機率；保底規則；需用戶批准設計後才實作 | DONE（2026-10-30：用戶批准設計；角色池按 Excel 機率及保底；裝備池暫為平均機率，待 Excel 補稀有度） |
+| P4-06 | 角色品種（31 個）接入遊戲 | gameplay-engineer + ui-art-engineer | ChatGPT 把 `docs/proposals/character_variants.csv` 加入 Excel | 匯入器讀 family 欄；角色隊伍及抽蛋按系列顯示；機率表列出全部品種；測試及試玩 | BLOCKED（等 Excel 更新） |
 
 ## 優先次序（下一步）
 1. 用戶：安裝 Command Line Tools（解鎖 git、Python）→ P0-02a。

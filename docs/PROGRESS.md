@@ -263,3 +263,13 @@
 - **Verification (actual):** `./scripts/test.sh` → JS `125 passed, 0 failed`（新增品種造型檢查）+ Python OK；31 個品種四種表情 SVG 全部完整且各不相同
 - **未接入遊戲:** 需用戶核准 → ChatGPT 把 CSV 加入 Excel → 重新匯入（匯入器需支援 family 欄）→ 抽蛋及角色畫面按系列顯示
 - **注意（經濟節奏）:** SSR 由 1 個增至 8 個；按每週約 40 寶石（約 4 抽）計，第 80 抽保底約需 20 週，集齊全部角色需時很長，可能要調整寶石收入或保底
+
+## Run 20 — 2026-10-31：角色品種核准及接入準備
+- 分支：`feat/character-variants`
+- 用戶核准 31 個品種（「可以，核准」）。記錄於 `docs/05_DECISIONS.md`；設計畫布標示為已核准；新增 backlog P4-06（等 Excel 更新）。
+- 匯入器 `tools/import_game_data.py`：`Characters` 表可選 `family_id`／`family_name` 欄（兩欄須同時填寫或同時留空），輸出 `family`／`familyName`。
+- `ITE.profile.familyGroups`：按系列分組（保留 Excel 次序；無系列的角色自成一組）。角色隊伍畫面按系列顯示並列出「已擁有 / 系列總數」；抽蛋結果顯示系列名稱。
+- 測試：`./scripts/test.sh` → JS 126 passed, 0 failed；release 檢查通過。`python3 -m unittest discover -s tests -p 'test_*.py'` → 28 tests OK。
+- 試玩：本機 http 伺服器開啟 dev bundle，角色隊伍畫面正常（7 張角色卡，沒有系列標題）；在瀏覽器暫時加入系列資料後出現兩個系列標題，卡片數正確。
+- 阻塞：要等 ChatGPT 把 `docs/proposals/character_variants.csv` 加入 Excel `Characters` 表，用戶放回 `data/question_bank/` 後，才可重新匯入 31 個品種。
+- 待決定：寶石經濟節奏（8 個 SSR、保底 80 抽約 20 週）。

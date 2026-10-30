@@ -1,4 +1,4 @@
-// PROPOSAL (2026-10-30, awaiting user approval): character variants (品種).
+// APPROVED by the user on 2026-10-30: character variants (品種).
 // Seven families, each with 4-5 variants. Existing workbook characters keep
 // their numbers; new variants derive from the family's R-level base:
 // R x1.00, SR x1.05, SSR x1.10 (user: "稍強一點"). Specialty and bonus are

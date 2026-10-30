@@ -47,7 +47,7 @@
         res.name,
         res.rarity ? h("span", { class: `rarity rarity-${res.rarity}` }, res.rarity) : null
       ),
-      isChar ? h("p", { class: "hint" }, `專長：${topicName(ch.specialty)}`) : h("p", { class: "hint" }, eq.levels[0].text),
+      isChar ? h("p", { class: "hint" }, ch.familyName ? `${ch.familyName}｜專長：${topicName(ch.specialty)}` : `專長：${topicName(ch.specialty)}`) : h("p", { class: "hint" }, eq.levels[0].text),
       res.duplicate ? h("p", { class: "note" }, `重複：換成金幣 ${res.coins}`) : h("p", { class: "note" }, isChar ? "可以到「角色隊伍」加入隊伍" : "可以到「角色隊伍」為隊員裝備")
     );
   }

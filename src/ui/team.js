@@ -92,10 +92,14 @@
           "section",
           { class: "panel" },
           h("h2", {}, "角色"),
-          h(
+          P.familyGroups(data.characters).map((g) => [
+            g.characters.length > 1 || g.characters[0].family
+              ? h("h3", { class: "family-title" }, g.name, h("span", { class: "family-count" }, `${g.characters.filter((c) => P.owns(profile, c.id)).length} / ${g.characters.length}`))
+              : null,
+            h(
             "div",
             { class: "char-list" },
-            data.characters.map((c) => {
+            g.characters.map((c) => {
               const inTeam = profile.team.includes(c.id);
               if (!P.owns(profile, c.id)) {
                 return h(
@@ -132,6 +136,7 @@
               );
             })
           ),
+          ]).flat(),
           h("p", { class: "hint" }, `已擁有 ${profile.owned.characters.length} / ${data.characters.length} 個角色。新角色只可在「抽蛋」取得。`)
         )
       )

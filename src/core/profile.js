@@ -160,8 +160,22 @@
     return firstClear ? { exp: r.firstClearExp, coins: r.firstClearCoins } : { exp: r.replayExp, coins: 0 };
   }
 
+  // Groups characters by family (角色品種), keeping workbook order. A character
+  // without family columns forms its own group.
+  function familyGroups(characters) {
+    const groups = [];
+    const byKey = {};
+    for (const c of characters) {
+      const key = c.family || c.id;
+      if (!byKey[key]) groups.push((byKey[key] = { id: key, name: c.familyName || c.name, characters: [] }));
+      byKey[key].characters.push(c);
+    }
+    return groups;
+  }
+
   ITE.profile = {
     PROFILE_RULES,
+    familyGroups,
     STARTER,
     defaultProfile,
     ensureOwned,

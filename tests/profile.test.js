@@ -18,6 +18,16 @@
     assert.equal(data.config.gacha_paid_enabled, 0);
   });
 
+  test("profile: characters group by family in workbook order", () => {
+    const groups = ITE.profile.familyGroups([
+      { id: "A1", name: "甲一", family: "FAM-A", familyName: "甲系列" },
+      { id: "B1", name: "乙一" },
+      { id: "A2", name: "甲二", family: "FAM-A", familyName: "甲系列" },
+    ]);
+    assert.equal(groups.map((g) => g.name).join(","), "甲系列,乙一");
+    assert.equal(groups[0].characters.map((c) => c.id).join(","), "A1,A2");
+  });
+
   test("profile: new player is level 1 with one team slot and one member", () => {
     const p = fresh();
     assert.deepEqual([p.level, p.exp, p.coins, p.gems, p.team.length], [1, 0, 0, 0, 1]);
