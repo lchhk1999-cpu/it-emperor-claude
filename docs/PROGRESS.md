@@ -51,3 +51,17 @@
 - **Verification (actual):** `./scripts/test.sh` → `44 passed, 0 failed, 44 total` + `✓ release bundle contains no dev sample questions`，exit 0。突變測試：移除每日限制 → `42 passed, 2 failed`（測試確實能捕捉），還原後 44 passed。
 - **Not done:** 公會畫面 UI；伺服器判分（Phase 4，需批准）。尚未經 QA 複審（今日 17:08 Routine B）。
 - **Human decisions needed:** `docs/07` 公會「仍待決定」7 項（時限、Boss 血量、Boss 被打倒後處理、人數上限／轉會、真實校名授權、獎勵、防作弊）。
+
+## Run 4 — 2026-10-30（HKT，coordinator，接續 PR #2）
+- **Branch:** `routine/20261030-P3-05`（draft PR #2）
+- **Task:** P3-05 公會畫面（單機示範）
+- **What changed:**
+  - `src/ui/guild.js`（新）：加入／建立公會（暱稱及校名私隱提示）、公會首頁（本週 Boss 血量、公會總傷害、週結倒數、今日挑戰、本週公會排名、成員貢獻、兩步確認離開）、限時副本（倒數計時、答後 0.7 秒顯示對錯、離開即結算）、結算及錯題溫習
+  - `src/core/guildRaid.js`：`weekStart`、`msUntilNextWeek`、`buildRaid`、`demoAttacks`、攻擊 `log`、紀錄包含 `weekKey`
+  - `src/core/save.js`：存檔新增 `guild`（暱稱、公會、自己的攻擊紀錄），損壞即丟棄、舊存檔相容
+  - 主畫面「校際公會」按鈕開放；`index.html` 載入新檔；`style.css` 公會樣式
+- **Verification (actual):**
+  - `./scripts/test.sh` → `50 passed, 0 failed, 50 total` + `✓ release bundle contains no dev sample questions`
+  - 瀏覽器 375×812 實玩：未填暱稱有錯誤提示；暱稱含 `<b>` 以純文字顯示（無注入）；加入虛構公會；對、對、錯、對 → 傷害 160（50+60+0+50）；中途離開即結算並計入（公會 2,410→2,570，Boss 47,430）；今日按鈕轉為「今日已挑戰」；把時鐘撥前 121 秒 → 自動結束並計入；兩步離開公會；空白公會名被拒；建立自己的公會並出現在排名；無橫向捲動；所有按鈕 ≥44px；release 版無題目時顯示「暫時未有可用題目」
+- **Known limits:** 單機示範（其他公會為虛構）；離開再加入可在同日再挑戰（防作弊屬低優先，用戶決定）；挑戰中關閉 App 不會保存該次挑戰。
+- **Next:** QA 複審（Routine B 17:08）；公會數值待用戶決定；多人共享需後端選型（需批准）。

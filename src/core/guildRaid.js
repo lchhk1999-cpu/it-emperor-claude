@@ -95,6 +95,7 @@
       correct: 0,
       answered: 0,
       finished: false,
+      log: [],
     };
   }
 
@@ -110,14 +111,17 @@
     const q = session.deck[session.index];
     const correct = choice === q.answer;
     const combo = correct ? session.combo + 1 : 0;
+    const dealt = correct ? ITE.battle.damageFor(combo) : 0;
+    const lastResult = { questionId: q.question_id, choice, correct, damage: dealt };
     const next = {
       ...session,
       combo,
-      damage: session.damage + (correct ? ITE.battle.damageFor(combo) : 0),
+      damage: session.damage + dealt,
       correct: session.correct + (correct ? 1 : 0),
       answered: session.answered + 1,
       index: session.index + 1,
-      lastResult: { questionId: q.question_id, choice, correct },
+      lastResult,
+      log: (session.log || []).concat([lastResult]),
     };
     if (next.index >= next.deck.length) next.finished = true;
     return next;
@@ -129,8 +133,49 @@
   function recordAttack(raid, session) {
     if (session.weekKey !== raid.weekKey) return raid; // week rolled over mid-attack
     if (raid.attacks.some((a) => a.nickname === session.nickname && a.dayKey === session.dayKey)) return raid;
-    const attack = { nickname: session.nickname, dayKey: session.dayKey, damage: session.damage, correct: session.correct, answered: session.answered };
+    const attack = {
+      nickname: session.nickname,
+      dayKey: session.dayKey,
+      weekKey: session.weekKey,
+      damage: session.damage,
+      correct: session.correct,
+      answered: session.answered,
+    };
     return { ...raid, totalDamage: raid.totalDamage + session.damage, attacks: raid.attacks.concat([attack]) };
+  }
+
+  // Monday 00:00 HKT of the week containing `now`, as ms since epoch.
+  function weekStart(now) {
+    return Date.parse(hktWeekKey(now) + "T00:00:00Z") - HKT_OFFSET_MS;
+  }
+
+  function msUntilNextWeek(now) {
+    return weekStart(now) + 7 * DAY_MS - now;
+  }
+
+  // Rebuilds this week's raid from stored attack records (any order, any week).
+  // Records from other weeks or from later days are ignored.
+  function buildRaid(guildId, now, attackRecords, rules) {
+    const today = hktDayKey(now);
+    return (attackRecords || [])
+      .filter((a) => a && a.dayKey <= today)
+      .reduce((raid, a) => recordAttack(raid, a), createRaid(guildId, now, rules));
+  }
+
+  // The fictitious demo attacks that have "happened" so far this week.
+  function demoAttacks(demo, guildId, now) {
+    const monday = weekStart(now);
+    const weekKey = hktWeekKey(now);
+    return demo.sampleAttacks
+      .filter(([gid]) => gid === guildId)
+      .map(([, nickname, dayOffset, damage, correct, answered]) => ({
+        nickname,
+        dayKey: hktDayKey(monday + dayOffset * DAY_MS),
+        weekKey,
+        damage,
+        correct,
+        answered,
+      }));
   }
 
   // Weekly standings: total damage desc; ties -> more attackers, then guild id.
@@ -161,6 +206,10 @@
     secondsLeft,
     answerAttack,
     recordAttack,
+    weekStart,
+    msUntilNextWeek,
+    buildRaid,
+    demoAttacks,
     weeklyStandings,
   };
 })(globalThis);

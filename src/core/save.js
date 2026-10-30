@@ -7,7 +7,7 @@
   const SAVE_VERSION = 1;
 
   function defaultSave() {
-    return { version: SAVE_VERSION, stages: {}, activeBattle: null };
+    return { version: SAVE_VERSION, stages: {}, activeBattle: null, guild: null };
   }
 
   function isValidSave(data) {
@@ -49,13 +49,36 @@
     };
   }
 
+  const isText = (v) => typeof v === "string" && v.trim() !== "";
+
+  // { nickname, guild: { id, name, founder, members }, myAttacks: [attack records] }
+  function isValidGuildState(g) {
+    return (
+      !!g &&
+      typeof g === "object" &&
+      isText(g.nickname) &&
+      !!g.guild && isText(g.guild.id) && isText(g.guild.name) &&
+      Array.isArray(g.guild.members) && g.guild.members.every(isText) && g.guild.members.includes(g.nickname) &&
+      Array.isArray(g.myAttacks) &&
+      g.myAttacks.every((a) => a && a.nickname === g.nickname && isText(a.dayKey) && isText(a.weekKey) && isNum(a.damage) && a.damage >= 0)
+    );
+  }
+
   // Repairs the parts of an otherwise valid save that can be repaired.
+  // Saves from before the guild feature have no `guild` field; that is not damage.
   function normalize(data) {
     const stages = {};
     for (const [id, rec] of Object.entries(data.stages)) stages[id] = sanitizeStageRecord(rec);
     const activeBattle = isValidBattle(data.activeBattle) ? data.activeBattle : null;
-    const repaired = activeBattle !== data.activeBattle || JSON.stringify(stages) !== JSON.stringify(data.stages);
-    return { save: { version: SAVE_VERSION, stages, activeBattle }, repaired };
+    const rawGuild = data.guild === undefined ? null : data.guild;
+    const guild = isValidGuildState(rawGuild) ? rawGuild : null;
+    const repaired =
+      activeBattle !== data.activeBattle || guild !== rawGuild || JSON.stringify(stages) !== JSON.stringify(data.stages);
+    return { save: { version: SAVE_VERSION, stages, activeBattle, guild }, repaired };
+  }
+
+  function withGuild(save, guildState) {
+    return { ...save, guild: guildState };
   }
 
   function createMemoryStorage() {
@@ -119,5 +142,5 @@
     return { ...save, stages, activeBattle: null };
   }
 
-  ITE.save = { SAVE_KEY, SAVE_VERSION, defaultSave, isValidBattle, createMemoryStorage, load, persist, withActiveBattle, recordStageResult };
+  ITE.save = { SAVE_KEY, SAVE_VERSION, defaultSave, isValidBattle, isValidGuildState, createMemoryStorage, load, persist, withActiveBattle, withGuild, recordStageResult };
 })(globalThis);

@@ -136,4 +136,41 @@
     const rows = R.weeklyStandings([mk("b", [["x", 100]]), mk("a", [["x", 100]]), mk("c", [["x", 50], ["y", 50]])]);
     assert.deepEqual(rows.map((r) => r.guildId), ["c", "a", "b"]);
   });
+
+  test("guildRaid: week start and time until weekly settlement", () => {
+    assert.equal(R.weekStart(WED), Date.UTC(2026, 9, 25, 16, 0, 0)); // Mon 26 Oct 00:00 HKT
+    assert.equal(R.msUntilNextWeek(WED), 4 * DAY + 14 * HOUR); // Wed 10:00 -> Mon 00:00
+  });
+
+  test("guildRaid: buildRaid keeps only this week's records up to today, once per day", () => {
+    const rec = (nickname, dayKey, weekKey, damage) => ({ nickname, dayKey, weekKey, damage, correct: 1, answered: 1 });
+    const raid = R.buildRaid("g1", WED, [
+      rec("甲", "2026-10-26", "2026-10-26", 100),
+      rec("甲", "2026-10-26", "2026-10-26", 999), // duplicate day: ignored
+      rec("乙", "2026-10-28", "2026-10-26", 50),
+      rec("乙", "2026-10-29", "2026-10-26", 70), // tomorrow: ignored
+      rec("丙", "2026-10-20", "2026-10-19", 500), // last week: ignored
+    ]);
+    assert.equal(raid.totalDamage, 150);
+    assert.equal(raid.attacks.length, 2);
+  });
+
+  test("guildRaid: demo attacks appear day by day through the week", () => {
+    const monday = R.weekStart(WED);
+    const mondayIds = R.buildRaid("demo-moon", monday + HOUR, R.demoAttacks(ITE.demoGuilds, "demo-moon", monday + HOUR));
+    const wedIds = R.buildRaid("demo-moon", WED, R.demoAttacks(ITE.demoGuilds, "demo-moon", WED));
+    assert.equal(mondayIds.totalDamage, 620 + 480);
+    assert.equal(wedIds.totalDamage, 2410);
+    assert.ok(R.demoAttacks(ITE.demoGuilds, "demo-moon", WED).every((a) => a.weekKey === "2026-10-26"));
+  });
+
+  test("guildRaid: attack log keeps every answer for the review screen", () => {
+    let s = R.startAttack(R.createRaid("g1", WED, rules), guild(), "阿一", pool, rng(), WED, rules);
+    s = R.answerAttack(s, s.deck[0].answer, WED);
+    s = R.answerAttack(s, null, WED);
+    assert.equal(s.log.length, 2);
+    assert.deepEqual(s.log.map((l) => l.correct), [true, false]);
+    assert.equal(s.log[0].damage, 50);
+    assert.equal(s.log[1].questionId, s.deck[1].question_id);
+  });
 })();

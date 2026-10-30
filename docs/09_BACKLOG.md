@@ -19,7 +19,7 @@
 | P2-02 | `Questions` 匯入器 + 報告 | question-import-engineer | P2-01、Node/Python | 成功／拒絕／重複／Topic 數／checksum 報告；公式保留文字 | TODO（驗證器 core 已完成） |
 | P2-03 | 發佈模式只載 approved | question-import-engineer | — | 測試：release 模式過濾非 approved | DONE（core） |
 | P2-04 | 抽題覆蓋率、防重複 | gameplay-engineer | — | 測試：無重複、可按 Topic 篩選 | DONE（core 基本版） |
-| P3-05 | 公會副本 demo（玩家自建公會、共享 Boss、每日 1 次限時作答、週結攻擊總量） | guild-systems-designer | P1 完成 | 規則依 docs/07「用戶確認的公會規則」；只用虛構資料；數值標 PLACEHOLDER | DOING（2026-10-30：raid core + 虛構資料 + 10 項測試完成；UI 畫面待做） |
+| P3-05 | 公會副本 demo（玩家自建公會、共享 Boss、每日 1 次限時作答、週結攻擊總量） | guild-systems-designer | P1 完成 | 規則依 docs/07「用戶確認的公會規則」；只用虛構資料；數值標 PLACEHOLDER | DONE（單機示範，2026-10-30）：加入／建立公會、公會首頁、限時副本、結算；多人共享需後端（P4，待批准） |
 
 ## 優先次序（下一步）
 1. 用戶：安裝 Command Line Tools（解鎖 git、Python）→ P0-02a。

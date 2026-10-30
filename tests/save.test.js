@@ -88,4 +88,36 @@
     assert.deepEqual(save.stages["stage-1"], { cleared: true, bestAccuracy: 80, plays: 2 });
     assert.equal(save.activeBattle, null);
   });
+
+  test("save: guild state round-trips; old saves without guild load as ok", () => {
+    const store = S.createMemoryStorage();
+    const gs = { nickname: "阿一", guild: { id: "g1", name: "虛構學會", founder: "阿一", members: ["阿一"] }, myAttacks: [{ nickname: "阿一", dayKey: "2026-10-28", weekKey: "2026-10-26", damage: 160, correct: 3, answered: 4 }] };
+    S.persist(store, S.withGuild(S.defaultSave(), gs));
+    const r = S.load(store);
+    assert.equal(r.status, "ok");
+    assert.deepEqual(r.save.guild, gs);
+    store.setItem(S.SAVE_KEY, JSON.stringify({ version: 1, stages: {}, activeBattle: null }));
+    const old = S.load(store);
+    assert.equal(old.status, "ok");
+    assert.equal(old.save.guild, null);
+  });
+
+  test("save: tampered guild state is dropped, rest of save kept", () => {
+    const store = S.createMemoryStorage();
+    const good = { nickname: "阿一", guild: { id: "g1", name: "虛構學會", founder: "阿一", members: ["阿一"] }, myAttacks: [] };
+    const bad = [
+      { ...good, nickname: "" },
+      { ...good, guild: { ...good.guild, members: ["別人"] } },
+      { ...good, myAttacks: [{ nickname: "阿一", dayKey: "d", weekKey: "w", damage: -5 }] },
+      { ...good, myAttacks: [{ nickname: "別人", dayKey: "d", weekKey: "w", damage: 5 }] },
+      "guild",
+    ];
+    for (const guild of bad) {
+      store.setItem(S.SAVE_KEY, JSON.stringify({ version: 1, stages: { s1: { cleared: true, bestAccuracy: 50, plays: 1 } }, activeBattle: null, guild }));
+      const r = S.load(store);
+      assert.equal(r.status, "repaired");
+      assert.equal(r.save.guild, null);
+      assert.equal(r.save.stages.s1.bestAccuracy, 50);
+    }
+  });
 })();
