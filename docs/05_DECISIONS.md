@@ -10,7 +10,7 @@
 | 技術棧 | CONFIRMED 2026-10-30 | Web-first（HTML/JS），日後 Capacitor 包裝 iOS；見 `docs/adr/ADR-0001-tech-stack.md` |
 | 免費抽取池／是否付費 | OPEN_DECISION | 工程預設無真金錢抽蛋 |
 | 公開排行榜、帳戶及對戰 | OPEN_DECISION | 涉及學生資料、安全、作弊及成本 |
-| 自動例行開發啟用狀態 | NOT CONFIGURED | 必須在 Claude 帳戶實際設定與驗證 |
+| 自動例行開發啟用狀態 | ENABLED 2026-10-30 | Routine A/B/C 已建立；見 `docs/10_AGENCY_AND_SCHEDULE.md` |
 | 遊戲美術素材 | NOT PROVIDED | 先以明確標註的 placeholder 開發 |
 | Excel 題庫最新版本 | NOT INCLUDED | 由 ChatGPT 獨立交付並審核 |
 

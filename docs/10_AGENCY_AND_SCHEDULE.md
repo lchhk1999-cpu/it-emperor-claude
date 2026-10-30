@@ -17,15 +17,22 @@
 2. Reviewer：qa-security-reviewer 審查，BLOCKER 必須清零。
 3. Test-verifier：Coordinator 親自重跑測試並在 PROGRESS 記錄**真實輸出**。
 
-## 每日雲端排程 — 啟用前清單（目前狀態：NOT CONFIGURED）
-雲端 Routine 只能操作 GitHub 上的 repo，所以必須依序完成：
+## 每日雲端排程 — 狀態：已建立並啟用（2026-10-30），試跑中
+| Routine | ID | Cron (UTC) | 香港時間 | 模型 |
+|---|---|---|---|---|
+| A 每日開發 | `trig_015JRd1k1BsGiVbG3srjT6RB` | `0 1 * * 1-5` | 平日 09:00 | claude-sonnet-5-5 |
+| B 每日 QA | `trig_011mjbXSaPeForD8h18mThmL` | `0 9 * * 1-5` | 平日 17:00 | claude-sonnet-5-5 |
+| C 每週簡報 | `trig_017QNYYBkJZNi38JtNVTf4XM` | `0 10 * * 5` | 週五 18:00 | claude-sonnet-5-5 |
+
+管理／停用：https://claude.ai/code/routines　環境：Default（anthropic_cloud）
+在 `main` 合併原型前，Routine A／C 以 `feat/p1-boss-battle-prototype` 為基底並以它為 PR 目標。
+
 - [x] 1. 安裝 Apple Command Line Tools（免費，提供 git）
 - [x] 2. 建立本機 git repo、初始 commit
-- [ ] 3. 用戶在 GitHub 建立 **Private** repo（例如 `it-emperor-claude`），並授權 Claude 連接
-- [ ] 4. push `main` 與 feature branch
-- [ ] 5. 用 `/schedule` 建立 `docs/03_AUTOMATION.md` 的 Routine A（開發，平日 09:00 HKT）、B（QA，17:00）、C（週報，週五 18:00）
-- [ ] 6. 手動試跑一次，確認能讀 repo、開 draft PR、更新 PROGRESS
-- [ ] 7. 核對 Routine 顯示「已啟用」及下次執行時間，才可記錄為已啟用
-- [ ] 8. 限制：每回合 1 個任務、失敗最多重試 1 次、不得 merge main／部署／付費
-
+- [x] 3. 用戶建立 Private repo `lchhk1999-cpu/it-emperor-claude`，並把 GitHub 連接到 Claude
+- [x] 4. push `main` 與 feature branch
+- [x] 5. 用 RemoteTrigger 建立 Routine A／B／C
+- [ ] 6. 手動試跑 Routine A（session `cse_01WTembLaC6w4VAHqfeCum1C`），確認能讀 repo、用 Node 跑測試、開 draft PR、更新 PROGRESS
+- [x] 7. 三個 Routine 均顯示 enabled 及下次執行時間
+- [x] 8. 限制寫入 prompt：每回合 1 個任務、失敗最多重試 1 次、不得 merge／部署／付費
 > 注意：雲端環境同樣沒有 Xcode；iOS 模擬器測試需在本機或另行設定 macOS CI（可能涉及費用，需批准）。
