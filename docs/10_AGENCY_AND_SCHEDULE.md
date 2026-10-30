@@ -17,7 +17,7 @@
 2. Reviewer：qa-security-reviewer 審查，BLOCKER 必須清零。
 3. Test-verifier：Coordinator 親自重跑測試並在 PROGRESS 記錄**真實輸出**。
 
-## 每日雲端排程 — 狀態：已建立並啟用（2026-10-30），試跑中
+## 每日雲端排程 — 狀態：已啟用並驗證（2026-10-30）
 | Routine | ID | Cron (UTC) | 香港時間 | 模型 |
 |---|---|---|---|---|
 | A 每日開發 | `trig_015JRd1k1BsGiVbG3srjT6RB` | `0 1 * * 1-5` | 平日 09:00 | claude-sonnet-5-5 |
@@ -32,7 +32,7 @@
 - [x] 3. 用戶建立 Private repo `lchhk1999-cpu/it-emperor-claude`，並把 GitHub 連接到 Claude
 - [x] 4. push `main` 與 feature branch
 - [x] 5. 用 RemoteTrigger 建立 Routine A／B／C
-- [ ] 6. 手動試跑 Routine A（session `cse_01WTembLaC6w4VAHqfeCum1C`），確認能讀 repo、用 Node 跑測試、開 draft PR、更新 PROGRESS
+- [x] 6. 手動試跑 Routine A（session `cse_01WTembLaC6w4VAHqfeCum1C`，78 秒）：讀 repo ✓、Node 跑測試 40 passed ✓、開 draft PR #2 ✓、更新 PROGRESS ✓；本機以 jsc 重跑該分支亦 40 passed
 - [x] 7. 三個 Routine 均顯示 enabled 及下次執行時間
 - [x] 8. 限制寫入 prompt：每回合 1 個任務、失敗最多重試 1 次、不得 merge／部署／付費
 > 注意：雲端環境同樣沒有 Xcode；iOS 模擬器測試需在本機或另行設定 macOS CI（可能涉及費用，需批准）。
