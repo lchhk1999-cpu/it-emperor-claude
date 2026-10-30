@@ -169,3 +169,12 @@
 - **Verification (actual):** `./scripts/test.sh` → JS `76 passed, 0 failed` + Python `Ran 18 tests OK` + `✓ release bundle: … all 382 questions are approved`；瀏覽器 375×812：由 A-01 順序打到 A-09，全部 ★★★、每關解鎖下一關、A-09 後顯示「B-01 即將開放」、地圖 27 星、無橫向捲動；A-09 長 SQL 選項分兩行顯示、無超出畫面
 - **正式版:** 不受影響，故事題目仍待教師審核（0 題 approved）
 - **Next:** 世界 B（B-01–B-08）
+
+## Run 11 — 2026-10-30（HKT，coordinator）
+- **Branch:** `feat/story-world-b`（基於 `main`）
+- **Task:** P3-07：開放故事模式世界 B（硬件機械城）B-01–B-08（開發版）
+- **What changed:** `STORY_RULES.enabledLevels` 加入 B-01–B-08；測試改為檢查世界 A、B 全部可玩，以及 A-09 過關後開啟世界 B
+- **Content check（非正式審核）:** 逐題閱讀 24 題，答案與解說一致，未發現明顯錯誤。正式正確性仍待教師審核
+- **Verification (actual):** `./scripts/test.sh` → JS `76 passed, 0 failed` + Python `Ran 18 tests OK` + `✓ release bundle: … all 382 questions are approved`；瀏覽器 375×812：由 A-01 順序打到 B-08 共 17 關，全部 ★★★、A-09 解鎖 B-01、B-08 後顯示「C-01 即將開放」、地圖 51 星、無橫向捲動
+- **正式版:** 不受影響（故事題目 0 題 approved）
+- **Next:** 世界 C（C-01–C-10）

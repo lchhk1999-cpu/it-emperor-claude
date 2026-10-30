@@ -180,9 +180,12 @@
     if (after) assert.ok(St.isUnlocked(levels, progress, after.id) && !after.playable, "next level is unlocked but still coming soon");
   });
 
-  test("story: world A is fully open (A-01..A-09)", () => {
-    const worldA = devLevels().filter((l) => l.world_id === "A");
-    assert.equal(worldA.length, 9);
-    assert.ok(worldA.every((l) => l.playable));
+  test("story: worlds A and B are fully open (A-01..A-09, B-01..B-08)", () => {
+    for (const [world, count] of [["A", 9], ["B", 8]]) {
+      const levels = devLevels().filter((l) => l.world_id === world);
+      assert.equal(levels.length, count, `world ${world} level count`);
+      assert.ok(levels.every((l) => l.playable), `world ${world} playable`);
+    }
+    assert.ok(St.isUnlocked(devLevels(), { levels: { "A-09": { cleared: true, stars: 1, plays: 1 } } }, "B-01"), "clearing A-09 opens world B");
   });
 })();
