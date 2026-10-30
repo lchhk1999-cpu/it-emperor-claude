@@ -43,6 +43,7 @@
       w.levels.push(l);
     }
     const totalStars = all.reduce((s, l) => s + St.levelProgress(prog, l.id).stars, 0);
+    const allCleared = all.every((l) => St.levelProgress(prog, l.id).cleared);
 
     app.render(
       h(
@@ -50,6 +51,9 @@
         { class: "screen story" },
         topbar("故事模式", app.showHome, h("span", { class: "chip chip-stars", "aria-label": `已取得 ${totalStars} 粒星` }, `★ ${totalStars}`)),
         app.buildMode === "dev" ? h("p", { class: "hint center" }, "開發版：題目狀態為 review（未經教師核准），只作測試。") : null,
+        allCleared
+          ? h("p", { class: "all-clear" }, `全部 ${all.length} 關完成！星數 ${totalStars} / ${all.length * 3}`)
+          : null,
         worlds.map((w) =>
           h(
             "section",
@@ -233,6 +237,15 @@
         ),
         nxt && canNext ? h("p", { class: "note" }, `已解鎖 ${nxt.id} ${nxt.name}！`) : null,
         nxt && !nxt.enabled ? h("p", { class: "note" }, `下一關 ${nxt.id} 即將開放。`) : null,
+        !nxt
+          ? h(
+              "p",
+              { class: "all-clear" },
+              all.every((l) => St.levelProgress(progress(), l.id).cleared)
+                ? `恭喜！你已完成全部 ${all.length} 關故事模式，成為 IT 帝！`
+                : "這是最後一關！地圖上還有未完成的關卡。"
+            )
+          : null,
         wrongQs.length
           ? h(
               "section",
