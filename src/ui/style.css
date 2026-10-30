@@ -1,21 +1,25 @@
-/* PLACEHOLDER pastel chibi style — pending art bible approval. */
+/* Art Bible palette (docs/06_ART_DIRECTION.md, approved option A: Q-version 2.5 heads).
+   Sprites are still PLACEHOLDER until final illustrations. */
 :root {
-  --bg: #fdf6ec;
+  --bg: #fbf6ee;        /* 米白 */
   --card: #ffffff;
-  --ink: #4a3f3a;
-  --muted: #8a7f78;
+  --ink: #3b3330;       /* 墨線 */
+  --muted: #6f6560;     /* ≥4.5:1 on white and 米白 */
   --line: #eadfd3;
-  --shadow: rgba(74, 63, 58, 0.12);
-  --primary: #f2a7a0;
-  --primary-ink: #5a2e2a;
-  --blue: #a8c8e8;
-  --mint: #b9e2c8;
-  --lav: #cdbfe6;
-  --yellow: #f8e2a0;
-  --ok: #7cc49a;
-  --ng: #e88c8c;
-  --boss-hp: #c49bd9;
-  --party-hp: #8ccfa6;
+  --shadow: rgba(59, 51, 48, 0.12);
+  --peach: #f6e3d6;     /* 桃膚 */
+  --primary: #f4d36b;   /* 帝黃 main buttons */
+  --primary-ink: #3b3330;
+  --blue: #8fc3e8;      /* 網絡藍 */
+  --sky: #e6eff8;
+  --mint: #9fd4b4;      /* 薄荷 correct / our HP */
+  --lav: #c4b0e0;       /* Bug 紫 enemies */
+  --yellow: #f4d36b;
+  --ok: #9fd4b4;
+  --ng: #ee8b7a;        /* 珊瑚 wrong / damage */
+  --dmg: #d2553f;
+  --boss-hp: #c4b0e0;
+  --party-hp: #9fd4b4;
   font-family: -apple-system, "PingFang HK", "PingFang TC", "Noto Sans TC", "Heiti TC", sans-serif;
 }
 
@@ -49,7 +53,7 @@ button { font: inherit; color: inherit; }
   width: 100%;
   min-height: 52px;
   padding: 12px 16px;
-  border: 2.5px solid var(--ink);
+  border: 3px solid var(--ink);
   border-radius: 18px;
   background: var(--card);
   font-size: 17px;
@@ -59,8 +63,8 @@ button { font: inherit; color: inherit; }
   transition: transform 0.06s, box-shadow 0.06s;
 }
 .btn:active:not(:disabled) { transform: translateY(3px); box-shadow: 0 1px 0 var(--ink); }
-.btn:disabled { opacity: 0.45; cursor: not-allowed; box-shadow: none; border-style: dashed; }
-.btn-primary { background: var(--primary); color: var(--primary-ink); }
+.btn:disabled { color: var(--muted); background: #f1ebe3; cursor: not-allowed; box-shadow: none; border-style: dashed; border-color: #8a7f78; }
+.btn-primary { background: var(--primary); color: var(--primary-ink); font-weight: 900; }
 .btn:focus-visible, .opt:focus-visible, .stage-card:focus-visible, .btn-back:focus-visible { outline: 3px solid #6aa0d8; outline-offset: 3px; }
 
 .menu { display: grid; gap: 14px; margin-top: 20px; }
@@ -118,7 +122,7 @@ button { font: inherit; color: inherit; }
 .arena {
   display: grid; grid-template-columns: 1fr 1fr; gap: 8px; align-items: end;
   padding: 12px; border-radius: 22px; border: 2.5px solid var(--ink);
-  background: linear-gradient(#e7f1fa, #f6efe4 70%);
+  background: linear-gradient(var(--sky) 64%, var(--peach) 64%);
 }
 .fighter { position: relative; }
 .sprite-wrap { width: 100%; max-width: 150px; margin: 0 auto; }
@@ -136,11 +140,11 @@ button { font: inherit; color: inherit; }
 
 .dmg-pop {
   position: absolute; top: 30%; left: 50%; transform: translateX(-50%);
-  font-size: 28px; font-weight: 900; color: #d9534f;
+  font-size: 28px; font-weight: 900; color: var(--dmg);
   -webkit-text-stroke: 1.5px #fff; paint-order: stroke fill;
   animation: rise 0.9s ease-out forwards; pointer-events: none;
 }
-.dmg-hero { color: #c0392b; }
+.dmg-hero { color: var(--dmg); }
 
 .question-card {
   margin-top: 14px; padding: 14px; border-radius: 20px;
@@ -165,9 +169,9 @@ button { font: inherit; color: inherit; }
   border-radius: 10px; background: var(--blue); border: 2px solid var(--ink); font-weight: 800;
 }
 .opt-text { flex: 1; word-break: break-word; font-family: inherit; }
-.opt-correct { background: #dcf3e4; }
+.opt-correct { background: #ddf1e4; }
 .opt-correct .opt-letter { background: var(--ok); }
-.opt-wrong { background: #fbe1e1; }
+.opt-wrong { background: #fde4df; }
 .opt-wrong .opt-letter { background: var(--ng); }
 .opt-dim { opacity: 0.5; }
 
@@ -227,7 +231,7 @@ button { font: inherit; color: inherit; }
 .input:focus-visible { outline: 3px solid #6aa0d8; outline-offset: 2px; }
 .panel .btn { margin-top: 12px; }
 .hint { font-size: 13px; color: var(--muted); margin: 6px 0 0; line-height: 1.5; }
-.form-error { color: #c0392b; font-weight: 700; text-align: center; min-height: 1.2em; }
+.form-error { color: #b23a26; font-weight: 700; text-align: center; min-height: 1.2em; }
 .guild-row { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-top: 1.5px dashed var(--line); }
 .guild-row:first-of-type { border-top: none; }
 .guild-row-info { flex: 1; min-width: 0; }
@@ -241,10 +245,10 @@ button { font: inherit; color: inherit; }
 
 .raid-boss {
   margin: 8px 0 14px; padding: 14px; text-align: center; border-radius: 22px; border: 2.5px solid var(--ink);
-  background: linear-gradient(#efe6fa, #f6efe4 75%);
+  background: #efe8f7;
 }
 .raid-boss-name { font-weight: 800; margin-bottom: 4px; }
-.raid-sprite { width: 160px; margin: 0 auto 6px; filter: hue-rotate(-40deg) saturate(1.2); }
+.raid-sprite { width: 160px; margin: 0 auto 6px; }
 .raid-sprite.small { width: 84px; margin: 0; flex: none; }
 .raid-stats { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-top: 8px; font-size: 13px; font-weight: 700; }
 
@@ -262,10 +266,10 @@ button { font: inherit; color: inherit; }
 
 .raid-hud {
   position: relative; display: flex; align-items: center; gap: 12px; padding: 10px 12px;
-  border-radius: 20px; border: 2.5px solid var(--ink); background: linear-gradient(#efe6fa, #f6efe4);
+  border-radius: 20px; border: 2.5px solid var(--ink); background: #efe8f7;
 }
 .raid-hud-info { flex: 1; }
 .raid-dmg-total { font-size: 20px; font-weight: 900; font-variant-numeric: tabular-nums; }
 .raid-hud .dmg-pop { top: 10%; left: 42px; }
 .chip-timer { font-size: 15px; font-weight: 800; background: var(--yellow); font-variant-numeric: tabular-nums; }
-.chip-urgent { background: var(--ng); color: #fff; }
+.chip-urgent { background: var(--ng); color: var(--ink); }

@@ -76,3 +76,14 @@
 - **Verification (actual):** `./scripts/test.sh` → JS `38 passed, 0 failed` + Python `Ran 10 tests ... OK` + `✓ release bundle contains no dev samples and no non-approved questions`；反向確認：dev 打包含 368 條 review（檢查能捕捉）；瀏覽器：dev 版顯示真題、Topic 中文名、review 標籤、答錯提示；release 版只有 14 題 approved、無開發標示、可完整打勝一局
 - **Import result:** 414 → 382 匯入、32 拒絕（topic_id 不在 Topics 表：ALGORITHM 13、NETWORK 12、DATA 5、INFO 1、NETDEVICE 1）；8 個公式儲存格已保留文字；答案 D 只佔 3%
 - **Human decisions needed:** 交 ChatGPT 修正 32 題 topic_id；教師審核把 review 改 approved（正式版現只有 14 題）；是否在遊戲中打亂選項次序；故事模式題庫（129 題）是否接入
+
+## Run 6 — 2026-10-30（HKT，coordinator）
+- **Branch:** `feat/p1-07-art-style`（合併了 PR #2 公會及 PR #3 題庫，再套用美術；PR #2、#3 合併後此 PR 只剩美術改動）
+- **Task:** P1-07 套用 Art Bible（用戶已選 Q 版 2.5 頭身）
+- **What changed:**
+  - `src/ui/sprites.js`：重畫 Q 版主角（紫色衛衣、圓眼鏡、小皇冠、手提電腦）及 Bug 王、新增公會 Boss；表情函數：主角 idle／happy／speechless／surprised，Boss idle／hurt／smug
+  - 戰鬥：答對主角笑、Boss ✕ 眼；答錯主角無語（藍色直線＋汗滴）、Boss 得意；結算勝利主角笑、失敗 Boss 得意
+  - `src/ui/style.css`：Art Bible 8 色 token；主按鈕改帝黃；停用按鈕對比加強；戰鬥背景改天藍＋桃膚平塗；公會畫面取消漸變及色相濾鏡；倒數紅色狀態改深色字（對比度）
+  - 合併衝突（docs 表格、進度、測試清單、樣式表）均為雙方新增內容，全部保留
+- **Verification (actual):** `./scripts/test.sh` → `54 passed, 0 failed` + Python `Ran 10 tests OK` + `✓ release bundle: no dev samples; all 14 questions are approved`；瀏覽器 375×812：主畫面、選關、戰鬥（答對／答錯表情）、公會首頁；無橫向捲動；所有按鈕 ≥44px
+- **Still PLACEHOLDER:** 角色仍為程式繪製 SVG，正式插畫待製作

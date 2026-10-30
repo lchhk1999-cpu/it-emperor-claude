@@ -86,7 +86,7 @@
         { class: "screen home" },
         h("div", { class: "logo" }, h("span", { class: "logo-it" }, "IT"), h("span", { class: "logo-emp" }, "帝")),
         h("p", { class: "tagline" }, "答啱 ICT 題，打倒 Bug 王！"),
-        h("div", { class: "hero-stage", html: sprites.hero }),
+        h("div", { class: "hero-stage", html: sprites.hero("idle") }),
         h(
           "div",
           { class: "menu" },
@@ -117,7 +117,7 @@
           return h(
             "button",
             { class: "stage-card", onclick: () => startBattle(stage) },
-            h("div", { class: "stage-boss", html: sprites.bugKing }),
+            h("div", { class: "stage-boss", html: sprites.bugKing("smug") }),
             h(
               "div",
               { class: "stage-info" },
@@ -238,13 +238,13 @@
             "div",
             { class: "fighter boss" },
             bar(s.boss.name, s.boss.hp, s.boss.maxHp, "boss"),
-            h("div", { class: `sprite-wrap ${bossHit ? "shake" : ""}`, html: root.ITE.sprites.bugKing }),
+            h("div", { class: `sprite-wrap ${bossHit ? "shake" : ""}`, html: sprites.bugKing(bossHit ? "hurt" : heroHit ? "smug" : "idle") }),
             bossHit ? h("div", { class: "dmg-pop" }, `-${r.damage}`) : null
           ),
           h(
             "div",
             { class: "fighter hero" },
-            h("div", { class: `sprite-wrap ${heroHit ? "shake" : ""}`, html: root.ITE.sprites.hero }),
+            h("div", { class: `sprite-wrap ${heroHit ? "shake" : ""}`, html: sprites.hero(heroHit ? "speechless" : bossHit ? "happy" : "idle") }),
             heroHit ? h("div", { class: "dmg-pop dmg-hero" }, `-${r.taken}`) : null,
             bar("我的隊伍", s.party.hp, s.party.maxHp, "party")
           )
@@ -290,7 +290,7 @@
         "main",
         { class: "screen result" },
         h("h1", { class: won ? "win" : "lose" }, won ? "勝利！" : "挑戰失敗"),
-        h("div", { class: "result-sprite", html: won ? root.ITE.sprites.hero : root.ITE.sprites.bugKing }),
+        h("div", { class: "result-sprite", html: won ? sprites.hero("happy") : sprites.bugKing("smug") }),
         h(
           "dl",
           { class: "stats" },
