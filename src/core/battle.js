@@ -17,7 +17,8 @@
   // team (optional): character snapshots from ITE.profile.teamSnapshot. With a
   // team, party HP is the members' average HP and damage scales with their
   // average attack plus the best specialty bonus for the question's topic.
-  function createBattle(stage, questions, rng, team) {
+  // loadout (optional): equipment from ITE.equipment.battleLoadout.
+  function createBattle(stage, questions, rng, team, loadout) {
     if (!questions.length) throw new Error("no questions available for this stage");
     const deck = ITE.questions
       .drawQuestions(questions, stage.questionCount, rng, stage.topicIds)
@@ -32,6 +33,10 @@
         return { hp, maxHp: hp };
       })(),
       team: team && team.length ? team : [],
+      loadout: loadout || [],
+      skills: {},
+      hidden: {},
+      armedBonus: 0,
       deck,
       index: 0,
       combo: 0,
@@ -61,7 +66,10 @@
     if (correct && team.length) {
       damage = Math.round((damage * ITE.profile.teamStats(team).attack) / 100 * (1 + (bonus ? bonus.bonus : 0)));
     }
-    const taken = correct ? 0 : state.boss.attack;
+    // 電腦 bonus is consumed by this answer and lands only if it is correct.
+    const equipBonus = correct ? state.armedBonus || 0 : 0;
+    damage += equipBonus;
+    const taken = correct ? 0 : ITE.equipment ? ITE.equipment.damageTaken(state, state.boss.attack) : state.boss.attack;
     const boss = { ...state.boss, hp: Math.max(0, state.boss.hp - damage) };
     const party = { ...state.party, hp: Math.max(0, state.party.hp - taken) };
 
@@ -70,7 +78,7 @@
     else if (party.hp === 0) outcome = "lost";
     else if (state.index + 1 >= state.deck.length) outcome = "lost"; // ran out of questions
 
-    const lastResult = { questionId: q.question_id, choice, correct, damage, taken, combo, bonus };
+    const lastResult = { questionId: q.question_id, choice, correct, damage, taken, combo, bonus, equipBonus };
     return {
       ...state,
       phase: "feedback",
@@ -79,6 +87,7 @@
       combo,
       outcome,
       lastResult,
+      armedBonus: 0,
       log: state.log.concat([lastResult]),
     };
   }

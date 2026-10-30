@@ -31,6 +31,15 @@
     const toggle = (id) => {
       const r = P.toggleMember(app.getSave().profile, id, data);
       if (r.error) return show(ERRORS[r.error] || "未能更改隊伍。");
+      // Equipment follows the team: items of a removed member are returned.
+      const profile = { ...r.profile, equipment: root.ITE.equipment.cleanEquipment(r.profile.equipment || {}, r.profile.team, data) };
+      app.setSave({ ...app.getSave(), profile });
+      show();
+    };
+
+    const equip = (characterId, equipmentId) => {
+      const r = root.ITE.equipment.assign(app.getSave().profile, characterId, equipmentId || null, data);
+      if (r.error) return show("未能更換裝備。");
       app.setSave({ ...app.getSave(), profile: r.profile });
       show();
     };
@@ -77,6 +86,7 @@
           h("p", { class: "hint" }, "隊伍只用於「DSE 題庫挑戰」；故事模式及校際公會不受影響。")
         ),
         message ? h("p", { class: "form-error", role: "alert" }, message) : null,
+        equipmentPanel(profile, team, equip),
         h(
           "section",
           { class: "panel" },
@@ -109,6 +119,55 @@
           ),
           h("p", { class: "hint" }, "PROTOTYPE：角色獲得方式（抽蛋／過關）未定，開發版暫時全部可用。")
         )
+      )
+    );
+  }
+
+  const EFFECT_TEXT = (e) => e.levels[0].text;
+
+  // Each team member holds one item (more slots need evolution, not built yet).
+  function equipmentPanel(profile, team, equip) {
+    const map = profile.equipment || {};
+    const usable = data.equipment.filter((e) => e.supported);
+    const holderOf = (eid) => team.find((c) => map[c.id] === eid);
+    return h(
+      "section",
+      { class: "panel" },
+      h("h2", {}, "裝備"),
+      h("p", { class: "hint" }, "每位隊員可裝備 1 件（進化後可增至 3 件，未開放）。裝備只用於「DSE 題庫挑戰」。"),
+      team.map((c) => {
+        const select = h(
+          "select",
+          { class: "input equip-select", id: `eq-${c.id}`, "aria-label": `${c.name} 的裝備` },
+          h("option", { value: "" }, "（不裝備）"),
+          usable.map((e) => {
+            const holder = holderOf(e.id);
+            const label = holder && holder.id !== c.id ? `${e.name}（由 ${holder.name} 使用中）` : e.name;
+            const opt = h("option", { value: e.id }, label);
+            if (map[c.id] === e.id) opt.selected = true;
+            return opt;
+          })
+        );
+        select.addEventListener("change", () => equip(c.id, select.value));
+        const current = map[c.id] && data.equipment.find((e) => e.id === map[c.id]);
+        return h(
+          "div",
+          { class: "equip-row" },
+          h("span", { class: "equip-sprite", html: sprites.character(c.id, "idle") }),
+          h(
+            "div",
+            { class: "equip-info" },
+            h("label", { class: "label", for: `eq-${c.id}` }, c.name),
+            select,
+            h("span", { class: "hint" }, current ? EFFECT_TEXT(current) : "未裝備")
+          )
+        );
+      }),
+      h(
+        "p",
+        { class: "hint" },
+        "即將開放：",
+        data.equipment.filter((e) => !e.supported).map((e) => `${e.name}（${EFFECT_TEXT(e)}，需要限時戰鬥）`).join("、") || "沒有"
       )
     );
   }

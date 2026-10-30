@@ -17,7 +17,7 @@
   };
 
   function defaultProfile(gameData) {
-    return { level: 1, exp: 0, coins: 0, gems: 0, team: [gameData.characters[0].id] };
+    return { level: 1, exp: 0, coins: 0, gems: 0, team: [gameData.characters[0].id], equipment: {} };
   }
 
   function teamSlots(level, config, rules) {

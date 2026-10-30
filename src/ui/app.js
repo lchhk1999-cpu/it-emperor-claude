@@ -163,7 +163,8 @@
   function startBattle(stage) {
     try {
       const team = P.teamSnapshot(save.profile, gameData);
-      battleState = B.createBattle(stage, questionPool, root.ITE.rng.createRng(Date.now()), team);
+      const loadout = root.ITE.equipment.battleLoadout(save.profile, gameData);
+      battleState = B.createBattle(stage, questionPool, root.ITE.rng.createRng(Date.now()), team, loadout);
     } catch (e) {
       showMessage("暫時未有可用題目", BUILD_MODE === "release" ? "正式版只會顯示已核准（approved）的題目。" : String(e.message));
       return;
@@ -230,16 +231,23 @@
     const r = s.lastResult;
     const feedback = s.phase === "feedback";
 
+    const removed = feedback ? [] : root.ITE.equipment.hiddenOptions(s);
     const options = Q.optionsOf(q).map(({ letter, text }) => {
       let cls = "opt";
+      const gone = removed.includes(letter);
       if (feedback) {
         if (letter === q.answer) cls += " opt-correct";
         else if (letter === r.choice) cls += " opt-wrong";
         else cls += " opt-dim";
-      }
+      } else if (gone) cls += " opt-removed";
       return h(
         "button",
-        { class: cls, onclick: () => onAnswer(letter), ...(feedback ? { disabled: "" } : {}) },
+        {
+          class: cls,
+          onclick: () => onAnswer(letter),
+          ...(feedback || gone ? { disabled: "" } : {}),
+          ...(gone ? { "aria-label": `${letter}（AI 已刪去）` } : {}),
+        },
         h("span", { class: "opt-letter" }, letter),
         h("span", { class: "opt-text" }, text)
       );
@@ -287,6 +295,7 @@
             q.review_status !== "approved" ? h("span", { class: "chip chip-warn" }, `狀態：${q.review_status}`) : null
           ),
           h("p", { class: "stem" }, q.stem),
+          skillBar(s),
           h("div", { class: "options" }, options)
         ),
         feedback
@@ -295,6 +304,7 @@
               { class: `explain ${r.correct ? "explain-ok" : "explain-ng"}`, "aria-live": "polite" },
               h("div", { class: "explain-title" }, r.correct ? `答對！造成 ${r.damage} 傷害` : `答錯了… 正確答案是 ${q.answer}`),
               r.correct && r.bonus ? h("p", { class: "bonus-tip" }, `${r.bonus.name} 專長加成 +${Math.round(r.bonus.bonus * 100)}%`) : null,
+              r.equipBonus ? h("p", { class: "bonus-tip" }, `電腦額外傷害 +${r.equipBonus}`) : null,
               h("p", {}, q.explanation),
               !r.correct && q.wrong_tip ? h("p", { class: "wrong-tip" }, `提示：${q.wrong_tip}`) : null,
               h("button", { class: "btn btn-primary", onclick: onNext }, s.outcome ? "查看結果" : "下一題")
@@ -306,6 +316,42 @@
       const panel = app.querySelector(".explain");
       if (panel) panel.scrollIntoView({ block: "end", behavior: "smooth" });
     }
+  }
+
+  // ---------- Equipment skills (DSE battle only) ----------
+  const SKILL_LABELS = { hint: "AI 提示", healing: "眼藥水", damage: "電腦攻擊" };
+  const SKILL_REASONS = { used: "已用", full_hp: "HP 已滿", armed: "已準備", used_here: "已用", wait: "" };
+
+  function skillBar(s) {
+    const items = s.loadout || [];
+    if (!items.length) return null;
+    const EQ = root.ITE.equipment;
+    return h(
+      "div",
+      { class: "skill-bar" },
+      items.map((item) => {
+        if (item.type === "defense") return h("span", { class: "chip skill-passive" }, `${item.name}：受傷 -${item.reduce_pct}%`);
+        const st = EQ.skillStatus(s, item);
+        const label = SKILL_LABELS[item.type] || item.name;
+        const note = st.usable ? "" : st.reason === "cooldown" ? `（${st.wait} 題後）` : SKILL_REASONS[st.reason] ? `（${SKILL_REASONS[st.reason]}）` : "";
+        return h(
+          "button",
+          {
+            class: st.usable ? "skill-btn" : "skill-btn off",
+            onclick: () => useSkill(item.id),
+            ...(st.usable ? {} : { disabled: "" }),
+          },
+          label + note
+        );
+      })
+    );
+  }
+
+  function useSkill(id) {
+    battleState = root.ITE.equipment.useSkill(battleState, id);
+    save = S.withActiveBattle(save, battleState);
+    persist();
+    showBattle();
   }
 
   // ---------- Profile & rewards ----------

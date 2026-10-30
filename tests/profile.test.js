@@ -110,13 +110,13 @@
   test("profile: save keeps the profile; damaged numbers are repaired; old saves load", () => {
     const S = ITE.save;
     const store = S.createMemoryStorage();
-    const profile = { level: 4, exp: 20, coins: 90, gems: 0, team: ["CH-DB", "CH-HACK"] };
+    const profile = { level: 4, exp: 20, coins: 90, gems: 0, team: ["CH-DB", "CH-HACK"], equipment: {} };
     S.persist(store, { ...S.defaultSave(), profile });
     assert.deepEqual(S.load(store).save.profile, profile);
     store.setItem(S.SAVE_KEY, JSON.stringify({ version: 1, stages: {}, activeBattle: null, profile: { level: -3, exp: "x", coins: 5, team: ["CH-DB", "CH-DB", 7] } }));
     const r = S.load(store);
     assert.equal(r.status, "repaired");
-    assert.deepEqual(r.save.profile, { level: 1, exp: 0, coins: 5, gems: 0, team: ["CH-DB"] });
+    assert.deepEqual(r.save.profile, { level: 1, exp: 0, coins: 5, gems: 0, team: ["CH-DB"], equipment: {} });
     store.setItem(S.SAVE_KEY, JSON.stringify({ version: 1, stages: {}, activeBattle: null }));
     assert.equal(S.load(store).status, "ok");
     assert.equal(S.load(store).save.profile, null);

@@ -6,10 +6,11 @@
  "meta": {
   "source_file": "IT_Emperor_DseMcQs.xlsx",
   "source_sha256": "93f04990806f97f3014dcdd7403451ee8d8745daa0f4ffd6fe3adf9b1d019459",
-  "imported_at": "2026-10-30T15:11:24Z",
+  "imported_at": "2026-10-30T15:27:02Z",
   "characters": 7,
   "missions": 5,
   "titles": 4,
+  "equipment": 5,
   "rejected": 0
  },
  "config": {
@@ -171,6 +172,114 @@
    "target": 100,
    "topic": null,
    "description": "當季結算進入前 100 名",
+   "supported": false
+  }
+ ],
+ "equipment": [
+  {
+   "id": "EQ-AI",
+   "name": "AI 模型",
+   "type": "hint",
+   "levels": [
+    {
+     "remove": 1,
+     "cooldown": 6,
+     "text": "刪去 1 個錯誤選項；冷卻 6 題"
+    },
+    {
+     "remove": 1,
+     "cooldown": 4,
+     "text": "刪去 1 個；冷卻 4 題"
+    },
+    {
+     "remove": 2,
+     "cooldown": 4,
+     "text": "刪去 2 個；冷卻 4 題"
+    }
+   ],
+   "supported": true
+  },
+  {
+   "id": "EQ-EYEDROP",
+   "name": "眼藥水",
+   "type": "healing",
+   "levels": [
+    {
+     "heal": 10,
+     "text": "回復 10 HP"
+    },
+    {
+     "heal": 16,
+     "text": "回復 16 HP"
+    },
+    {
+     "heal": 22,
+     "text": "回復 22 HP"
+    }
+   ],
+   "supported": true
+  },
+  {
+   "id": "EQ-COMPUTER",
+   "name": "電腦",
+   "type": "damage",
+   "levels": [
+    {
+     "cooldown": 6,
+     "bonus": 40,
+     "text": "冷卻 6 題：額外傷害 40"
+    },
+    {
+     "cooldown": 5,
+     "bonus": 60,
+     "text": "冷卻 5 題：額外傷害 60"
+    },
+    {
+     "cooldown": 4,
+     "bonus": 80,
+     "text": "冷卻 4 題：額外傷害 80"
+    }
+   ],
+   "supported": true
+  },
+  {
+   "id": "EQ-ANTIVIRUS",
+   "name": "防毒軟件",
+   "type": "defense",
+   "levels": [
+    {
+     "reduce_pct": 10,
+     "text": "受傷害 -10%"
+    },
+    {
+     "reduce_pct": 15,
+     "text": "受傷害 -15%"
+    },
+    {
+     "reduce_pct": 20,
+     "text": "受傷害 -20%"
+    }
+   ],
+   "supported": true
+  },
+  {
+   "id": "EQ-GLASSES",
+   "name": "眼鏡",
+   "type": "time",
+   "levels": [
+    {
+     "seconds": 3,
+     "text": "每題 +3 秒"
+    },
+    {
+     "seconds": 5,
+     "text": "每題 +5 秒"
+    },
+    {
+     "seconds": 7,
+     "text": "每題 +7 秒"
+    }
+   ],
    "supported": false
   }
  ]

@@ -95,6 +95,28 @@ class GameDataImporterTest(unittest.TestCase):
         _, _, data = self.run_import([ch("C1")])
         self.assertEqual((data["missions"], data["titles"]), ([], []))
 
+    def test_equipment_effect_text_is_parsed_or_rejected(self):
+        eq = [["equipment_id", "equipment_name", "type", "unlock_action", "evolution_1", "evolution_2", "evolution_3", "active"],
+              ["EQ-AI", "AI", "hint", "x", "刪去 1 個錯誤選項；冷卻 6 題", "刪去 1 個；冷卻 4 題", "刪去 2 個；冷卻 4 題", "yes"],
+              ["EQ-PC", "電腦", "damage", "x", "冷卻 6 題：額外傷害 40", "", "", "yes"],
+              ["EQ-GL", "眼鏡", "time", "x", "每題 +3 秒", "", "", "yes"],
+              ["EQ-BAD", "壞", "healing", "x", "回復好多 HP", "", "", "yes"],
+              ["EQ-NEW", "新", "teleport", "x", "傳送", "", "", "yes"]]
+        _, rejected, data = self.run_import([ch("C1")], extra={"Equipment": eq})
+        by_id = {e["id"]: e for e in data["equipment"]}
+        self.assertEqual([(lv["remove"], lv["cooldown"]) for lv in by_id["EQ-AI"]["levels"]], [(1, 6), (1, 4), (2, 4)])
+        self.assertEqual((by_id["EQ-PC"]["levels"][0]["cooldown"], by_id["EQ-PC"]["levels"][0]["bonus"]), (6, 40))
+        self.assertEqual(by_id["EQ-GL"]["supported"], False)
+        self.assertTrue(by_id["EQ-AI"]["supported"])
+        reasons = {r["id"]: " ".join(r["errors"]) for r in rejected}
+        self.assertIn("does not match", reasons["EQ-BAD"])
+        self.assertIn("unknown equipment type", reasons["EQ-NEW"])
+
+    def test_parse_effect_formats(self):
+        self.assertEqual(gd.parse_effect("defense", "受傷害 -15%"), {"reduce_pct": 15})
+        self.assertEqual(gd.parse_effect("healing", "回復 22 HP"), {"heal": 22})
+        self.assertIsNone(gd.parse_effect("healing", "回復很多"))
+
 
 if __name__ == "__main__":
     unittest.main()
