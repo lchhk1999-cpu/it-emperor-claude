@@ -94,7 +94,7 @@
     const S = ITE.save;
     const store = S.createMemoryStorage();
     const progress = M.recordStageClear(answerN(M.defaultProgress(WED), 3, true, "EXCEL"), WED);
-    S.persist(store, { ...S.defaultSave(), progress, profile: { level: 2, exp: 0, coins: 0, gems: 5, team: ["CH-DB"] } });
+    S.persist(store, { ...S.defaultSave(), progress, profile: { level: 2, exp: 0, coins: 0, gems: 5, team: ["CH-DB"], equipment: {} } });
     const r = S.load(store);
     assert.equal(r.status, "ok");
     assert.deepEqual(r.save.progress, progress);

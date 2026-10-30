@@ -87,7 +87,11 @@
     if (!raw || typeof raw !== "object" || Array.isArray(raw)) return null;
     const int = (v, min) => (Number.isInteger(v) && v >= min ? v : min);
     const team = Array.isArray(raw.team) ? raw.team.filter(isText).filter((id, i, a) => a.indexOf(id) === i).slice(0, 10) : [];
-    return { level: int(raw.level, 1), exp: int(raw.exp, 0), coins: int(raw.coins, 0), gems: int(raw.gems, 0), team };
+    const equipment = {};
+    if (raw.equipment && typeof raw.equipment === "object" && !Array.isArray(raw.equipment)) {
+      for (const [k, v] of Object.entries(raw.equipment)) if (isText(v)) equipment[k] = v;
+    }
+    return { level: int(raw.level, 1), exp: int(raw.exp, 0), coins: int(raw.coins, 0), gems: int(raw.gems, 0), team, equipment };
   }
 
   // Mission/title progress (src/core/missions.js). Counts are clamped to

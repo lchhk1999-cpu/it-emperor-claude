@@ -1,7 +1,7 @@
-"""Import RPG game data (characters, config, missions, titles) from the
-ChatGPT-curated workbook.
+"""Import RPG game data (characters, config, missions, titles, equipment) from
+the ChatGPT-curated workbook.
 
-Reads the `Characters`, `GameConfig`, `Missions` and `Titles` sheets of
+Reads the `Characters`, `GameConfig`, `Missions`, `Titles` and `Equipment` sheets of
 IT_Emperor_DseMcQs.xlsx (`Topics` is used to check topics). Numbers in these
 sheets are the workbook's demo values; the game labels them PROTOTYPE.
 Missions/titles whose condition the game cannot track yet are imported with
@@ -19,6 +19,7 @@ import argparse
 import datetime
 import json
 import os
+import re
 import sys
 
 sys.path.insert(0, os.path.dirname(__file__))
@@ -171,6 +172,61 @@ def import_titles(sheets, topics):
     return out, rejected
 
 
+# Equipment effects are written as text in the sheet; each type has a pattern.
+# Types whose effect the game cannot apply yet are imported with supported: false.
+EQUIPMENT_PATTERNS = {
+    "hint": (r"刪去\s*(\d+)\s*個(?:錯誤選項)?\s*[；;]\s*冷卻\s*(\d+)\s*題", ("remove", "cooldown")),
+    "healing": (r"回復\s*(\d+)\s*HP", ("heal",)),
+    "damage": (r"冷卻\s*(\d+)\s*題\s*[：:]\s*額外傷害\s*(\d+)", ("cooldown", "bonus")),
+    "defense": (r"受傷害\s*-\s*(\d+)\s*%", ("reduce_pct",)),
+    "time": (r"每題\s*\+\s*(\d+)\s*秒", ("seconds",)),
+}
+EQUIPMENT_SUPPORTED = {"hint", "healing", "damage", "defense"}  # "time": DSE battles have no timer yet
+
+
+def parse_effect(kind, text):
+    if kind not in EQUIPMENT_PATTERNS:
+        return None
+    pattern, names = EQUIPMENT_PATTERNS[kind]
+    m = re.search(pattern, text or "")
+    if not m:
+        return None
+    return {name: int(value) for name, value in zip(names, m.groups())}
+
+
+def import_equipment(sheets):
+    out, rejected, seen = [], [], set()
+    if "Equipment" not in sheets:  # optional
+        return out, rejected
+    cols = ["equipment_id", "equipment_name", "type", "evolution_1", "evolution_2", "evolution_3", "active"]
+    for row, d in _rows(sheets, "Equipment", cols):
+        if d["active"].lower() == "no":
+            continue
+        errors = [f"{k} is empty" for k in ("equipment_id", "equipment_name", "type", "evolution_1") if not d[k]]
+        levels = []
+        if d["type"] and d["type"] not in EQUIPMENT_PATTERNS:
+            errors.append(f"unknown equipment type '{d['type']}'")
+        else:
+            for i in (1, 2, 3):
+                text = d[f"evolution_{i}"]
+                if not text:
+                    continue
+                effect = parse_effect(d["type"], text)
+                if effect is None:
+                    errors.append(f"evolution_{i} '{text}' does not match the {d['type']} effect format")
+                else:
+                    levels.append(dict(effect, text=text))
+        if d["equipment_id"] in seen:
+            errors.append("duplicate equipment_id")
+        seen.add(d["equipment_id"])
+        if errors:
+            rejected.append({"row": row, "id": d["equipment_id"], "errors": errors})
+            continue
+        out.append({"id": d["equipment_id"], "name": d["equipment_name"], "type": d["type"], "levels": levels,
+                    "supported": d["type"] in EQUIPMENT_SUPPORTED})
+    return out, rejected
+
+
 def import_config(sheets):
     config, problems = {}, []
     raw = {d["config_key"]: d.get("value", "") for _, d in _rows(sheets, "GameConfig", ["config_key", "value"])}
@@ -199,7 +255,8 @@ def run(xlsx, out_dir=".", now=None):
     config, config_problems = import_config(sheets)
     missions, rejected_missions = import_missions(sheets)
     titles, rejected_titles = import_titles(sheets, topics)
-    rejected = rejected + rejected_missions + rejected_titles
+    equipment, rejected_equipment = import_equipment(sheets)
+    rejected = rejected + rejected_missions + rejected_titles + rejected_equipment
     if config_problems:
         raise ImportError_("; ".join(config_problems))
     if not characters:
@@ -211,9 +268,11 @@ def run(xlsx, out_dir=".", now=None):
         "characters": len(characters),
         "missions": len(missions),
         "titles": len(titles),
+        "equipment": len(equipment),
         "rejected": len(rejected),
     }
-    payload = {"meta": meta, "config": config, "characters": characters, "missions": missions, "titles": titles}
+    payload = {"meta": meta, "config": config, "characters": characters, "missions": missions, "titles": titles,
+               "equipment": equipment}
     js_path = os.path.join(out_dir, "src", "data", "game_data.js")
     report_path = os.path.join(out_dir, "docs", "GAME_DATA_IMPORT_REPORT.md")
     for p in (js_path, report_path):
@@ -237,6 +296,11 @@ def run(xlsx, out_dir=".", now=None):
     lines += [f"| {t['id']} | {t['name']} | {t['condition']} | {t['target']} | {t['topic'] or '—'} | {'✅' if t['supported'] else '❌ 即將開放'} |" for t in titles]
     if any(t["condition"] == "topic_correct" for t in titles):
         lines += ["", "註：`Titles` 表沒有課題欄，`topic_correct` 稱號的課題取自 title_id 後綴（例如 T-EXCEL → EXCEL）。建議在 Excel 加入明確的 topic_id 欄。"]
+    lines += ["", "## 裝備（第 1 階效果；進化未開放）", "", "| ID | 名稱 | 類型 | 第 1 階 | 解讀數值 | 遊戲支援 |", "|---|---|---|---|---|---|"]
+    for e in equipment:
+        lv = e["levels"][0]
+        values = "、".join(f"{k}={v}" for k, v in lv.items() if k != "text")
+        lines.append(f"| {e['id']} | {e['name']} | {e['type']} | {lv['text']} | {values} | {'✅' if e['supported'] else '❌ 即將開放'} |")
     lines += ["", "## 拒絕的資料", ""]
     if rejected:
         lines += ["| 列 | ID | 原因 |", "|---|---|---|"] + [f"| {r['row']} | {r['id']} | {'；'.join(r['errors'])} |" for r in rejected]
@@ -257,7 +321,8 @@ def main(argv=None):
     except ImportError_ as e:
         print(f"IMPORT FAILED: {e}", file=sys.stderr)
         return 2
-    print(f"characters {meta['characters']}, missions {meta['missions']}, titles {meta['titles']}, rejected {meta['rejected']}")
+    print(f"characters {meta['characters']}, missions {meta['missions']}, titles {meta['titles']}, "
+          f"equipment {meta['equipment']}, rejected {meta['rejected']}")
     for k, v in paths.items():
         print(f"wrote {k}: {v}")
     return 0

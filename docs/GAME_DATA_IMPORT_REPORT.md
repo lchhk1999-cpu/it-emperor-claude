@@ -2,7 +2,7 @@
 
 - 來源檔案：`IT_Emperor_DseMcQs.xlsx`
 - SHA-256：`93f04990806f97f3014dcdd7403451ee8d8745daa0f4ffd6fe3adf9b1d019459`
-- 匯入時間：2026-10-30T15:11:24Z
+- 匯入時間：2026-10-30T15:27:02Z
 - 工作表：`Characters`、`GameConfig`、`Missions`、`Titles`（Topics 用作檢查課題）
 
 ## 角色
@@ -47,6 +47,16 @@
 | T-PVP | 競技王者 | season_rank | 100 | — | ❌ 即將開放 |
 
 註：`Titles` 表沒有課題欄，`topic_correct` 稱號的課題取自 title_id 後綴（例如 T-EXCEL → EXCEL）。建議在 Excel 加入明確的 topic_id 欄。
+
+## 裝備（第 1 階效果；進化未開放）
+
+| ID | 名稱 | 類型 | 第 1 階 | 解讀數值 | 遊戲支援 |
+|---|---|---|---|---|---|
+| EQ-AI | AI 模型 | hint | 刪去 1 個錯誤選項；冷卻 6 題 | remove=1、cooldown=6 | ✅ |
+| EQ-EYEDROP | 眼藥水 | healing | 回復 10 HP | heal=10 | ✅ |
+| EQ-COMPUTER | 電腦 | damage | 冷卻 6 題：額外傷害 40 | cooldown=6、bonus=40 | ✅ |
+| EQ-ANTIVIRUS | 防毒軟件 | defense | 受傷害 -10% | reduce_pct=10 | ✅ |
+| EQ-GLASSES | 眼鏡 | time | 每題 +3 秒 | seconds=3 | ❌ 即將開放 |
 
 ## 拒絕的資料
 

@@ -231,3 +231,15 @@
 - **Excel 對照:** 支援 M-DAILY-01、M-DAILY-02、M-WEEK-01、T-NEW、T-EXCEL、T-SQL；「即將開放」：M-WEEK-02（Excel 的 6 個世界未能對應遊戲關卡）、M-ACH-01（角色進化未做）、T-PVP（競技排名未做）
 - **Verification (actual):** `./scripts/test.sh` → JS `103 passed, 0 failed`（新增 10 項）+ Python `Ran 24 tests OK`（新增 2 項）+ `✓ release bundle: … all 382 questions are approved`；本機伺服器 375×812：一場 DSE（5 對 5 錯、勝利）→ 主畫面顯示 2 個可領獎勵 → 領取得寶石 5、金幣 +50；累積答對 50 題後佩戴「IT 新人王」並顯示於主畫面；重新整理後稱號、寶石、已領取狀態保留；故事一關計入 3 題及 1 次過關、公會挑戰計入作答；無橫向捲動、按鈕 ≥44px
 - **Next:** P3-09 裝備；P4-03 抽蛋待用戶批准設計
+
+## Run 17 — 2026-10-30（HKT，coordinator）
+- **Branch:** `feat/equipment`（基於 `main`）
+- **Task:** P3-09 裝備
+- **What changed:**
+  - `tools/import_game_data.py`：匯入 Excel `Equipment`，以每類型的格式把效果文字解讀為數值（3 個進化階段），格式不符即拒絕；眼鏡（time）標為未支援
+  - `src/core/equipment.js`：每位隊員 1 件、一件只可由一人使用、移出隊伍即卸下；AI 提示（只刪錯誤選項、同題固定、冷卻 6 題）、眼藥水（每場一次、不超過最大 HP）、電腦（下一題答對才 +40、冷卻 6 題）、防毒（受傷 -10%）
+  - `src/core/battle.js`：可選裝備；答錯受傷套用防毒；電腦獎勵只在答對時生效
+  - 玩家資料加入 `equipment`（存檔修復）；角色隊伍畫面新增「裝備」下拉選單；DSE 戰鬥畫面新增技能列、刪去選項劃線停用、電腦加傷提示
+- **Verification (actual):** `./scripts/test.sh` → JS `113 passed, 0 failed`（新增 10 項）+ Python `Ran 26 tests OK`（新增 2 項）+ `✓ release bundle: … all 382 questions are approved`；本機伺服器 375×812：4 名隊員各裝備 1 件、轉移裝備時自動卸下；AI 提示刪去的選項是錯誤選項並停用、冷卻顯示「6 題後」；電腦 + 答對 → 91 傷害並顯示「+40」；防毒 → 答錯受傷 18；眼藥水 83 → 93 HP 後顯示「已用」；故事模式沒有技能列；無橫向捲動
+- **Found while testing:** 測試腳本原本連續答對 6 題，但隊伍傷害令 Boss 第 5 題已倒下 → 改用夾雜答錯的情境（非程式錯誤）
+- **Next:** P4-03 抽蛋（待用戶批准設計）；角色／裝備進化未排期
