@@ -113,6 +113,11 @@
     assert.throws(() => St.createRun({ ...l, questions: l.questions.filter((q) => !q.boss) }, rng()));
   });
 
+  test("story: code questions keep their line breaks in the bank", () => {
+    const q = bank.questions.find((x) => x.question_id === "STORY-D-03-03");
+    assert.ok(q && q.stem.split("\n").length === 4, "question line + three code lines");
+  });
+
   test("story: imported bank passes the game's question validation", () => {
     const res = ITE.questions.validateBank(bank.questions.map((q) => ({ ...q, topic_id: "sql" })));
     assert.equal(res.report.rejected, 0, JSON.stringify(res.rejected.slice(0, 2)));
@@ -180,13 +185,14 @@
     if (after) assert.ok(St.isUnlocked(levels, progress, after.id) && !after.playable, "next level is unlocked but still coming soon");
   });
 
-  test("story: worlds A, B and C are fully open (A-01..A-09, B-01..B-08, C-01..C-10)", () => {
-    for (const [world, count] of [["A", 9], ["B", 8], ["C", 10]]) {
+  test("story: worlds A-D are fully open (A-01..A-09, B-01..B-08, C-01..C-10, D-01..D-10)", () => {
+    for (const [world, count] of [["A", 9], ["B", 8], ["C", 10], ["D", 10]]) {
       const levels = devLevels().filter((l) => l.world_id === world);
       assert.equal(levels.length, count, `world ${world} level count`);
       assert.ok(levels.every((l) => l.playable), `world ${world} playable`);
     }
     assert.ok(St.isUnlocked(devLevels(), { levels: { "A-09": { cleared: true, stars: 1, plays: 1 } } }, "B-01"), "clearing A-09 opens world B");
     assert.ok(St.isUnlocked(devLevels(), { levels: { "B-08": { cleared: true, stars: 1, plays: 1 } } }, "C-01"), "clearing B-08 opens world C");
+    assert.ok(St.isUnlocked(devLevels(), { levels: { "C-10": { cleared: true, stars: 1, plays: 1 } } }, "D-01"), "clearing C-10 opens world D");
   });
 })();
