@@ -14,7 +14,8 @@
 | P1-03 | 原創佔位 UI / 角色，手機尺寸可用 | ui-art-engineer | P1-01 | 375px 寬無橫向捲動；按鈕 ≥44px；標示 PLACEHOLDER | DONE（原型） |
 | P1-04 | 存檔：中途退出重入不破壞資料 | gameplay-engineer | P1-02 | 測試：存檔往返、損壞存檔回退預設、版本不符處理；可「繼續戰鬥」 | DONE（原型） |
 | P1-05 | iOS 模擬器運行 | architect | 安裝 Xcode、ADR 確認 | Capacitor 包裝在模擬器啟動 | BLOCKED |
-| P1-06 | Art Bible + 3 張 mockup | ui-art-engineer | 用戶提供參考圖 | 用戶核准 | DOING（2026-10-30：Art Bible + 5 張候選稿已交，等用戶選比例 A/B） |
+| P1-06 | Art Bible + 3 張 mockup | ui-art-engineer | 用戶提供參考圖 | 用戶核准 | DONE（2026-10-30：用戶選 A Q 版 2.5 頭身） |
+| P1-07 | 把 Art Bible 套用到遊戲畫面（配色、Q 版主角／Boss、按鈕、表情） | ui-art-engineer | P1-06 | 現有主畫面、戰鬥、結算、公會畫面改用 Art Bible；375px 可用；仍標 PLACEHOLDER 直至正式美術 | TODO |
 | P2-01 | Excel schema mapping | question-import-engineer | 取得 ChatGPT Excel | 對照真實活頁簿欄名的 mapping 文件 | DONE（2026-10-30，`tools/import_question_bank.py` COLUMN_MAP） |
 | P2-02 | `Questions` 匯入器 + 報告 | question-import-engineer | P2-01 | 成功／拒絕／重複／Topic 數／checksum 報告；公式保留文字 | DONE（2026-10-30：414 題 → 382 匯入、32 拒絕） |
 | P2-03 | 發佈模式只載 approved | question-import-engineer | — | 測試：release 模式過濾非 approved；release 打包不含非 approved 題 | DONE（core + 打包檢查） |

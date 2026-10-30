@@ -15,4 +15,5 @@
 | Excel 題庫最新版本 | NOT INCLUDED | 由 ChatGPT 獨立交付並審核 |
 
 | 學校 VS 學校的公會模式 | CONFIRMED CONCEPT | 詳見 `docs/07_SCHOOL_GUILD_BATTLE.md`；競技規則、校方授權、私隱仍待定 |
-| 先前聊天附上的理想畫風圖片 | NOT INCLUDED | 需使用者另放在 `assets/style_references/`；目前只有文字方向 |
+| 畫風參考圖 | PROVIDED 2026-10-30 | 3 張，只存本機 `assets/style_references/`（不入 git）；分析見 `docs/06` |
+| 角色比例 | CONFIRMED 2026-10-30 | Q 版 2.5 頭身（候選稿 A）；Art Bible 配色／線條／表情見 `docs/06` |
