@@ -49,11 +49,12 @@
     const shuffle = ITE.rng.shuffle;
     const practice = shuffle(level.questions.filter((q) => !q.boss), rng).slice(0, r.practiceCount);
     const boss = shuffle(level.questions.filter((q) => q.boss), rng).slice(0, 1);
-    const queue = practice.concat(boss);
     if (!boss.length) throw new Error(`level ${level.id} has no mini-Boss question`);
+    const queue = practice.concat(boss).map((q) => ITE.questions.shuffleOptions(q, rng));
     const total = queue.reduce((s, q) => s + q.points, 0);
     return {
       levelId: level.id,
+      seed: Math.floor(rng() * 2 ** 31), // reshuffles retried questions deterministically
       phase: "question",
       queue,
       questionCount: queue.length,
@@ -64,6 +65,7 @@
       answered: 0,
       lastResult: null,
       log: [],
+      shown: {}, // last displayed copy of each question, for the review list
     };
   }
 
@@ -85,11 +87,15 @@
     const damage = correct ? q.points : 0;
     const rest = run.queue.slice(1);
     const lastResult = { questionId: q.question_id, choice, correct, damage, boss: q.boss };
+    // A retried question comes back with its options in a new order, so it is
+    // answered from understanding rather than from the remembered position.
+    const retry = correct ? null : ITE.questions.shuffleOptions(q, ITE.rng.createRng(run.seed + run.answered + 1));
     return {
       ...run,
       phase: "feedback",
       question: q, // the question being explained
-      queue: correct ? rest : rest.concat([q]), // wrong: comes back later
+      queue: correct ? rest : rest.concat([retry]), // wrong: comes back later
+      shown: { ...run.shown, [q.question_id]: q },
       bossHp: Math.max(0, run.bossHp - damage),
       firstTry,
       mistakes: run.mistakes + (correct ? 0 : 1),

@@ -100,5 +100,41 @@
     return ANSWERS.map((letter, i) => ({ letter, text: q[OPTION_KEYS[i]] }));
   }
 
-  ITE.questions = { TOPICS, ANSWERS, STATUSES, validateQuestion, validateBank, filterForMode, drawQuestions, optionsOf };
+  function isOptionOrder(order) {
+    return Array.isArray(order) && order.length === 4 && ANSWERS.every((l) => order.includes(l));
+  }
+
+  // Shows the options in `order`, where order[i] is the ORIGINAL letter shown at
+  // position i (user decision 2026-10-30: shuffle options so answer positions —
+  // e.g. no D answers in the story bank — cannot be guessed). Works on an
+  // already-displayed copy too, by mapping back through its option_order.
+  // Question text stays exactly as reviewed; only the display order changes.
+  function applyOptionOrder(q, order) {
+    if (!isOptionOrder(order)) throw new Error(`invalid option order: ${order}`);
+    const current = q.option_order || ANSWERS;
+    const original = {};
+    ANSWERS.forEach((letter, i) => (original[current[i]] = q[OPTION_KEYS[i]]));
+    const originalAnswer = current[ANSWERS.indexOf(q.answer)];
+    const out = { ...q, option_order: order.slice(), answer: ANSWERS[order.indexOf(originalAnswer)] };
+    order.forEach((origLetter, i) => (out[OPTION_KEYS[i]] = original[origLetter]));
+    return out;
+  }
+
+  function shuffleOptions(q, rng) {
+    return applyOptionOrder(q, ITE.rng.shuffle(ANSWERS, rng));
+  }
+
+  ITE.questions = {
+    TOPICS,
+    ANSWERS,
+    STATUSES,
+    validateQuestion,
+    validateBank,
+    filterForMode,
+    drawQuestions,
+    optionsOf,
+    isOptionOrder,
+    applyOptionOrder,
+    shuffleOptions,
+  };
 })(globalThis);

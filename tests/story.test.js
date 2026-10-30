@@ -143,4 +143,23 @@
     assert.equal(lines[2], 'STORY-A-01-02,rejected,LCH,2026-10-30,"用詞要改，""驗證""→核對, 再審"');
     assert.equal(lines[3], "STORY-A-02-01,approved,'=HYPERLINK(1),2026-10-30,'+1 next");
   });
+
+  test("story: options are shuffled and a retried question comes back in a new order", () => {
+    let run = St.createRun(level("A-01"), rng(4));
+    assert.ok(run.queue.every((q) => ITE.questions.isOptionOrder(q.option_order)));
+    const q = St.current(run);
+    const correctText = q[`option_${q.answer.toLowerCase()}`];
+    run = St.answer(run, wrongOf(q));
+    const back = run.queue[run.queue.length - 1];
+    assert.equal(back.question_id, q.question_id);
+    assert.equal(back[`option_${back.answer.toLowerCase()}`], correctText, "same correct text");
+    assert.equal(run.shown[q.question_id], q, "review list keeps the copy the student saw");
+    const orders = new Set([1, 2, 3, 4, 5, 6, 7, 8].map((s) => {
+      let r = St.createRun(level("A-01"), rng(s));
+      const first = St.current(r);
+      r = St.answer(r, wrongOf(first));
+      return first.option_order.join("") + ">" + r.queue[r.queue.length - 1].option_order.join("");
+    }));
+    assert.ok([...orders].some((o) => o.split(">")[0] !== o.split(">")[1]), "retry order differs at least sometimes");
+  });
 })();
