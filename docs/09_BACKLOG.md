@@ -6,7 +6,7 @@
 |---|---|---|---|---|---|
 | P0-01 | 技術棧 ADR | architect | — | `docs/adr/ADR-0001` 有候選比較、成本、風險；用戶確認 | DONE（用戶 2026-10-30 批准） |
 | P0-02a | 本機 git repo + .gitignore | coordinator | 安裝 Command Line Tools | `git log` 有初始 commit；無密鑰 | DONE（2026-10-30） |
-| P0-02b | Private GitHub repo + draft PR 流程 | coordinator | P0-02a、用戶建立 repo | 可 push feature branch、開 draft PR | BLOCKED（等用戶建立 repo） |
+| P0-02b | Private GitHub repo + draft PR 流程 | coordinator | P0-02a、用戶建立 repo | 可 push feature branch、開 draft PR | DONE（2026-10-30：lchhk1999-cpu/it-emperor-claude；PR #1–#5 已合併） |
 | P0-03 | 測試框架 | gameplay-engineer | — | `jsc tests/run.js` 全部通過；之後換 Vitest | DONE（jsc 版） |
 | P0-04 | Node 工具鏈（TS / lint / formatter / secret scan / CI） | architect | 安裝 Node | CI 在 PR 上自動跑測試 | BLOCKED |
 | P1-01 | 主畫面 + 單一關卡 | ui-art-engineer | P0-03 | 可從主畫面進入關卡選擇再進戰鬥 | DONE（原型） |
@@ -21,11 +21,17 @@
 | P2-03 | 發佈模式只載 approved | question-import-engineer | — | 測試：release 模式過濾非 approved；release 打包不含非 approved 題 | DONE（core + 打包檢查） |
 | P2-04 | 抽題覆蓋率、防重複 | gameplay-engineer | — | 測試：無重複、可按 Topic 篩選 | DONE（core 基本版） |
 | P3-05 | 公會副本 demo（玩家自建公會、共享 Boss、每日 1 次限時作答、週結攻擊總量） | guild-systems-designer | P1 完成 | 規則依 docs/07「用戶確認的公會規則」；只用虛構資料；數值標 PLACEHOLDER | DONE（單機示範，2026-10-30）：加入／建立公會、公會首頁、限時副本、結算；多人共享需後端（P4，待批准） |
-| P3-06 | 單機故事模式（Story_Questions 129 題、43 關） | gameplay-engineer + question-import-engineer | P2-02 | 只讀 Story_Questions；按 level_id 配對；練習抽題＋小 Boss；答對攻擊、答錯中文解說並稍後重答；過關解鎖下一關；本機存檔；離線可玩；教師審核後才進正式版 | DOING（2026-10-30：A-01–A-03 完成並測試；其餘 40 關待開放） |
-| P3-07 | 開放故事模式其餘 40 關 | gameplay-engineer | P3-06、教師審核 | 逐世界加入 `STORY_RULES.enabledLevels`；每關實玩測試 | TODO |
+| P3-06 | 單機故事模式（Story_Questions 129 題、43 關） | gameplay-engineer + question-import-engineer | P2-02 | 只讀 Story_Questions；按 level_id 配對；練習抽題＋小 Boss；答對攻擊、答錯中文解說並稍後重答；過關解鎖下一關；本機存檔；離線可玩；教師審核後才進正式版 | DONE（2026-10-30：A-01–A-03，PR #5） |
+| P3-07 | 開放故事模式其餘 40 關（開發版） | gameplay-engineer | P3-06 | 每次開放一個世界：把關卡 ID 加入 `STORY_RULES.enabledLevels`；為該世界每關寫自動測試（可過關、解鎖次序）；正式版自動只顯示 approved 題，**不需等教師審核**；不得改動題目內容或 review_status | TODO（建議次序：世界 A 其餘 A-04–A-09 → B → C → D → E） |
 
 ## 優先次序（下一步）
 1. 用戶：安裝 Command Line Tools（解鎖 git、Python）→ P0-02a。
 2. 用戶：提供 ChatGPT Excel → P2-01 / P2-02。
 3. 用戶：放入參考圖 → P1-06。
 4. 若以上未到：做 P2-02 匯入器的 CSV/JSON 中介格式與驗證報告、P3-05 公會 demo 規格。
+
+## 需要用戶決定（排程不可自行處理）
+- 選項是否隨機打亂（故事題庫 0 個 D、DSE 題庫 D 只佔 3%）
+- `STORY-A-02-02`「資料驗證」與 DSE 題庫「數據核對」用詞
+- 公會數值（時限、Boss 血量、人數上限）
+- 32 題 DSE 題目課題代碼修正（由 ChatGPT 改 Excel）
