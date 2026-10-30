@@ -13,6 +13,7 @@
   const ERRORS = {
     team_full: "隊伍已滿。升級可以解鎖更多位置，或先移除一名成員。",
     team_needs_one: "隊伍最少要有一名成員。",
+    not_owned: "未擁有這個角色。可以用學習任務得到的寶石抽蛋取得。",
   };
 
   function topicName(id) {
@@ -96,6 +97,20 @@
             { class: "char-list" },
             data.characters.map((c) => {
               const inTeam = profile.team.includes(c.id);
+              if (!P.owns(profile, c.id)) {
+                return h(
+                  "button",
+                  { class: "char-card not-owned", onclick: () => show(ERRORS.not_owned), "aria-label": `${c.name}（未擁有）` },
+                  h("span", { class: "char-sprite", html: sprites.character(c.id, "idle") }),
+                  h(
+                    "span",
+                    { class: "char-info" },
+                    h("span", { class: "char-name" }, c.name, h("span", { class: `rarity rarity-${c.rarity}` }, c.rarity)),
+                    h("span", { class: "char-spec" }, `專長：${topicName(c.specialty)}`),
+                    h("span", { class: "char-action" }, "未擁有（抽蛋取得）")
+                  )
+                );
+              }
               return h(
                 "button",
                 { class: inTeam ? "char-card in-team" : "char-card", onclick: () => toggle(c.id), "aria-pressed": inTeam ? "true" : "false" },
@@ -117,7 +132,7 @@
               );
             })
           ),
-          h("p", { class: "hint" }, "PROTOTYPE：角色獲得方式（抽蛋／過關）未定，開發版暫時全部可用。")
+          h("p", { class: "hint" }, `已擁有 ${profile.owned.characters.length} / ${data.characters.length} 個角色。新角色只可在「抽蛋」取得。`)
         )
       )
     );
@@ -128,13 +143,14 @@
   // Each team member holds one item (more slots need evolution, not built yet).
   function equipmentPanel(profile, team, equip) {
     const map = profile.equipment || {};
-    const usable = data.equipment.filter((e) => e.supported);
+    const usable = data.equipment.filter((e) => e.supported && profile.owned.equipment.includes(e.id));
     const holderOf = (eid) => team.find((c) => map[c.id] === eid);
     return h(
       "section",
       { class: "panel" },
       h("h2", {}, "裝備"),
       h("p", { class: "hint" }, "每位隊員可裝備 1 件（進化後可增至 3 件，未開放）。裝備只用於「DSE 題庫挑戰」。"),
+      h("p", { class: "hint" }, `已擁有裝備：${usable.map((e) => e.name).join("、") || "沒有"}（更多裝備可在「抽蛋」取得）`),
       team.map((c) => {
         const select = h(
           "select",

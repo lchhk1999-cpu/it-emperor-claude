@@ -394,3 +394,21 @@ button { font: inherit; color: inherit; }
 .skill-passive { align-self: center; background: var(--mint); }
 .opt-removed { opacity: 0.45; border-style: dashed; box-shadow: none; }
 .opt-removed .opt-text { text-decoration: line-through; }
+
+/* ---------- gacha ---------- */
+.char-card.not-owned { background: #f1ebe3; border-style: dashed; box-shadow: none; }
+.char-card.not-owned .char-sprite { filter: grayscale(1); opacity: 0.55; }
+.gacha .panel .btn { margin-top: 8px; }
+.rates-title { margin: 14px 0 6px; font-size: 15px; }
+.rates { width: 100%; border-collapse: collapse; font-size: 14px; }
+.rates th, .rates td { padding: 6px 4px; text-align: left; border-bottom: 1.5px dashed var(--line); vertical-align: top; }
+.rates th { font-size: 13px; color: var(--muted); }
+.gacha-result { text-align: center; }
+.gacha-result-title { margin: 0; font-size: 22px; font-weight: 900; }
+.gacha-sprite { width: 120px; margin: 4px auto; animation: pop 0.4s ease-out; }
+.gacha-equip { width: 80px; margin: 8px auto 0; animation: pop 0.4s ease-out; }
+.gacha-name { margin: 4px 0; font-size: 20px; font-weight: 900; display: flex; justify-content: center; align-items: center; gap: 8px; }
+.rarity-bg-SSR { background: #fff1c9; }
+.rarity-bg-SR { background: #e6eff8; }
+.gacha-log { margin: 0; padding-left: 22px; font-size: 14px; line-height: 1.9; }
+.gacha-log .rarity { margin-left: 6px; }

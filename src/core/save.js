@@ -91,7 +91,21 @@
     if (raw.equipment && typeof raw.equipment === "object" && !Array.isArray(raw.equipment)) {
       for (const [k, v] of Object.entries(raw.equipment)) if (isText(v)) equipment[k] = v;
     }
-    return { level: int(raw.level, 1), exp: int(raw.exp, 0), coins: int(raw.coins, 0), gems: int(raw.gems, 0), team, equipment };
+    const out = { level: int(raw.level, 1), exp: int(raw.exp, 0), coins: int(raw.coins, 0), gems: int(raw.gems, 0), team, equipment };
+    // 抽蛋 fields (missing in older saves; ITE.profile.ensureOwned fills them in).
+    const ids = (v) => (Array.isArray(v) ? v.filter(isText).filter((id, i, a) => a.indexOf(id) === i) : []);
+    if (raw.owned !== undefined) {
+      const o = raw.owned && typeof raw.owned === "object" ? raw.owned : {};
+      out.owned = { characters: ids(o.characters), equipment: ids(o.equipment) };
+    }
+    if (raw.pity !== undefined) out.pity = { character: int(raw.pity && raw.pity.character, 0) };
+    if (raw.gachaLog !== undefined) {
+      out.gachaLog = (Array.isArray(raw.gachaLog) ? raw.gachaLog : [])
+        .filter((e) => e && isText(e.id) && (e.type === "character" || e.type === "equipment"))
+        .slice(0, 20)
+        .map((e) => ({ type: e.type, id: e.id, rarity: isText(e.rarity) ? e.rarity : null, duplicate: e.duplicate === true, coins: int(e.coins, 0) }));
+    }
+    return out;
   }
 
   // Mission/title progress (src/core/missions.js). Counts are clamped to
