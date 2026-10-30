@@ -22,7 +22,7 @@
 | P2-04 | 抽題覆蓋率、防重複 | gameplay-engineer | — | 測試：無重複、可按 Topic 篩選 | DONE（core 基本版） |
 | P3-05 | 公會副本 demo（玩家自建公會、共享 Boss、每日 1 次限時作答、週結攻擊總量） | guild-systems-designer | P1 完成 | 規則依 docs/07「用戶確認的公會規則」；只用虛構資料；數值標 PLACEHOLDER | DONE（單機示範，2026-10-30）：加入／建立公會、公會首頁、限時副本、結算；多人共享需後端（P4，待批准） |
 | P3-06 | 單機故事模式（Story_Questions 129 題、43 關） | gameplay-engineer + question-import-engineer | P2-02 | 只讀 Story_Questions；按 level_id 配對；練習抽題＋小 Boss；答對攻擊、答錯中文解說並稍後重答；過關解鎖下一關；本機存檔；離線可玩；教師審核後才進正式版 | DONE（2026-10-30：A-01–A-03，PR #5） |
-| P3-07 | 開放故事模式其餘 40 關（開發版） | gameplay-engineer | P3-06 | 每次開放一個世界：把關卡 ID 加入 `STORY_RULES.enabledLevels`；為該世界每關寫自動測試（可過關、解鎖次序）；正式版自動只顯示 approved 題，**不需等教師審核**；不得改動題目內容或 review_status | DOING（2026-10-30：世界 A 9 關、B 8 關、C 10 關已開放並測試；下一步世界 D：D-01–D-10，然後 E） |
+| P3-07 | 開放故事模式其餘 40 關（開發版） | gameplay-engineer | P3-06 | 每次開放一個世界：把關卡 ID 加入 `STORY_RULES.enabledLevels`；為該世界每關寫自動測試（可過關、解鎖次序）；正式版自動只顯示 approved 題，**不需等教師審核**；不得改動題目內容或 review_status | DOING（2026-10-30：世界 A–D 共 37 關已開放並測試；最後世界 E：E-01–E-06） |
 
 ## 優先次序（下一步）
 1. 用戶：安裝 Command Line Tools（解鎖 git、Python）→ P0-02a。

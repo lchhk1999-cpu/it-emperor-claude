@@ -154,6 +154,9 @@ button { font: inherit; color: inherit; }
 .chip { font-size: 12px; padding: 3px 9px; border-radius: 999px; background: var(--mint); border: 1.5px solid var(--ink); }
 .chip-warn { background: #fff1c9; }
 .stem { font-size: 17px; line-height: 1.55; margin: 10px 0 12px; font-weight: 600; }
+/* Keep the bank's line breaks and indentation: code and pseudocode questions
+   (e.g. ICT-2024-IA-29, STORY-D-03-03) are unreadable on one line. */
+.stem, .explain p, .review-exp, .opt-text, .review-options li { white-space: pre-wrap; }
 
 .options { display: grid; gap: 10px; }
 .opt {

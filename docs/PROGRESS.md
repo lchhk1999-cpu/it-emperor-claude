@@ -187,3 +187,12 @@
 - **Verification (actual):** `./scripts/test.sh` → JS `76 passed, 0 failed` + Python `Ran 18 tests OK` + `✓ release bundle: … all 382 questions are approved`；瀏覽器 375×812：由 A-01 順序打到 C-10 共 27 關，全部 ★★★、B-08 解鎖 C-01、C-10 後顯示「D-01 即將開放」、地圖 81 星、無橫向捲動；C-07 選項 `<img>`／`<h1>` 等以純文字顯示，題目卡內沒有產生任何 HTML 元素
 - **正式版:** 不受影響（故事題目 0 題 approved）
 - **Next:** 世界 D（D-01–D-10）
+
+## Run 13 — 2026-10-30（HKT，coordinator）
+- **Branch:** `feat/story-world-d`（基於 `main`）
+- **Task:** P3-07：開放故事模式世界 D（程式魔法學院）D-01–D-10（開發版）＋修正多行題目顯示
+- **Bug fix（影響正式版）:** 題目中的換行被合併成一行，令程式碼／偽代碼題難以閱讀。受影響：DSE 題庫 6 題（例如 `ICT-2024-IA-29` 重複…直至演算法，已在正式版）、故事題庫 3 題（D-03-03、D-04-03、D-05-03）。`style.css` 對題目、選項、解說及溫習文字加入 `white-space: pre-wrap`，保留換行及縮排
+- **What changed:** `STORY_RULES.enabledLevels` 加入 D-01–D-10；測試加入世界 D、C-10 過關後開啟世界 D、程式碼題保留換行
+- **Content check（非正式審核）:** 逐題閱讀 30 題，答案與解說一致
+- **Verification (actual):** `./scripts/test.sh` → JS `77 passed, 0 failed` + Python `Ran 18 tests OK` + `✓ release bundle: … all 382 questions are approved`；瀏覽器 375×812：由 A-01 順序打到 D-10 共 37 關，全部 ★★★、C-10 解鎖 D-01、D-10 後顯示「E-01 即將開放」、地圖 111 星、無橫向捲動；D-03-03／D-04-03／D-05-03 按原本 4 行顯示；正式版 `ICT-2024-IA-29` 按 6 行顯示並保留縮排
+- **Next:** 世界 E（E-01–E-06）
