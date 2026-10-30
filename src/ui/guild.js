@@ -182,7 +182,7 @@
           "section",
           { class: "raid-boss" },
           h("div", { class: "raid-boss-name" }, `本週 ${raid.bossName}`),
-          h("div", { class: "raid-sprite", html: root.ITE.sprites.bugKing }),
+          h("div", { class: "raid-sprite", html: root.ITE.sprites.raidBoss("idle") }),
           app.bar("Boss 血量", R.bossHpLeft(raid), raid.bossMaxHp, "boss"),
           h(
             "div",
@@ -292,7 +292,7 @@
         h(
           "section",
           { class: "raid-hud" },
-          h("div", { class: `raid-sprite small ${feedback && r.correct ? "shake" : ""}`, html: root.ITE.sprites.bugKing }),
+          h("div", { class: `raid-sprite small ${feedback && r.correct ? "shake" : ""}`, html: root.ITE.sprites.raidBoss(feedback && r.correct ? "hurt" : "idle") }),
           h(
             "div",
             { class: "raid-hud-info" },
@@ -350,7 +350,7 @@
         "main",
         { class: "screen guild result" },
         h("h1", { class: "win" }, "挑戰完成！"),
-        h("div", { class: "result-sprite", html: root.ITE.sprites.hero }),
+        h("div", { class: "result-sprite", html: root.ITE.sprites.hero("happy") }),
         h(
           "dl",
           { class: "stats" },

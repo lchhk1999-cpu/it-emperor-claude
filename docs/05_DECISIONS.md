@@ -17,4 +17,5 @@
 | 學校 VS 學校的公會模式 | CONFIRMED CONCEPT | 詳見 `docs/07_SCHOOL_GUILD_BATTLE.md`；競技規則、校方授權、私隱仍待定 |
 | 公會副本規則 | CONFIRMED 2026-10-30 | 玩家自建公會；共享高血量 Boss；限時作答、答對造成傷害；每人每天 1 次；週結按攻擊總量排名，人多有利屬刻意設計。數值仍待定 |
 | 防作弊 | CONFIRMED 2026-10-30：低優先 | 遊戲原意是自主學習，排名只作鼓勵；只做基本措施，不建重型反作弊。私隱保護不變 |
-| 先前聊天附上的理想畫風圖片 | NOT INCLUDED | 需使用者另放在 `assets/style_references/`；目前只有文字方向 |
+| 畫風參考圖 | PROVIDED 2026-10-30 | 3 張，只存本機 `assets/style_references/`（不入 git）；分析見 `docs/06` |
+| 角色比例 | CONFIRMED 2026-10-30 | Q 版 2.5 頭身（候選稿 A）；Art Bible 配色／線條／表情見 `docs/06` |

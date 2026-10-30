@@ -7,7 +7,12 @@
   // "release": set by `./scripts/build.sh release`, which also leaves the dev
   // samples out of the bundle; only approved questions can appear.
   const BUILD_MODE = root.ITE.BUILD_MODE === "release" ? "release" : "dev";
-  const bankCheck = Q.validateBank(root.ITE.devSampleQuestions || []);
+  // The imported bank (tools/import_question_bank.py) replaces the dev samples
+  // when present. Its topics join Q.TOPICS so every screen can name them.
+  const bank = root.ITE.questionBank || null;
+  if (bank) Object.assign(Q.TOPICS, bank.topics);
+  const bankCheck = Q.validateBank(bank ? bank.questions : root.ITE.devSampleQuestions || []);
+  if (bankCheck.report.rejected) console.warn("question bank rows rejected in game:", bankCheck.rejected);
   const questionPool = Q.filterForMode(bankCheck.accepted, BUILD_MODE);
   const storage = (() => {
     try {
@@ -45,7 +50,11 @@
 
   function devBanner() {
     return BUILD_MODE === "dev"
-      ? h("div", { class: "dev-banner", role: "note" }, "開發測試版｜題目為測試樣例，非 DSE 正式題庫")
+      ? h(
+          "div",
+          { class: "dev-banner", role: "note" },
+          bank ? "開發測試版｜包含未經教師核准（review）的題目" : "開發測試版｜題目為測試樣例，非 DSE 正式題庫"
+        )
       : null;
   }
 
@@ -77,7 +86,7 @@
         { class: "screen home" },
         h("div", { class: "logo" }, h("span", { class: "logo-it" }, "IT"), h("span", { class: "logo-emp" }, "帝")),
         h("p", { class: "tagline" }, "答啱 ICT 題，打倒 Bug 王！"),
-        h("div", { class: "hero-stage", html: sprites.hero }),
+        h("div", { class: "hero-stage", html: sprites.hero("idle") }),
         h(
           "div",
           { class: "menu" },
@@ -108,7 +117,7 @@
           return h(
             "button",
             { class: "stage-card", onclick: () => startBattle(stage) },
-            h("div", { class: "stage-boss", html: sprites.bugKing }),
+            h("div", { class: "stage-boss", html: sprites.bugKing("smug") }),
             h(
               "div",
               { class: "stage-info" },
@@ -229,13 +238,13 @@
             "div",
             { class: "fighter boss" },
             bar(s.boss.name, s.boss.hp, s.boss.maxHp, "boss"),
-            h("div", { class: `sprite-wrap ${bossHit ? "shake" : ""}`, html: root.ITE.sprites.bugKing }),
+            h("div", { class: `sprite-wrap ${bossHit ? "shake" : ""}`, html: sprites.bugKing(bossHit ? "hurt" : heroHit ? "smug" : "idle") }),
             bossHit ? h("div", { class: "dmg-pop" }, `-${r.damage}`) : null
           ),
           h(
             "div",
             { class: "fighter hero" },
-            h("div", { class: `sprite-wrap ${heroHit ? "shake" : ""}`, html: root.ITE.sprites.hero }),
+            h("div", { class: `sprite-wrap ${heroHit ? "shake" : ""}`, html: sprites.hero(heroHit ? "speechless" : bossHit ? "happy" : "idle") }),
             heroHit ? h("div", { class: "dmg-pop dmg-hero" }, `-${r.taken}`) : null,
             bar("我的隊伍", s.party.hp, s.party.maxHp, "party")
           )
@@ -258,6 +267,7 @@
               { class: `explain ${r.correct ? "explain-ok" : "explain-ng"}`, "aria-live": "polite" },
               h("div", { class: "explain-title" }, r.correct ? `答對！造成 ${r.damage} 傷害` : `答錯了… 正確答案是 ${q.answer}`),
               h("p", {}, q.explanation),
+              !r.correct && q.wrong_tip ? h("p", { class: "wrong-tip" }, `提示：${q.wrong_tip}`) : null,
               h("button", { class: "btn btn-primary", onclick: onNext }, s.outcome ? "查看結果" : "下一題")
             )
           : null
@@ -280,7 +290,7 @@
         "main",
         { class: "screen result" },
         h("h1", { class: won ? "win" : "lose" }, won ? "勝利！" : "挑戰失敗"),
-        h("div", { class: "result-sprite", html: won ? root.ITE.sprites.hero : root.ITE.sprites.bugKing }),
+        h("div", { class: "result-sprite", html: won ? sprites.hero("happy") : sprites.bugKing("smug") }),
         h(
           "dl",
           { class: "stats" },
@@ -299,7 +309,8 @@
                   { class: "review-item" },
                   h("p", { class: "stem" }, q.stem),
                   h("p", { class: "review-ans" }, `正確答案：${q.answer}. ${Q.optionsOf(q).find((o) => o.letter === q.answer).text}`),
-                  h("p", { class: "review-exp" }, q.explanation)
+                  h("p", { class: "review-exp" }, q.explanation),
+                  q.wrong_tip ? h("p", { class: "review-exp wrong-tip" }, `提示：${q.wrong_tip}`) : null
                 )
               )
             )

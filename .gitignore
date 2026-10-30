@@ -19,3 +19,11 @@ data/question_bank/*.xls
 .vscode/
 .idea/
 node_modules/
+
+# Python caches (importer tests)
+__pycache__/
+*.pyc
+
+# Style references may be third-party screenshots: keep them local only
+assets/style_references/*
+!assets/style_references/README.md

@@ -65,3 +65,25 @@
   - 瀏覽器 375×812 實玩：未填暱稱有錯誤提示；暱稱含 `<b>` 以純文字顯示（無注入）；加入虛構公會；對、對、錯、對 → 傷害 160（50+60+0+50）；中途離開即結算並計入（公會 2,410→2,570，Boss 47,430）；今日按鈕轉為「今日已挑戰」；把時鐘撥前 121 秒 → 自動結束並計入；兩步離開公會；空白公會名被拒；建立自己的公會並出現在排名；無橫向捲動；所有按鈕 ≥44px；release 版無題目時顯示「暫時未有可用題目」
 - **Known limits:** 單機示範（其他公會為虛構）；離開再加入可在同日再挑戰（防作弊屬低優先，用戶決定）；挑戰中關閉 App 不會保存該次挑戰。
 - **Next:** QA 複審（Routine B 17:08）；公會數值待用戶決定；多人共享需後端選型（需批准）。
+## Run 5 — 2026-10-30（HKT，coordinator）
+- **Branch:** `feat/p2-question-import`（基於 `main`，PR 待開）
+- **Task:** P2-01／P2-02／P2-03：匯入 ChatGPT 題庫 `IT_Emperor_DseMcQs.xlsx`
+- **What changed:**
+  - `tools/import_question_bank.py`（Python 標準庫，無需安裝套件）：只讀 `Questions`；Topic 來自 `Topics` 表；欄名對照表；公式儲存格保留公式文字；拒絕並列明原因；SHA-256；答案分佈警告
+  - 產生 `src/data/question_bank.js`（382 題）、`src/data/question_bank.release.js`（14 題 approved）、`docs/QUESTION_BANK_IMPORT_REPORT.md`
+  - 遊戲改用匯入題庫；Topic 名稱來自題庫；答錯時顯示 `wrong_tip_zh` 提示；開發版橫幅改為「包含未經教師核准（review）的題目」
+  - `scripts/build.js` release 改用 approved-only 檔；`scripts/test.sh` 加入 Python 測試及「release 不含非 approved 題」檢查
+- **Verification (actual):** `./scripts/test.sh` → JS `38 passed, 0 failed` + Python `Ran 10 tests ... OK` + `✓ release bundle contains no dev samples and no non-approved questions`；反向確認：dev 打包含 368 條 review（檢查能捕捉）；瀏覽器：dev 版顯示真題、Topic 中文名、review 標籤、答錯提示；release 版只有 14 題 approved、無開發標示、可完整打勝一局
+- **Import result:** 414 → 382 匯入、32 拒絕（topic_id 不在 Topics 表：ALGORITHM 13、NETWORK 12、DATA 5、INFO 1、NETDEVICE 1）；8 個公式儲存格已保留文字；答案 D 只佔 3%
+- **Human decisions needed:** 交 ChatGPT 修正 32 題 topic_id；教師審核把 review 改 approved（正式版現只有 14 題）；是否在遊戲中打亂選項次序；故事模式題庫（129 題）是否接入
+
+## Run 6 — 2026-10-30（HKT，coordinator）
+- **Branch:** `feat/p1-07-art-style`（合併了 PR #2 公會及 PR #3 題庫，再套用美術；PR #2、#3 合併後此 PR 只剩美術改動）
+- **Task:** P1-07 套用 Art Bible（用戶已選 Q 版 2.5 頭身）
+- **What changed:**
+  - `src/ui/sprites.js`：重畫 Q 版主角（紫色衛衣、圓眼鏡、小皇冠、手提電腦）及 Bug 王、新增公會 Boss；表情函數：主角 idle／happy／speechless／surprised，Boss idle／hurt／smug
+  - 戰鬥：答對主角笑、Boss ✕ 眼；答錯主角無語（藍色直線＋汗滴）、Boss 得意；結算勝利主角笑、失敗 Boss 得意
+  - `src/ui/style.css`：Art Bible 8 色 token；主按鈕改帝黃；停用按鈕對比加強；戰鬥背景改天藍＋桃膚平塗；公會畫面取消漸變及色相濾鏡；倒數紅色狀態改深色字（對比度）
+  - 合併衝突（docs 表格、進度、測試清單、樣式表）均為雙方新增內容，全部保留
+- **Verification (actual):** `./scripts/test.sh` → `54 passed, 0 failed` + Python `Ran 10 tests OK` + `✓ release bundle: no dev samples; all 14 questions are approved`；瀏覽器 375×812：主畫面、選關、戰鬥（答對／答錯表情）、公會首頁；無橫向捲動；所有按鈕 ≥44px
+- **Still PLACEHOLDER:** 角色仍為程式繪製 SVG，正式插畫待製作
