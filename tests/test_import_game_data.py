@@ -35,9 +35,9 @@ class GameDataImporterTest(unittest.TestCase):
     def tearDown(self):
         self.tmp.cleanup()
 
-    def run_import(self, chars, config=CONFIG):
+    def run_import(self, chars, config=CONFIG, extra=None):
         xlsx = os.path.join(self.dir, "data.xlsx")
-        make_xlsx(xlsx, {"Characters": [CH] + chars, "GameConfig": config, "Topics": TOPICS})
+        make_xlsx(xlsx, {"Characters": [CH] + chars, "GameConfig": config, "Topics": TOPICS, **(extra or {})})
         meta, rejected, paths = gd.run(xlsx, self.dir)
         with open(paths["js"], encoding="utf-8") as f:
             data = json.loads(re.search(r"ITE\.gameData = (\{.*\});\n\}\)", f.read(), re.S).group(1))
@@ -72,6 +72,28 @@ class GameDataImporterTest(unittest.TestCase):
         bad[2][1] = "9"  # initial slots larger than max
         with self.assertRaises(ImportError_):
             self.run_import([ch("C1")], config=bad)
+
+    def test_missions_and_titles_with_support_flags(self):
+        missions = [["mission_id", "cycle", "name", "condition_type", "target_count", "reward_gems", "reward_coins", "active"],
+                     ["M1", "daily", "答 10 題", "answer_questions", "10", "3", "0", "yes"],
+                     ["M2", "once", "進化", "evolve_character", "1", "20", "0", "yes"],
+                     ["M3", "monthly", "壞", "answer_questions", "1", "1", "0", "yes"],
+                     ["M4", "daily", "停用", "answer_questions", "1", "1", "0", "no"]]
+        titles = [["title_id", "title_name", "condition_type", "target_count", "course_id", "description", "active"],
+                  ["T-SQL", "SQL 達人", "topic_correct", "100", "ICT", "", "yes"],
+                  ["T-MAGIC", "魔法", "topic_correct", "10", "ICT", "", "yes"],
+                  ["T-RANK", "王者", "season_rank", "100", "ICT", "", "yes"]]
+        meta, rejected, data = self.run_import([ch("C1")], extra={"Missions": missions, "Titles": titles})
+        self.assertEqual([(m["id"], m["supported"]) for m in data["missions"]], [("M1", True), ("M2", False)])
+        self.assertEqual(data["missions"][0]["gems"], 3)
+        self.assertEqual([(t["id"], t["topic"], t["supported"]) for t in data["titles"]], [("T-SQL", "SQL", True), ("T-RANK", None, False)])
+        reasons = " ".join(" ".join(r["errors"]) for r in rejected)
+        self.assertIn("cycle", reasons)
+        self.assertIn("MAGIC", reasons)
+
+    def test_missing_missions_and_titles_sheets_are_allowed(self):
+        _, _, data = self.run_import([ch("C1")])
+        self.assertEqual((data["missions"], data["titles"]), ([], []))
 
 
 if __name__ == "__main__":

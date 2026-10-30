@@ -124,7 +124,9 @@
   }
 
   function onAnswer(letter) {
+    const before = run;
     run = St.answer(run, letter);
+    if (run !== before) app.recordAnswer(run.question, run.lastResult.correct);
     showQuestion();
   }
 
@@ -215,6 +217,7 @@
     const save = app.getSave();
     const firstClear = !St.levelProgress(save.story, sum.levelId).cleared;
     app.setSave({ ...save, story: St.recordClear(save.story, sum) });
+    app.recordStageClear();
     const gained = app.grantReward(root.ITE.profile.storyRewards(firstClear));
     const all = levels();
     const nxt = St.nextLevel(all, sum.levelId);

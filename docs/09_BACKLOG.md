@@ -25,7 +25,7 @@
 | P3-07 | 開放故事模式其餘 40 關（開發版） | gameplay-engineer | P3-06 | 每次開放一個世界：把關卡 ID 加入 `STORY_RULES.enabledLevels`；為該世界每關寫自動測試（可過關、解鎖次序）；正式版自動只顯示 approved 題，**不需等教師審核**；不得改動題目內容或 review_status | DONE（2026-10-30：5 個世界共 43 關已在開發版開放並逐關試玩；正式版待教師審核故事題目） |
 | P3-01 | 經驗值、等級、金幣、過關獎勵 | gameplay-engineer | — | DSE 挑戰及故事過關有獎勵；輸了亦按答對題數得經驗；可一次升多級；存檔保存 | DONE（2026-10-30，PROTOTYPE 數值） |
 | P3-02 | 角色與隊伍（最多 5 人，按等級解鎖） | gameplay-engineer + ui-art-engineer | P3-01 | 角色資料來自 Excel `Characters`；專長課題加傷；只用於 DSE 挑戰；故事及公會不受影響 | DONE（2026-10-30，角色暫時全部可用） |
-| P3-08 | 每日／每週任務＋稱號 | gameplay-engineer | P3-01 | 資料來自 Excel `Missions`、`Titles`（匯入器驗證）；按香港時間每日／每週重置；任務獎勵寶石／金幣；稱號可在主畫面顯示；只用暱稱 | TODO |
+| P3-08 | 每日／每週任務＋稱號 | gameplay-engineer | P3-01 | 資料來自 Excel `Missions`、`Titles`（匯入器驗證）；按香港時間每日／每週重置；任務獎勵寶石／金幣；稱號可在主畫面顯示；只用暱稱 | DONE（2026-10-30：3 個任務、3 個稱號可用；2 個任務及 1 個稱號待相關功能，顯示「即將開放」） |
 | P3-09 | 裝備（5 類、最多 3 格） | gameplay-engineer | P3-02 | 資料來自 Excel `Equipment`；只用於 DSE 挑戰；校際公會禁用（GameConfig pvp_stats_normalized=1）；AI 提示只刪去錯誤選項，不直接給答案 | TODO |
 | P4-03 | 抽蛋（角色／裝備兩池） | gameplay-engineer | P3-08 | 只用遊戲內免費寶石（GameConfig gacha_paid_enabled=0）；遊戲內公開機率；保底規則；需用戶批准設計後才實作 | BLOCKED（待用戶批准） |
 

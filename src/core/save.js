@@ -7,7 +7,7 @@
   const SAVE_VERSION = 1;
 
   function defaultSave() {
-    return { version: SAVE_VERSION, stages: {}, activeBattle: null, guild: null, story: { levels: {} }, profile: null };
+    return { version: SAVE_VERSION, stages: {}, activeBattle: null, guild: null, story: { levels: {} }, profile: null, progress: null };
   }
 
   function isValidSave(data) {
@@ -87,7 +87,42 @@
     if (!raw || typeof raw !== "object" || Array.isArray(raw)) return null;
     const int = (v, min) => (Number.isInteger(v) && v >= min ? v : min);
     const team = Array.isArray(raw.team) ? raw.team.filter(isText).filter((id, i, a) => a.indexOf(id) === i).slice(0, 10) : [];
-    return { level: int(raw.level, 1), exp: int(raw.exp, 0), coins: int(raw.coins, 0), team };
+    return { level: int(raw.level, 1), exp: int(raw.exp, 0), coins: int(raw.coins, 0), gems: int(raw.gems, 0), team };
+  }
+
+  // Mission/title progress (src/core/missions.js). Counts are clamped to
+  // non-negative integers; a non-object is dropped and started again.
+  function sanitizeCounters(raw, fallbackKey) {
+    const c = raw && typeof raw === "object" && !Array.isArray(raw) ? raw : {};
+    const int = (v) => (Number.isInteger(v) && v >= 0 ? v : 0);
+    const byTopic = {};
+    if (c.byTopic && typeof c.byTopic === "object" && !Array.isArray(c.byTopic)) {
+      for (const [k, v] of Object.entries(c.byTopic)) if (int(v)) byTopic[k] = int(v);
+    }
+    return {
+      key: isText(c.key) ? c.key : fallbackKey,
+      answered: int(c.answered),
+      correct: int(c.correct),
+      stageClears: int(c.stageClears),
+      byTopic,
+      sqlJoinCorrect: int(c.sqlJoinCorrect),
+    };
+  }
+
+  function sanitizeProgress(raw) {
+    if (!raw || typeof raw !== "object" || Array.isArray(raw)) return null;
+    const claimed = {};
+    if (raw.claimed && typeof raw.claimed === "object" && !Array.isArray(raw.claimed)) {
+      for (const [k, v] of Object.entries(raw.claimed)) if (isText(v)) claimed[k] = v;
+    }
+    const equipped = raw.titles && isText(raw.titles.equipped) ? raw.titles.equipped : null;
+    return {
+      daily: sanitizeCounters(raw.daily, ""),
+      weekly: sanitizeCounters(raw.weekly, ""),
+      lifetime: sanitizeCounters(raw.lifetime, "all"),
+      claimed,
+      titles: { equipped },
+    };
   }
 
   // Repairs the parts of an otherwise valid save that can be repaired.
@@ -102,13 +137,16 @@
     const story = sanitizeStory(rawStory);
     const rawProfile = data.profile === undefined ? null : data.profile;
     const profile = sanitizeProfile(rawProfile);
+    const rawProgress = data.progress === undefined ? null : data.progress;
+    const progress = sanitizeProgress(rawProgress);
     const repaired =
       activeBattle !== data.activeBattle ||
       guild !== rawGuild ||
       JSON.stringify(stages) !== JSON.stringify(data.stages) ||
       JSON.stringify(story) !== JSON.stringify(rawStory) ||
-      JSON.stringify(profile) !== JSON.stringify(rawProfile);
-    return { save: { version: SAVE_VERSION, stages, activeBattle, guild, story, profile }, repaired };
+      JSON.stringify(profile) !== JSON.stringify(rawProfile) ||
+      JSON.stringify(progress) !== JSON.stringify(rawProgress);
+    return { save: { version: SAVE_VERSION, stages, activeBattle, guild, story, profile, progress }, repaired };
   }
 
   function withStory(save, story) {

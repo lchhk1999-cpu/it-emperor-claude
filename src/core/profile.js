@@ -17,7 +17,7 @@
   };
 
   function defaultProfile(gameData) {
-    return { level: 1, exp: 0, coins: 0, team: [gameData.characters[0].id] };
+    return { level: 1, exp: 0, coins: 0, gems: 0, team: [gameData.characters[0].id] };
   }
 
   function teamSlots(level, config, rules) {
@@ -54,11 +54,12 @@
     return { profile: { ...profile, team: profile.team.concat([id]) }, error: null };
   }
 
-  // Adds exp/coins, applying as many level-ups as the exp allows.
+  // Adds exp/coins/gems (free in-game currency only), applying as many level-ups as the exp allows.
   function addReward(profile, reward, gameData, rules) {
     const r = rules || PROFILE_RULES;
     let { level, exp } = profile;
     const coins = profile.coins + (reward.coins || 0);
+    const gems = (profile.gems || 0) + (reward.gems || 0);
     exp += reward.exp || 0;
     const startLevel = level;
     while (exp >= r.expToNext(level)) {
@@ -68,7 +69,7 @@
     const slotsBefore = teamSlots(startLevel, gameData.config, r);
     const slotsAfter = teamSlots(level, gameData.config, r);
     return {
-      profile: { ...profile, level, exp, coins },
+      profile: { ...profile, level, exp, coins, gems },
       levelsGained: level - startLevel,
       slotsUnlocked: slotsAfter - slotsBefore,
     };
