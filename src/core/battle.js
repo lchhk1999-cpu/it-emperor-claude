@@ -16,7 +16,9 @@
 
   function createBattle(stage, questions, rng) {
     if (!questions.length) throw new Error("no questions available for this stage");
-    const deck = ITE.questions.drawQuestions(questions, stage.questionCount, rng, stage.topicIds);
+    const deck = ITE.questions
+      .drawQuestions(questions, stage.questionCount, rng, stage.topicIds)
+      .map((q) => ITE.questions.shuffleOptions(q, rng));
     if (!deck.length) throw new Error("no questions match this stage's topics");
     return {
       stageId: stage.id,
@@ -90,10 +92,16 @@
 
   // A resumed battle must only use questions the current build allows. Replaces
   // each saved deck entry with the live pool's copy (so stale/edited saved text is
-  // never shown); returns null if any saved question is no longer in the pool.
+  // never shown) in the saved option order; returns null if any saved question is
+  // no longer in the pool or its saved order is malformed.
   function rebindDeck(state, pool) {
     const byId = new Map(pool.map((q) => [q.question_id, q]));
-    const deck = state.deck.map((q) => q && byId.get(q.question_id));
+    const deck = state.deck.map((saved) => {
+      const live = saved && byId.get(saved.question_id);
+      if (!live) return null;
+      if (saved.option_order === undefined) return live;
+      return ITE.questions.isOptionOrder(saved.option_order) ? ITE.questions.applyOptionOrder(live, saved.option_order) : null;
+    });
     if (deck.some((q) => !q)) return null;
     return { ...state, deck };
   }

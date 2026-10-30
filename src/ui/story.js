@@ -213,7 +213,8 @@
     const all = levels();
     const nxt = St.nextLevel(all, sum.levelId);
     const canNext = nxt && nxt.playable && St.isUnlocked(all, progress(), nxt.id);
-    const wrongQs = runLevel.questions.filter((q) => sum.wrongQuestionIds.includes(q.question_id));
+    // As the student last saw them (shuffled letters), not the bank's order.
+    const wrongQs = sum.wrongQuestionIds.map((id) => run.shown[id]).filter(Boolean);
     const finished = runLevel;
     run = null;
 

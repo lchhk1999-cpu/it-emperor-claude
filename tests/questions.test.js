@@ -87,4 +87,39 @@
     const b = Q.drawQuestions(ITE.devSampleQuestions, 5, ITE.rng.createRng(7)).map((q) => q.question_id);
     assert.deepEqual(a, b);
   });
+
+  test("questions: shuffled options keep the same four texts and the same correct text", () => {
+    const q = { ...valid(), option_a: "甲", option_b: "乙", option_c: "丙", option_d: "丁", answer: "B" };
+    const rng = ITE.rng.createRng(5);
+    for (let i = 0; i < 50; i++) {
+      const s = Q.shuffleOptions(q, rng);
+      const texts = Q.optionsOf(s).map((o) => o.text);
+      assert.deepEqual(texts.slice().sort(), ["丁", "丙", "乙", "甲"].sort());
+      assert.equal(s[`option_${s.answer.toLowerCase()}`], "乙", "answer letter follows the text");
+      assert.equal(s.stem, q.stem);
+      assert.deepEqual(Q.validateQuestion(s), []);
+    }
+    assert.equal(q.answer, "B", "original question is not modified");
+  });
+
+  test("questions: shuffling spreads answers over A-D even when the bank never uses D", () => {
+    const noD = ITE.storyBank.questions;
+    const counts = { A: 0, B: 0, C: 0, D: 0 };
+    const rng = ITE.rng.createRng(11);
+    for (let round = 0; round < 20; round++) noD.forEach((q) => counts[Q.shuffleOptions(q, rng).answer]++);
+    const total = 20 * noD.length;
+    for (const letter of Q.ANSWERS) assert.ok(counts[letter] / total > 0.2 && counts[letter] / total < 0.3, `${letter}: ${counts[letter]}`);
+  });
+
+  test("questions: re-shuffling a shown copy and applying a saved order stay consistent", () => {
+    const q = { ...valid(), option_a: "甲", option_b: "乙", option_c: "丙", option_d: "丁", answer: "C" };
+    const shown = Q.applyOptionOrder(q, ["D", "C", "B", "A"]);
+    assert.deepEqual(Q.optionsOf(shown).map((o) => o.text), ["丁", "丙", "乙", "甲"]);
+    assert.equal(shown.answer, "B");
+    const again = Q.applyOptionOrder(shown, ["C", "A", "B", "D"]); // order is always in ORIGINAL letters
+    assert.deepEqual(Q.optionsOf(again).map((o) => o.text), ["丙", "甲", "乙", "丁"]);
+    assert.equal(again.answer, "A");
+    assert.throws(() => Q.applyOptionOrder(q, ["A", "A", "B", "C"]));
+    assert.ok(!Q.isOptionOrder(["A", "B", "C"]));
+  });
 })();

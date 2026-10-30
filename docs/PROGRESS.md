@@ -112,3 +112,12 @@
 - **What changed:** `src/data/question_bank.js`、`question_bank.release.js`、`docs/QUESTION_BANK_IMPORT_REPORT.md`（加入審核確認紀錄）、`docs/05_DECISIONS.md`
 - **Import result:** 414 → 382 匯入（全部 approved）、32 拒絕（課題代碼不在 Topics 表：ALGORITHM 13、NETWORK 12、DATA 5、INFO 1、NETDEVICE 1）；題目內容與上一版相同，只有狀態改變
 - **Follow-up:** 活頁簿內 Topic_*、DSE_來源追蹤、2024_可行性評估 狀態未同步；32 題課題代碼待修正；D 答案只佔 3%
+
+## Run 9 — 2026-10-30（HKT，coordinator）
+- **Branch:** `feat/shuffle-options`（基於 `main`）
+- **Task:** 用戶決定由遊戲打亂選項（故事題庫 0 個 D 答案、DSE 題庫 D 只佔 3%）
+- **What changed:**
+  - `src/core/questions.js`：`shuffleOptions`／`applyOptionOrder`／`isOptionOrder`；顯示用副本記錄 `option_order`（原字母），答案字母跟隨選項文字；原題不變
+  - DSE 挑戰（`battle.js`）、公會（`guildRaid.js`）、故事（`story.js`）出題時打亂；DSE 中途存檔繼續時沿用相同次序（次序被竄改則不恢復）；故事模式答錯重現時再打亂；過關溫習按學生看到的字母顯示
+  - 事前檢查：511 題中沒有以字母指向其他選項的選項，可安全打亂
+- **Verification (actual):** `./scripts/test.sh` → JS `74 passed, 0 failed`（新增 6 項）+ Python `Ran 18 tests OK` + `✓ release bundle: … all 382 questions are approved`；突變測試：停用打亂 → `70 passed, 4 failed`，還原後 74 passed；瀏覽器 375×812：故事 A-01 題庫答案 B「資訊」顯示為 D，綠色標示與「正確答案是 D」一致，重現時其餘選項位置改變，溫習顯示「D. 資訊」；DSE 挑戰 5 題中 4 題答案位置改變、全部判定正確並勝利；公會答對造成 50 傷害
