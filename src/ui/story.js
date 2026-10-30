@@ -213,7 +213,9 @@
   function finishLevel() {
     const sum = St.summary(run);
     const save = app.getSave();
+    const firstClear = !St.levelProgress(save.story, sum.levelId).cleared;
     app.setSave({ ...save, story: St.recordClear(save.story, sum) });
+    const gained = app.grantReward(root.ITE.profile.storyRewards(firstClear));
     const all = levels();
     const nxt = St.nextLevel(all, sum.levelId);
     const canNext = nxt && nxt.playable && St.isUnlocked(all, progress(), nxt.id);
@@ -235,6 +237,7 @@
           h("dt", {}, "一次答對"), h("dd", {}, `${sum.firstTryCorrect} / ${sum.questions}`),
           h("dt", {}, "答錯次數"), h("dd", {}, String(sum.mistakes))
         ),
+        app.rewardPanel(gained),
         nxt && canNext ? h("p", { class: "note" }, `已解鎖 ${nxt.id} ${nxt.name}！`) : null,
         nxt && !nxt.enabled ? h("p", { class: "note" }, `下一關 ${nxt.id} 即將開放。`) : null,
         !nxt

@@ -25,6 +25,13 @@
 
   const loaded = S.load(storage);
   let save = loaded.save;
+  const P = root.ITE.profile;
+  const gameData = root.ITE.gameData;
+  {
+    const base = save.profile || P.defaultProfile(gameData);
+    save = { ...save, profile: { ...base, team: P.cleanTeam(base.team, base.level, gameData) } };
+  }
+  let lastReward = null; // shown on the DSE result screen
   // Drop a saved battle whose questions this build no longer allows.
   if (save.activeBattle && !B.rebindDeck(save.activeBattle, questionPool)) {
     save = S.withActiveBattle(save, null);
@@ -86,6 +93,7 @@
         { class: "screen home" },
         h("div", { class: "logo" }, h("span", { class: "logo-it" }, "IT"), h("span", { class: "logo-emp" }, "帝")),
         h("p", { class: "tagline" }, "答啱 ICT 題，打倒 Bug 王！"),
+        profileBar(),
         h("div", { class: "hero-stage", html: sprites.hero("idle") }),
         h(
           "div",
@@ -94,7 +102,7 @@
           h("button", { class: resume ? "btn" : "btn btn-primary", onclick: () => root.ITE.storyUi.show() }, "故事模式"),
           h("button", { class: "btn", onclick: showStages }, "DSE 題庫挑戰"),
           h("button", { class: "btn btn-guild", onclick: () => root.ITE.guildUi.show() }, "校際公會"),
-          h("button", { class: "btn", disabled: "" }, "角色隊伍（未開放）"),
+          h("button", { class: "btn", onclick: () => root.ITE.teamUi.show() }, "角色隊伍"),
           BUILD_MODE === "dev" && root.ITE.reviewUi
             ? h("button", { class: "btn btn-review", onclick: () => root.ITE.reviewUi.show() }, "教師審核（開發版）")
             : null
@@ -143,7 +151,8 @@
   // ---------- Battle ----------
   function startBattle(stage) {
     try {
-      battleState = B.createBattle(stage, questionPool, root.ITE.rng.createRng(Date.now()));
+      const team = P.teamSnapshot(save.profile, gameData);
+      battleState = B.createBattle(stage, questionPool, root.ITE.rng.createRng(Date.now()), team);
     } catch (e) {
       showMessage("暫時未有可用題目", BUILD_MODE === "release" ? "正式版只會顯示已核准（approved）的題目。" : String(e.message));
       return;
@@ -185,8 +194,9 @@
   function onNext() {
     battleState = B.next(battleState);
     if (battleState.phase === "won" || battleState.phase === "lost") {
-      save = S.recordStageResult(save, battleState.stageId, B.summary(battleState));
-      persist();
+      const sum = B.summary(battleState);
+      save = S.recordStageResult(save, battleState.stageId, sum);
+      lastReward = grantReward(P.dseRewards(sum));
       showResult();
       return;
     }
@@ -248,9 +258,9 @@
           h(
             "div",
             { class: "fighter hero" },
-            h("div", { class: `sprite-wrap ${heroHit ? "shake" : ""}`, html: sprites.hero(heroHit ? "speechless" : bossHit ? "happy" : "idle") }),
+            h("div", { class: `sprite-wrap ${heroHit ? "shake" : ""}`, html: leaderSprite(s, heroHit ? "speechless" : bossHit ? "happy" : "idle") }),
             heroHit ? h("div", { class: "dmg-pop dmg-hero" }, `-${r.taken}`) : null,
-            bar("我的隊伍", s.party.hp, s.party.maxHp, "party")
+            bar(s.team && s.team.length ? `我的隊伍（${s.team.length} 人）` : "我的隊伍", s.party.hp, s.party.maxHp, "party")
           )
         ),
         h(
@@ -270,6 +280,7 @@
               "section",
               { class: `explain ${r.correct ? "explain-ok" : "explain-ng"}`, "aria-live": "polite" },
               h("div", { class: "explain-title" }, r.correct ? `答對！造成 ${r.damage} 傷害` : `答錯了… 正確答案是 ${q.answer}`),
+              r.correct && r.bonus ? h("p", { class: "bonus-tip" }, `${r.bonus.name} 專長加成 +${Math.round(r.bonus.bonus * 100)}%`) : null,
               h("p", {}, q.explanation),
               !r.correct && q.wrong_tip ? h("p", { class: "wrong-tip" }, `提示：${q.wrong_tip}`) : null,
               h("button", { class: "btn btn-primary", onclick: onNext }, s.outcome ? "查看結果" : "下一題")
@@ -281,6 +292,41 @@
       const panel = app.querySelector(".explain");
       if (panel) panel.scrollIntoView({ block: "end", behavior: "smooth" });
     }
+  }
+
+  // ---------- Profile & rewards ----------
+  function profileBar() {
+    const p = save.profile;
+    return h(
+      "p",
+      { class: "profile-bar" },
+      h("span", { class: "lv" }, `Lv ${p.level}`),
+      h("span", {}, `經驗 ${p.exp} / ${P.PROFILE_RULES.expToNext(p.level)}`),
+      h("span", {}, `金幣 ${p.coins}`)
+    );
+  }
+
+  function leaderSprite(state, expr) {
+    const leader = state.team && state.team[0];
+    return leader ? sprites.character(leader.id, expr) : sprites.hero(expr);
+  }
+
+  // Adds a reward to the profile, saves, and returns what to show the player.
+  function grantReward(reward) {
+    const r = P.addReward(save.profile, reward, gameData);
+    save = { ...save, profile: { ...r.profile, team: P.cleanTeam(r.profile.team, r.profile.level, gameData) } };
+    persist();
+    return { reward, levelsGained: r.levelsGained, slotsUnlocked: r.slotsUnlocked, level: r.profile.level };
+  }
+
+  function rewardPanel(g) {
+    return h(
+      "section",
+      { class: "reward", "aria-live": "polite" },
+      h("p", { class: "reward-line" }, `+${g.reward.exp} 經驗`, g.reward.coins ? `　+${g.reward.coins} 金幣` : ""),
+      g.levelsGained ? h("p", { class: "reward-level" }, `升級！現在是 Lv ${g.level}`) : null,
+      g.slotsUnlocked ? h("p", { class: "reward-level" }, `解鎖新隊伍位置！到「角色隊伍」加入新成員`) : null
+    );
   }
 
   // ---------- Result ----------
@@ -302,6 +348,7 @@
           h("dt", {}, "正確率"), h("dd", {}, `${sum.accuracy}%`),
           h("dt", {}, "最高 Combo"), h("dd", {}, String(sum.maxCombo))
         ),
+        lastReward ? rewardPanel(lastReward) : null,
         wrongQs.length
           ? h(
               "section",
@@ -338,6 +385,9 @@
     questionPool,
     buildMode: BUILD_MODE,
     storage,
+    grantReward,
+    rewardPanel,
+    profileBar,
     getSave: () => save,
     setSave: (next) => {
       save = next;

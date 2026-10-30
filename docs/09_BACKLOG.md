@@ -23,6 +23,11 @@
 | P3-05 | 公會副本 demo（玩家自建公會、共享 Boss、每日 1 次限時作答、週結攻擊總量） | guild-systems-designer | P1 完成 | 規則依 docs/07「用戶確認的公會規則」；只用虛構資料；數值標 PLACEHOLDER | DONE（單機示範，2026-10-30）：加入／建立公會、公會首頁、限時副本、結算；多人共享需後端（P4，待批准） |
 | P3-06 | 單機故事模式（Story_Questions 129 題、43 關） | gameplay-engineer + question-import-engineer | P2-02 | 只讀 Story_Questions；按 level_id 配對；練習抽題＋小 Boss；答對攻擊、答錯中文解說並稍後重答；過關解鎖下一關；本機存檔；離線可玩；教師審核後才進正式版 | DONE（2026-10-30：A-01–A-03，PR #5） |
 | P3-07 | 開放故事模式其餘 40 關（開發版） | gameplay-engineer | P3-06 | 每次開放一個世界：把關卡 ID 加入 `STORY_RULES.enabledLevels`；為該世界每關寫自動測試（可過關、解鎖次序）；正式版自動只顯示 approved 題，**不需等教師審核**；不得改動題目內容或 review_status | DONE（2026-10-30：5 個世界共 43 關已在開發版開放並逐關試玩；正式版待教師審核故事題目） |
+| P3-01 | 經驗值、等級、金幣、過關獎勵 | gameplay-engineer | — | DSE 挑戰及故事過關有獎勵；輸了亦按答對題數得經驗；可一次升多級；存檔保存 | DONE（2026-10-30，PROTOTYPE 數值） |
+| P3-02 | 角色與隊伍（最多 5 人，按等級解鎖） | gameplay-engineer + ui-art-engineer | P3-01 | 角色資料來自 Excel `Characters`；專長課題加傷；只用於 DSE 挑戰；故事及公會不受影響 | DONE（2026-10-30，角色暫時全部可用） |
+| P3-08 | 每日／每週任務＋稱號 | gameplay-engineer | P3-01 | 資料來自 Excel `Missions`、`Titles`（匯入器驗證）；按香港時間每日／每週重置；任務獎勵寶石／金幣；稱號可在主畫面顯示；只用暱稱 | TODO |
+| P3-09 | 裝備（5 類、最多 3 格） | gameplay-engineer | P3-02 | 資料來自 Excel `Equipment`；只用於 DSE 挑戰；校際公會禁用（GameConfig pvp_stats_normalized=1）；AI 提示只刪去錯誤選項，不直接給答案 | TODO |
+| P4-03 | 抽蛋（角色／裝備兩池） | gameplay-engineer | P3-08 | 只用遊戲內免費寶石（GameConfig gacha_paid_enabled=0）；遊戲內公開機率；保底規則；需用戶批准設計後才實作 | BLOCKED（待用戶批准） |
 
 ## 優先次序（下一步）
 1. 用戶：安裝 Command Line Tools（解鎖 git、Python）→ P0-02a。

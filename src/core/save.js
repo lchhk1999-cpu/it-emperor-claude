@@ -7,7 +7,7 @@
   const SAVE_VERSION = 1;
 
   function defaultSave() {
-    return { version: SAVE_VERSION, stages: {}, activeBattle: null, guild: null, story: { levels: {} } };
+    return { version: SAVE_VERSION, stages: {}, activeBattle: null, guild: null, story: { levels: {} }, profile: null };
   }
 
   function isValidSave(data) {
@@ -80,8 +80,18 @@
     return { levels };
   }
 
+  // Player profile { level >= 1, exp >= 0, coins >= 0, team: unique ids }. Numbers
+  // are clamped; a non-object is dropped (the game then starts a fresh profile).
+  // Unknown character ids are filtered later by ITE.profile.cleanTeam.
+  function sanitizeProfile(raw) {
+    if (!raw || typeof raw !== "object" || Array.isArray(raw)) return null;
+    const int = (v, min) => (Number.isInteger(v) && v >= min ? v : min);
+    const team = Array.isArray(raw.team) ? raw.team.filter(isText).filter((id, i, a) => a.indexOf(id) === i).slice(0, 10) : [];
+    return { level: int(raw.level, 1), exp: int(raw.exp, 0), coins: int(raw.coins, 0), team };
+  }
+
   // Repairs the parts of an otherwise valid save that can be repaired.
-  // Saves from before the guild / story features lack those fields; that is not damage.
+  // Saves from before the guild / story / profile features lack those fields; that is not damage.
   function normalize(data) {
     const stages = {};
     for (const [id, rec] of Object.entries(data.stages)) stages[id] = sanitizeStageRecord(rec);
@@ -90,12 +100,15 @@
     const guild = isValidGuildState(rawGuild) ? rawGuild : null;
     const rawStory = data.story === undefined ? { levels: {} } : data.story;
     const story = sanitizeStory(rawStory);
+    const rawProfile = data.profile === undefined ? null : data.profile;
+    const profile = sanitizeProfile(rawProfile);
     const repaired =
       activeBattle !== data.activeBattle ||
       guild !== rawGuild ||
       JSON.stringify(stages) !== JSON.stringify(data.stages) ||
-      JSON.stringify(story) !== JSON.stringify(rawStory);
-    return { save: { version: SAVE_VERSION, stages, activeBattle, guild, story }, repaired };
+      JSON.stringify(story) !== JSON.stringify(rawStory) ||
+      JSON.stringify(profile) !== JSON.stringify(rawProfile);
+    return { save: { version: SAVE_VERSION, stages, activeBattle, guild, story, profile }, repaired };
   }
 
   function withStory(save, story) {

@@ -28,7 +28,8 @@
   };
 
   // Lavender hoodie, round glasses, tiny crown pin, laptop with "</>".
-  function hero(expr) {
+  // `color` recolours the hoodie so each character in the team looks different.
+  function hero(expr, color) {
     const face = heroFaces[expr] || heroFaces.idle;
     const glasses = expr === "surprised" ? "" : `
       <circle cx="44" cy="62" r="11" fill="none" stroke="${INK}" stroke-width="3"/>
@@ -37,7 +38,7 @@
     return `
 <svg viewBox="0 0 120 170" class="sprite" role="img" aria-label="主角">
   <ellipse cx="60" cy="164" rx="30" ry="5" fill="${INK}" opacity="0.12"/>
-  <rect x="38" y="96" width="44" height="46" rx="16" fill="#c4b0e0" stroke="${INK}" stroke-width="3"/>
+  <rect x="38" y="96" width="44" height="46" rx="16" fill="${color || "#c4b0e0"}" stroke="${INK}" stroke-width="3"/>
   <rect x="44" y="138" width="12" height="22" rx="5" fill="#3d4a66" stroke="${INK}" stroke-width="3"/>
   <rect x="64" y="138" width="12" height="22" rx="5" fill="#3d4a66" stroke="${INK}" stroke-width="3"/>
   <rect x="26" y="108" width="40" height="26" rx="4" fill="#e9eef3" stroke="${INK}" stroke-width="3"/>
@@ -88,5 +89,17 @@
   const bugKing = (expr) => bugBody(expr, "#c4b0e0", "#ad97cf", "Bug 王", false);
   const raidBoss = (expr) => bugBody(expr, "#a993cf", "#9580bd", "公會 Boss", true);
 
-  ITE.sprites = { hero, bugKing, raidBoss };
+  // PLACEHOLDER hoodie colours per character until real character art exists.
+  const CHARACTER_COLORS = {
+    "CH-ITDOG": "#f4d36b",
+    "CH-DB": "#8fc3e8",
+    "CH-GOLD": "#e8c27a",
+    "CH-HACK": "#a9adbb",
+    "CH-OFFICE": "#9fd4b4",
+    "CH-BROADBAND": "#f2b4b0",
+    "CH-AIBOT": "#c4b0e0",
+  };
+  const character = (id, expr) => hero(expr, CHARACTER_COLORS[id]);
+
+  ITE.sprites = { hero, bugKing, raidBoss, character, CHARACTER_COLORS };
 })(globalThis);

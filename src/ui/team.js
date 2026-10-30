@@ -1,0 +1,117 @@
+// 角色隊伍 screen: team slots (opened by player level) and the character list.
+// Tap a character to add or remove it. Team effects apply to the DSE 題庫挑戰
+// only (see src/core/profile.js). Ownership rules wait for the gacha feature,
+// so every character is available for now (PROTOTYPE).
+(function (root) {
+  const P = root.ITE.profile;
+  const Q = root.ITE.questions;
+  const app = root.ITE.app;
+  const { h } = app;
+  const sprites = root.ITE.sprites;
+  const data = root.ITE.gameData;
+
+  const ERRORS = {
+    team_full: "隊伍已滿。升級可以解鎖更多位置，或先移除一名成員。",
+    team_needs_one: "隊伍最少要有一名成員。",
+  };
+
+  function topicName(id) {
+    return id === "ALL" ? "全部課題" : Q.TOPICS[id] || id;
+  }
+
+  function show(message) {
+    const save = app.getSave();
+    const profile = save.profile;
+    const slots = P.teamSlots(profile.level, data.config);
+    const team = P.teamSnapshot(profile, data);
+    const stats = P.teamStats(team);
+    const covered = new Set(team.map((c) => c.specialty));
+    const slotLevels = P.PROFILE_RULES.teamSlotLevels;
+
+    const toggle = (id) => {
+      const r = P.toggleMember(app.getSave().profile, id, data);
+      if (r.error) return show(ERRORS[r.error] || "未能更改隊伍。");
+      app.setSave({ ...app.getSave(), profile: r.profile });
+      show();
+    };
+
+    app.render(
+      h(
+        "main",
+        { class: "screen team" },
+        h(
+          "header",
+          { class: "topbar" },
+          h("button", { class: "btn-back", onclick: app.showHome, "aria-label": "返回" }, "‹"),
+          h("h1", {}, "角色隊伍")
+        ),
+        app.profileBar(),
+        h(
+          "section",
+          { class: "panel" },
+          h("h2", {}, `我的隊伍（${team.length} / ${slots}）`),
+          h(
+            "div",
+            { class: "team-slots" },
+            Array.from({ length: data.config.team_slots_max }, (_, i) => {
+              const c = team[i];
+              if (c) {
+                return h(
+                  "button",
+                  { class: "slot filled", onclick: () => toggle(c.id), "aria-label": `移出 ${c.name}` },
+                  h("span", { class: "slot-sprite", html: sprites.character(c.id, "idle") }),
+                  h("span", { class: "slot-name" }, c.name),
+                  i === 0 ? h("span", { class: "slot-tag" }, "隊長") : null
+                );
+              }
+              const open = i < slots;
+              return h(
+                "div",
+                { class: open ? "slot empty" : "slot locked" },
+                open ? h("span", { class: "slot-name" }, "空位") : h("span", { class: "slot-name" }, `Lv ${slotLevels[i]}`, h("br", {}), "解鎖")
+              );
+            })
+          ),
+          h("p", { class: "hint" }, `隊伍攻擊 ${stats.attack}｜HP ${stats.hp}（成員平均）`),
+          h("p", { class: "hint" }, "答對隊員專長課題的題目可加傷害。隊伍課題越多元，越多題目有加成。"),
+          h("p", { class: "hint" }, "隊伍只用於「DSE 題庫挑戰」；故事模式及校際公會不受影響。")
+        ),
+        message ? h("p", { class: "form-error", role: "alert" }, message) : null,
+        h(
+          "section",
+          { class: "panel" },
+          h("h2", {}, "角色"),
+          h(
+            "div",
+            { class: "char-list" },
+            data.characters.map((c) => {
+              const inTeam = profile.team.includes(c.id);
+              return h(
+                "button",
+                { class: inTeam ? "char-card in-team" : "char-card", onclick: () => toggle(c.id), "aria-pressed": inTeam ? "true" : "false" },
+                h("span", { class: "char-sprite", html: sprites.character(c.id, inTeam ? "happy" : "idle") }),
+                h(
+                  "span",
+                  { class: "char-info" },
+                  h("span", { class: "char-name" }, c.name, h("span", { class: `rarity rarity-${c.rarity}` }, c.rarity)),
+                  h("span", { class: "char-spec" }, `專長：${topicName(c.specialty)}　+${Math.round(c.bonus * 100)}%`),
+                  h("span", { class: "char-stats" }, `攻擊 ${c.attack}｜HP ${c.hp}`),
+                  h(
+                    "span",
+                    { class: "char-action" },
+                    inTeam
+                      ? slots === 1 ? "目前出戰" : "已在隊伍（按一下移出）"
+                      : slots === 1 ? "按一下換上" : covered.has(c.specialty) ? "加入隊伍（專長重複）" : "加入隊伍"
+                  )
+                )
+              );
+            })
+          ),
+          h("p", { class: "hint" }, "PROTOTYPE：角色獲得方式（抽蛋／過關）未定，開發版暫時全部可用。")
+        )
+      )
+    );
+  }
+
+  root.ITE.teamUi = { show: () => show() };
+})(globalThis);
