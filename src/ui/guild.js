@@ -248,6 +248,7 @@
       showHome();
       return;
     }
+    app.sfx("stageStart");
     showQuestion();
   }
 

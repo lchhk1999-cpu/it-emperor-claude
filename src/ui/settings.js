@@ -1,10 +1,10 @@
-// 設定 screen: sound on/off, replay the new-player tutorial, version info.
+// 設定 screen: sound effects and music on/off, replay the tutorial, version info.
 (function (root) {
   const app = root.ITE.app;
   const { h } = app;
 
   const SAMPLES = [
-    ["correct", "答對"], ["wrong", "答錯"], ["win", "勝利"], ["lose", "失敗"], ["levelUp", "升級"],
+    ["stageStart", "入關"], ["correct", "答對"], ["wrong", "答錯"], ["win", "勝利"], ["lose", "失敗"], ["levelUp", "升級"],
     ["reward", "領獎"], ["gacha", "抽蛋"], ["gachaSSR", "抽中 SSR"], ["evolve", "進化"], ["tap", "按分頁"],
   ];
 
@@ -14,6 +14,23 @@
     root.ITE.sound.setEnabled(on);
     if (on) app.sfx("correct");
     show();
+  }
+
+  function setMusic(on) {
+    const save = app.getSave();
+    app.setSave({ ...save, settings: { ...save.settings, music: on } });
+    root.ITE.music.setEnabled(on);
+    show();
+  }
+
+  function onOff(label, value, set) {
+    return h(
+      "div",
+      { class: "seg", role: "radiogroup", "aria-label": label },
+      [[true, "開"], [false, "關"]].map(([on, text]) =>
+        h("button", { class: value === on ? "seg-btn active" : "seg-btn", role: "radio", "aria-checked": value === on ? "true" : "false", onclick: () => set(on) }, text)
+      )
+    );
   }
 
   function show() {
@@ -31,15 +48,16 @@
         h(
           "section",
           { class: "panel" },
+          h("h2", {}, "背景音樂"),
+          onOff("背景音樂", settings.music, setMusic),
+          h("p", { class: "hint" }, "主頁、故事模式及戰鬥各有原創背景音樂。")
+        ),
+        h(
+          "section",
+          { class: "panel" },
           h("h2", {}, "音效"),
-          h(
-            "div",
-            { class: "seg", role: "radiogroup", "aria-label": "音效" },
-            [[true, "開"], [false, "關"]].map(([on, label]) =>
-              h("button", { class: settings.sound === on ? "seg-btn active" : "seg-btn", role: "radio", "aria-checked": settings.sound === on ? "true" : "false", onclick: () => setSound(on) }, label)
-            )
-          ),
-          h("p", { class: "hint" }, "答對、答錯、勝利、升級及抽蛋都有音效。上課時可以關掉。"),
+          onOff("音效", settings.sound, setSound),
+          h("p", { class: "hint" }, "入關、答對、答錯、勝利、升級及抽蛋都有音效。上課時可以關掉。"),
           h("h3", { class: "rates-title" }, "試聽"),
           settings.sound
             ? h(

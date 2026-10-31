@@ -120,6 +120,7 @@
   function startLevel(levelId) {
     runLevel = levels().find((x) => x.id === levelId);
     run = St.createRun(runLevel, root.ITE.rng.createRng(Date.now()));
+    app.sfx("stageStart");
     showQuestion();
   }
 
