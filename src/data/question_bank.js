@@ -20,15 +20,15 @@
     "rejected": 0
    }
   ],
-  "held": 131,
+  "held": 0,
   "source_sha256": "e51c1864d303b4546e8eea702e6d228f141c2a3b3c5bf79aad61516f8d6e356e",
-  "imported_at": "2026-10-31T09:43:35Z",
+  "imported_at": "2026-10-31T09:45:13Z",
   "total": 1107,
   "accepted": 1107,
   "rejected": 0,
   "by_status": {
-   "approved": 380,
-   "review": 727
+   "approved": 511,
+   "review": 596
   }
  },
  "topics": {
@@ -366,11 +366,10 @@
    "wrong_tip": "逐個檢查 $ 固定的是列還是欄。",
    "tags": "mixed reference",
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-003",
@@ -847,11 +846,10 @@
    "wrong_tip": "同時檢查排名次序與複製公式時的儲存格參照。",
    "tags": "RANK;absolute-reference",
    "source_note": "2026 HKDSE ICT 卷一甲部 Q6｜AI 概念改編｜非原題",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-07",
@@ -6308,11 +6306,10 @@
    "wrong_tip": "遙距控制不等於自動安全。",
    "tags": "2018;IA;Q24;concept-rewrite",
    "source_note": "2018 DSE ICT Paper 1A Q24; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2018-IA-26",
@@ -6329,11 +6326,10 @@
    "wrong_tip": "分辨 FTP 與電郵協定。",
    "tags": "2018;IA;Q26;concept-rewrite",
    "source_note": "2018 DSE ICT Paper 1A Q26; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2018-IA-27",
@@ -6350,11 +6346,10 @@
    "wrong_tip": "網站並非一定離線，可能只是名稱解析失敗。",
    "tags": "2018;IA;Q27;concept-rewrite",
    "source_note": "2018 DSE ICT Paper 1A Q27; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2018-IA-28",
@@ -6371,11 +6366,10 @@
    "wrong_tip": "串流不是以收發電郵協定運作。",
    "tags": "2018;IA;Q28;concept-rewrite",
    "source_note": "2018 DSE ICT Paper 1A Q28; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2018-IA-30",
@@ -6412,11 +6406,10 @@
    "wrong_tip": "測試條件邊界內外。",
    "tags": "2018;IA;Q31;concept-rewrite",
    "source_note": "2018 DSE ICT Paper 1A Q31; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2018-IA-34",
@@ -6433,11 +6426,10 @@
    "wrong_tip": "想想函數分工及測試。",
    "tags": "2018;IA;Q34;concept-rewrite",
    "source_note": "2018 DSE ICT Paper 1A Q34; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2018-IA-35",
@@ -6594,11 +6586,10 @@
    "wrong_tip": "想想條碼的識別作用。",
    "tags": "barcode;digitisation",
    "source_note": "2017 DSE ICT P1A Q6；參考原題概念重新創作；原卷與2017答案表核對",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2017-14",
@@ -6675,11 +6666,10 @@
    "wrong_tip": "留意回應是否需要立即提供。",
    "tags": "realtime;interactive",
    "source_note": "2017 DSE ICT P1A Q22；參考原題概念重新創作；原卷與2017答案表核對",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2017-23",
@@ -6696,11 +6686,10 @@
    "wrong_tip": "交換器、路由器和防火牆用途不同。",
    "tags": "switch;lan",
    "source_note": "2017 DSE ICT P1A Q23；參考原題概念重新創作；原卷與2017答案表核對",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2017-24",
@@ -6717,11 +6706,10 @@
    "wrong_tip": "題目比較的是典型優點。",
    "tags": "wifi;mobility",
    "source_note": "2017 DSE ICT P1A Q24；參考原題概念重新創作；原卷與2017答案表核對",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2017-25",
@@ -6998,11 +6986,10 @@
    "wrong_tip": "列出每輪 X、Y，注意條件在迴圈開始檢查。",
    "tags": "ALGORITHM;2013;concept-adapted",
    "source_note": "2013 DSE ICT Paper 1A Q30（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2014-03",
@@ -7059,11 +7046,10 @@
    "wrong_tip": "SMTP 對應寄信。",
    "tags": "NETWORK;2014;concept-adapted",
    "source_note": "2014 DSE ICT Paper 1A Q24（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2014-33",
@@ -7080,11 +7066,10 @@
    "wrong_tip": "用追蹤表記錄每次迴圈後 S 和 C。",
    "tags": "ALGORITHM;2014;concept-adapted",
    "source_note": "2014 DSE ICT Paper 1A Q33（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2015-10",
@@ -7161,11 +7146,10 @@
    "wrong_tip": "邊界測試要涵蓋剛好不合格和剛好合格的數。",
    "tags": "ALGORITHM;2015;concept-adapted",
    "source_note": "2015 DSE ICT Paper 1A Q29（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2016-20",
@@ -7222,11 +7206,10 @@
    "wrong_tip": "注意陣列索引由 0 開始。",
    "tags": "ALGORITHM;2016;concept-adapted",
    "source_note": "2016 DSE ICT Paper 1A Q32（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2017-01",
@@ -7303,11 +7286,10 @@
    "wrong_tip": "封存（archive）不等於改善畫質。",
    "tags": "DATA;2016;concept-adapted",
    "source_note": "2016 DSE ICT Paper 1A Q6；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2016-07",
@@ -7424,11 +7406,10 @@
    "wrong_tip": "分清傳輸速度與影片長度。",
    "tags": "NETWORK;2016;concept-adapted",
    "source_note": "2016 DSE ICT Paper 1A Q24；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2016-30",
@@ -7445,11 +7426,10 @@
    "wrong_tip": "AND 可用巢狀 IF 寫出相同邏輯。",
    "tags": "ALGORITHM;2016;concept-adapted",
    "source_note": "2016 DSE ICT Paper 1A Q30；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2016-36",
@@ -7626,11 +7606,10 @@
    "wrong_tip": "先去掉子域名，再數不同註冊域名。",
    "tags": "NETWORK;2017;concept-adapted",
    "source_note": "2017 DSE ICT Paper 1A Q26；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2017-28",
@@ -7667,11 +7646,10 @@
    "wrong_tip": "先確定要解決甚麼問題。",
    "tags": "ALGORITHM;2017;concept-adapted",
    "source_note": "2017 DSE ICT Paper 1A Q30；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2017-31",
@@ -7688,11 +7666,10 @@
    "wrong_tip": "逐輪累加平方值。",
    "tags": "ALGORITHM;2017;concept-adapted",
    "source_note": "2017 DSE ICT Paper 1A Q31；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2017-32",
@@ -7709,11 +7686,10 @@
    "wrong_tip": "先算括號及 AND/OR，最後取反。",
    "tags": "ALGORITHM;2017;concept-adapted",
    "source_note": "2017 DSE ICT Paper 1A Q32；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2017-33",
@@ -7730,11 +7706,10 @@
    "wrong_tip": "要移動後面的元素，不是只把數值清空。",
    "tags": "ALGORITHM;2017;concept-adapted",
    "source_note": "2017 DSE ICT Paper 1A Q33；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2017-34",
@@ -7791,11 +7766,10 @@
    "wrong_tip": "分辨驗證資料正確性和資料分析。",
    "tags": "DATA;2013;concept-adapted",
    "source_note": "2013 DSE ICT Paper 1A Q3（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2013-04",
@@ -7812,11 +7786,10 @@
    "wrong_tip": "封存是把多個檔案集中處理。",
    "tags": "DATA;2013;concept-adapted",
    "source_note": "2013 DSE ICT Paper 1A Q4（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2013-07",
@@ -7913,11 +7886,10 @@
    "wrong_tip": "比較 switch 和 router。",
    "tags": "NETWORK;2013;concept-adapted",
    "source_note": "2013 DSE ICT Paper 1A Q29（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2013-31",
@@ -7934,11 +7906,10 @@
    "wrong_tip": "先看根號內是否小於零。",
    "tags": "ALGORITHM;2013;concept-adapted",
    "source_note": "2013 DSE ICT Paper 1A Q31（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2013-32",
@@ -7955,11 +7926,10 @@
    "wrong_tip": "比較最佳和最壞情況。",
    "tags": "ALGORITHM;2013;concept-adapted",
    "source_note": "2013 DSE ICT Paper 1A Q32（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2014-01",
@@ -8076,11 +8046,10 @@
    "wrong_tip": "物理障礙可影響無線傳播。",
    "tags": "NETWORK;2014;concept-adapted",
    "source_note": "2014 DSE ICT Paper 1A Q25（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2014-26",
@@ -8097,11 +8066,10 @@
    "wrong_tip": "代理伺服器常見功能是快取及存取控制。",
    "tags": "NETWORK;2014;concept-adapted",
    "source_note": "2014 DSE ICT Paper 1A Q26（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2014-36",
@@ -8238,11 +8206,10 @@
    "wrong_tip": "中文的「驗證」與「核對」易混淆，請以英文術語 verification / validation 區分。",
    "tags": "DATA;2015;concept-adapted",
    "source_note": "2015 DSE ICT Paper 1A Q12（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2015-15",
@@ -8319,11 +8286,10 @@
    "wrong_tip": "離線模式仍要預先儲存檔案。",
    "tags": "NETWORK;2015;concept-adapted",
    "source_note": "2015 DSE ICT Paper 1A Q24（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 45,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2015-27",
@@ -8380,11 +8346,10 @@
    "wrong_tip": "dpi 由線性密度計算；面積像素數須平方。",
    "tags": "IO;原創",
    "source_note": "原創（2026-10）｜IO｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-022",
@@ -8401,11 +8366,10 @@
    "wrong_tip": "不要只看打印機購買價格；須同時考慮工作量及耗材。",
    "tags": "IO;原創",
    "source_note": "原創（2026-10）｜IO｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-023",
@@ -8422,11 +8386,10 @@
    "wrong_tip": "切勿把電容觸控與壓感或紅外線觸控混淆。",
    "tags": "IO;原創",
    "source_note": "原創（2026-10）｜IO｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-024",
@@ -8443,11 +8406,10 @@
    "wrong_tip": "先把 bit 換算成 byte，勿把 24 bits 當 24 bytes。",
    "tags": "IO;原創",
    "source_note": "原創（2026-10）｜IO｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-025",
@@ -8464,11 +8426,10 @@
    "wrong_tip": "文字是否可供輔助科技讀取，比畫面外觀更關鍵。",
    "tags": "IO;原創",
    "source_note": "原創（2026-10）｜IO｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-026",
@@ -8485,11 +8446,10 @@
    "wrong_tip": "顯示器更新率與來源 fps、解析度不同。",
    "tags": "IO;原創",
    "source_note": "原創（2026-10）｜IO｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-027",
@@ -8506,11 +8466,10 @@
    "wrong_tip": "先分清楚印刷條碼、RFID 和一般文字 OCR。",
    "tags": "IO;原創",
    "source_note": "原創（2026-10）｜IO｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-028",
@@ -8527,11 +8486,10 @@
    "wrong_tip": "數碼無線傳輸與最後的聲波輸出是不同階段。",
    "tags": "IO;原創",
    "source_note": "原創（2026-10）｜IO｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-029",
@@ -8548,11 +8506,10 @@
    "wrong_tip": "快取改善平均延遲，不等於改變程式邏輯或提供永久儲存。",
    "tags": "HARDWARE;原創",
    "source_note": "原創（2026-10）｜HARDWARE｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-030",
@@ -8569,11 +8526,10 @@
    "wrong_tip": "區分隨機 I/O 延遲與連續傳輸速度。",
    "tags": "HARDWARE;原創",
    "source_note": "原創（2026-10）｜HARDWARE｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-031",
@@ -8590,11 +8546,10 @@
    "wrong_tip": "觀察磁碟忙碌與 RAM 壓力，而非只看 CPU 使用率。",
    "tags": "HARDWARE;原創",
    "source_note": "原創（2026-10）｜HARDWARE｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-032",
@@ -8611,11 +8566,10 @@
    "wrong_tip": "GHz 並非跨架構比較效能的唯一指標。",
    "tags": "HARDWARE;原創",
    "source_note": "原創（2026-10）｜HARDWARE｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-033",
@@ -8632,11 +8586,10 @@
    "wrong_tip": "「同時看到多個程式」不代表單核心同一瞬間執行所有指令。",
    "tags": "OS;原創",
    "source_note": "原創（2026-10）｜OS｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-034",
@@ -8653,11 +8606,10 @@
    "wrong_tip": "權限控制與資料備份、介面顯示是不同功能。",
    "tags": "OS;原創",
    "source_note": "原創（2026-10）｜OS｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-035",
@@ -8674,11 +8626,10 @@
    "wrong_tip": "佇列是協調共享輸出設備，並非同步交錯列印字符。",
    "tags": "OS;原創",
    "source_note": "原創（2026-10）｜OS｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-036",
@@ -8695,11 +8646,10 @@
    "wrong_tip": "不要把程序隔離和阻止所有程式錯誤畫上等號。",
    "tags": "OS;原創",
    "source_note": "原創（2026-10）｜OS｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-037",
@@ -8716,11 +8666,10 @@
    "wrong_tip": "二層交換不會自動路由不同 VLAN 的 IP 流量。",
    "tags": "NET_DEVICE;原創",
    "source_note": "原創（2026-10）｜NET_DEVICE｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-038",
@@ -8737,11 +8686,10 @@
    "wrong_tip": "不要把未知單播等同廣播或跨 VLAN 轉送。",
    "tags": "NET_DEVICE;原創",
    "source_note": "原創（2026-10）｜NET_DEVICE｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-039",
@@ -8758,11 +8706,10 @@
    "wrong_tip": "只記住 NAT 改 IP 不足以說明多主機同時使用單一公網 IP。",
    "tags": "NET_DEVICE;原創",
    "source_note": "原創（2026-10）｜NET_DEVICE｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-040",
@@ -8779,11 +8726,10 @@
    "wrong_tip": "辨認被動監控和阻斷流量的差異。",
    "tags": "NET_DEVICE;原創",
    "source_note": "原創（2026-10）｜NET_DEVICE｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-041",
@@ -8800,11 +8746,10 @@
    "wrong_tip": "以 64 為區間單位找網段起點；別把主機位址當網段位址。",
    "tags": "NET_CONCEPT;原創",
    "source_note": "原創（2026-10）｜NET_CONCEPT｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-042",
@@ -8821,11 +8766,10 @@
    "wrong_tip": "留意是傳輸層的保證；UDP 本身不提供可靠交付。",
    "tags": "NET_CONCEPT;原創",
    "source_note": "原創（2026-10）｜NET_CONCEPT｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-043",
@@ -8842,11 +8786,10 @@
    "wrong_tip": "分清域名解析、路由及應用伺服器問題。",
    "tags": "NET_CONCEPT;原創",
    "source_note": "原創（2026-10）｜NET_CONCEPT｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-044",
@@ -8863,11 +8806,10 @@
    "wrong_tip": "延遲和吞吐量是不同的效能指標。",
    "tags": "NET_CONCEPT;原創",
    "source_note": "原創（2026-10）｜NET_CONCEPT｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-045",
@@ -8884,11 +8826,10 @@
    "wrong_tip": "鎖頭表示連線加密，不等於內容或身分真確。",
    "tags": "SECURITY;原創",
    "source_note": "原創（2026-10）｜SECURITY｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-046",
@@ -8905,11 +8846,10 @@
    "wrong_tip": "單靠隱藏資料表名或在前端過濾不能取代參數綁定。",
    "tags": "SECURITY;原創",
    "source_note": "原創（2026-10）｜SECURITY｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-047",
@@ -8926,11 +8866,10 @@
    "wrong_tip": "只有「有備份」不足夠；要考慮備份的隔離與可還原性。",
    "tags": "SECURITY;原創",
    "source_note": "原創（2026-10）｜SECURITY｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-048",
@@ -8947,11 +8886,10 @@
    "wrong_tip": "MFA 並非萬能，也不保證零帳戶接管事件。",
    "tags": "SECURITY;原創",
    "source_note": "原創（2026-10）｜SECURITY｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-049",
@@ -8968,11 +8906,10 @@
    "wrong_tip": "重導向可降低重複提交，但敏感交易還要伺服器端防重複處理。",
    "tags": "WEB;原創",
    "source_note": "原創（2026-10）｜WEB｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-050",
@@ -8989,11 +8926,10 @@
    "wrong_tip": "Cookie 本身不應直接包含明文密碼；留意會話管理。",
    "tags": "WEB;原創",
    "source_note": "原創（2026-10）｜WEB｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-051",
@@ -9010,11 +8946,10 @@
    "wrong_tip": "改善網頁效能須處理實際下載位元組，而非只縮小 CSS 顯示尺寸。",
    "tags": "WEB;原創",
    "source_note": "原創（2026-10）｜WEB｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-052",
@@ -9031,11 +8966,10 @@
    "wrong_tip": "輸入檢查不能替代情境適當的輸出編碼。",
    "tags": "WEB;原創",
    "source_note": "原創（2026-10）｜WEB｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-053",
@@ -9052,11 +8986,10 @@
    "wrong_tip": "注意運算優先次序",
    "tags": "PY_BASIC;原創",
    "source_note": "原創（2026-10）／DSE ICT PY_BASIC",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-054",
@@ -9073,11 +9006,10 @@
    "wrong_tip": "len 返回整數",
    "tags": "PY_BASIC;原創",
    "source_note": "原創（2026-10）／DSE ICT PY_BASIC",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-055",
@@ -9094,11 +9026,10 @@
    "wrong_tip": "引號會令值變成字串",
    "tags": "PY_BASIC;原創",
    "source_note": "原創（2026-10）／DSE ICT PY_BASIC",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-056",
@@ -9115,11 +9046,10 @@
    "wrong_tip": "+= 不是比較",
    "tags": "PY_BASIC;原創",
    "source_note": "原創（2026-10）／DSE ICT PY_BASIC",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-057",
@@ -9136,11 +9066,10 @@
    "wrong_tip": "不要混淆 /",
    "tags": "PY_BASIC;原創",
    "source_note": "原創（2026-10）／DSE ICT PY_BASIC",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-058",
@@ -9157,11 +9086,10 @@
    "wrong_tip": "勿把賦值運算子 = 與比較運算子 == 混淆。",
    "tags": "PY_BASIC;原創",
    "source_note": "原創（2026-10）／DSE ICT PY_BASIC",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-059",
@@ -9178,11 +9106,10 @@
    "wrong_tip": "不要由 1 開始數",
    "tags": "PY_BASIC;原創",
    "source_note": "原創（2026-10）／DSE ICT PY_BASIC",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-060",
@@ -9199,11 +9126,10 @@
    "wrong_tip": "print 用來輸出",
    "tags": "PY_BASIC;原創",
    "source_note": "原創（2026-10）／DSE ICT PY_BASIC",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-061",
@@ -9220,11 +9146,10 @@
    "wrong_tip": "終點不包括 3",
    "tags": "PY_ADV;原創",
    "source_note": "原創（2026-10）／DSE ICT PY_ADV",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-062",
@@ -9241,11 +9166,10 @@
    "wrong_tip": "append 與 insert 不同",
    "tags": "PY_ADV;原創",
    "source_note": "原創（2026-10）／DSE ICT PY_ADV",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-063",
@@ -9262,11 +9186,10 @@
    "wrong_tip": "return 不是 print",
    "tags": "PY_ADV;原創",
    "source_note": "原創（2026-10）／DSE ICT PY_ADV",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-064",
@@ -9283,11 +9206,10 @@
    "wrong_tip": "第一個字元索引為 0",
    "tags": "PY_ADV;原創",
    "source_note": "原創（2026-10）／DSE ICT PY_ADV",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-065",
@@ -9304,11 +9226,10 @@
    "wrong_tip": "留意每次更新",
    "tags": "PY_ADV;原創",
    "source_note": "原創（2026-10）／DSE ICT PY_ADV",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-066",
@@ -9325,11 +9246,10 @@
    "wrong_tip": "不要混淆條件分支",
    "tags": "PY_ADV;原創",
    "source_note": "原創（2026-10）／DSE ICT PY_ADV",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-067",
@@ -9346,11 +9266,10 @@
    "wrong_tip": "sorted 與 reverse 不同",
    "tags": "PY_ADV;原創",
    "source_note": "原創（2026-10）／DSE ICT PY_ADV",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-068",
@@ -9367,11 +9286,10 @@
    "wrong_tip": "避免只憑表面便利作判斷，須考慮權利、風險與責任",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）／DSE ICT SOCIAL",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-069",
@@ -9388,11 +9306,10 @@
    "wrong_tip": "避免只憑表面便利作判斷，須考慮權利、風險與責任",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）／DSE ICT SOCIAL",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-070",
@@ -9409,11 +9326,10 @@
    "wrong_tip": "避免只憑表面便利作判斷，須考慮權利、風險與責任",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）／DSE ICT SOCIAL",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-071",
@@ -9430,11 +9346,10 @@
    "wrong_tip": "避免只憑表面便利作判斷，須考慮權利、風險與責任",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）／DSE ICT SOCIAL",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-072",
@@ -9451,11 +9366,10 @@
    "wrong_tip": "避免只憑表面便利作判斷，須考慮權利、風險與責任",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）／DSE ICT SOCIAL",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-073",
@@ -9472,11 +9386,10 @@
    "wrong_tip": "避免只憑表面便利作判斷，須考慮權利、風險與責任",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）／DSE ICT SOCIAL",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-074",
@@ -9493,11 +9406,10 @@
    "wrong_tip": "避免只憑表面便利作判斷，須考慮權利、風險與責任",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）／DSE ICT SOCIAL",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-075",
@@ -9514,11 +9426,10 @@
    "wrong_tip": "避免只憑表面便利作判斷，須考慮權利、風險與責任",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）／DSE ICT SOCIAL",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-076",
@@ -9535,11 +9446,10 @@
    "wrong_tip": "避免只憑表面便利作判斷，須考慮權利、風險與責任",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）／DSE ICT SOCIAL",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-077",
@@ -9556,11 +9466,10 @@
    "wrong_tip": "避免只憑表面便利作判斷，須考慮權利、風險與責任",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）／DSE ICT SOCIAL",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-078",
@@ -9577,11 +9486,10 @@
    "wrong_tip": "避免只憑表面便利作判斷，須考慮權利、風險與責任",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）／DSE ICT SOCIAL",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-079",
@@ -9598,11 +9506,10 @@
    "wrong_tip": "避免只憑表面便利作判斷，須考慮權利、風險與責任",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）／DSE ICT SOCIAL",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-080",
@@ -9619,11 +9526,10 @@
    "wrong_tip": "避免只憑表面便利作判斷，須考慮權利、風險與責任",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）／DSE ICT SOCIAL",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-081",
@@ -9640,11 +9546,10 @@
    "wrong_tip": "避免只憑表面便利作判斷，須考慮權利、風險與責任",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）／DSE ICT SOCIAL",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-082",
@@ -9661,11 +9566,10 @@
    "wrong_tip": "避免只憑表面便利作判斷，須考慮權利、風險與責任",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）／DSE ICT SOCIAL",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-083",
@@ -9682,11 +9586,10 @@
    "wrong_tip": "避免只憑表面便利作判斷，須考慮權利、風險與責任",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）／DSE ICT SOCIAL",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-084",
@@ -9703,11 +9606,10 @@
    "wrong_tip": "避免只憑表面便利作判斷，須考慮權利、風險與責任",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）／DSE ICT SOCIAL",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-085",
@@ -9724,11 +9626,10 @@
    "wrong_tip": "避免只憑表面便利作判斷，須考慮權利、風險與責任",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）／DSE ICT SOCIAL",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 50,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-086",
@@ -9745,11 +9646,10 @@
    "wrong_tip": "避免只憑表面便利作判斷，須考慮權利、風險與責任",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）／DSE ICT SOCIAL",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 50,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-087",
@@ -9766,11 +9666,10 @@
    "wrong_tip": "避免只憑表面便利作判斷，須考慮權利、風險與責任",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）／DSE ICT SOCIAL",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 50,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-088",
@@ -9787,11 +9686,10 @@
    "wrong_tip": "避免只憑表面便利作判斷，須考慮權利、風險與責任",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）／DSE ICT SOCIAL",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 50,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-089",
@@ -9808,11 +9706,10 @@
    "wrong_tip": "避免只憑表面便利作判斷，須考慮權利、風險與責任",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）／DSE ICT SOCIAL",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 50,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-090",
@@ -9829,11 +9726,10 @@
    "wrong_tip": "只刪除姓名或改檔名並不必然足夠。",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）｜SOCIAL｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-091",
@@ -9850,11 +9746,10 @@
    "wrong_tip": "加密連線不等於同意流程公平。",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）｜SOCIAL｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-092",
@@ -9871,11 +9766,10 @@
    "wrong_tip": "不是單看去年準確率就可保證今年表現。",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）｜SOCIAL｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-093",
@@ -9892,11 +9786,10 @@
    "wrong_tip": "不要把可用於統計的需要誤當成必須永久追蹤個人。",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）｜SOCIAL｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-094",
@@ -9913,11 +9806,10 @@
    "wrong_tip": "偽造內容可包含真實商標、臉孔及聲線。",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）｜SOCIAL｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-095",
@@ -9934,11 +9826,10 @@
    "wrong_tip": "技術正確率不會自動取代程序公正。",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）｜SOCIAL｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-096",
@@ -9955,11 +9846,10 @@
    "wrong_tip": "數碼可達性除了設備，也包括技能和無障礙。",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）｜SOCIAL｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-097",
@@ -9976,11 +9866,10 @@
    "wrong_tip": "刪除本機瀏覽紀錄不能撤回已傳送給外部服務的資料。",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）｜SOCIAL｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-098",
@@ -9997,11 +9886,10 @@
    "wrong_tip": "假名化或刪姓名不等於不可逆匿名。",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）｜SOCIAL｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-099",
@@ -10018,11 +9906,10 @@
    "wrong_tip": "不要把應用程式索取的權限當成必要條件。",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）｜SOCIAL｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-100",
@@ -10039,11 +9926,10 @@
    "wrong_tip": "使用 AI 並不必然違規；關鍵是適當申報及負責任使用。",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）｜SOCIAL｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-101",
@@ -10060,11 +9946,10 @@
    "wrong_tip": "高使用時間不等於對使用者有益。",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）｜SOCIAL｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-102",
@@ -10081,11 +9966,10 @@
    "wrong_tip": "收集更多個人細節不必然提高業務效益。",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）｜SOCIAL｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-103",
@@ -10102,11 +9986,10 @@
    "wrong_tip": "平均表現高不代表極端情境風險可忽略。",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）｜SOCIAL｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-104",
@@ -10123,11 +10006,10 @@
    "wrong_tip": "雲端服務可帶來便利，但仍需考慮退出成本。",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）｜SOCIAL｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-105",
@@ -10144,11 +10026,10 @@
    "wrong_tip": "不能把 AI 生成視為全部可免授權使用。",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）｜SOCIAL｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-106",
@@ -10165,11 +10046,10 @@
    "wrong_tip": "程序公平不等於只追求高平均準確率。",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）｜SOCIAL｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-107",
@@ -10186,11 +10066,10 @@
    "wrong_tip": "別把資料代表性問題誤當成純硬件規格問題。",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）｜SOCIAL｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-108",
@@ -10207,11 +10086,10 @@
    "wrong_tip": "「可以收集」不代表「應該收集」。",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）｜SOCIAL｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-109",
@@ -10228,11 +10106,10 @@
    "wrong_tip": "匿名化的統計結果若群組太小，仍可被反推。",
    "tags": "SOCIAL;原創",
    "source_note": "原創（2026-10）｜SOCIAL｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-110",
@@ -10249,11 +10126,10 @@
    "wrong_tip": "先判斷是比較、比例、趨勢還是相關性",
    "tags": "EXCEL_CHART;原創",
    "source_note": "原創（2026-10）／DSE ICT EXCEL_CHART",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-111",
@@ -10270,11 +10146,10 @@
    "wrong_tip": "先判斷是比較、比例、趨勢還是相關性",
    "tags": "EXCEL_CHART;原創",
    "source_note": "原創（2026-10）／DSE ICT EXCEL_CHART",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 35,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-112",
@@ -10291,11 +10166,10 @@
    "wrong_tip": "先判斷是比較、比例、趨勢還是相關性",
    "tags": "EXCEL_CHART;原創",
    "source_note": "原創（2026-10）／DSE ICT EXCEL_CHART",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 50,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-113",
@@ -10312,11 +10186,10 @@
    "wrong_tip": "先判斷是比較、比例、趨勢還是相關性",
    "tags": "EXCEL_CHART;原創",
    "source_note": "原創（2026-10）／DSE ICT EXCEL_CHART",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 50,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-114",
@@ -10333,11 +10206,10 @@
    "wrong_tip": "先判斷是比較、比例、趨勢還是相關性",
    "tags": "EXCEL_CHART;原創",
    "source_note": "原創（2026-10）／DSE ICT EXCEL_CHART",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 50,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-115",
@@ -10354,11 +10226,10 @@
    "wrong_tip": "次座標軸有誤導風險；需同時留意圖例、軸刻度及單位。",
    "tags": "EXCEL_CHART;原創",
    "source_note": "原創（2026-10）｜EXCEL_CHART｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-116",
@@ -10375,11 +10246,10 @@
    "wrong_tip": "一般折線圖若使用類別軸，年份可能等距排列。",
    "tags": "EXCEL_CHART;原創",
    "source_note": "原創（2026-10）｜EXCEL_CHART｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-117",
@@ -10396,11 +10266,10 @@
    "wrong_tip": "不要誤用 100% 堆疊圖比較絕對總支出。",
    "tags": "EXCEL_CHART;原創",
    "source_note": "原創（2026-10）｜EXCEL_CHART｜教師修訂 2026-10-31",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "2",
    "time_sec": 65,
-   "source_bank": "IT_Emperor_DseMcQs.xlsx",
-   "held": true
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-EXT-0001",

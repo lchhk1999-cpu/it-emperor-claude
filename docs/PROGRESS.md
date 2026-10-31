@@ -416,3 +416,5 @@
 - 建立 `data/question_bank/hold_for_review.txt`（131 題）。匯入結果：1107 題、0 拒絕、0 重複；approved 380（正式版）、review 727（開發版）。
 - 測試：`./scripts/test.sh` → JS 170 passed；Python 33 OK；release 只含 380 題 approved；版本檢查通過。遊戲驗證 1107 題全部有效；開發版 20 個世界關卡全部有足夠指定難度題目。
 - 等待：用戶確認 131 題是否已經教師審核；額外題庫 596 題亦需教師審核。
+- 用戶確認「已審核，請發佈」：清空 `hold_for_review.txt` 並重新匯入。正式版 approved 511 題（A 33／87／28、B 22／40／20、C 35／66／21、D 22／49／28、E 20／20／20）；額外題庫 596 題仍 review（只在開發版）。正式版 20 個世界關卡全部有足夠指定難度題目。
+- 測試：`./scripts/test.sh` → JS 170 passed（操練區測試改用不依賴題庫數量的空組合）；Python OK；release 只含 511 題 approved；版本檢查通過。
