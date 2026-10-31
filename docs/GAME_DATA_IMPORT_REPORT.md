@@ -2,7 +2,7 @@
 
 - 來源檔案：`IT_Emperor_DseMcQs.xlsx`
 - SHA-256：`f3597057436409958589fb5f9171cccfb76019e8c9018b54ca9668c3b7fab345`
-- 匯入時間：2026-10-31T04:57:20Z
+- 匯入時間：2026-10-31T05:02:48Z
 - 工作表：`Characters`、`GameConfig`、`Missions`、`Titles`、`Equipment`、`Pools`、`Materials`、`Stages`、`Events`（Topics 用作檢查課題）
 
 ## 角色
@@ -50,6 +50,8 @@
 | specialist_bonus | 0.2 |
 | pvp_stats_normalized | 1 |
 | gacha_paid_enabled | 0 |
+| starter_stamina | 40 |
+| level_up_stamina | 2 |
 
 ## 任務
 
@@ -121,7 +123,7 @@
 | 六 | 金幣寶庫 | 金幣之門 | ALL | medium | 10 | MAT-COIN |
 | 日 | 究極混合地下城 | 究極混合副本 | ALL | ultimate | 15 | MAT-RARE |
 
-註：`Stages` 表的 boss_hp、reward_coins、reward_exp、stamina_cost 暫未使用（Boss 血量按遊戲傷害公式計算；體力在 P5-03 處理）。
+註：`Stages` 表的 boss_hp、reward_coins、reward_exp 暫未使用（Boss 血量按遊戲傷害公式計算）。stamina_cost 為 0 的限定關，體力按題數計算。
 
 ## 拒絕的資料
 

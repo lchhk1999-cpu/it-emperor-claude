@@ -103,13 +103,21 @@ class GameDataImporterTest(unittest.TestCase):
         _, rejected, data = self.run_import([ch("C1")], extra={"Materials": mats, "Stages": stages, "Events": events})
         self.assertEqual(data["events"], [{"id": "E1", "weekday": 3, "name": "SQL 素材日", "stage": "S1"}])
         self.assertEqual(data["eventStages"], [{"id": "S1", "title": "記錄", "world": "SQL 地下城", "topic": "SQL",
-                                                 "difficulty": "medium", "questionCount": 6, "material": "M1"}])
+                                                 "difficulty": "medium", "questionCount": 6, "material": "M1", "stamina": 0}])
         self.assertEqual(sorted(r["id"] for r in rejected), ["E2", "E3", "E4", "S2", "S3"])
 
     def test_inactive_characters_are_skipped(self):
         _, rejected, data = self.run_import([ch("C1"), ch("C2", active="no")])
         self.assertEqual([c["id"] for c in data["characters"]], ["C1"])
         self.assertEqual(rejected, [])
+
+    def test_optional_stamina_config_defaults_and_validation(self):
+        _, _, data = self.run_import([ch("C1")])
+        self.assertEqual((data["config"]["starter_stamina"], data["config"]["level_up_stamina"]), (40, 2))
+        _, _, data = self.run_import([ch("C1")], config=CONFIG + [["starter_stamina", "60", "", ""], ["level_up_stamina", "3", "", ""]])
+        self.assertEqual((data["config"]["starter_stamina"], data["config"]["level_up_stamina"]), (60, 3))
+        with self.assertRaises(ImportError_):
+            self.run_import([ch("C1")], config=CONFIG + [["starter_stamina", "0", "", ""]])
 
     def test_missing_or_bad_config_fails_the_import(self):
         with self.assertRaises(ImportError_):

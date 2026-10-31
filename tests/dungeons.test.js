@@ -70,10 +70,9 @@
     assert.deepEqual(Dg.materialDrops(Dg.worldStages().find((s) => s.id === "dse-D-easy"), { outcome: "won" }, data, rng(1)), { "MAT-PY": 1 });
   });
 
-  test("dungeons: mixed practice (no drops entry) gives one random topic material", () => {
-    const d = Dg.materialDrops(ITE.stages[0], { outcome: "won" }, data, () => 0.9999);
-    assert.deepEqual(d, { "MAT-PY": 1 });
-    assert.deepEqual(Dg.materialDrops(null, { outcome: "won" }, data, () => 0), { "MAT-EXCEL": 1 });
+  test("dungeons: mixed practice drops nothing (free, no stamina)", () => {
+    assert.deepEqual(Dg.materialDrops(ITE.stages[0], { outcome: "won" }, data, () => 0.5), {});
+    assert.deepEqual(Dg.materialDrops(null, { outcome: "won" }, data, () => 0), {});
   });
 
   test("dungeons: today's limited stage follows the workbook weekly rotation (HKT)", () => {

@@ -153,7 +153,7 @@
         { class: "stage-info" },
         h("div", { class: "stage-chapter" }, stage.chapter),
         h("div", { class: "stage-name" }, stage.name),
-        h("div", { class: "stage-desc" }, stage.description),
+        h("div", { class: "stage-desc" }, stage.description, root.ITE.stamina.stageCost(stage) ? `｜體力 ${root.ITE.stamina.stageCost(stage)}` : "｜不用體力・只得經驗"),
         h("div", { class: "stage-meta" }, stageStatus(stage.id))
       )
     );
@@ -169,6 +169,7 @@
         "main",
         { class: "screen stages" },
         h("header", { class: "topbar" }, h("button", { class: "btn-back", onclick: showHome, "aria-label": "返回" }, "‹"), h("h1", {}, "DSE 題庫挑戰")),
+        profileBar(),
         limited ? stageCard(limited) : null,
         Dg.WORLDS.map((w) =>
           h(
@@ -188,7 +189,7 @@
                     "button",
                     { class: `diff-btn diff-${st.difficulty}${rec && rec.cleared ? " cleared" : ""}`, onclick: () => startBattle(st), "aria-label": `${st.name}，${d.questionCount} 題，${stageStatus(st.id)}` },
                     h("span", { class: "diff-name" }, d.name, rec && rec.cleared ? " ★" : ""),
-                    h("span", { class: "diff-meta" }, `${d.questionCount} 題｜素材 ×${d.drops}${d.rare ? "＋傳說核心" : ""}`)
+                    h("span", { class: "diff-meta" }, `${d.questionCount} 題｜體力 ${root.ITE.stamina.stageCost(st)}｜素材 ×${d.drops}${d.rare ? "＋傳說核心" : ""}`)
                   );
                 })
             )
@@ -200,17 +201,58 @@
     );
   }
 
+  // ---------- 體力 ----------
+  function staminaNow() {
+    return root.ITE.stamina.current(save.profile, gameData.config, Date.now());
+  }
+
+  function showStaminaPrompt(stage, cost) {
+    const c = staminaNow();
+    const mins = Math.ceil(root.ITE.stamina.nextPointIn(save.profile, gameData.config, Date.now()) / 60000);
+    render(
+      h(
+        "main",
+        { class: "screen" },
+        h("header", { class: "topbar" }, h("button", { class: "btn-back", onclick: showStages, "aria-label": "返回" }, "‹"), h("h1", {}, "體力不足")),
+        h(
+          "section",
+          { class: "panel" },
+          h("p", {}, `「${stage.name}」需要 ${cost} 體力，你現在有 ${c.value} / ${c.max}。`),
+          h("p", { class: "hint" }, `每 5 分鐘回復 1 點${mins ? `（下一點約 ${mins} 分鐘後）` : ""}；升級會回滿體力。`),
+          h("p", { class: "hint" }, "體力只限制取得素材及金幣，不限制學習：你仍然可以用練習模式作答，只會獲得經驗。故事模式不用體力。")
+        ),
+        h(
+          "div",
+          { class: "menu" },
+          h("button", { class: "btn btn-primary", onclick: () => startBattle(stage, { practice: true }) }, "練習模式（只得經驗）"),
+          h("button", { class: "btn", onclick: showStages }, "返回選關")
+        )
+      )
+    );
+  }
+
   // ---------- Battle ----------
-  function startBattle(stage) {
+  // Stages that cost stamina give materials and coins; mixed practice, or
+  // playing without enough stamina, gives experience only (practice).
+  function startBattle(stage, opts) {
+    const cost = root.ITE.stamina.stageCost(stage);
+    const practice = cost === 0 || !!(opts && opts.practice);
+    let paid = null;
+    if (!practice) {
+      const r = root.ITE.stamina.spend(save.profile, cost, gameData.config, Date.now());
+      if (r.error) return showStaminaPrompt(stage, cost);
+      paid = r.profile;
+    }
     try {
       const team = P.teamSnapshot(save.profile, gameData);
       const loadout = root.ITE.equipment.battleLoadout(save.profile, gameData);
       const rng = root.ITE.rng.createRng(Date.now());
-      battleState = B.createBattle(stage, root.ITE.dungeons.stagePool(stage, questionPool, rng), rng, team, loadout);
+      battleState = { ...B.createBattle(stage, root.ITE.dungeons.stagePool(stage, questionPool, rng), rng, team, loadout), practice };
     } catch (e) {
       showMessage("暫時未有可用題目", BUILD_MODE === "release" ? "正式版只會顯示已核准（approved）的題目。" : String(e.message));
       return;
     }
+    if (paid) save = { ...save, profile: paid };
     save = S.withActiveBattle(save, battleState);
     persist();
     showBattle();
@@ -253,8 +295,11 @@
       const sum = B.summary(battleState);
       save = S.recordStageResult(save, battleState.stageId, sum);
       if (sum.outcome === "won") recordStageClear();
-      const drops = root.ITE.dungeons.materialDrops(findStage(battleState.stageId), sum, gameData, root.ITE.rng.createRng(Date.now() ^ Math.floor(Math.random() * 2 ** 31)));
-      lastReward = grantReward({ ...P.dseRewards(sum), materials: drops });
+      const base = P.dseRewards(sum);
+      lastReward = battleState.practice
+        ? grantReward({ exp: base.exp, coins: 0 })
+        : grantReward({ ...base, materials: root.ITE.dungeons.materialDrops(findStage(battleState.stageId), sum, gameData, root.ITE.rng.createRng(Date.now() ^ Math.floor(Math.random() * 2 ** 31))) });
+      lastReward.practice = !!battleState.practice;
       showResult();
       return;
     }
@@ -408,6 +453,10 @@
       h("span", {}, `金幣 ${p.coins}`),
       h("span", {}, `寶石 ${p.gems || 0}`),
       (() => {
+        const c = staminaNow();
+        return h("span", { class: "stamina" }, `體力 ${c.value} / ${c.max}`);
+      })(),
+      (() => {
         const t = Mi.equippedTitle(save.progress, gameData.titles);
         return t ? h("span", { class: "title-badge" }, t.name) : null;
       })()
@@ -433,7 +482,8 @@
   // Adds a reward to the profile, saves, and returns what to show the player.
   function grantReward(reward) {
     const r = P.addReward(save.profile, reward, gameData);
-    const profile = reward.materials ? root.ITE.inventory.addMaterials(r.profile, reward.materials, gameData) : r.profile;
+    let profile = reward.materials ? root.ITE.inventory.addMaterials(r.profile, reward.materials, gameData) : r.profile;
+    if (r.levelsGained) profile = root.ITE.stamina.refill(profile, gameData.config, Date.now());
     save = { ...save, profile: { ...profile, team: P.cleanTeam(profile.team, profile.level, gameData, profile.owned) } };
     persist();
     return { reward, levelsGained: r.levelsGained, slotsUnlocked: r.slotsUnlocked, level: r.profile.level };
@@ -448,7 +498,8 @@
         const m = root.ITE.inventory.materialById(gameData, id);
         return m ? h("p", { class: "reward-line reward-material" }, `獲得素材：${m.name} ×${n}`) : null;
       }),
-      g.levelsGained ? h("p", { class: "reward-level" }, `升級！現在是 Lv ${g.level}`) : null,
+      g.practice ? h("p", { class: "hint" }, "練習模式：只獲得經驗（不扣體力，沒有素材及金幣）") : null,
+      g.levelsGained ? h("p", { class: "reward-level" }, `升級！現在是 Lv ${g.level}，體力已回滿`) : null,
       g.slotsUnlocked ? h("p", { class: "reward-level" }, `解鎖新隊伍位置！到「角色隊伍」加入新成員`) : null
     );
   }
