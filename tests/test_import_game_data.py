@@ -74,6 +74,21 @@ class GameDataImporterTest(unittest.TestCase):
         self.assertEqual([r["id"] for r in rejected], ["C3"])
         self.assertIn("family_id and family_name", rejected[0]["errors"][0])
 
+    def test_materials_sheet_is_optional_and_validated(self):
+        _, _, data = self.run_import([ch("C1")])
+        self.assertEqual(data["materials"], [])
+        mats = [["material_id", "material_name", "topic_id", "rarity", "description", "active"],
+                ["M1", "資料碎片", "SQL", "common", "SQL 進化", "yes"],
+                ["M2", "傳說核心", "ALL", "legendary", "", "yes"],
+                ["M3", "壞稀有度", "SQL", "epic", "", "yes"],
+                ["M4", "壞課題", "MAGIC", "common", "", "yes"],
+                ["M5", "停用", "SQL", "common", "", "no"],
+                ["M1", "重複", "SQL", "common", "", "yes"]]
+        _, rejected, data = self.run_import([ch("C1")], extra={"Materials": mats})
+        self.assertEqual([m["id"] for m in data["materials"]], ["M1", "M2"])
+        self.assertEqual(data["materials"][0], {"id": "M1", "name": "資料碎片", "topic": "SQL", "rarity": "common", "description": "SQL 進化"})
+        self.assertEqual([r["id"] for r in rejected], ["M3", "M4", "M1"])
+
     def test_inactive_characters_are_skipped(self):
         _, rejected, data = self.run_import([ch("C1"), ch("C2", active="no")])
         self.assertEqual([c["id"] for c in data["characters"]], ["C1"])

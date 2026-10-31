@@ -270,6 +270,36 @@ def import_pools(sheets):
     return out, rejected
 
 
+MATERIAL_RARITIES = ("common", "rare", "legendary")
+
+
+def import_materials(sheets, topics):
+    """Materials sheet (optional): evolution materials and other backpack items (P5-01)."""
+    out, rejected, seen = [], [], set()
+    if "Materials" not in sheets:
+        return out, rejected
+    cols = ["material_id", "material_name", "topic_id", "rarity", "description", "active"]
+    for row, d in _rows(sheets, "Materials", cols):
+        if d["active"].lower() == "no":
+            continue
+        errors = [f"{k} is empty" for k in ("material_id", "material_name", "topic_id", "rarity") if not d[k]]
+        if d["active"].lower() != "yes":
+            errors.append(f"active must be yes/no, got '{d['active']}'")
+        if d["rarity"] and d["rarity"] not in MATERIAL_RARITIES:
+            errors.append(f"rarity must be common/rare/legendary, got '{d['rarity']}'")
+        if d["topic_id"] and d["topic_id"] != "ALL" and d["topic_id"] not in topics:
+            errors.append(f"topic_id '{d['topic_id']}' is not in the Topics sheet")
+        if d["material_id"] in seen:
+            errors.append("duplicate material_id")
+        seen.add(d["material_id"])
+        if errors:
+            rejected.append({"row": row, "id": d["material_id"], "errors": errors})
+            continue
+        out.append({"id": d["material_id"], "name": d["material_name"], "topic": d["topic_id"],
+                    "rarity": d["rarity"], "description": d["description"]})
+    return out, rejected
+
+
 def import_config(sheets):
     config, problems = {}, []
     raw = {d["config_key"]: d.get("value", "") for _, d in _rows(sheets, "GameConfig", ["config_key", "value"])}
@@ -300,7 +330,8 @@ def run(xlsx, out_dir=".", now=None):
     titles, rejected_titles = import_titles(sheets, topics)
     equipment, rejected_equipment = import_equipment(sheets)
     pools, rejected_pools = import_pools(sheets)
-    rejected = rejected + rejected_missions + rejected_titles + rejected_equipment + rejected_pools
+    materials, rejected_materials = import_materials(sheets, topics)
+    rejected = rejected + rejected_missions + rejected_titles + rejected_equipment + rejected_pools + rejected_materials
     if config_problems:
         raise ImportError_("; ".join(config_problems))
     if not characters:
@@ -313,10 +344,11 @@ def run(xlsx, out_dir=".", now=None):
         "missions": len(missions),
         "titles": len(titles),
         "equipment": len(equipment),
+        "materials": len(materials),
         "rejected": len(rejected),
     }
     payload = {"meta": meta, "config": config, "characters": characters, "missions": missions, "titles": titles,
-               "equipment": equipment, "pools": pools}
+               "equipment": equipment, "pools": pools, "materials": materials}
     js_path = os.path.join(out_dir, "src", "data", "game_data.js")
     report_path = os.path.join(out_dir, "docs", "GAME_DATA_IMPORT_REPORT.md")
     for p in (js_path, report_path):
@@ -328,7 +360,7 @@ def run(xlsx, out_dir=".", now=None):
                 f"  ITE.gameData = {json.dumps(payload, ensure_ascii=False, indent=1)};\n}})(globalThis);\n")
     lines = ["# 遊戲資料匯入報告（自動產生）", "",
              f"- 來源檔案：`{meta['source_file']}`", f"- SHA-256：`{meta['source_sha256']}`",
-             f"- 匯入時間：{meta['imported_at']}", "- 工作表：`Characters`、`GameConfig`、`Missions`、`Titles`（Topics 用作檢查課題）", "",
+             f"- 匯入時間：{meta['imported_at']}", "- 工作表：`Characters`、`GameConfig`、`Missions`、`Titles`、`Equipment`、`Pools`、`Materials`（Topics 用作檢查課題）", "",
              "## 角色", "", "| ID | 名稱 | 專長 | 稀有度 | 攻擊 | HP | 專長加成 |", "|---|---|---|---|---|---|---|"]
     for c in characters:
         lines.append(f"| {c['id']} | {c['name']} | {c['specialty']} | {c['rarity']} | {c['attack']} | {c['hp']} | {round(c['bonus'] * 100)}% |")
@@ -351,6 +383,9 @@ def run(xlsx, out_dir=".", now=None):
             lines.append(f"| {pool['id']} | {kind} | {r['rarity']} | {r['pct']}% | {r['pity'] or '—'} |")
     if "equipment" in pools and equipment:
         lines += ["", "註：`Equipment` 表沒有稀有度欄，裝備池的稀有度機率暫時無法套用；遊戲內每件可用裝備機率相同，並清楚註明。建議在 Excel 加入 rarity 欄。"]
+    rarity_name = {"common": "普通", "rare": "稀有", "legendary": "傳說"}
+    lines += ["", "## 素材（背包）", "", "| ID | 名稱 | 課題 | 稀有度 | 說明 |", "|---|---|---|---|---|"]
+    lines += [f"| {m['id']} | {m['name']} | {m['topic']} | {rarity_name[m['rarity']]} | {m['description']} |" for m in materials]
     lines += ["", "## 拒絕的資料", ""]
     if rejected:
         lines += ["| 列 | ID | 原因 |", "|---|---|---|"] + [f"| {r['row']} | {r['id']} | {'；'.join(r['errors'])} |" for r in rejected]
@@ -372,7 +407,7 @@ def main(argv=None):
         print(f"IMPORT FAILED: {e}", file=sys.stderr)
         return 2
     print(f"characters {meta['characters']}, missions {meta['missions']}, titles {meta['titles']}, "
-          f"equipment {meta['equipment']}, rejected {meta['rejected']}")
+          f"equipment {meta['equipment']}, materials {meta['materials']}, rejected {meta['rejected']}")
     for k, v in paths.items():
         print(f"wrote {k}: {v}")
     return 0

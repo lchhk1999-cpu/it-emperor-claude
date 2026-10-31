@@ -108,6 +108,7 @@
           h("button", { class: "btn btn-guild", onclick: () => root.ITE.guildUi.show() }, "校際公會"),
           h("button", { class: "btn", onclick: () => root.ITE.teamUi.show() }, "角色隊伍"),
           h("button", { class: "btn", onclick: () => root.ITE.gachaUi.show() }, "抽蛋"),
+          h("button", { class: "btn", onclick: () => root.ITE.inventoryUi.show() }, "背包"),
           (() => {
             const n = Mi.claimableCount(save.progress, gameData.missions, Date.now());
             return h(
@@ -214,7 +215,8 @@
       const sum = B.summary(battleState);
       save = S.recordStageResult(save, battleState.stageId, sum);
       if (sum.outcome === "won") recordStageClear();
-      lastReward = grantReward(P.dseRewards(sum));
+      const drops = root.ITE.inventory.dseMaterialDrops(sum, gameData, root.ITE.rng.createRng(Date.now() ^ Math.floor(Math.random() * 2 ** 31)));
+      lastReward = grantReward({ ...P.dseRewards(sum), materials: drops });
       showResult();
       return;
     }
@@ -393,7 +395,8 @@
   // Adds a reward to the profile, saves, and returns what to show the player.
   function grantReward(reward) {
     const r = P.addReward(save.profile, reward, gameData);
-    save = { ...save, profile: { ...r.profile, team: P.cleanTeam(r.profile.team, r.profile.level, gameData, r.profile.owned) } };
+    const profile = reward.materials ? root.ITE.inventory.addMaterials(r.profile, reward.materials, gameData) : r.profile;
+    save = { ...save, profile: { ...profile, team: P.cleanTeam(profile.team, profile.level, gameData, profile.owned) } };
     persist();
     return { reward, levelsGained: r.levelsGained, slotsUnlocked: r.slotsUnlocked, level: r.profile.level };
   }
@@ -403,6 +406,10 @@
       "section",
       { class: "reward", "aria-live": "polite" },
       h("p", { class: "reward-line" }, `+${g.reward.exp} 經驗`, g.reward.coins ? `　+${g.reward.coins} 金幣` : ""),
+      Object.entries(g.reward.materials || {}).map(([id, n]) => {
+        const m = root.ITE.inventory.materialById(gameData, id);
+        return m ? h("p", { class: "reward-line reward-material" }, `獲得素材：${m.name} ×${n}`) : null;
+      }),
       g.levelsGained ? h("p", { class: "reward-level" }, `升級！現在是 Lv ${g.level}`) : null,
       g.slotsUnlocked ? h("p", { class: "reward-level" }, `解鎖新隊伍位置！到「角色隊伍」加入新成員`) : null
     );

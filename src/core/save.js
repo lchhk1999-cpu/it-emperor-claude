@@ -98,6 +98,13 @@
       const o = raw.owned && typeof raw.owned === "object" ? raw.owned : {};
       out.owned = { characters: ids(o.characters), equipment: ids(o.equipment) };
     }
+    // 背包 materials { id: count }; bad entries are dropped.
+    if (raw.materials !== undefined) {
+      out.materials = {};
+      if (raw.materials && typeof raw.materials === "object" && !Array.isArray(raw.materials)) {
+        for (const [k, v] of Object.entries(raw.materials)) if (isText(k) && Number.isInteger(v) && v > 0) out.materials[k] = Math.min(v, 9999);
+      }
+    }
     if (raw.pity !== undefined) out.pity = { character: int(raw.pity && raw.pity.character, 0) };
     if (raw.gachaLog !== undefined) {
       out.gachaLog = (Array.isArray(raw.gachaLog) ? raw.gachaLog : [])
