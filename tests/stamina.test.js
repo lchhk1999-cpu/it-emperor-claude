@@ -6,6 +6,7 @@
   const data = ITE.gameData;
   const cfg = data.config;
   const MIN = 60 * 1000;
+  const DAY_MS = 24 * 60 * MIN;
   const T0 = Date.UTC(2026, 10, 2, 2, 0);
   const at = (level, value, updatedAt) => ({ ...P.defaultProfile(data), level, stamina: value === undefined ? undefined : { value, updatedAt } });
 
@@ -70,5 +71,16 @@
     const loaded = S.load(store);
     assert.equal(loaded.save.profile.stamina, undefined);
     assert.equal(St.current(loaded.save.profile, cfg, T0).value, 40);
+  });
+  test("stamina: refilled to the max at 00:00 Hong Kong time every day", () => {
+    const evening = Date.UTC(2026, 10, 2, 15, 30); // 23:30 HKT
+    const p = at(1, 2, evening);
+    assert.equal(St.current(p, cfg, evening + 20 * MIN).value, 6, "23:50 HKT: still the same day, only regen");
+    assert.equal(St.current(p, cfg, evening + 31 * MIN).value, 40, "00:01 HKT: a new day, full");
+    // Spending on the new day starts from full.
+    const r = St.spend(p, 8, cfg, evening + 40 * MIN);
+    assert.equal(St.current(r.profile, cfg, evening + 40 * MIN).value, 32);
+    // A clock moved back never refills.
+    assert.equal(St.current(p, cfg, evening - DAY_MS).value, 2);
   });
 })();
