@@ -52,3 +52,4 @@
 | 額外題庫（出版社題目） | PROPOSAL 2026-10-31 | 用戶已在 ChatGPT 整理其他出版社題目。版權要求：必須由 ChatGPT 按知識點改寫成原創題目，不可原文收錄；另存 `IT_Emperor_Extra_McQs.xlsx`（同欄位、`ICT-EXT-` 前綴、status review、source_note 記錄來源）。待檔案到位後擴充匯入器合併兩個題庫。見 `docs/QUESTION_BANK_WORK_GUIDE.md` |
 | 題庫合併及暫緩發佈 | 2026-10-31 | 匯入器支援 `--extra`（額外題庫，同欄位，ID 跨檔唯一，記錄 source_bank）及 `--hold`（`data/question_bank/hold_for_review.txt`：Excel 標 approved 但未經教師確認的題目，只在開發版以 review 出現）。本次主題庫 97 題新增、34 題改動被 ChatGPT 直接標為 approved（Prompt 要求 review），先列入暫緩清單，待用戶確認教師已審核 |
 | 131 題發佈 | CONFIRMED 2026-10-31（用戶：「已審核，請發佈」） | 主題庫 97 題新增及 34 題改動經教師審核，從暫緩清單移除；正式版 511 題 approved。額外題庫 596 題仍是 review，待教師審核 |
+| 體力每日回滿 | CONFIRMED 2026-10-31（用戶要求） | 除每 5 分鐘回 1 點外，每日香港時間 00:00 體力回滿（與每日任務同時重置） |

@@ -5,6 +5,8 @@
 //   the player can still play as practice: experience only, no materials or coins.
 // - Mixed practice is free and drops nothing.
 // - 1 point back every 5 minutes up to the max; levelling up refills to the max.
+// - Every day at 00:00 Hong Kong time stamina is refilled to the max (user
+//   request 2026-10-31), like the daily missions.
 // PROTOTYPE: regen speed and costs are placeholders until playtested.
 // profile.stamina = { value, updatedAt } (updatedAt: when value was last exact).
 (function (root) {
@@ -27,6 +29,9 @@
     const s = profile.stamina;
     if (!s) return { value: max, max, updatedAt: now };
     if (s.value >= max) return { value: s.value, max, updatedAt: now };
+    // A new HKT day since the last change: full again.
+    const dayKey = ITE.guildRaid.hktDayKey;
+    if (now > s.updatedAt && dayKey(now) !== dayKey(s.updatedAt)) return { value: max, max, updatedAt: now };
     const gained = Math.max(0, Math.floor((now - s.updatedAt) / r.regenMs));
     if (s.value + gained >= max) return { value: max, max, updatedAt: now };
     // Keep the partial progress towards the next point.
