@@ -472,3 +472,10 @@
 - **What changed:** 主頁狀態列改兩行、場景縮小（iPhone SE 可見故事／DSE 按鈕及今日限定）；開場改用 SSR 機械老虎狗；`src/ui/install.js` 加到主畫面教學（主頁卡＋設定）；`scripts/build-web.sh`、`assets/web/`（manifest、圖示、sw.js）
 - **Verification (actual):** `./scripts/test.sh` 全部通過（新增網頁版檢查）；瀏覽器 375×667／375×812 實測主頁；網頁版本機伺服器實測 service worker 註冊、manifest、教學卡；停止伺服器後重新載入仍可開啟（離線）
 - **Pending approval:** 網頁版寄存方式（未放上網）
+
+## Run 46 — 2026-11-01：外出清單（裝備、UR 副本、魔王限時）
+- **Branch:** `feat/name-splash-blindbox`（已合併 origin/main，包括 data/titles）
+- **What changed:** 裝備欄（2 格＋第三階進化第 3 格）、5 件原創裝備圖示並顯示在角色身上；眼藥水／防毒數值（Excel Equipment）；帝王試煉（UR IT帝）及魔王限時（UR Bug 魔王，每秒扣血、眼鏡生效）；Excel Characters 新增 2 行 UR；匯入器接受 UR、眼鏡為可用裝備
+- **修正：** 盲盒改動時誤刪裝備蛋圖示，抽裝備盲盒會出錯——已修正並實測
+- **Verification (actual):** `./scripts/test.sh` 全部通過（JS 192、Python OK、正式版／版本／網頁版檢查）；瀏覽器 375×812 實測裝備格、主頁及戰鬥中裝備徽章、裝備盲盒、帝王試煉勝出得碎片→合成、魔王限時扣血及眼鏡免扣、看解說暫停、勝出得 Bug 魔王碎片
+- **Pending user:** 兩個 UR 造型核准；數值為原型（需試玩）

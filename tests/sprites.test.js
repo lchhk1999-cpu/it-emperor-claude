@@ -32,7 +32,7 @@
     const idle = ids.map((id) => ITE.sprites.character(id, "idle"));
     idle.forEach((svg, i) => assert.ok(balanced(svg) && !/undefined|NaN/.test(svg), ids[i]));
     assert.equal(new Set(idle).size, ids.length);
-    assert.equal(new Set(Object.values(ITE.sprites.CHARACTER_FAMILIES)).size, 8, "seven families + the UR emperor");
+    assert.equal(new Set(Object.values(ITE.sprites.CHARACTER_FAMILIES)).size, 9, "seven families + two UR");
   });
 
   test("sprites: an unknown character falls back to the hero", () => {

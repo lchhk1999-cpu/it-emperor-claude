@@ -178,7 +178,7 @@ class GameDataImporterTest(unittest.TestCase):
         by_id = {e["id"]: e for e in data["equipment"]}
         self.assertEqual([(lv["remove"], lv["cooldown"]) for lv in by_id["EQ-AI"]["levels"]], [(1, 6), (1, 4), (2, 4)])
         self.assertEqual((by_id["EQ-PC"]["levels"][0]["cooldown"], by_id["EQ-PC"]["levels"][0]["bonus"]), (6, 40))
-        self.assertEqual(by_id["EQ-GL"]["supported"], False)
+        self.assertEqual(by_id["EQ-GL"]["supported"], True)  # 眼鏡 works in 魔王限時 (2026-11-01)
         self.assertTrue(by_id["EQ-AI"]["supported"])
         reasons = {r["id"]: " ".join(r["errors"]) for r in rejected}
         self.assertIn("does not match", reasons["EQ-BAD"])

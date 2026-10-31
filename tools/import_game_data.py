@@ -205,7 +205,7 @@ EQUIPMENT_PATTERNS = {
     "defense": (r"受傷害\s*-\s*(\d+)\s*%", ("reduce_pct",)),
     "time": (r"每題\s*\+\s*(\d+)\s*秒", ("seconds",)),
 }
-EQUIPMENT_SUPPORTED = {"hint", "healing", "damage", "defense"}  # "time": DSE battles have no timer yet
+EQUIPMENT_SUPPORTED = {"hint", "healing", "damage", "defense", "time"}  # "time": 眼鏡, used in 魔王限時 (2026-11-01)
 
 
 def parse_effect(kind, text):

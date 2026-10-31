@@ -275,6 +275,30 @@
       </g>
       ${sparkle(18, 34)}${sparkle(124, 30)}`,
 
+    // Bug 魔王 (UR, 魔王限時 2026-11-01): the bug king, now on your side — a round
+    // bug with curly glowing antennae, little horns, tilted crown, cape and a
+    // 404 emblem.
+    demon: (expr, v) => `
+      ${shadow(70)}
+      <path d="M36 96 Q22 128 20 160 L120 160 Q118 128 104 96Z" fill="${v.cape}" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+      <g stroke="${INK}" stroke-width="3.5" stroke-linecap="round"><path d="M44 134 l-12 14"/><path d="M96 134 l12 14"/><path d="M40 118 l-16 4"/><path d="M100 118 l16 4"/></g>
+      <ellipse cx="70" cy="122" rx="32" ry="28" fill="${v.body}" stroke="${INK}" stroke-width="3"/>
+      <ellipse cx="70" cy="128" rx="20" ry="16" fill="${v.belly}" stroke="${INK}" stroke-width="2.5"/>
+      <text x="70" y="134" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="13" font-weight="900" fill="${INK}">404</text>
+      <path d="M50 30 Q36 8 22 16 Q30 18 34 26" fill="none" stroke="${INK}" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M90 30 Q104 8 118 16 Q110 18 106 26" fill="none" stroke="${INK}" stroke-width="3.5" stroke-linecap="round"/>
+      <circle cx="22" cy="16" r="6" fill="${v.glow}" stroke="${INK}" stroke-width="2.5"/><circle cx="118" cy="16" r="6" fill="${v.glow}" stroke="${INK}" stroke-width="2.5"/>
+      <circle cx="70" cy="62" r="42" fill="${v.body}" stroke="${INK}" stroke-width="3"/>
+      <path d="M38 34 L32 20 L46 28Z M102 34 L108 20 L94 28Z" fill="#fff6d8" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/>
+      <ellipse cx="70" cy="74" rx="28" ry="20" fill="${v.belly}" opacity="0.55"/>
+      ${face(expr, { lx: 54, rx: 86, ey: 62, mx: 70, my: 82, sx: 108, sy: 40, gx: 50, gy: 30, eye: v.eye })}
+      ${expr === "idle" || expr === "happy" ? `<path d="M62 86 l3 6 l3 -6 M72 86 l3 6 l3 -6" fill="#fff" stroke="${INK}" stroke-width="1.8" stroke-linejoin="round"/>` : ""}
+      <g transform="translate(84 24) rotate(18) scale(0.6)">
+        <path d="M-30 10 L-34 -18 L-16 -4 L0 -26 L16 -4 L34 -18 L30 10Z" fill="${GOLD}" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/>
+        <rect x="-31" y="6" width="62" height="10" rx="4" fill="#e8b84a" stroke="${INK}" stroke-width="4"/>
+        <circle cx="0" cy="-6" r="5" fill="${v.glow}" stroke="${INK}" stroke-width="2.5"/>
+      </g>`,
+
     // 人工智能機械人: body/head colours, eye colour, extras.
     robot: (expr, v) => {
       const c = v.eye;
@@ -309,7 +333,7 @@
   // ---------- SSR look (user request 2026-10-31: SSR 要有威猛的形象) ----------
   // An energy burst behind, an optional cape, and determined eyebrows.
   // Brow positions per family: [left eye x, right eye x, brow y].
-  const BROWS = { dog: [50, 82, 47], db: [54, 86, 50], suit: [54, 86, 50], office: [54, 86, 50], net: [54, 86, 54], hacker: [53, 87, 50], robot: [56, 84, 40], emperor: [54, 86, 52] };
+  const BROWS = { dog: [50, 82, 47], db: [54, 86, 50], suit: [54, 86, 50], office: [54, 86, 50], net: [54, 86, 54], hacker: [53, 87, 50], robot: [56, 84, 40], emperor: [54, 86, 52], demon: [54, 86, 52] };
 
   function burst(color) {
     const pts = [];
@@ -388,6 +412,8 @@
     "CH-BROADBAND-CHIEF": ["net", { helmet: GOLD, vest: "#ee8b7a", shirt: NAVY, cable: GOLD, badge: "mic", heroic: { aura: "#f4d36b", cape: NAVY } }],
     // 帝王系列 (UR, only from 帝王試煉 shards)
     "CH-ITEMPEROR": ["emperor", { robe: "#d2553f", cape: "#6e589a", hair: "#3b3330", key: "#8fc7f0", heroic: { aura: "rainbow" } }],
+    // 魔王系列 (UR, only from 魔王限時 shards)
+    "CH-BUGLORD": ["demon", { body: "#8a72c0", belly: "#e0d5f0", cape: "#d2553f", glow: "#9fe8e0", eye: "#3b3330", heroic: { aura: "rainbow" } }],
     // 人工智能機械人
     "CH-AIBOT-STUDY": ["robot", { head: "#ffffff", body: "#9fd4b4", screen: NAVY, eye: "#9fd4b4", antenna: GOLD }],
     "CH-AIBOT-CHAT": ["robot", { head: "#e6eff8", body: "#8fc3e8", screen: NAVY, eye: "#8fc3e8", antenna: "#ee8b7a", extra: "bubble" }],
@@ -403,7 +429,7 @@
     "CH-HACK-ROOKIE": "見習白帽", "CH-HACK": "黑客", "CH-HACK-FIREWALL": "防火牆騎士", "CH-HACK-LEGEND": "白帽傳說",
     "CH-OFFICE-INTERN": "實習生", "CH-OFFICE": "辦公室職員", "CH-OFFICE-LEAD": "試算表主任", "CH-OFFICE-PIVOT": "樞紐分析師", "CH-OFFICE-QUEEN": "公式女王",
     "CH-BROADBAND": "寬頻職員", "CH-BROADBAND-FIBRE": "光纖技師", "CH-BROADBAND-ROUTER": "路由器隊長", "CH-BROADBAND-5G": "5G 工程師", "CH-BROADBAND-CHIEF": "網絡總指揮",
-    "CH-ITEMPEROR": "IT帝",
+    "CH-ITEMPEROR": "IT帝", "CH-BUGLORD": "Bug 魔王",
     "CH-AIBOT-STUDY": "學習機械人", "CH-AIBOT-CHAT": "對話機械人", "CH-AIBOT": "人工智能機械人", "CH-AIBOT-QUANTUM": "量子機械人",
   };
 

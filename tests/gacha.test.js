@@ -92,11 +92,11 @@
 
   test("gacha: equipment draws give usable items with equal chance; duplicates give 1 shard", () => {
     const list = G.equipmentCandidates(data);
-    assert.deepEqual(list.map((e) => e.id), ["EQ-AI", "EQ-EYEDROP", "EQ-COMPUTER", "EQ-ANTIVIRUS"], "glasses not in the pool until usable");
+    assert.deepEqual(list.map((e) => e.id), ["EQ-AI", "EQ-EYEDROP", "EQ-COMPUTER", "EQ-ANTIVIRUS", "EQ-GLASSES"], "glasses usable since 魔王限時 (2026-11-01)");
     const dupe = G.draw(withGems(10), "equipment", data, fixedRng([0.0]));
     assert.deepEqual([dupe.result.id, dupe.result.duplicate, dupe.result.shards], ["EQ-AI", true, 1]);
     assert.deepEqual(dupe.profile.shards, { "EQ-AI": 1 });
-    const fresh = G.draw(withGems(10), "equipment", data, fixedRng([0.99]));
+    const fresh = G.draw(withGems(10), "equipment", data, fixedRng([0.7])); // 4th of 5
     assert.equal(fresh.result.id, "EQ-ANTIVIRUS");
     assert.ok(fresh.profile.owned.equipment.includes("EQ-ANTIVIRUS"));
     assert.equal(E.assign(fresh.profile, "CH-ITDOG", "EQ-ANTIVIRUS", data).error, null);

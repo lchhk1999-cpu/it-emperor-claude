@@ -14,14 +14,15 @@
   const right = (s) => B.answer(s, B.currentQuestion(s).answer);
   const wrong = (s) => B.answer(s, ITE.questions.ANSWERS.find((l) => l !== B.currentQuestion(s).answer));
 
-  test("equipment: five workbook items with parsed level-1 effects; glasses not yet usable", () => {
+  test("equipment: five workbook items with parsed level-1 effects; glasses usable (魔王限時)", () => {
     const byId = (id) => E.itemById(data, id);
     assert.deepEqual(data.equipment.map((e) => e.id), ["EQ-AI", "EQ-EYEDROP", "EQ-COMPUTER", "EQ-ANTIVIRUS", "EQ-GLASSES"]);
     assert.deepEqual([byId("EQ-AI").levels[0].remove, byId("EQ-AI").levels[0].cooldown], [1, 6]);
     assert.equal(byId("EQ-EYEDROP").levels[0].heal, 20); // balance 2026-11-01 (was 10)
     assert.deepEqual([byId("EQ-COMPUTER").levels[0].cooldown, byId("EQ-COMPUTER").levels[0].bonus], [6, 40]);
     assert.equal(byId("EQ-ANTIVIRUS").levels[0].reduce_pct, 15); // balance 2026-11-01 (was 10)
-    assert.equal(byId("EQ-GLASSES").supported, false);
+    assert.equal(byId("EQ-GLASSES").supported, true);
+    assert.equal(byId("EQ-GLASSES").levels[0].seconds, 3);
     assert.ok(data.equipment.every((e) => e.levels.length === 3), "all three evolution levels parsed");
   });
 
@@ -43,7 +44,6 @@
     p = E.assign(p, "CH-HACK", null, data).profile;
     assert.deepEqual(p.equipment, { "CH-DB": ["EQ-ANTIVIRUS"] });
     assert.equal(E.assign(p, "CH-GOLD", "EQ-AI", data).error, "not_in_team");
-    assert.equal(E.assign(p, "CH-DB", "EQ-GLASSES", data).error, "not_supported");
     assert.equal(E.assign(p, "CH-DB", "EQ-NOPE", data).error, "unknown_equipment");
   });
 

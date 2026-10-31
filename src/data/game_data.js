@@ -5,9 +5,9 @@
   ITE.gameData = {
  "meta": {
   "source_file": "IT_Emperor_DseMcQs.xlsx",
-  "source_sha256": "901ba03a474cf72cdcbf5b56a61d271b59f33add27fcf5bfa9adb3e00d393c20",
-  "imported_at": "2026-10-31T16:45:21Z",
-  "characters": 32,
+  "source_sha256": "81bcf43f52db06711e890f3c54c28e54fbed75f110bffbebf0ceded002e245fe",
+  "imported_at": "2026-10-31T16:51:03Z",
+  "characters": 33,
   "missions": 5,
   "titles": 22,
   "equipment": 5,
@@ -376,6 +376,17 @@
    "bonus": 0.15,
    "family": "FAM-EMPEROR",
    "familyName": "帝王系列"
+  },
+  {
+   "id": "CH-BUGLORD",
+   "name": "Bug 魔王",
+   "specialty": "ALL",
+   "rarity": "UR",
+   "attack": 125,
+   "hp": 115,
+   "bonus": 0.15,
+   "family": "FAM-DEMON",
+   "familyName": "魔王系列"
   }
  ],
  "missions": [
@@ -735,7 +746,7 @@
      "text": "每題 +7 秒"
     }
    ],
-   "supported": false
+   "supported": true
   }
  ],
  "pools": {

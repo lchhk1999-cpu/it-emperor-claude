@@ -145,10 +145,11 @@
 
   function bar(label, hp, max, kind) {
     const pct = max > 0 ? Math.round((hp / max) * 100) : 0;
+    const shown = Math.ceil(hp); // 魔王限時 drains in fractions
     return h(
       "div",
-      { class: `hp hp-${kind}`, role: "meter", "aria-label": label, "aria-valuemin": "0", "aria-valuemax": String(max), "aria-valuenow": String(hp) },
-      h("div", { class: "hp-label" }, h("span", {}, label), h("span", { class: "hp-num" }, `${hp} / ${max}`)),
+      { class: `hp hp-${kind}`, role: "meter", "aria-label": label, "aria-valuemin": "0", "aria-valuemax": String(max), "aria-valuenow": String(shown) },
+      h("div", { class: "hp-label" }, h("span", {}, label), h("span", { class: "hp-num" }, `${shown} / ${max}`)),
       h("div", { class: "hp-track" }, h("div", { class: "hp-fill", style: `width:${pct}%` }))
     );
   }
@@ -364,6 +365,14 @@
               h("span", { class: "drill-entry-sub" }, "每週一次・收集碎片合成 UR「IT帝」")
             )
           : null,
+        root.ITE.trialUi
+          ? h(
+              "button",
+              { class: "drill-entry demon-entry", onclick: () => root.ITE.trialUi.show("demon") },
+              h("span", { class: "drill-entry-title" }, "⏱ 魔王限時"),
+              h("span", { class: "drill-entry-sub" }, "每秒扣血・快答取勝・收集碎片合成 UR「Bug 魔王」")
+            )
+          : null,
         limited ? stageCard(limited) : null,
         Dg.WORLDS.map((w) =>
           h(
@@ -492,7 +501,15 @@
 
   function onNext() {
     battleState = B.next(battleState);
-    if (battleState.phase === "won" || battleState.phase === "lost") {
+    if (battleState.phase === "won" || battleState.phase === "lost") return finishBattle();
+    save = S.withActiveBattle(save, battleState);
+    persist();
+    showBattle();
+  }
+
+  // Records the result, gives rewards and shows the result screen.
+  function finishBattle() {
+    {
       const sum = B.summary(battleState);
       save = S.recordStageResult(save, battleState.stageId, sum);
       if (sum.outcome === "won") recordStageClear({ difficulty: (findStage(battleState.stageId) || {}).difficulty });
@@ -505,16 +522,67 @@
       if (stageNow && stageNow.kind === "trial") {
         const t = root.ITE.trial.claim(save.profile, stageNow.trial, sum.outcome, Date.now(), Math.random);
         save = { ...save, profile: t.profile };
-        lastReward.trial = { won: sum.outcome === "won", shards: t.shards };
+        lastReward.trial = { won: sum.outcome === "won", shards: t.shards, rules: root.ITE.trial.rulesOf(stageNow.trial) };
         persist();
       }
       sfx(sum.outcome === "won" ? "win" : "lose");
       showResult();
-      return;
     }
-    save = S.withActiveBattle(save, battleState);
-    persist();
-    showBattle();
+  }
+
+  // ---------- 魔王限時: HP drain while a question is open ----------
+  // A real-time loop drains party HP (src/core/trial.js tick) and updates the
+  // bar in place. Each step counts at most 1 s, so time with the app in the
+  // background (or the screen locked) does not drain.
+  let drainTimer = null;
+  let lastTick = 0;
+  let lastSave = 0;
+
+  function stopDrain() {
+    if (drainTimer) root.clearInterval(drainTimer);
+    drainTimer = null;
+  }
+
+  function startDrain() {
+    if (drainTimer) return;
+    lastTick = lastSave = Date.now();
+    drainTimer = root.setInterval(drainStep, 200);
+  }
+
+  function drainInfo(s) {
+    const per = Math.round(s.party.maxHp * s.timed.drainPct) / 100;
+    const grace = root.ITE.trial.graceLeft(s);
+    return grace > 0 ? `👓 眼鏡：還有 ${grace} 秒不扣血` : `⏱ 限時中：每秒 -${per} HP，快答！`;
+  }
+
+  function drainStep() {
+    const s = battleState;
+    if (!s || !s.timed || s.phase !== "question" || !app.querySelector(".screen.battle")) return stopDrain();
+    const now = Date.now();
+    const dt = Math.min(1000, now - lastTick);
+    lastTick = now;
+    battleState = root.ITE.trial.tick(s, dt);
+    if (battleState.phase === "lost") {
+      stopDrain();
+      return finishBattle();
+    }
+    const p = battleState.party;
+    const el = app.querySelector(".hp-party");
+    if (el) {
+      el.querySelector(".hp-num").textContent = `${Math.ceil(p.hp)} / ${p.maxHp}`;
+      el.querySelector(".hp-fill").style.width = `${Math.round((p.hp / p.maxHp) * 100)}%`;
+      el.setAttribute("aria-valuenow", String(Math.ceil(p.hp)));
+    }
+    const info = app.querySelector(".drain-info");
+    if (info) {
+      info.textContent = drainInfo(battleState);
+      info.classList.toggle("grace", root.ITE.trial.graceLeft(battleState) > 0);
+    }
+    if (now - lastSave > 2000) {
+      lastSave = now;
+      save = S.withActiveBattle(save, battleState);
+      persist();
+    }
   }
 
   function quitBattle() {
@@ -576,6 +644,7 @@
             fx: bossHit ? { hit: "boss", damage: r.damage, combo: r.combo, ko: s.boss.hp <= 0 } : heroHit ? { hit: "hero", taken: r.taken } : null,
           });
         })(),
+        s.timed ? h("p", { class: `drain-info${root.ITE.trial.graceLeft(s) > 0 ? " grace" : ""}`, role: "status" }, feedback ? "⏸ 看解說時不扣血" : drainInfo(s)) : null,
         h(
           "section",
           { class: "question-card" },
@@ -607,6 +676,8 @@
       const panel = app.querySelector(".explain");
       if (panel) panel.scrollIntoView({ block: "end", behavior: "smooth" });
     }
+    if (s.timed && s.phase === "question") startDrain();
+    else stopDrain();
   }
 
   // ---------- Equipment skills (DSE battle only) ----------
@@ -622,6 +693,7 @@
       { class: "skill-bar" },
       items.map((item) => {
         if (item.type === "defense") return h("span", { class: "chip skill-passive" }, `${item.name}：受傷 -${item.reduce_pct}%`);
+        if (item.type === "time") return h("span", { class: "chip skill-passive" }, s.timed ? `${item.name}：每題首 ${item.seconds} 秒不扣血` : `${item.name}：魔王限時才生效`);
         const st = EQ.skillStatus(s, item);
         const label = SKILL_LABELS[item.type] || item.name;
         const note = st.usable ? "" : st.reason === "cooldown" ? `（${st.wait} 題後）` : SKILL_REASONS[st.reason] ? `（${SKILL_REASONS[st.reason]}）` : "";
@@ -728,7 +800,12 @@
     const st = findStage(stageId);
     const look = root.ITE.scenes.forWorld(st && st.world);
     // 帝王試煉: the boss is IT帝's shadow (the UR art, darkened in CSS).
-    const bossSprite = st && st.kind === "trial" ? (e) => `<span class="shadow-boss">${sprites.character("CH-ITEMPEROR", e === "hurt" ? "surprised" : e === "smug" ? "happy" : "idle")}</span>` : null;
+    // 魔王限時: Bug 魔王 itself (before it joins you), in full colour.
+    const urOf = st && st.kind === "trial" ? root.ITE.trial.rulesOf(st.trial).characterId : null;
+    const face = (e) => (e === "hurt" ? "surprised" : e === "smug" ? "happy" : "idle");
+    const bossSprite = !urOf ? null
+      : urOf === "CH-ITEMPEROR" ? (e) => `<span class="shadow-boss">${sprites.character(urOf, face(e))}</span>`
+      : (e) => sprites.character(urOf, face(e));
     return { ...look, tier: (st && st.difficulty) || "easy", bossSprite };
   }
 
@@ -771,7 +848,7 @@
         return m ? h("p", { class: "reward-line reward-material" }, `獲得素材：${m.name} ×${n}`) : null;
       }),
       g.practice ? h("p", { class: "hint" }, "練習模式：只獲得經驗（不扣體力，沒有素材及金幣）") : null,
-      g.trial && g.trial.shards ? h("p", { class: "reward-line reward-material" }, `獲得 IT帝碎片 ×${g.trial.shards}（共 ${root.ITE.trial.shardsOf(save.profile)} / ${root.ITE.trial.TRIAL_RULES.unlockShards}）`) : null,
+      g.trial && g.trial.shards ? h("p", { class: "reward-line reward-material" }, `獲得 ${g.trial.rules.shardName} ×${g.trial.shards}（共 ${root.ITE.trial.shardsOf(save.profile, g.trial.rules)} / ${g.trial.rules.unlockShards}）`) : null,
       g.trial && g.trial.won && !g.trial.shards ? h("p", { class: "hint" }, "這個難度本週已領取碎片，下星期一再來！") : null,
       g.levelsGained ? h("p", { class: "reward-level" }, `升級！現在是 Lv ${g.level}，體力已回滿，+${g.levelsGained * P.PROFILE_RULES.levelUpGems} 寶石`) : null,
       g.slotsUnlocked ? h("p", { class: "reward-level" }, `解鎖新隊伍位置！到「角色隊伍」加入新成員`) : null

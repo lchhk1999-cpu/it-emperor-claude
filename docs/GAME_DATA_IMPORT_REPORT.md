@@ -1,8 +1,8 @@
 # 遊戲資料匯入報告（自動產生）
 
 - 來源檔案：`IT_Emperor_DseMcQs.xlsx`
-- SHA-256：`901ba03a474cf72cdcbf5b56a61d271b59f33add27fcf5bfa9adb3e00d393c20`
-- 匯入時間：2026-10-31T16:45:21Z
+- SHA-256：`81bcf43f52db06711e890f3c54c28e54fbed75f110bffbebf0ceded002e245fe`
+- 匯入時間：2026-10-31T16:51:03Z
 - 工作表：`Characters`、`GameConfig`、`Missions`、`Titles`、`Equipment`、`Pools`、`Materials`、`Stages`、`Events`（Topics 用作檢查課題）
 
 ## 角色
@@ -41,6 +41,7 @@
 | CH-AIBOT-CHAT | 對話機械人 | ALL | SR | 100 | 100 | 10% |
 | CH-AIBOT-QUANTUM | 量子機械人 | ALL | SSR | 105 | 105 | 10% |
 | CH-ITEMPEROR | IT帝 | ALL | UR | 120 | 120 | 15% |
+| CH-BUGLORD | Bug 魔王 | ALL | UR | 125 | 115 | 15% |
 
 ## 遊戲設定
 
@@ -101,7 +102,7 @@
 | EQ-EYEDROP | 眼藥水 | healing | 回復 20 HP | heal=20 | ✅ |
 | EQ-COMPUTER | 電腦 | damage | 冷卻 6 題：額外傷害 40 | cooldown=6、bonus=40 | ✅ |
 | EQ-ANTIVIRUS | 防毒軟件 | defense | 受傷害 -15% | reduce_pct=15 | ✅ |
-| EQ-GLASSES | 眼鏡 | time | 每題 +3 秒 | seconds=3 | ❌ 即將開放 |
+| EQ-GLASSES | 眼鏡 | time | 每題 +3 秒 | seconds=3 | ✅ |
 
 ## 抽蛋池（只用免費寶石）
 

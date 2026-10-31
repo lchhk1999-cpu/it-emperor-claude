@@ -854,3 +854,8 @@ body[data-screen="guild"] { --page-bg: linear-gradient(180deg, #ebe2f8 0%, #fbf6
 .trial-sprite svg { width: 100%; height: auto; display: block; }
 .trial-card { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; width: 100%; margin-bottom: 10px; }
 .trial-card.trial-done { opacity: 0.75; }
+/* 魔王限時 (2026-11-01) */
+.drain-info { margin: 8px 0 0; padding: 6px 12px; text-align: center; font-size: 14px; font-weight: 900; color: #fff; background: #d2553f; border: 2.5px solid var(--ink); border-radius: 999px; animation: tap-pulse 1s ease-in-out infinite; }
+.drain-info.grace { color: var(--ink); background: #c9e2f4; animation: none; }
+.demon-entry { background: linear-gradient(100deg, #f6c6c0, #e0d5f0); }
+@media (prefers-reduced-motion: reduce) { .drain-info { animation: none; } }
