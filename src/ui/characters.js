@@ -51,6 +51,14 @@
           ? `<path d="M30 46 L22 6 L54 28Z" fill="${v.ear}" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/><path d="M102 46 L110 6 L78 28Z" fill="${v.ear}" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>`
           : `<ellipse cx="22" cy="58" rx="12" ry="24" fill="${v.ear}" stroke="${INK}" stroke-width="3" transform="rotate(14 22 58)"/><ellipse cx="110" cy="58" rx="12" ry="24" fill="${v.ear}" stroke="${INK}" stroke-width="3" transform="rotate(-14 110 58)"/>`;
       const mask = v.mask ? `<path d="M40 78 Q42 56 58 52 L66 66 L74 52 Q90 56 92 78 Q66 104 40 78Z" fill="#ffffff"/>` : "";
+      // 機械老虎狗 (user request 2026-10-31): tiger stripes, a 王 mark on the
+      // forehead, striped tail, armour plates and a glowing chest core.
+      const stripes = v.tiger
+        ? `<g stroke="${INK}" stroke-width="3.5" stroke-linecap="round" fill="none"><path d="M56 30 H76 M58 37 H74 M66 28 V40"/><path d="M28 54 L40 58 M27 64 L39 66 M104 54 L92 58 M105 64 L93 66"/><path d="M46 26 L50 34 M86 26 L82 34"/></g>`
+        : "";
+      const armour = v.armor
+        ? `<path d="M36 100 Q42 90 56 98 L52 112 Q40 112 36 100Z" fill="#c9ced8" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/><path d="M96 100 Q90 90 76 98 L80 112 Q92 112 96 100Z" fill="#c9ced8" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/><circle cx="66" cy="118" r="8" fill="#8fc3e8" stroke="${INK}" stroke-width="2.5"/><circle cx="66" cy="118" r="3.5" fill="#ffffff"/>`
+        : "";
       const mecha = v.mecha
         ? `<circle cx="34" cy="40" r="3" fill="${INK}"/><circle cx="98" cy="40" r="3" fill="${INK}"/><line x1="66" y1="16" x2="66" y2="4" stroke="${INK}" stroke-width="3"/><circle cx="66" cy="4" r="5" fill="#8fc3e8" stroke="${INK}" stroke-width="2.5"/><circle cx="66" cy="118" r="6" fill="#8fc3e8" stroke="${INK}" stroke-width="2.5"/>`
         : "";
@@ -58,6 +66,7 @@
       ${shadow(66)}
       <path d="M86 128 C 110 128, 104 104, 122 100 C 132 98, 134 108, 128 112" fill="none" stroke="${INK}" stroke-width="10" stroke-linecap="round"/>
       <path d="M86 128 C 110 128, 104 104, 122 100 C 132 98, 134 108, 128 112" fill="none" stroke="${v.tail}" stroke-width="6" stroke-linecap="round"/>
+      ${v.tiger ? `<path d="M86 128 C 110 128, 104 104, 122 100 C 132 98, 134 108, 128 112" fill="none" stroke="${INK}" stroke-width="6" stroke-dasharray="3 7"/>` : ""}
       <circle cx="127" cy="104" r="1.6" fill="${INK}"/>
       <rect x="42" y="98" width="48" height="44" rx="18" fill="${v.hoodie}" stroke="${INK}" stroke-width="3"/>
       <rect x="48" y="138" width="13" height="20" rx="6" fill="${v.fur}" stroke="${INK}" stroke-width="3"/>
@@ -65,6 +74,7 @@
       ${ears}
       <circle cx="66" cy="58" r="42" fill="${v.fur}" stroke="${INK}" stroke-width="3"/>
       ${mask}
+      ${stripes}
       <path d="M30 40 Q66 0 102 40" fill="none" stroke="${INK}" stroke-width="5" stroke-linecap="round"/>
       <rect x="18" y="38" width="16" height="24" rx="7" fill="${v.phones}" stroke="${INK}" stroke-width="3"/>
       <rect x="98" y="38" width="16" height="24" rx="7" fill="${v.phones}" stroke="${INK}" stroke-width="3"/>
@@ -72,6 +82,7 @@
       <ellipse cx="66" cy="76" rx="6" ry="4.5" fill="${INK}"/>
       ${face(expr, { lx: 50, rx: 82, ey: 60, mx: 66, my: 88, sx: 100, sy: 70, gx: 46, gy: 22, eye: v.eye })}
       ${v.glasses ? glasses(50, 82, 60) : ""}
+      ${armour}
       ${mecha}`;
     },
 
@@ -231,6 +242,35 @@
     },
   };
 
+  // ---------- SSR look (user request 2026-10-31: SSR 要有威猛的形象) ----------
+  // An energy burst behind, an optional cape, and determined eyebrows.
+  // Brow positions per family: [left eye x, right eye x, brow y].
+  const BROWS = { dog: [50, 82, 47], db: [54, 86, 50], suit: [54, 86, 50], office: [54, 86, 50], net: [54, 86, 54], hacker: [53, 87, 50], robot: [56, 84, 40] };
+
+  function burst(color) {
+    const pts = [];
+    for (let i = 0; i < 24; i++) {
+      const a = (Math.PI * 2 * i) / 24;
+      const r = i % 2 ? 50 : 70;
+      pts.push(`${(70 + r * Math.cos(a)).toFixed(1)},${(88 + r * Math.sin(a)).toFixed(1)}`);
+    }
+    return `<g class="ssr-aura"><polygon points="${pts.join(" ")}" fill="${color}" opacity="0.38"/><circle cx="70" cy="88" r="46" fill="${color}" opacity="0.25"/></g>`;
+  }
+
+  function heroic(family, expr, v) {
+    if (!v.heroic) return { back: "", front: "" };
+    const h = v.heroic;
+    const cape = h.cape
+      ? `<path d="M44 100 Q28 130 22 162 L118 162 Q112 130 96 100 Q70 112 44 100Z" fill="${h.cape}" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/><path d="M44 100 L36 92 L56 98 M96 100 L104 92 L84 98" fill="${h.cape}" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/>`
+      : "";
+    const [lx, rx, y] = BROWS[family];
+    const browColor = family === "robot" ? v.eye : INK;
+    const brows = expr === "idle" || expr === "happy"
+      ? `<g stroke="${browColor}" stroke-width="4" stroke-linecap="round"><line x1="${lx - 10}" y1="${y - 4}" x2="${lx + 6}" y2="${y + 2}"/><line x1="${rx + 10}" y1="${y - 4}" x2="${rx - 6}" y2="${y + 2}"/></g>`
+      : "";
+    return { back: burst(h.aura) + cape, front: brows };
+  }
+
   // ---------- variants (品種) ----------
   // The first entry of each family is the original approved design.
   const VARIANTS = {
@@ -239,44 +279,45 @@
     "CH-ITDOG-CORGI": ["dog", { fur: "#e8a86a", ear: "#c47a3e", ears: "point", hoodie: "#9fd4b4", phones: "#f2b4b0", tail: "#9fd4b4" }],
     "CH-ITDOG-HUSKY": ["dog", { fur: "#a9adbb", ear: "#7d8394", ears: "point", mask: true, eye: "#4a8cc4", hoodie: "#8fc3e8", phones: "#ffffff", tail: "#9fd4b4" }],
     "CH-ITDOG-GOLDEN": ["dog", { fur: "#e8c27a", ear: "#c99a45", glasses: true, hoodie: "#ee8b7a", phones: "#f4d36b", tail: "#9fd4b4" }],
-    "CH-ITDOG-MECHA": ["dog", { fur: "#e2e5ea", ear: "#a9adbb", ears: "point", mecha: true, eye: "#4a8cc4", hoodie: "#c4b0e0", phones: "#3d4a66", tail: "#8fc3e8" }],
+    // SSR 機械老虎狗 (redesigned 2026-10-31; was a silver robot dog).
+    "CH-ITDOG-MECHA": ["dog", { fur: "#f2a541", ear: "#d9822b", ears: "point", tiger: true, mecha: true, armor: true, eye: "#d2553f", hoodie: "#3d4a66", phones: "#c9ced8", tail: "#f2a541", heroic: { aura: "#f2a541" } }],
     // 數據庫師
     "CH-DB-JR": ["db", { coat: "#ffffff", hair: INK, beret: "#9fd4b4", db: "#c9e2f4", dbTop: "#e6eff8" }],
     "CH-DB": ["db", { coat: "#ffffff", hair: INK, beret: "#8fc3e8", db: "#8fc3e8", dbTop: "#c9e2f4" }],
     "CH-DB-INDEX": ["db", { coat: "#e6eff8", hair: "#6b4a3a", beret: "#ee8b7a", db: "#8fc3e8", dbTop: "#c9e2f4", glasses: true }],
-    "CH-DB-CHIEF": ["db", { coat: "#c4b0e0", hair: INK, beret: GOLD, db: GOLD, dbTop: "#fff1c9", star: true }],
+    "CH-DB-CHIEF": ["db", { coat: "#c4b0e0", hair: INK, beret: GOLD, db: GOLD, dbTop: "#fff1c9", star: true, heroic: { aura: GOLD, cape: "#6e589a" } }],
     // 黃金職員
     "CH-GOLD-BRONZE": ["suit", { suit: "#c98e5a", tie: "#8fc3e8" }],
     "CH-GOLD-SILVER": ["suit", { suit: "#c9ced8", tie: "#ee8b7a" }],
     "CH-GOLD": ["suit", { suit: "#e8c27a", tie: "#ee8b7a" }],
-    "CH-GOLD-DIAMOND": ["suit", { suit: "#a8e0f0", tie: "#c4b0e0", sparkle: true }],
+    "CH-GOLD-DIAMOND": ["suit", { suit: "#a8e0f0", tie: "#c4b0e0", sparkle: true, heroic: { aura: "#8fc3e8", cape: "#4672b3" } }],
     // 黑客
     "CH-HACK-ROOKIE": ["hacker", { hood: "#e2e5ea", lens: "#3d4a66", badge: "lock" }],
     "CH-HACK": ["hacker", { hood: "#a9adbb", lens: INK, badge: "lock" }],
     "CH-HACK-FIREWALL": ["hacker", { hood: "#ee8b7a", lens: INK, badge: "shield" }],
-    "CH-HACK-LEGEND": ["hacker", { hood: "#ffffff", lens: INK, badge: "shield", hat: true, trim: true }],
+    "CH-HACK-LEGEND": ["hacker", { hood: "#ffffff", lens: INK, badge: "shield", hat: true, trim: true, heroic: { aura: "#8fc3e8", cape: GOLD } }],
     // 辦公室職員
     "CH-OFFICE-INTERN": ["office", { hair: INK, hairStyle: "bob", vest: GOLD, board: "#e8c27a", grid: "#9fd4b4" }],
     "CH-OFFICE": ["office", { hair: "#6b4a3a", vest: "#9fd4b4", board: "#e8c27a", grid: "#9fd4b4" }],
     "CH-OFFICE-LEAD": ["office", { hair: "#6b4a3a", vest: "#8fc3e8", board: "#e8c27a", grid: "#8fc3e8", glasses: true }],
     "CH-OFFICE-PIVOT": ["office", { hair: INK, vest: "#c4b0e0", board: "#c9ced8", grid: "#c4b0e0" }],
-    "CH-OFFICE-QUEEN": ["office", { hair: "#6b4a3a", vest: "#ee8b7a", board: GOLD, grid: "#ee8b7a", tiara: true }],
+    "CH-OFFICE-QUEEN": ["office", { hair: "#6b4a3a", vest: "#ee8b7a", board: GOLD, grid: "#ee8b7a", tiara: true, heroic: { aura: GOLD, cape: "#d2553f" } }],
     // 寬頻職員
     "CH-BROADBAND": ["net", { helmet: GOLD, vest: "#f2b4b0", shirt: "#8fc3e8", cable: "#8fc3e8" }],
     "CH-BROADBAND-FIBRE": ["net", { helmet: "#ffffff", vest: "#9fd4b4", shirt: "#e6eff8", cable: "#9fe8e0" }],
     "CH-BROADBAND-ROUTER": ["net", { helmet: "#8fc3e8", vest: GOLD, shirt: "#ffffff", cable: "#ee8b7a", badge: "antenna" }],
     "CH-BROADBAND-5G": ["net", { helmet: "#c4b0e0", vest: "#f2b4b0", shirt: "#e6eff8", cable: "#c4b0e0", badge: "fiveG" }],
-    "CH-BROADBAND-CHIEF": ["net", { helmet: GOLD, vest: "#ee8b7a", shirt: NAVY, cable: GOLD, badge: "mic" }],
+    "CH-BROADBAND-CHIEF": ["net", { helmet: GOLD, vest: "#ee8b7a", shirt: NAVY, cable: GOLD, badge: "mic", heroic: { aura: "#f4d36b", cape: NAVY } }],
     // 人工智能機械人
     "CH-AIBOT-STUDY": ["robot", { head: "#ffffff", body: "#9fd4b4", screen: NAVY, eye: "#9fd4b4", antenna: GOLD }],
     "CH-AIBOT-CHAT": ["robot", { head: "#e6eff8", body: "#8fc3e8", screen: NAVY, eye: "#8fc3e8", antenna: "#ee8b7a", extra: "bubble" }],
-    "CH-AIBOT": ["robot", { head: "#e2e5ea", body: "#c4b0e0", screen: NAVY, eye: "#8fc3e8", antenna: GOLD }],
-    "CH-AIBOT-QUANTUM": ["robot", { head: "#3d4a66", body: "#3d4a66", screen: "#1f2638", eye: GOLD, antenna: "#8fc3e8", extra: "rings" }],
+    "CH-AIBOT": ["robot", { head: "#e2e5ea", body: "#c4b0e0", screen: NAVY, eye: "#8fc3e8", antenna: GOLD, heroic: { aura: "#c4b0e0" } }],
+    "CH-AIBOT-QUANTUM": ["robot", { head: "#3d4a66", body: "#3d4a66", screen: "#1f2638", eye: GOLD, antenna: "#8fc3e8", extra: "rings", heroic: { aura: GOLD } }],
   };
 
   // Accessible names; the game uses the workbook name when it has one.
   const NAMES = {
-    "CH-ITDOG": "IT狗", "CH-ITDOG-CORGI": "柯基 IT狗", "CH-ITDOG-HUSKY": "哈士奇 IT狗", "CH-ITDOG-GOLDEN": "黃金獵犬 IT狗", "CH-ITDOG-MECHA": "機械 IT狗",
+    "CH-ITDOG": "IT狗", "CH-ITDOG-CORGI": "柯基 IT狗", "CH-ITDOG-HUSKY": "哈士奇 IT狗", "CH-ITDOG-GOLDEN": "黃金獵犬 IT狗", "CH-ITDOG-MECHA": "機械老虎狗",
     "CH-DB-JR": "見習數據庫師", "CH-DB": "數據庫師", "CH-DB-INDEX": "索引大師", "CH-DB-CHIEF": "首席數據庫師",
     "CH-GOLD-BRONZE": "青銅職員", "CH-GOLD-SILVER": "白銀職員", "CH-GOLD": "黃金職員", "CH-GOLD-DIAMOND": "鑽石職員",
     "CH-HACK-ROOKIE": "見習白帽", "CH-HACK": "黑客", "CH-HACK-FIREWALL": "防火牆騎士", "CH-HACK-LEGEND": "白帽傳說",
@@ -290,7 +331,11 @@
     const entry = VARIANTS[id];
     if (!entry) return ITE.sprites.hero(expr);
     const [family, params] = entry;
-    return `<svg viewBox="0 0 140 170" class="sprite" role="img" aria-label="${NAMES[id]}">${FAMILIES[family](expr || "idle", params)}</svg>`;
+    const e = expr || "idle";
+    const fx = heroic(family, e, params);
+    // Label with the workbook name when there is one, so renames in Excel show up here too.
+    const wb = ITE.gameData && (ITE.gameData.characters || []).find((c) => c.id === id);
+    return `<svg viewBox="0 0 140 170" class="sprite" role="img" aria-label="${(wb && wb.name) || NAMES[id]}">${fx.back}${FAMILIES[family](e, params)}${fx.front}</svg>`;
   }
 
   ITE.sprites.character = character;

@@ -1,33 +1,33 @@
 character_id,character_name,specialty_topic,rarity,base_attack,base_hp,topic_bonus_pct,max_evolution,equipment_slots_initial,active,family_id,family_name,note
 CH-ITDOG,IT狗,PY_BASIC,R,95,105,20,3,1,yes,FAM-ITDOG,IT狗系列,現有角色（數值不變，只補 family 欄）
-CH-ITDOG-CORGI,柯基 IT狗,PY_BASIC,R,95,105,20,3,1,yes,FAM-ITDOG,IT狗系列,新增品種
-CH-ITDOG-HUSKY,哈士奇 IT狗,PY_BASIC,SR,100,110,20,3,1,yes,FAM-ITDOG,IT狗系列,新增品種
-CH-ITDOG-GOLDEN,黃金獵犬 IT狗,PY_BASIC,SR,100,110,20,3,1,yes,FAM-ITDOG,IT狗系列,新增品種
-CH-ITDOG-MECHA,機械 IT狗,PY_BASIC,SSR,105,116,20,3,1,yes,FAM-ITDOG,IT狗系列,新增品種
-CH-DB-JR,見習數據庫師,SQL,R,95,90,20,3,1,yes,FAM-DB,數據庫師系列,新增品種
+CH-ITDOG-CORGI,柯基 IT狗,PY_BASIC,R,95,105,20,3,1,yes,FAM-ITDOG,IT狗系列,現有角色（數值不變，只補 family 欄）
+CH-ITDOG-HUSKY,哈士奇 IT狗,PY_BASIC,SR,100,110,20,3,1,yes,FAM-ITDOG,IT狗系列,現有角色（數值不變，只補 family 欄）
+CH-ITDOG-GOLDEN,黃金獵犬 IT狗,PY_BASIC,SR,100,110,20,3,1,yes,FAM-ITDOG,IT狗系列,現有角色（數值不變，只補 family 欄）
+CH-ITDOG-MECHA,機械老虎狗,PY_BASIC,SSR,105,116,20,3,1,yes,FAM-ITDOG,IT狗系列,現有角色（數值不變，只補 family 欄）
+CH-DB-JR,見習數據庫師,SQL,R,95,90,20,3,1,yes,FAM-DB,數據庫師系列,現有角色（數值不變，只補 family 欄）
 CH-DB,數據庫師,SQL,SR,100,95,20,3,1,yes,FAM-DB,數據庫師系列,現有角色（數值不變，只補 family 欄）
-CH-DB-INDEX,索引大師,SQL,SR,100,95,20,3,1,yes,FAM-DB,數據庫師系列,新增品種
-CH-DB-CHIEF,首席數據庫師,SQL,SSR,105,100,20,3,1,yes,FAM-DB,數據庫師系列,新增品種
-CH-GOLD-BRONZE,青銅職員,HARDWARE,R,95,105,20,3,1,yes,FAM-GOLD,職員系列,新增品種
-CH-GOLD-SILVER,白銀職員,HARDWARE,R,95,105,20,3,1,yes,FAM-GOLD,職員系列,新增品種
+CH-DB-INDEX,索引大師,SQL,SR,100,95,20,3,1,yes,FAM-DB,數據庫師系列,現有角色（數值不變，只補 family 欄）
+CH-DB-CHIEF,首席數據庫師,SQL,SSR,105,100,20,3,1,yes,FAM-DB,數據庫師系列,現有角色（數值不變，只補 family 欄）
+CH-GOLD-BRONZE,青銅職員,HARDWARE,R,95,105,20,3,1,yes,FAM-GOLD,職員系列,現有角色（數值不變，只補 family 欄）
+CH-GOLD-SILVER,白銀職員,HARDWARE,R,95,105,20,3,1,yes,FAM-GOLD,職員系列,現有角色（數值不變，只補 family 欄）
 CH-GOLD,黃金職員,HARDWARE,SR,100,110,20,3,1,yes,FAM-GOLD,職員系列,現有角色（數值不變，只補 family 欄）
-CH-GOLD-DIAMOND,鑽石職員,HARDWARE,SSR,105,115,20,3,1,yes,FAM-GOLD,職員系列,新增品種
-CH-HACK-ROOKIE,見習白帽,SECURITY,R,105,86,20,3,1,yes,FAM-HACK,白帽黑客系列,新增品種
+CH-GOLD-DIAMOND,鑽石職員,HARDWARE,SSR,105,115,20,3,1,yes,FAM-GOLD,職員系列,現有角色（數值不變，只補 family 欄）
+CH-HACK-ROOKIE,見習白帽,SECURITY,R,105,86,20,3,1,yes,FAM-HACK,白帽黑客系列,現有角色（數值不變，只補 family 欄）
 CH-HACK,黑客,SECURITY,SR,110,90,20,3,1,yes,FAM-HACK,白帽黑客系列,現有角色（數值不變，只補 family 欄）
-CH-HACK-FIREWALL,防火牆騎士,SECURITY,SR,110,90,20,3,1,yes,FAM-HACK,白帽黑客系列,新增品種
-CH-HACK-LEGEND,白帽傳說,SECURITY,SSR,115,94,20,3,1,yes,FAM-HACK,白帽黑客系列,新增品種
-CH-OFFICE-INTERN,實習生,EXCEL,R,95,110,20,3,1,yes,FAM-OFFICE,辦公室系列,新增品種
+CH-HACK-FIREWALL,防火牆騎士,SECURITY,SR,110,90,20,3,1,yes,FAM-HACK,白帽黑客系列,現有角色（數值不變，只補 family 欄）
+CH-HACK-LEGEND,白帽傳說,SECURITY,SSR,115,94,20,3,1,yes,FAM-HACK,白帽黑客系列,現有角色（數值不變，只補 family 欄）
+CH-OFFICE-INTERN,實習生,EXCEL,R,95,110,20,3,1,yes,FAM-OFFICE,辦公室系列,現有角色（數值不變，只補 family 欄）
 CH-OFFICE,辦公室職員,EXCEL,R,95,110,20,3,1,yes,FAM-OFFICE,辦公室系列,現有角色（數值不變，只補 family 欄）
-CH-OFFICE-LEAD,試算表主任,EXCEL,SR,100,116,20,3,1,yes,FAM-OFFICE,辦公室系列,新增品種
-CH-OFFICE-PIVOT,樞紐分析師,EXCEL,SR,100,116,20,3,1,yes,FAM-OFFICE,辦公室系列,新增品種
-CH-OFFICE-QUEEN,公式女王,EXCEL,SSR,105,121,20,3,1,yes,FAM-OFFICE,辦公室系列,新增品種
+CH-OFFICE-LEAD,試算表主任,EXCEL,SR,100,116,20,3,1,yes,FAM-OFFICE,辦公室系列,現有角色（數值不變，只補 family 欄）
+CH-OFFICE-PIVOT,樞紐分析師,EXCEL,SR,100,116,20,3,1,yes,FAM-OFFICE,辦公室系列,現有角色（數值不變，只補 family 欄）
+CH-OFFICE-QUEEN,公式女王,EXCEL,SSR,105,121,20,3,1,yes,FAM-OFFICE,辦公室系列,現有角色（數值不變，只補 family 欄）
 CH-BROADBAND,寬頻職員,NET_DEVICE,R,105,95,20,3,1,yes,FAM-BROADBAND,網絡工程系列,現有角色（數值不變，只補 family 欄）
-CH-BROADBAND-FIBRE,光纖技師,NET_DEVICE,R,105,95,20,3,1,yes,FAM-BROADBAND,網絡工程系列,新增品種
-CH-BROADBAND-ROUTER,路由器隊長,NET_DEVICE,SR,110,100,20,3,1,yes,FAM-BROADBAND,網絡工程系列,新增品種
-CH-BROADBAND-5G,5G 工程師,NET_DEVICE,SR,110,100,20,3,1,yes,FAM-BROADBAND,網絡工程系列,新增品種
-CH-BROADBAND-CHIEF,網絡總指揮,NET_DEVICE,SSR,116,105,20,3,1,yes,FAM-BROADBAND,網絡工程系列,新增品種
-CH-AIBOT-STUDY,學習機械人,ALL,R,95,95,10,3,1,yes,FAM-AIBOT,機械人系列,新增品種
-CH-AIBOT-CHAT,對話機械人,ALL,SR,100,100,10,3,1,yes,FAM-AIBOT,機械人系列,新增品種
+CH-BROADBAND-FIBRE,光纖技師,NET_DEVICE,R,105,95,20,3,1,yes,FAM-BROADBAND,網絡工程系列,現有角色（數值不變，只補 family 欄）
+CH-BROADBAND-ROUTER,路由器隊長,NET_DEVICE,SR,110,100,20,3,1,yes,FAM-BROADBAND,網絡工程系列,現有角色（數值不變，只補 family 欄）
+CH-BROADBAND-5G,5G 工程師,NET_DEVICE,SR,110,100,20,3,1,yes,FAM-BROADBAND,網絡工程系列,現有角色（數值不變，只補 family 欄）
+CH-BROADBAND-CHIEF,網絡總指揮,NET_DEVICE,SSR,116,105,20,3,1,yes,FAM-BROADBAND,網絡工程系列,現有角色（數值不變，只補 family 欄）
+CH-AIBOT-STUDY,學習機械人,ALL,R,95,95,10,3,1,yes,FAM-AIBOT,機械人系列,現有角色（數值不變，只補 family 欄）
+CH-AIBOT-CHAT,對話機械人,ALL,SR,100,100,10,3,1,yes,FAM-AIBOT,機械人系列,現有角色（數值不變，只補 family 欄）
 CH-AIBOT,人工智能機械人,ALL,SSR,105,105,10,3,1,yes,FAM-AIBOT,機械人系列,現有角色（數值不變，只補 family 欄）
-CH-AIBOT-QUANTUM,量子機械人,ALL,SSR,105,105,10,3,1,yes,FAM-AIBOT,機械人系列,新增品種
+CH-AIBOT-QUANTUM,量子機械人,ALL,SSR,105,105,10,3,1,yes,FAM-AIBOT,機械人系列,現有角色（數值不變，只補 family 欄）
 
