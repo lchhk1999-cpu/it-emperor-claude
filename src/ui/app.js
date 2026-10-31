@@ -7,6 +7,8 @@
   // "release": set by `./scripts/build.sh release`, which also leaves the dev
   // samples out of the bundle; only approved questions can appear.
   const BUILD_MODE = root.ITE.BUILD_MODE === "release" ? "release" : "dev";
+  // App version shown in 設定 (App Store version for the first release: 1.0.0).
+  const APP_VERSION = "1.0.0";
   // 單機版 (offline) has no guild; online features come back in the online edition.
   const ONLINE = root.ITE.EDITION !== "offline";
   // The imported bank (tools/import_question_bank.py) replaces the dev samples
@@ -27,7 +29,7 @@
 
   const loaded = S.load(storage);
   let save = loaded.save;
-  const sfx = (name) => root.ITE.sound && root.ITE.sound.play(name);
+  const sfx = (name, pitch) => root.ITE.sound && root.ITE.sound.play(name, pitch);
   if (root.ITE.sound) root.ITE.sound.setEnabled(save.settings.sound);
   if (root.ITE.music) root.ITE.music.setEnabled(save.settings.music);
   const P = root.ITE.profile;
@@ -35,7 +37,7 @@
   {
     const base = P.ensureOwned(save.profile || P.defaultProfile(gameData), gameData);
     const team = P.cleanTeam(base.team, base.level, gameData, base.owned);
-    const equipment = root.ITE.equipment.cleanEquipment(base.equipment || {}, team, gameData, base.owned);
+    const equipment = root.ITE.equipment.cleanEquipment(base.equipment || {}, team, gameData, base.owned, base);
     save = { ...save, profile: { ...base, team, equipment } };
   }
   const Mi = root.ITE.missions;
@@ -69,7 +71,9 @@
       ? h(
           "div",
           { class: "dev-banner", role: "note" },
-          bank ? "開發測試版｜包含未經教師核准（review）的題目" : "開發測試版｜題目為測試樣例，非 DSE 正式題庫"
+          !bank ? "開發測試版｜題目為測試樣例，非 DSE 正式題庫"
+            : bank.questions.some((q) => q.review_status !== "approved") ? "開發測試版｜包含未經教師核准（review）的題目"
+            : "開發測試版｜只供測試"
         )
       : null;
   }
@@ -143,10 +147,11 @@
 
   function bar(label, hp, max, kind) {
     const pct = max > 0 ? Math.round((hp / max) * 100) : 0;
+    const shown = Math.ceil(hp); // 魔王限時 drains in fractions
     return h(
       "div",
-      { class: `hp hp-${kind}`, role: "meter", "aria-label": label, "aria-valuemin": "0", "aria-valuemax": String(max), "aria-valuenow": String(hp) },
-      h("div", { class: "hp-label" }, h("span", {}, label), h("span", { class: "hp-num" }, `${hp} / ${max}`)),
+      { class: `hp hp-${kind}`, role: "meter", "aria-label": label, "aria-valuemin": "0", "aria-valuemax": String(max), "aria-valuenow": String(shown) },
+      h("div", { class: "hp-label" }, h("span", {}, label), h("span", { class: "hp-num" }, `${shown} / ${max}`)),
       h("div", { class: "hp-track" }, h("div", { class: "hp-fill", style: `width:${pct}%` }))
     );
   }
@@ -193,22 +198,66 @@
     return h(
       "header",
       { class: "status-bar" },
+      // Kept to two rows (user 2026-11-01: the old four-row bar pushed the
+      // stage buttons below the fold).
       h(
         "div",
         { class: "status-row" },
         h("span", { class: "lv" }, `Lv ${p.level}`),
-        title ? h("span", { class: "title-badge" }, title.name) : h("span", { class: "status-spacer" }),
+        h(
+          "span",
+          { class: "status-who" },
+          p.name ? h("span", { class: "player-name" }, p.name) : null,
+          title ? h("span", { class: "title-badge" }, title.name) : null
+        ),
         h("span", { class: "currency", "aria-label": `金幣 ${p.coins}` }, h("span", { class: "cur-icon", html: icons.coin }), String(p.coins)),
         h("span", { class: "currency", "aria-label": `寶石 ${p.gems || 0}` }, h("span", { class: "cur-icon", html: icons.gem }), String(p.gems || 0))
       ),
-      meter("經驗", p.exp, need, "fill-exp"),
-      meter("體力", st.value, st.max, "fill-stamina")
+      h("div", { class: "meter-row" }, meter("經驗", p.exp, need, "fill-exp"), meter("體力", st.value, st.max, "fill-stamina"))
     );
   }
 
   function claimableNow() {
     return Mi.claimableCount(save.progress, gameData.missions, Date.now());
   }
+
+  // Little scenes for the two big home tiles (original art, same ink style).
+  const TILE_ART = {
+    // An open storybook with a path winding up to a castle with a waving flag.
+    story: `<svg viewBox="0 0 150 76" aria-hidden="true">
+      <circle cx="122" cy="16" r="9" fill="#fff6d8" stroke="#3b3330" stroke-width="2"/>
+      <g class="tile-twinkle" fill="#fff"><path d="M18 10 l2 5 l5 2 l-5 2 l-2 5 l-2 -5 l-5 -2 l5 -2z"/><path d="M60 6 l1.5 3.5 l3.5 1.5 l-3.5 1.5 l-1.5 3.5 l-1.5 -3.5 l-3.5 -1.5 l3.5 -1.5z"/></g>
+      <path d="M86 40 L86 22 L92 22 L92 26 L98 26 L98 22 L104 22 L104 26 L110 26 L110 22 L116 22 L116 40Z" fill="#fff" stroke="#3b3330" stroke-width="2.5" stroke-linejoin="round"/>
+      <rect x="97" y="31" width="8" height="9" rx="4" fill="#c4b0e0" stroke="#3b3330" stroke-width="2"/>
+      <path d="M101 22 V8" stroke="#3b3330" stroke-width="2"/><path class="tile-flag" d="M101 8 L113 11 L101 15Z" fill="#f4a3b8" stroke="#3b3330" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M80 42 Q96 36 124 42 L124 46 L80 46Z" fill="#a7d8a0" stroke="#3b3330" stroke-width="2"/>
+      <path d="M8 70 Q8 50 36 46 Q58 44 75 52 Q92 44 114 46 Q142 50 142 70 Q112 62 75 72 Q38 62 8 70Z" fill="#fff" stroke="#3b3330" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M75 52 V72" stroke="#3b3330" stroke-width="2"/>
+      <path d="M22 58 h40 M24 64 h34 M88 58 h40 M92 64 h34" stroke="#e8b84a" stroke-width="2" stroke-linecap="round"/>
+      <path d="M75 52 Q82 44 90 44 Q100 44 101 40" fill="none" stroke="#e8b84a" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 5"/>
+    </svg>`,
+    // A </> code bolt striking a grumpy bug monster, with sparks.
+    dse: `<svg viewBox="0 0 150 76" aria-hidden="true">
+      <g class="tile-twinkle" fill="#fff6d8"><circle cx="20" cy="14" r="2.5"/><circle cx="132" cy="58" r="2"/><circle cx="58" cy="8" r="2"/></g>
+      <ellipse cx="104" cy="70" rx="26" ry="4" fill="#3b3330" opacity="0.18"/>
+      <g class="tile-monster">
+        <path d="M80 66 Q78 34 104 30 Q130 34 128 66Z" fill="#a993cf" stroke="#3b3330" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M92 32 Q86 20 80 22 M116 32 Q122 20 128 22" fill="none" stroke="#3b3330" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="80" cy="22" r="3.5" fill="#9fe8e0" stroke="#3b3330" stroke-width="1.8"/><circle cx="128" cy="22" r="3.5" fill="#9fe8e0" stroke="#3b3330" stroke-width="1.8"/>
+        <path d="M93 44 l8 3 M115 44 l-8 3" stroke="#3b3330" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="97" cy="50" r="2.5" fill="#3b3330"/><circle cx="111" cy="50" r="2.5" fill="#3b3330"/>
+        <path d="M98 59 q6 -4 12 0" fill="none" stroke="#3b3330" stroke-width="2.5" stroke-linecap="round"/>
+        <text x="104" y="40" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="7" font-weight="900" fill="#3b3330">404</text>
+      </g>
+      <g class="tile-bolt">
+        <path d="M12 52 L44 38 L40 46 L70 36" fill="none" stroke="#3b3330" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 52 L44 38 L40 46 L70 36" fill="none" stroke="#f4d36b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="8" y="44" width="26" height="18" rx="6" fill="#fff" stroke="#3b3330" stroke-width="2.5"/>
+        <text x="21" y="57" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="10" font-weight="900" fill="#3b3330">&lt;/&gt;</text>
+      </g>
+      <g class="tile-spark" stroke="#f4d36b" stroke-width="3" stroke-linecap="round"><path d="M74 26 l-4 -6 M78 34 l6 -2 M74 42 l-5 4"/></g>
+    </svg>`,
+  };
 
   function sideChip(iconName, label, onclick, badge) {
     return h(
@@ -245,27 +294,39 @@
           next
             ? h("button", { class: "speech", onclick: () => root.ITE.storyUi.showIntro(next.id) }, `繼續學習：${next.id} ${next.name}`)
             : h("p", { class: "speech" }, "答啱 ICT 題，打倒 Bug 王！"),
-          h("div", { class: "hero-stage", html: leader ? sprites.character(leader, "happy") : sprites.hero("idle") }),
+          h("div", { class: "hero-stage", html: leader ? homeLeaderSprite(leader) : sprites.hero("idle") }),
           h("div", { class: "hero-shadow" })
         ),
         resume ? h("button", { class: "btn btn-primary resume", onclick: resumeBattle }, "繼續 DSE 挑戰") : null,
         h(
           "div",
           { class: "home-tiles" },
-          h(
-            "button",
-            { class: "home-tile tile-story", onclick: () => root.ITE.storyUi.show() },
-            h("span", { class: "tile-icon", html: icons.book }),
-            h("span", { class: "tile-name" }, "故事模式"),
-            h("span", { class: "tile-sub" }, next ? `${next.world.name}・${next.id}` : root.ITE.storyUi.anyPlayable() ? "已開放關卡全部完成" : "等待老師審核題目")
-          ),
-          h(
-            "button",
-            { class: "home-tile tile-dse", onclick: showStages },
-            h("span", { class: "tile-icon", html: icons.sword }),
-            h("span", { class: "tile-name" }, "DSE 挑戰"),
-            h("span", { class: "tile-sub" }, "A–E 世界・四個難度")
-          )
+          // Illustrated mode tiles (2026-11-01: the flat ones looked dull).
+          (() => {
+            const sum = root.ITE.storyUi.summary();
+            const pct = sum.total ? Math.round((sum.cleared / sum.total) * 100) : 0;
+            return h(
+              "button",
+              { class: "home-tile tile-story", onclick: () => root.ITE.storyUi.show() },
+              h("span", { class: "tile-art", html: TILE_ART.story }),
+              h("span", { class: "tile-title" }, "故事模式"),
+              h("span", { class: "tile-sub" }, next ? `下一關 ${next.id} ${next.name}` : root.ITE.storyUi.anyPlayable() ? "已開放關卡全部完成！" : "等待老師審核題目"),
+              sum.total
+                ? h("span", { class: "tile-progress", "aria-label": `完成 ${sum.cleared} / ${sum.total} 關` }, h("span", { class: "tile-progress-fill", style: `width:${pct}%` }), h("span", { class: "tile-progress-text" }, `${sum.cleared}/${sum.total}　★${sum.stars}`))
+                : null
+            );
+          })(),
+          (() => {
+            const cleared = Object.entries(save.stages).filter(([id, r]) => id.startsWith("dse-") && r.cleared).length;
+            return h(
+              "button",
+              { class: "home-tile tile-dse", onclick: showStages },
+              h("span", { class: "tile-art", html: TILE_ART.dse }),
+              h("span", { class: "tile-title" }, "DSE 挑戰"),
+              h("span", { class: "tile-sub" }, "5 世界・4 難度・UR 試煉"),
+              h("span", { class: "tile-progress" }, h("span", { class: "tile-progress-fill", style: `width:${Math.round((cleared / 20) * 100)}%` }), h("span", { class: "tile-progress-text" }, `已勝 ${cleared}/20 關`))
+            );
+          })()
         ),
         limited
           ? h(
@@ -281,6 +342,7 @@
               )
             )
           : null,
+        root.ITE.installUi ? root.ITE.installUi.homeCard() : null,
         BUILD_MODE === "dev" && root.ITE.reviewUi
           ? h("button", { class: "btn btn-review", onclick: () => root.ITE.reviewUi.show() }, "教師審核（開發版）")
           : null,
@@ -289,13 +351,18 @@
         BUILD_MODE === "dev" && bankCheck.report.rejected
           ? h("p", { class: "note" }, `題庫檢查：${bankCheck.report.accepted} 條通過，${bankCheck.report.rejected} 條被拒絕（見 console）`)
           : null,
-        h("p", { class: "placeholder-note" }, "PLACEHOLDER 美術｜非正式設計")
+        BUILD_MODE === "dev" ? h("p", { class: "placeholder-note" }, "PLACEHOLDER 美術｜非正式設計") : null
       )
     );
     // First visit: the new-player tutorial (設定 can replay it); after that, the
     // daily check-in once per Hong Kong day.
-    if (!save.settings.tutorialDone && root.ITE.tutorialUi) root.ITE.tutorialUi.show(0);
-    else if (root.ITE.checkinUi && root.ITE.checkin.canCheckIn(save.profile, Date.now())) root.ITE.checkinUi.show();
+    // A name is asked first (also once for saves from before names existed).
+    const afterName = () => {
+      if (!save.settings.tutorialDone && root.ITE.tutorialUi) root.ITE.tutorialUi.show(0);
+      else if (root.ITE.checkinUi && root.ITE.checkin.canCheckIn(save.profile, Date.now())) root.ITE.checkinUi.show();
+    };
+    if (!save.profile.name && root.ITE.nameUi) root.ITE.nameUi.show(showHome);
+    else afterName();
   }
 
   // ---------- Stage select ----------
@@ -325,6 +392,10 @@
     );
   }
 
+  const WORLD_SHORT = { A: "資訊處理", B: "電腦系統", C: "互聯網", D: "程式編寫", E: "社會影響" };
+  // Which DSE world tab is open ("A".."E" or "mix"); kept while the app runs.
+  let stageTab = "A";
+
   function showStages() {
     const Dg = root.ITE.dungeons;
     const limited = Dg.limitedStage(gameData, Date.now());
@@ -336,14 +407,36 @@
         { class: "screen stages" },
         h("header", { class: "topbar" }, h("button", { class: "btn-back", onclick: showHome, "aria-label": "返回" }, "‹"), h("h1", {}, "DSE 題庫挑戰")),
         profileBar(),
+        // 操練區 and the two UR modes as one row of tiles (2026-11-01: worlds in tabs below).
         h(
-          "button",
-          { class: "drill-entry", onclick: () => root.ITE.drillUi.show() },
-          h("span", { class: "drill-entry-title" }, "操練區"),
-          h("span", { class: "drill-entry-sub" }, "不扣體力・不設獎勵・隨機出題，隨時離開")
+          "div",
+          { class: "mode-row" },
+          h("button", { class: "mode-tile drill-tile", onclick: () => root.ITE.drillUi.show() }, h("span", { class: "mode-icon" }, "📝"), h("span", { class: "mode-name" }, "操練區"), h("span", { class: "mode-sub" }, "不扣體力")),
+          root.ITE.trialUi
+            ? h("button", { class: "mode-tile trial-entry", onclick: () => root.ITE.trialUi.show() }, h("span", { class: "mode-icon" }, "👑"), h("span", { class: "mode-name" }, "帝王試煉"), h("span", { class: "mode-sub" }, "UR IT帝"))
+            : null,
+          root.ITE.trialUi
+            ? h("button", { class: "mode-tile demon-entry", onclick: () => root.ITE.trialUi.show("demon") }, h("span", { class: "mode-icon" }, "⏱"), h("span", { class: "mode-name" }, "魔王限時"), h("span", { class: "mode-sub" }, "UR Bug 魔王"))
+            : null
         ),
         limited ? stageCard(limited) : null,
-        Dg.WORLDS.map((w) =>
+        h(
+          "div",
+          { class: "world-tabs", role: "tablist", "aria-label": "DSE 世界" },
+          Dg.WORLDS.map((w) => [w.id, w.id, WORLD_SHORT[w.id] || w.name])
+            .concat([["mix", "★", "混合"]])
+            .map(([key, big, small]) =>
+              h(
+                "button",
+                { class: stageTab === key ? "world-tab active" : "world-tab", role: "tab", "aria-selected": stageTab === key ? "true" : "false", "aria-label": key === "mix" ? "混合練習" : `${key} ${Dg.WORLDS.find((w) => w.id === key).name}`, onclick: () => ((stageTab = key), sfx("tap"), showStages()) },
+                h("span", { class: "world-tab-big" }, big),
+                h("span", { class: "world-tab-small" }, small)
+              )
+            )
+        ),
+        stageTab === "mix"
+          ? h("section", { class: "panel" }, h("h2", {}, "混合練習"), h("p", { class: "hint" }, "所有課題隨機出題，不用體力，只得經驗。"), (root.ITE.stages || []).map(stageCard))
+          : Dg.WORLDS.filter((w) => w.id === stageTab).map((w) =>
           h(
             "section",
             { class: "panel world-panel" },
@@ -366,14 +459,13 @@
                     "button",
                     { class: `diff-btn diff-${st.difficulty}${rec && rec.cleared ? " cleared" : ""}`, onclick: () => startBattle(st), "aria-label": `${st.name}，${d.questionCount} 題，${stageStatus(st.id)}` },
                     h("span", { class: "diff-name" }, d.name, rec && rec.cleared ? " ★" : ""),
-                    h("span", { class: "diff-meta" }, `${d.questionCount} 題｜體力 ${root.ITE.stamina.stageCost(st)}｜素材 ×${d.drops}${d.rare ? "＋傳說核心" : ""}`)
+                    h("span", { class: "diff-meta" }, `${d.questionCount} 題｜體力 ${root.ITE.stamina.stageCost(st)}`),
+                    h("span", { class: "diff-meta" }, `素材 ×${d.drops}${d.rare ? "＋傳說核心" : ""}`)
                   );
                 })
             )
           )
-        ),
-        h("h2", { class: "section-title" }, "混合練習"),
-        (root.ITE.stages || []).map(stageCard)
+        )
       )
     );
   }
@@ -413,7 +505,8 @@
   // playing without enough stamina, gives experience only (practice).
   function startBattle(stage, opts) {
     const cost = root.ITE.stamina.stageCost(stage);
-    const practice = cost === 0 || !!(opts && opts.practice);
+    // 帝王試煉 costs no stamina but is not practice: it gives rewards.
+    const practice = (cost === 0 && stage.kind !== "trial") || !!(opts && opts.practice);
     let paid = null;
     if (!practice) {
       const r = root.ITE.stamina.spend(save.profile, cost, gameData.config, Date.now());
@@ -469,7 +562,15 @@
 
   function onNext() {
     battleState = B.next(battleState);
-    if (battleState.phase === "won" || battleState.phase === "lost") {
+    if (battleState.phase === "won" || battleState.phase === "lost") return finishBattle();
+    save = S.withActiveBattle(save, battleState);
+    persist();
+    showBattle();
+  }
+
+  // Records the result, gives rewards and shows the result screen.
+  function finishBattle() {
+    {
       const sum = B.summary(battleState);
       save = S.recordStageResult(save, battleState.stageId, sum);
       if (sum.outcome === "won") recordStageClear({ difficulty: (findStage(battleState.stageId) || {}).difficulty });
@@ -478,13 +579,71 @@
         ? grantReward({ exp: base.exp, coins: 0 })
         : grantReward({ ...base, materials: root.ITE.dungeons.materialDrops(findStage(battleState.stageId), sum, gameData, root.ITE.rng.createRng(Date.now() ^ Math.floor(Math.random() * 2 ** 31))) });
       lastReward.practice = !!battleState.practice;
+      const stageNow = findStage(battleState.stageId);
+      if (stageNow && stageNow.kind === "trial") {
+        const t = root.ITE.trial.claim(save.profile, stageNow.trial, sum.outcome, Date.now(), Math.random);
+        save = { ...save, profile: t.profile };
+        lastReward.trial = { won: sum.outcome === "won", shards: t.shards, rules: root.ITE.trial.rulesOf(stageNow.trial) };
+        persist();
+      }
       sfx(sum.outcome === "won" ? "win" : "lose");
       showResult();
-      return;
     }
-    save = S.withActiveBattle(save, battleState);
-    persist();
-    showBattle();
+  }
+
+  // ---------- 魔王限時: HP drain while a question is open ----------
+  // A real-time loop drains party HP (src/core/trial.js tick) and updates the
+  // bar in place. Each step counts at most 1 s, so time with the app in the
+  // background (or the screen locked) does not drain.
+  let drainTimer = null;
+  let lastTick = 0;
+  let lastSave = 0;
+
+  function stopDrain() {
+    if (drainTimer) root.clearInterval(drainTimer);
+    drainTimer = null;
+  }
+
+  function startDrain() {
+    if (drainTimer) return;
+    lastTick = lastSave = Date.now();
+    drainTimer = root.setInterval(drainStep, 200);
+  }
+
+  function drainInfo(s) {
+    const per = Math.round(s.party.maxHp * s.timed.drainPct) / 100;
+    const grace = root.ITE.trial.graceLeft(s);
+    return grace > 0 ? `👓 眼鏡：還有 ${grace} 秒不扣血` : `⏱ 限時中：每秒 -${per} HP，快答！`;
+  }
+
+  function drainStep() {
+    const s = battleState;
+    if (!s || !s.timed || s.phase !== "question" || !app.querySelector(".screen.battle")) return stopDrain();
+    const now = Date.now();
+    const dt = Math.min(1000, now - lastTick);
+    lastTick = now;
+    battleState = root.ITE.trial.tick(s, dt);
+    if (battleState.phase === "lost") {
+      stopDrain();
+      return finishBattle();
+    }
+    const p = battleState.party;
+    const el = app.querySelector(".hp-party");
+    if (el) {
+      el.querySelector(".hp-num").textContent = `${Math.ceil(p.hp)} / ${p.maxHp}`;
+      el.querySelector(".hp-fill").style.width = `${Math.round((p.hp / p.maxHp) * 100)}%`;
+      el.setAttribute("aria-valuenow", String(Math.ceil(p.hp)));
+    }
+    const info = app.querySelector(".drain-info");
+    if (info) {
+      info.textContent = drainInfo(battleState);
+      info.classList.toggle("grace", root.ITE.trial.graceLeft(battleState) > 0);
+    }
+    if (now - lastSave > 2000) {
+      lastSave = now;
+      save = S.withActiveBattle(save, battleState);
+      persist();
+    }
   }
 
   function quitBattle() {
@@ -538,7 +697,7 @@
           const look = stageLook(s.stageId);
           return arena({
             theme: look.theme,
-            boss: { label: s.boss.name, hp: s.boss.hp, max: s.boss.maxHp, sprite: (e) => sprites.monster(look.monster, e, { tier: look.tier }) },
+            boss: { label: s.boss.name, hp: s.boss.hp, max: s.boss.maxHp, sprite: look.bossSprite || ((e) => sprites.monster(look.monster, e, { tier: look.tier })) },
             hero: {
               sprite: (e) => leaderSprite(s, e),
               bar: bar(s.team && s.team.length ? `我的隊伍（${s.team.length} 人）` : "我的隊伍", s.party.hp, s.party.maxHp, "party"),
@@ -546,6 +705,7 @@
             fx: bossHit ? { hit: "boss", damage: r.damage, combo: r.combo, ko: s.boss.hp <= 0 } : heroHit ? { hit: "hero", taken: r.taken } : null,
           });
         })(),
+        s.timed ? h("p", { class: `drain-info${root.ITE.trial.graceLeft(s) > 0 ? " grace" : ""}`, role: "status" }, feedback ? "⏸ 看解說時不扣血" : drainInfo(s)) : null,
         h(
           "section",
           { class: "question-card" },
@@ -577,6 +737,8 @@
       const panel = app.querySelector(".explain");
       if (panel) panel.scrollIntoView({ block: "end", behavior: "smooth" });
     }
+    if (s.timed && s.phase === "question") startDrain();
+    else stopDrain();
   }
 
   // ---------- Equipment skills (DSE battle only) ----------
@@ -592,6 +754,7 @@
       { class: "skill-bar" },
       items.map((item) => {
         if (item.type === "defense") return h("span", { class: "chip skill-passive" }, `${item.name}：受傷 -${item.reduce_pct}%`);
+        if (item.type === "time") return h("span", { class: "chip skill-passive" }, s.timed ? `${item.name}：每題首 ${item.seconds} 秒不扣血` : `${item.name}：魔王限時才生效`);
         const st = EQ.skillStatus(s, item);
         const label = SKILL_LABELS[item.type] || item.name;
         const note = st.usable ? "" : st.reason === "cooldown" ? `（${st.wait} 題後）` : SKILL_REASONS[st.reason] ? `（${SKILL_REASONS[st.reason]}）` : "";
@@ -616,25 +779,12 @@
   }
 
   // ---------- Profile & rewards ----------
+  // Sub-pages show the same compact two-row bar as home (2026-11-01: the old
+  // one-line bar wrapped untidily on phones).
   function profileBar() {
-    const p = save.profile;
-    return h(
-      "p",
-      { class: "profile-bar" },
-      h("span", { class: "lv" }, `Lv ${p.level}`),
-      h("span", {}, `經驗 ${p.exp} / ${P.PROFILE_RULES.expToNext(p.level)}`),
-      h("span", {}, `金幣 ${p.coins}`),
-      h("span", {}, `寶石 ${p.gems || 0}`),
-      (() => {
-        const c = staminaNow();
-        return h("span", { class: "stamina" }, `體力 ${c.value} / ${c.max}`);
-      })(),
-      (() => {
-        const t = Mi.equippedTitle(save.progress, gameData.titles, titleContext());
-        return t ? h("span", { class: "title-badge" }, t.name) : null;
-      })()
-    );
+    return statusBar();
   }
+
 
   // Every answered question in any mode counts towards missions and titles.
   // Every mode (DSE, story, guild) reports answers here, so this is also where
@@ -696,12 +846,30 @@
   function stageLook(stageId) {
     const st = findStage(stageId);
     const look = root.ITE.scenes.forWorld(st && st.world);
-    return { ...look, tier: (st && st.difficulty) || "easy" };
+    // 帝王試煉: the boss is IT帝's shadow (the UR art, darkened in CSS).
+    // 魔王限時: Bug 魔王 itself (before it joins you), in full colour.
+    const urOf = st && st.kind === "trial" ? root.ITE.trial.rulesOf(st.trial).characterId : null;
+    const face = (e) => (e === "hurt" ? "surprised" : e === "smug" ? "happy" : "idle");
+    const bossSprite = !urOf ? null
+      : urOf === "CH-ITEMPEROR" ? (e) => `<span class="shadow-boss">${sprites.character(urOf, face(e))}</span>`
+      : (e) => sprites.character(urOf, face(e));
+    return { ...look, tier: (st && st.difficulty) || "easy", bossSprite };
   }
 
+  // The leader wears its equipment in battle (裝備造型, 2026-11-01).
   function leaderSprite(state, expr) {
     const leader = state.team && state.team[0];
-    return leader ? sprites.character(leader.id, expr) : sprites.hero(expr);
+    if (!leader) return sprites.hero(expr);
+    const items = (state.loadout || []).filter((x) => x.holder === leader.id).map((x) => ({ id: x.id, tier: x.tier }));
+    return root.ITE.gear ? root.ITE.gear.dressed(sprites.character(leader.id, expr), items) : sprites.character(leader.id, expr);
+  }
+
+  // Home: the leader with its equipped items.
+  function homeLeaderSprite(leader) {
+    const p = save.profile;
+    const ids = root.ITE.equipment.itemsOf((p.equipment || {})[leader]);
+    const items = ids.map((id) => ({ id, tier: Math.min(3, root.ITE.growth ? root.ITE.growth.equipmentTier(p, id) : 1) }));
+    return root.ITE.gear ? root.ITE.gear.dressed(sprites.character(leader, "happy"), items) : sprites.character(leader, "happy");
   }
 
   // Adds a reward to the profile, saves, and returns what to show the player.
@@ -727,6 +895,8 @@
         return m ? h("p", { class: "reward-line reward-material" }, `獲得素材：${m.name} ×${n}`) : null;
       }),
       g.practice ? h("p", { class: "hint" }, "練習模式：只獲得經驗（不扣體力，沒有素材及金幣）") : null,
+      g.trial && g.trial.shards ? h("p", { class: "reward-line reward-material" }, `獲得 ${g.trial.rules.shardName} ×${g.trial.shards}（共 ${root.ITE.trial.shardsOf(save.profile, g.trial.rules)} / ${g.trial.rules.unlockShards}）`) : null,
+      g.trial && g.trial.won && !g.trial.shards ? h("p", { class: "hint" }, "這個難度本週已領取碎片，下星期一再來！") : null,
       g.levelsGained ? h("p", { class: "reward-level" }, `升級！現在是 Lv ${g.level}，體力已回滿，+${g.levelsGained * P.PROFILE_RULES.levelUpGems} 寶石`) : null,
       g.slotsUnlocked ? h("p", { class: "reward-level" }, `解鎖新隊伍位置！到「角色隊伍」加入新成員`) : null
     );
@@ -787,9 +957,11 @@
     bar,
     questionPool,
     buildMode: BUILD_MODE,
+    version: APP_VERSION,
     arena,
     sfx,
     showStages,
+    startBattle,
     online: ONLINE,
     storage,
     grantReward,
@@ -805,6 +977,8 @@
     },
   };
   // Wait for every script (guild, story, review screens) before the first render.
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", showHome);
-  else showHome();
+  // The opening animation (splash.js) shows first and then opens the home screen.
+  const start = () => (root.ITE.splashUi ? root.ITE.splashUi.show(showHome) : showHome());
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);
+  else start();
 })(globalThis);

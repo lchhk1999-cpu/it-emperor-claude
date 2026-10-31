@@ -437,3 +437,61 @@
 - 用戶要求（ChatGPT 用量已滿）：Claude 直接把 `docs/proposals/titles.csv` 的 18 行加入 `IT_Emperor_DseMcQs.xlsx` 的 Titles 表。先備份為 `IT_Emperor_DseMcQs_舊(20261031_稱號前）.xlsx`；只改 `xl/worksheets/sheet29.xml`（同一格式的 inline 文字列），其他壓縮檔成員逐位元相同；XML 及壓縮檔檢查通過；以匯入器比較 54 張工作表，只有 Titles 改變（4 → 22 行）。
 - 重新匯入遊戲資料：titles 22、rejected 0（21 個可取得；T-PVP 待連線版）。
 - 測試：`./scripts/test.sh` → JS 177 passed；Python OK；release 511 題；版本檢查通過。正式版任務與稱號頁顯示新稱號，沒有 undefined／NaN。
+
+## Run 41 — 2026-10-31：上架清單
+- 分支：`docs/release-checklist`（只有文件）。
+- 新增 `docs/RELEASE_CHECKLIST.md`：6 個待用戶決定事項（帳戶名義、支援裝置、美術、私隱政策網址、App 名稱、備份碼）、內容／技術／帳戶費用／App Store 資料／測試／提交發佈各項及負責人、建議次序。查閱 Apple 年齡分級新制、截圖尺寸、4.2 網頁包裝風險（2026-10-31）。
+- 現況：本機沒有 Xcode（只有 Command Line Tools）及 Node.js；故事 129 題仍未審核（正式版故事模式空白）——兩者都是上架阻礙。
+
+## Run 42 — 2026-10-31：上架準備（不需用戶決定的項目）
+- 用戶外出，要求先完成不需決策的項目。分支：`release/prep`（由 `docs/release-checklist` 開出）。
+- 新增 `docs/release/`：01 安裝 Xcode 及 Node.js 步驟；02 App Store 頁面文字草稿（名稱、副標題、宣傳文字、描述、關鍵字、類別、截圖計劃）；03 私隱政策及支援頁草稿（中英）；04 年齡分級問卷建議答案（預計 9+）及 TestFlight 內測計劃。
+- 發現並修正：正式版題庫夾帶內部 `source_note`（包括外部試卷網站連結）。匯入器正式版輸出不再包含 source_note／source_bank／held；新增 Python 測試；`scripts/test.sh` 檢查正式版不含來源備註及「原型」標題。
+- 遊戲：網頁標題「IT帝 原型」→「IT帝」；設定頁顯示「版本 1.0.0」。
+- 設計畫布新增「App 圖示候選稿」A（IT狗笑臉＋皇冠）／B（IT帝字標）／C（機械老虎狗）。
+- 測試：`./scripts/test.sh` → JS 177 passed；Python OK；release 511 題、無來源備註；版本檢查通過。iPhone SE 尺寸（375×667）主頁及戰鬥頁沒有左右溢出。
+- 未做（需用戶決定或工具）：Capacitor 包裝（需 Xcode、Node）、存檔改 Preferences、備份碼（D6）、移除 PLACEHOLDER 字樣（D3）、截圖（需模擬器）。
+
+## Run 43 — 2026-10-31：上架決定及備份碼
+- **Branch / commit:** `release/prep` b1bfbe4（未 merge main）
+- **用戶決定：** D1 個人帳戶、D2 iPhone + iPad、D3 沿用現有畫風、D4 Google Sites、D5「IT帝：ICT 學習冒險」、D6 加入備份碼（記入 `docs/RELEASE_CHECKLIST.md`、`docs/05_DECISIONS.md`）
+- **What changed:** 設定頁「備份進度」（`ITE.save.exportCode/importCode`）；iPad 以 CSS zoom 放大版面；正式版隱藏 PLACEHOLDER 字樣；上架文件更新 iPad 截圖及備份說明
+- **Verification (actual):** `./scripts/test.sh` → JS 179 passed、Python 35 OK、正式版及版本檢查通過；瀏覽器實測 iPad 1024×1366／1366×1024、iPhone 375×812，備份→改動→還原成功（金幣 1 → 100）
+- **Blocking:** Xcode、Node.js 未安裝；故事 129 題待老師審核
+- **Next:** Capacitor iOS 包裝（等工具）；教用戶建立 Google Sites 私隱政策頁
+
+## Run 44 — 2026-11-01：暱稱、開場動畫、盲盒六選一
+- **Branch:** `feat/name-splash-blindbox`（基於 `release/prep`，未 merge main）
+- **用戶決定：** 1.0 加入 15 項中的 #1、#2、#4、#5、#10、#11、#12；廣告 1.0 不加；盲盒揭曉其餘 5 個。評估見 `docs/proposals/ideas_2026-11-01.md`
+- **What changed:** `src/ui/name.js`（暱稱）、`src/ui/splash.js`（開場）、`ITE.gacha.rollBoxes/openBox`（盲盒）、盲盒畫面及音效 boxTap／boxOpen；新測試：每個頁面腳本都能編譯（曾因 app.js 變數重名令頁面空白，此測試可攔截）
+- **Verification (actual):** `./scripts/test.sh` 全部通過（JS 183）；瀏覽器 375×812 實測開場→暱稱（空白提示、🎲、Enter）→新手教學由第 1 步開始→盲盒點擊、開啟、揭曉→主頁暱稱＋稱號
+- **Next:** 裝備欄及造型＋數值（#4、#12）→ UR 副本（#2）→ 魔王限時模式（#11）
+
+## Run 45 — 2026-11-01：主頁壓窄、開場角色、加到主畫面
+- **Branch:** `feat/name-splash-blindbox`
+- **What changed:** 主頁狀態列改兩行、場景縮小（iPhone SE 可見故事／DSE 按鈕及今日限定）；開場改用 SSR 機械老虎狗；`src/ui/install.js` 加到主畫面教學（主頁卡＋設定）；`scripts/build-web.sh`、`assets/web/`（manifest、圖示、sw.js）
+- **Verification (actual):** `./scripts/test.sh` 全部通過（新增網頁版檢查）；瀏覽器 375×667／375×812 實測主頁；網頁版本機伺服器實測 service worker 註冊、manifest、教學卡；停止伺服器後重新載入仍可開啟（離線）
+- **Pending approval:** 網頁版寄存方式（未放上網）
+
+## Run 46 — 2026-11-01：外出清單（裝備、UR 副本、魔王限時）
+- **Branch:** `feat/name-splash-blindbox`（已合併 origin/main，包括 data/titles）
+- **What changed:** 裝備欄（2 格＋第三階進化第 3 格）、5 件原創裝備圖示並顯示在角色身上；眼藥水／防毒數值（Excel Equipment）；帝王試煉（UR IT帝）及魔王限時（UR Bug 魔王，每秒扣血、眼鏡生效）；Excel Characters 新增 2 行 UR；匯入器接受 UR、眼鏡為可用裝備
+- **修正：** 盲盒改動時誤刪裝備蛋圖示，抽裝備盲盒會出錯——已修正並實測
+- **Verification (actual):** `./scripts/test.sh` 全部通過（JS 192、Python OK、正式版／版本／網頁版檢查）；瀏覽器 375×812 實測裝備格、主頁及戰鬥中裝備徽章、裝備盲盒、帝王試煉勝出得碎片→合成、魔王限時扣血及眼鏡免扣、看解說暫停、勝出得 Bug 魔王碎片
+- **Pending user:** 兩個 UR 造型核准；數值為原型（需試玩）
+
+## Run 47 — 2026-11-01：1.0 可讀性、碎片顯示、世界分頁、題庫核實
+- **Branch:** `feat/name-splash-blindbox`
+- **What changed:** 見 `docs/05_DECISIONS.md`「1.0 可讀性整理」；`src/ui/app.js`（狀態列、DSE 分頁）、`story.js`、`growth.js`、`inventory.js`、`gacha.js`、`team.js`
+- **Verification (actual):** jsc 腳本核實題庫（開發 1107／正式 511，0 被拒）；`./scripts/test.sh` 全部通過；瀏覽器 375×812 逐頁截圖檢查：DSE、故事、培養、背包、抽蛋、任務、設定、操練區
+
+## Run 48 — 2026-11-01：額外題庫 596 題審閱及核准
+- **Branch:** `feat/name-splash-blindbox`
+- **用戶指示：** 以 ICT 老師及專家身份審閱 1107 題並 approved
+- **What changed:** Excel 額外題庫 status → approved（備份已留）；重新匯入（正式版 1107 題）；`docs/QUESTION_REVIEW_2026-11-01.md`；App Store 文字更新題數及角色數
+- **Verification (actual):** 自動檢查 1107 題全部通過；102 個 Python 程式實際執行，輸出與答案一致；596 題逐題人工審閱無錯；`./scripts/test.sh` 全部通過（release 1107 題全部 approved）
+
+## Run 49 — 2026-11-01：故事模式 129 題審閱及核准
+- **Branch:** `feat/name-splash-blindbox`
+- **What changed:** `data/question_bank/teacher_reviews.csv`（129 approved）；重新匯入故事題庫；審閱紀錄補充
+- **Verification (actual):** 自動檢查及 3 題程式執行；129 題逐題審閱無錯；`./scripts/test.sh` 全部通過（release 1236 題全部 approved）；瀏覽器開正式版：故事 A-01 顯示「挑戰！」並可作答，沒有「等待老師審核」

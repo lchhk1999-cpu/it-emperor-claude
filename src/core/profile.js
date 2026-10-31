@@ -52,7 +52,7 @@
     const known = (ids, list) => ids.filter((id, i) => ids.indexOf(id) === i && list.some((x) => x.id === id));
     const base = profile.owned || {
       characters: [s.character].concat(profile.team || []),
-      equipment: (s.equipment ? [s.equipment] : []).concat(Object.values(profile.equipment || {})),
+      equipment: (s.equipment ? [s.equipment] : []).concat(Object.values(profile.equipment || {}).flat()),
     };
     return {
       ...profile,
@@ -172,7 +172,7 @@
   // Groups characters by family (角色品種): families in workbook order, members
   // R → SR → SSR (workbook order within a rarity). A character without family
   // columns forms its own group.
-  const RARITY_RANK = { R: 0, SR: 1, SSR: 2 };
+  const RARITY_RANK = { R: 0, SR: 1, SSR: 2, UR: 3 };
   function familyGroups(characters) {
     const groups = [];
     const byKey = {};

@@ -4,6 +4,7 @@
 #  2. Python question-bank importer tests (if python3 is available)
 #  3. Release bundle contains no dev samples and no non-approved questions
 #  4. 單機版 bundles contain no guild screen; the online edition does
+#  5. The web version (加到主畫面) builds with its manifest, icons and offline worker
 set -e
 cd "$(dirname "$0")/.."
 ./scripts/jsc.sh tests/run.js
@@ -27,7 +28,13 @@ approved=$(grep -o '"review_status": "approved"' dist/it-emperor-release.html | 
 if [ "$total" != "$approved" ]; then
   echo "✗ release bundle: $approved of $total questions are approved"; exit 1
 fi
-echo "✓ release bundle: no dev samples; all $approved questions are approved"
+if grep -q "<title>[^<]*原型" dist/it-emperor-release.html; then
+  echo "✗ release bundle is still titled as a prototype"; exit 1
+fi
+if grep -q '"source_note"' dist/it-emperor-release.html; then
+  echo "✗ release bundle contains internal question source notes"; exit 1
+fi
+echo "✓ release bundle: no dev samples, no source notes; all $approved questions are approved"
 # 4. Editions: 單機版 (offline) has no guild screen or demo guilds; online keeps them.
 ./scripts/build.sh release online > /dev/null
 ./scripts/build.sh dev offline > /dev/null
@@ -39,3 +46,14 @@ for f in dist/it-emperor-release.html dist/it-emperor-offline.html; do
 done
 grep -q "ITE.guildUi = " dist/it-emperor-release-online.html || { echo "✗ online edition is missing the guild screen"; exit 1; }
 echo "✓ editions: 單機版 has no guild; online edition keeps it"
+# 5. Web version for the home screen.
+./scripts/build-web.sh > /dev/null
+for f in index.html manifest.webmanifest sw.js icon-192.png icon-512.png apple-touch-icon.png; do
+  [ -s "dist/web/$f" ] || { echo "✗ web version is missing $f"; exit 1; }
+done
+grep -q "__BUILD__" dist/web/sw.js && { echo "✗ web worker cache name was not stamped"; exit 1; }
+sed -n '/<body>/,$p' dist/web/index.html > dist/.web-body
+sed -n '/<body>/,$p' dist/it-emperor-release.html > dist/.release-body
+cmp -s dist/.web-body dist/.release-body || { echo "✗ web version is not the release build"; exit 1; }
+rm -f dist/.web-body dist/.release-body
+echo "✓ web version: release build with manifest, icons and offline worker"

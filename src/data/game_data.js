@@ -5,9 +5,9 @@
   ITE.gameData = {
  "meta": {
   "source_file": "IT_Emperor_DseMcQs.xlsx",
-  "source_sha256": "f50eab4ec1846c0c2d20b9c453d2f4dfbe20e9af49552ce23c178d8056d9406a",
-  "imported_at": "2026-10-31T10:01:27Z",
-  "characters": 31,
+  "source_sha256": "81bcf43f52db06711e890f3c54c28e54fbed75f110bffbebf0ceded002e245fe",
+  "imported_at": "2026-10-31T16:51:03Z",
+  "characters": 33,
   "missions": 5,
   "titles": 22,
   "equipment": 5,
@@ -365,6 +365,28 @@
    "bonus": 0.1,
    "family": "FAM-AIBOT",
    "familyName": "機械人系列"
+  },
+  {
+   "id": "CH-ITEMPEROR",
+   "name": "IT帝",
+   "specialty": "ALL",
+   "rarity": "UR",
+   "attack": 120,
+   "hp": 120,
+   "bonus": 0.15,
+   "family": "FAM-EMPEROR",
+   "familyName": "帝王系列"
+  },
+  {
+   "id": "CH-BUGLORD",
+   "name": "Bug 魔王",
+   "specialty": "ALL",
+   "rarity": "UR",
+   "attack": 125,
+   "hp": 115,
+   "bonus": 0.15,
+   "family": "FAM-DEMON",
+   "familyName": "魔王系列"
   }
  ],
  "missions": [
@@ -649,16 +671,16 @@
    "type": "healing",
    "levels": [
     {
-     "heal": 10,
-     "text": "回復 10 HP"
+     "heal": 20,
+     "text": "回復 20 HP"
     },
     {
-     "heal": 16,
-     "text": "回復 16 HP"
+     "heal": 28,
+     "text": "回復 28 HP"
     },
     {
-     "heal": 22,
-     "text": "回復 22 HP"
+     "heal": 36,
+     "text": "回復 36 HP"
     }
    ],
    "supported": true
@@ -692,16 +714,16 @@
    "type": "defense",
    "levels": [
     {
-     "reduce_pct": 10,
-     "text": "受傷害 -10%"
-    },
-    {
      "reduce_pct": 15,
      "text": "受傷害 -15%"
     },
     {
-     "reduce_pct": 20,
-     "text": "受傷害 -20%"
+     "reduce_pct": 22,
+     "text": "受傷害 -22%"
+    },
+    {
+     "reduce_pct": 30,
+     "text": "受傷害 -30%"
     }
    ],
    "supported": true
@@ -724,7 +746,7 @@
      "text": "每題 +7 秒"
     }
    ],
-   "supported": false
+   "supported": true
   }
  ],
  "pools": {

@@ -119,6 +119,13 @@ class ImporterTest(unittest.TestCase):
         self.assertEqual(sorted(r["question_id"] for r in rejected), ["Q1", "X2"])
         self.assertEqual([s["file"] for s in meta["sources"]], ["main.xlsx", "extra.xlsx"])
 
+    def test_release_build_drops_internal_source_fields(self):
+        meta, rejected, dev, release, report = self.run_import([row("Q1", source_note="https://example.com/paper.pdf")])
+        self.assertIn("example.com/paper.pdf", dev, "reviewers still see the source in dev builds")
+        self.assertNotIn("example.com/paper.pdf", release)
+        self.assertNotIn("source_note", release)
+        self.assertNotIn("source_bank", release)
+
     def test_hold_list_keeps_approved_questions_out_of_release(self):
         main = os.path.join(self.dir, "main.xlsx")
         hold = os.path.join(self.dir, "hold.txt")

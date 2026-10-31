@@ -245,6 +245,84 @@
       </g>`;
     },
 
+    // IT帝 (UR, 帝王試煉; redesigned 2026-11-01 after "不夠威猛"): a Zeus-like
+    // storm king of IT — wavy white hair and beard, a laurel crown of circuit
+    // traces with a CPU-chip gem, a toga with a gold sash, and a raised
+    // lightning bolt carrying circuit nodes.
+    emperor: (expr, v) => `
+      ${shadow(70)}
+      <path d="M30 100 Q14 132 14 162 L126 162 Q126 132 110 100Z" fill="${v.cape}" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+      <rect x="50" y="140" width="15" height="20" rx="5" fill="${SKIN}" stroke="${INK}" stroke-width="3"/><rect x="75" y="140" width="15" height="20" rx="5" fill="${SKIN}" stroke="${INK}" stroke-width="3"/>
+      <path d="M50 154 h15 M75 154 h15" stroke="${GOLD}" stroke-width="3"/>
+      <path d="M36 104 Q70 92 104 104 L100 146 Q70 152 40 146Z" fill="${SKIN}" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M58 120 q4 4 0 8 M82 120 q-4 4 0 8" fill="none" stroke="${INK}" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+      <path d="M36 104 L104 146 L96 150 L40 112Z M40 112 Q44 140 40 146 L70 152 Q88 150 98 148Z" fill="${v.toga}" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M38 108 L100 147" stroke="${GOLD}" stroke-width="4"/>
+      <circle cx="56" cy="118" r="4" fill="${GOLD}" stroke="${INK}" stroke-width="2"/>
+      <path d="M28 108 Q20 124 26 134" fill="none" stroke="${INK}" stroke-width="12" stroke-linecap="round"/><path d="M28 108 Q20 124 26 134" fill="none" stroke="${SKIN}" stroke-width="7" stroke-linecap="round"/>
+      <path d="M108 106 Q122 96 120 76" fill="none" stroke="${INK}" stroke-width="12" stroke-linecap="round"/><path d="M108 106 Q122 96 120 76" fill="none" stroke="${SKIN}" stroke-width="7" stroke-linecap="round"/>
+      <path d="M118 70 h8" stroke="${GOLD}" stroke-width="4" stroke-linecap="round"/>
+      <g class="ur-bolt">
+        <path d="M126 2 L106 40 L120 40 L104 78 L134 32 L120 32 L136 2Z" fill="${v.bolt}" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M122 14 h6 M114 36 h-6 M126 36 h5" stroke="${INK}" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="128" cy="14" r="2.3" fill="#fff" stroke="${INK}" stroke-width="1.4"/><circle cx="108" cy="36" r="2.3" fill="#fff" stroke="${INK}" stroke-width="1.4"/><circle cx="131" cy="36" r="2.3" fill="#fff" stroke="${INK}" stroke-width="1.4"/>
+      </g>
+      <circle cx="120" cy="80" r="7" fill="${SKIN}" stroke="${INK}" stroke-width="2.5"/>
+      ${humanHead(58)}
+      <path d="M26 64 Q18 46 28 34 Q26 18 44 16 Q52 4 70 10 Q88 4 96 16 Q114 18 112 34 Q122 46 114 64 Q108 50 98 44 Q84 34 70 38 Q56 34 42 44 Q32 50 26 64Z" fill="${v.hair}" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M30 70 Q28 96 46 108 Q56 120 70 120 Q84 120 94 108 Q112 96 110 70 Q104 84 92 86 Q84 80 70 82 Q56 80 48 86 Q36 84 30 70Z" fill="${v.hair}" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M46 96 q6 8 0 14 M70 104 q4 6 0 12 M94 96 q-6 8 0 14" fill="none" stroke="${INK}" stroke-width="1.8" stroke-linecap="round" opacity="0.35"/>
+      <path d="M52 80 Q61 74 70 80 Q79 74 88 80 Q80 86 70 83 Q60 86 52 80Z" fill="${v.hair}" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/>
+      ${face(expr, { lx: 54, rx: 86, ey: 62, mx: 70, my: 90, sx: 110, sy: 40, gx: 50, gy: 30, eye: v.eye })}
+      <g>
+        <path d="M30 40 Q70 20 110 40" fill="none" stroke="${GOLD}" stroke-width="6" stroke-linecap="round"/>
+        <path d="M30 40 Q70 20 110 40" fill="none" stroke="${INK}" stroke-width="1.5" stroke-dasharray="3 5" stroke-linecap="round"/>
+        <g fill="${v.laurel}" stroke="${INK}" stroke-width="2">
+          <path d="M36 37 q-10 -8 -6 -16 q8 4 6 16Z"/><path d="M46 31 q-8 -10 -2 -16 q8 6 2 16Z"/><path d="M58 27 q-4 -12 2 -16 q6 8 -2 16Z"/>
+          <path d="M104 37 q10 -8 6 -16 q-8 4 -6 16Z"/><path d="M94 31 q8 -10 2 -16 q-8 6 -2 16Z"/><path d="M82 27 q4 -12 -2 -16 q-6 8 2 16Z"/>
+        </g>
+        <rect x="62" y="16" width="16" height="16" rx="3" fill="#8fc7f0" stroke="${INK}" stroke-width="2.5"/>
+        <rect x="66" y="20" width="8" height="8" rx="1.5" fill="${GOLD}" stroke="${INK}" stroke-width="1.5"/>
+        <path d="M66 16 v-3 M74 16 v-3 M66 32 v3 M74 32 v3 M62 20 h-3 M62 28 h-3 M78 20 h3 M78 28 h3" stroke="${INK}" stroke-width="1.8" stroke-linecap="round"/>
+      </g>`,
+
+    // Bug 魔王 (UR, 魔王限時; redesigned 2026-11-01 after "不夠震懾"): a Typhon-
+    // like monster of bugs — horned head with glowing red eyes, bat wings veined
+    // with circuits, a serpent coil instead of legs, two cable serpents with
+    // USB-plug heads rising from the shoulders, and a glowing 404 chest plate.
+    demon: (expr, v) => `
+      <g fill="${v.wing}" stroke="${INK}" stroke-width="3" stroke-linejoin="round">
+        <path d="M44 100 Q10 70 2 34 Q18 44 24 40 Q22 56 34 58 Q30 72 46 82Z"/>
+        <path d="M96 100 Q130 70 138 34 Q122 44 116 40 Q118 56 106 58 Q110 72 94 82Z"/>
+      </g>
+      <path d="M8 40 L30 74 M22 46 L36 64 M132 40 L110 74 M118 46 L104 64" stroke="${v.glow}" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+      <circle cx="30" cy="74" r="2.5" fill="${v.glow}"/><circle cx="110" cy="74" r="2.5" fill="${v.glow}"/>
+      <ellipse cx="70" cy="165" rx="40" ry="4" fill="${INK}" opacity="0.15"/>
+      <path d="M50 124 Q20 136 32 150 Q52 160 84 154 Q116 146 104 132 Q96 124 84 128" fill="none" stroke="${INK}" stroke-width="20" stroke-linecap="round"/>
+      <path d="M50 124 Q20 136 32 150 Q52 160 84 154 Q116 146 104 132 Q96 124 84 128" fill="none" stroke="${v.body}" stroke-width="14" stroke-linecap="round"/>
+      <path d="M36 144 l4 -4 M46 151 l4 -4 M60 154 l4 -4 M76 152 l4 -4 M92 147 l4 -4" stroke="${v.belly}" stroke-width="3" stroke-linecap="round"/>
+      <path d="M84 128 Q90 116 100 118" fill="none" stroke="${INK}" stroke-width="3" stroke-linecap="round"/>
+      <path d="M42 104 Q70 94 98 104 L94 140 Q70 148 46 140Z" fill="${v.body}" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M54 112 h32 l-4 20 h-24Z" fill="${INK}" stroke="${INK}" stroke-width="2" stroke-linejoin="round"/>
+      <text x="70" y="127" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="12" font-weight="900" fill="${v.eyeGlow}">404</text>
+      ${[["M44 104 Q26 84 30 58", 22, 52, -1], ["M96 104 Q114 84 110 58", 118, 52, 1]].map(([d, hx, hy, dir]) => `
+        <path d="${d}" fill="none" stroke="${INK}" stroke-width="9" stroke-linecap="round"/><path d="${d}" fill="none" stroke="${v.cable}" stroke-width="5" stroke-linecap="round"/>
+        <g transform="translate(${hx} ${hy}) rotate(${dir * 18})">
+          <rect x="-9" y="-14" width="18" height="16" rx="4" fill="${v.cable}" stroke="${INK}" stroke-width="2.5"/>
+          <rect x="-6" y="-22" width="12" height="9" rx="1.5" fill="#c9ced8" stroke="${INK}" stroke-width="2"/>
+          <rect x="-3" y="-20" width="2.5" height="3" fill="${INK}"/><rect x="0.5" y="-20" width="2.5" height="3" fill="${INK}"/>
+          <circle cx="-4" cy="-6" r="2.2" fill="${v.eyeGlow}"/><circle cx="4" cy="-6" r="2.2" fill="${v.eyeGlow}"/>
+          <path d="M-5 2 l2 4 l2 -4 M1 2 l2 4 l2 -4" fill="#fff" stroke="${INK}" stroke-width="1.2" stroke-linejoin="round"/>
+        </g>`).join("")}
+      <path d="M40 34 Q22 20 28 5 Q34 18 50 23Z" fill="${v.horn}" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M100 34 Q118 20 112 5 Q106 18 90 23Z" fill="${v.horn}" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+      <circle cx="70" cy="60" r="40" fill="${v.body}" stroke="${INK}" stroke-width="3"/>
+      <path d="M40 46 Q70 30 100 46 Q92 40 70 40 Q48 40 40 46Z" fill="${INK}" opacity="0.35"/>
+      <ellipse cx="70" cy="76" rx="24" ry="14" fill="${v.belly}" opacity="0.45"/>
+      ${face(expr, { lx: 54, rx: 86, ey: 60, mx: 70, my: 80, sx: 106, sy: 38, gx: 50, gy: 28, eye: v.eyeGlow })}
+      ${expr === "idle" || expr === "happy" ? `<circle cx="54" cy="60" r="7" fill="${v.eyeGlow}" opacity="0.3"/><circle cx="86" cy="60" r="7" fill="${v.eyeGlow}" opacity="0.3"/><path d="M60 84 l3 7 l3 -7 M74 84 l3 7 l3 -7" fill="#fff" stroke="${INK}" stroke-width="1.8" stroke-linejoin="round"/>` : ""}
+      <g fill="${v.glow}" opacity="0.85"><rect x="8" y="96" width="5" height="5"/><rect x="14" y="104" width="3" height="3"/><rect x="124" y="92" width="5" height="5"/><rect x="120" y="100" width="3" height="3"/><rect x="6" y="122" width="4" height="4"/><rect x="128" y="118" width="4" height="4"/></g>`,
+
     // 人工智能機械人: body/head colours, eye colour, extras.
     robot: (expr, v) => {
       const c = v.eye;
@@ -279,7 +357,7 @@
   // ---------- SSR look (user request 2026-10-31: SSR 要有威猛的形象) ----------
   // An energy burst behind, an optional cape, and determined eyebrows.
   // Brow positions per family: [left eye x, right eye x, brow y].
-  const BROWS = { dog: [50, 82, 47], db: [54, 86, 50], suit: [54, 86, 50], office: [54, 86, 50], net: [54, 86, 54], hacker: [53, 87, 50], robot: [56, 84, 40] };
+  const BROWS = { dog: [50, 82, 47], db: [54, 86, 50], suit: [54, 86, 50], office: [54, 86, 50], net: [54, 86, 54], hacker: [53, 87, 50], robot: [56, 84, 40], emperor: [54, 86, 52], demon: [54, 86, 50] };
 
   function burst(color) {
     const pts = [];
@@ -289,6 +367,42 @@
       pts.push(`${(70 + r * Math.cos(a)).toFixed(1)},${(88 + r * Math.sin(a)).toFixed(1)}`);
     }
     return `<g class="ssr-aura"><polygon points="${pts.join(" ")}" fill="${color}" opacity="0.38"/><circle cx="70" cy="88" r="46" fill="${color}" opacity="0.25"/></g>`;
+  }
+
+  // UR: a rainbow burst (one colour per ray) behind the character.
+  function rainbowBurst() {
+    const colors = ["#f4a3b8", "#f6b38a", "#f4d36b", "#a7d8a0", "#8fc7f0", "#c4b0e0"];
+    let rays = "";
+    for (let i = 0; i < 12; i++) {
+      const a1 = (Math.PI * 2 * i) / 12;
+      const a2 = (Math.PI * 2 * (i + 0.5)) / 12;
+      const p = (a, r) => `${(70 + r * Math.cos(a)).toFixed(1)},${(88 + r * Math.sin(a)).toFixed(1)}`;
+      rays += `<polygon points="70,88 ${p(a1, 74)} ${p(a2, 74)}" fill="${colors[i % colors.length]}" opacity="0.45"/>`;
+    }
+    return `<g class="ssr-aura ur-aura">${rays}<circle cx="70" cy="88" r="44" fill="#fff6d8" opacity="0.5"/></g>`;
+  }
+
+  // UR auras (2026-11-01): a storm (dark clouds, lightning, binary digits)
+  // behind IT帝 and an inferno (red-orange spikes, embers) behind Bug 魔王.
+  function stormAura() {
+    const bolt = (x, y, s) => `<path d="M${x} ${y} l${-6 * s} ${14 * s} h${5 * s} l${-6 * s} ${14 * s} l${12 * s} ${-18 * s} h${-5 * s} l${5 * s} ${-10 * s}Z" fill="#f4d36b" stroke="${INK}" stroke-width="1.5" stroke-linejoin="round"/>`;
+    return `<g class="ssr-aura ur-aura">
+      <circle cx="70" cy="84" r="66" fill="#8fc7f0" opacity="0.28"/>
+      <g fill="#5b6488" opacity="0.75"><ellipse cx="34" cy="30" rx="30" ry="16"/><ellipse cx="60" cy="18" rx="28" ry="15"/><ellipse cx="96" cy="22" rx="30" ry="16"/><ellipse cx="18" cy="56" rx="18" ry="12"/></g>
+      ${bolt(14, 70, 1)}${bolt(28, 120, 0.8)}${bolt(132, 112, 0.9)}
+      <g font-family="ui-monospace, Menlo, monospace" font-size="8" font-weight="900" fill="#c9e2f4"><text x="30" y="34">1010</text><text x="78" y="26">0110</text></g>
+    </g>`;
+  }
+
+  function infernoAura() {
+    const pts = [];
+    for (let i = 0; i < 28; i++) {
+      const a = (Math.PI * 2 * i) / 28;
+      const r = i % 2 ? 46 : 72;
+      pts.push(`${(70 + r * Math.cos(a)).toFixed(1)},${(84 + r * Math.sin(a)).toFixed(1)}`);
+    }
+    return `<g class="ssr-aura ur-aura"><polygon points="${pts.join(" ")}" fill="#d2553f" opacity="0.4"/><circle cx="70" cy="84" r="48" fill="#f2a541" opacity="0.3"/>
+      <g fill="#f4d36b"><circle cx="20" cy="140" r="2.5"/><circle cx="124" cy="146" r="2"/><circle cx="12" cy="88" r="2"/><circle cx="130" cy="80" r="2.5"/></g></g>`;
   }
 
   function heroic(family, expr, v) {
@@ -302,7 +416,8 @@
     const brows = expr === "idle" || expr === "happy"
       ? `<g stroke="${browColor}" stroke-width="4" stroke-linecap="round"><line x1="${lx - 10}" y1="${y - 4}" x2="${lx + 6}" y2="${y + 2}"/><line x1="${rx + 10}" y1="${y - 4}" x2="${rx - 6}" y2="${y + 2}"/></g>`
       : "";
-    return { back: burst(h.aura) + cape, front: brows };
+    const aura = h.aura === "rainbow" ? rainbowBurst() : h.aura === "storm" ? stormAura() : h.aura === "inferno" ? infernoAura() : burst(h.aura);
+    return { back: aura + cape, front: brows };
   }
 
   // ---------- variants (品種) ----------
@@ -342,6 +457,10 @@
     "CH-BROADBAND-ROUTER": ["net", { helmet: "#8fc3e8", vest: GOLD, shirt: "#ffffff", cable: "#ee8b7a", badge: "antenna" }],
     "CH-BROADBAND-5G": ["net", { helmet: "#c4b0e0", vest: "#f2b4b0", shirt: "#e6eff8", cable: "#c4b0e0", badge: "fiveG" }],
     "CH-BROADBAND-CHIEF": ["net", { helmet: GOLD, vest: "#ee8b7a", shirt: NAVY, cable: GOLD, badge: "mic", heroic: { aura: "#f4d36b", cape: NAVY } }],
+    // 帝王系列 (UR, only from 帝王試煉 shards)
+    "CH-ITEMPEROR": ["emperor", { toga: "#fbf7ee", cape: "#2f4a8a", hair: "#f4f4f6", laurel: "#e8b84a", bolt: "#f4d36b", eye: "#2f6fb8", heroic: { aura: "storm" } }],
+    // 魔王系列 (UR, only from 魔王限時 shards)
+    "CH-BUGLORD": ["demon", { body: "#5b4688", belly: "#a993cf", wing: "#3d2f5e", horn: "#e8e0d0", cable: "#3d4a66", glow: "#9fe8e0", eyeGlow: "#ff5a4a", heroic: { aura: "inferno" } }],
     // 人工智能機械人
     "CH-AIBOT-STUDY": ["robot", { head: "#ffffff", body: "#9fd4b4", screen: NAVY, eye: "#9fd4b4", antenna: GOLD }],
     "CH-AIBOT-CHAT": ["robot", { head: "#e6eff8", body: "#8fc3e8", screen: NAVY, eye: "#8fc3e8", antenna: "#ee8b7a", extra: "bubble" }],
@@ -357,6 +476,7 @@
     "CH-HACK-ROOKIE": "見習白帽", "CH-HACK": "黑客", "CH-HACK-FIREWALL": "防火牆騎士", "CH-HACK-LEGEND": "白帽傳說",
     "CH-OFFICE-INTERN": "實習生", "CH-OFFICE": "辦公室職員", "CH-OFFICE-LEAD": "試算表主任", "CH-OFFICE-PIVOT": "樞紐分析師", "CH-OFFICE-QUEEN": "公式女王",
     "CH-BROADBAND": "寬頻職員", "CH-BROADBAND-FIBRE": "光纖技師", "CH-BROADBAND-ROUTER": "路由器隊長", "CH-BROADBAND-5G": "5G 工程師", "CH-BROADBAND-CHIEF": "網絡總指揮",
+    "CH-ITEMPEROR": "IT帝", "CH-BUGLORD": "Bug 魔王",
     "CH-AIBOT-STUDY": "學習機械人", "CH-AIBOT-CHAT": "對話機械人", "CH-AIBOT": "人工智能機械人", "CH-AIBOT-QUANTUM": "量子機械人",
   };
 

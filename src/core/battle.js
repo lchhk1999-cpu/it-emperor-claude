@@ -43,6 +43,8 @@
       outcome: null,
       lastResult: null,
       log: [],
+      // 魔王限時: HP drain per second (src/core/trial.js tick); null otherwise.
+      timed: stage.timed ? { drainPct: stage.timed.drainPct, qIndex: 0, qElapsed: 0, drained: 0 } : null,
     };
   }
 

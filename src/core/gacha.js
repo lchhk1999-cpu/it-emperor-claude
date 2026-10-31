@@ -62,32 +62,48 @@
     return [entry].concat(profile.gachaLog || []).slice(0, GACHA_RULES.logSize);
   }
 
-  // Returns { profile, result } or { profile, error }.
-  function draw(profile, type, gameData, rng) {
-    if ((profile.gems || 0) < GACHA_RULES.cost) return { profile, error: "not_enough_gems" };
-    const owned = profile.owned;
-    let result;
-    let pity = { ...(profile.pity || { character: 0 }) };
+  // 盲盒六選一 (user request 2026-11-01): each draw shows BOX_COUNT closed boxes,
+  // every one rolled independently with the published rates, so picking any box
+  // gives exactly those rates. On a pity draw every box is SSR. The player gets
+  // only the box they open; the others are then revealed (user choice).
+  const BOX_COUNT = 6;
+
+  function rollOne(type, gameData, rng, forced) {
     if (type === "character") {
       const rates = characterRates(gameData);
-      if (!rates.length) return { profile, error: "pool_empty" };
-      const threshold = pityThreshold(gameData);
-      const count = (pity.character || 0) + 1;
-      const forced = threshold > 0 && count >= threshold && rates.some((r) => r.rarity === "SSR");
       const rarity = forced ? "SSR" : rollRarity(rates, rng);
       const c = pickOne(rates.find((r) => r.rarity === rarity).characters, rng);
-      const duplicate = owned.characters.includes(c.id);
-      pity.character = rarity === "SSR" ? 0 : count;
-      result = { type, id: c.id, name: c.name, rarity, duplicate, shards: duplicate ? GACHA_RULES.duplicateShards : 0, pity: forced };
-    } else if (type === "equipment") {
-      const list = equipmentCandidates(gameData);
-      if (!list.length) return { profile, error: "pool_empty" };
-      const e = pickOne(list, rng);
-      const duplicate = owned.equipment.includes(e.id);
-      result = { type, id: e.id, name: e.name, rarity: null, duplicate, shards: duplicate ? GACHA_RULES.duplicateShards : 0, pity: false };
-    } else {
-      return { profile, error: "unknown_pool" };
+      return { type, id: c.id, name: c.name, rarity };
     }
+    const e = pickOne(equipmentCandidates(gameData), rng);
+    return { type, id: e.id, name: e.name, rarity: null };
+  }
+
+  // Returns { boxes, pity } or { error }. Nothing is spent until a box is opened.
+  function rollBoxes(profile, type, gameData, rng) {
+    if ((profile.gems || 0) < GACHA_RULES.cost) return { error: "not_enough_gems" };
+    if (type === "character" && !characterRates(gameData).length) return { error: "pool_empty" };
+    if (type === "equipment" && !equipmentCandidates(gameData).length) return { error: "pool_empty" };
+    if (type !== "character" && type !== "equipment") return { error: "unknown_pool" };
+    const threshold = pityThreshold(gameData);
+    const count = ((profile.pity && profile.pity.character) || 0) + 1;
+    const forced = type === "character" && threshold > 0 && count >= threshold && characterRates(gameData).some((r) => r.rarity === "SSR");
+    const boxes = [];
+    for (let i = 0; i < BOX_COUNT; i++) boxes.push(rollOne(type, gameData, rng, forced));
+    return { boxes, pity: forced };
+  }
+
+  // Opens box `index` of a rollBoxes() result. Returns { profile, result } or { profile, error }.
+  function openBox(profile, rolled, index, gameData) {
+    if ((profile.gems || 0) < GACHA_RULES.cost) return { profile, error: "not_enough_gems" };
+    const box = rolled.boxes[index];
+    if (!box) return { profile, error: "unknown_box" };
+    const { type } = box;
+    const owned = profile.owned;
+    const pity = { ...(profile.pity || { character: 0 }) };
+    if (type === "character") pity.character = box.rarity === "SSR" ? 0 : (pity.character || 0) + 1;
+    const duplicate = (type === "character" ? owned.characters : owned.equipment).includes(box.id);
+    const result = { ...box, duplicate, shards: duplicate ? GACHA_RULES.duplicateShards : 0, pity: rolled.pity };
     const nextOwned = result.duplicate
       ? owned
       : {
@@ -107,11 +123,19 @@
     };
   }
 
+  // One draw without the box screen: roll the boxes and open the first.
+  // Returns { profile, result } or { profile, error }.
+  function draw(profile, type, gameData, rng) {
+    const rolled = rollBoxes(profile, type, gameData, rng);
+    if (rolled.error) return { profile, error: rolled.error };
+    return openBox(profile, rolled, 0, gameData);
+  }
+
   // Draws left before the guaranteed SSR character.
   function drawsUntilPity(profile, gameData) {
     const threshold = pityThreshold(gameData);
     return threshold ? threshold - ((profile.pity && profile.pity.character) || 0) : null;
   }
 
-  ITE.gacha = { GACHA_RULES, characterRates, equipmentCandidates, pityThreshold, rollRarity, draw, drawsUntilPity };
+  ITE.gacha = { GACHA_RULES, BOX_COUNT, characterRates, equipmentCandidates, pityThreshold, rollRarity, rollBoxes, openBox, draw, drawsUntilPity };
 })(globalThis);

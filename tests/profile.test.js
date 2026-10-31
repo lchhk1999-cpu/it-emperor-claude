@@ -8,13 +8,14 @@
   const fresh = () => ownAll(P.defaultProfile(data));
   const byId = (id) => P.characterById(data, id);
 
-  test("profile: workbook data imported (31 characters in 7 families, specialties, config)", () => {
-    assert.equal(data.characters.length, 31);
+  test("profile: workbook data imported (31 gacha characters in 7 families + 2 UR, specialties, config)", () => {
+    assert.equal(data.characters.length, 33);
+    assert.equal(data.characters.filter((c) => c.rarity === "UR").length, 2);
     const groups = P.familyGroups(data.characters);
-    assert.deepEqual(groups.map((g) => g.characters.length), [5, 4, 4, 4, 5, 5, 4]);
+    assert.deepEqual(groups.map((g) => g.characters.length), [5, 4, 4, 4, 5, 5, 4, 1, 1]); // last: 帝王系列, 魔王系列 (UR)
     // Every family shares one specialty; the seven families cover seven specialties.
     groups.forEach((g) => assert.equal(new Set(g.characters.map((c) => c.specialty)).size, 1));
-    assert.deepEqual(groups.map((g) => g.characters[0].specialty).sort(), ["ALL", "EXCEL", "HARDWARE", "NET_DEVICE", "PY_BASIC", "SECURITY", "SQL"]);
+    assert.deepEqual(groups.map((g) => g.characters[0].specialty).sort(), ["ALL", "ALL", "ALL", "EXCEL", "HARDWARE", "NET_DEVICE", "PY_BASIC", "SECURITY", "SQL"]);
     // Every workbook character has its own drawn look.
     data.characters.forEach((c) => assert.ok(ITE.sprites.CHARACTER_IDS.includes(c.id), c.id));
     assert.equal(byId("CH-AIBOT").bonus, 0.1);

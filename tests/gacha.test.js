@@ -92,11 +92,11 @@
 
   test("gacha: equipment draws give usable items with equal chance; duplicates give 1 shard", () => {
     const list = G.equipmentCandidates(data);
-    assert.deepEqual(list.map((e) => e.id), ["EQ-AI", "EQ-EYEDROP", "EQ-COMPUTER", "EQ-ANTIVIRUS"], "glasses not in the pool until usable");
+    assert.deepEqual(list.map((e) => e.id), ["EQ-AI", "EQ-EYEDROP", "EQ-COMPUTER", "EQ-ANTIVIRUS", "EQ-GLASSES"], "glasses usable since 魔王限時 (2026-11-01)");
     const dupe = G.draw(withGems(10), "equipment", data, fixedRng([0.0]));
     assert.deepEqual([dupe.result.id, dupe.result.duplicate, dupe.result.shards], ["EQ-AI", true, 1]);
     assert.deepEqual(dupe.profile.shards, { "EQ-AI": 1 });
-    const fresh = G.draw(withGems(10), "equipment", data, fixedRng([0.99]));
+    const fresh = G.draw(withGems(10), "equipment", data, fixedRng([0.7])); // 4th of 5
     assert.equal(fresh.result.id, "EQ-ANTIVIRUS");
     assert.ok(fresh.profile.owned.equipment.includes("EQ-ANTIVIRUS"));
     assert.equal(E.assign(fresh.profile, "CH-ITDOG", "EQ-ANTIVIRUS", data).error, null);
@@ -128,5 +128,38 @@
     assert.deepEqual(bad.owned, { characters: ["CH-ITDOG"], equipment: [] });
     assert.deepEqual(bad.pity, { character: 0 });
     assert.deepEqual(bad.gachaLog, [{ type: "character", id: "CH-DB", rarity: null, duplicate: false, shards: 0 }]);
+  });
+
+  test("gacha: six blind boxes are rolled without spending; only the opened box is awarded", () => {
+    const G = ITE.gacha;
+    const data = ITE.gameData;
+    const p = { ...ITE.profile.defaultProfile(data), gems: 30 };
+    const rolled = G.rollBoxes(p, "character", data, ITE.rng.createRng(3));
+    assert.equal(rolled.boxes.length, G.BOX_COUNT);
+    assert.equal(G.BOX_COUNT, 6);
+    assert.equal(rolled.pity, false);
+    const r = G.openBox(p, rolled, 4, data);
+    assert.equal(r.result.id, rolled.boxes[4].id);
+    assert.equal(r.profile.gems, 30 - G.GACHA_RULES.cost);
+    const gained = r.profile.owned.characters.filter((id) => !p.owned.characters.includes(id));
+    assert.ok(gained.length <= 1 && (gained.length === 0 || gained[0] === rolled.boxes[4].id));
+    assert.equal(r.profile.gachaLog.length, 1);
+    assert.equal(G.openBox(p, rolled, 6, data).error, "unknown_box");
+    assert.equal(G.rollBoxes({ ...p, gems: 0 }, "character", data, ITE.rng.createRng(3)).error, "not_enough_gems");
+    const eq = G.rollBoxes(p, "equipment", data, ITE.rng.createRng(9));
+    assert.ok(eq.boxes.every((b) => b.type === "equipment" && b.rarity === null));
+  });
+
+  test("gacha: on a pity draw every blind box is SSR, and opening one resets the counter", () => {
+    const G = ITE.gacha;
+    const data = ITE.gameData;
+    const threshold = G.pityThreshold(data);
+    const p = { ...ITE.profile.defaultProfile(data), gems: 30, pity: { character: threshold - 1 } };
+    const rolled = G.rollBoxes(p, "character", data, ITE.rng.createRng(1));
+    assert.ok(rolled.pity);
+    assert.ok(rolled.boxes.every((b) => b.rarity === "SSR"));
+    const r = G.openBox(p, rolled, 2, data);
+    assert.equal(r.profile.pity.character, 0);
+    assert.ok(r.result.pity);
   });
 })();

@@ -9,26 +9,25 @@
   "sources": [
    {
     "file": "IT_Emperor_DseMcQs.xlsx",
-    "sha256": "e51c1864d303b4546e8eea702e6d228f141c2a3b3c5bf79aad61516f8d6e356e",
+    "sha256": "81bcf43f52db06711e890f3c54c28e54fbed75f110bffbebf0ceded002e245fe",
     "accepted": 511,
     "rejected": 0
    },
    {
     "file": "IT_Emperor_Extra_McQs.xlsx",
-    "sha256": "ead4da4ffd0652c20884bd9e6efa66357bb0fd4e8062a7ea439db3a7ef0af4e6",
+    "sha256": "a11d0712d12028e140cf4fc676ee6b2e6e504ab98e867f2c0ab938347fc97fcf",
     "accepted": 596,
     "rejected": 0
    }
   ],
   "held": 0,
-  "source_sha256": "e51c1864d303b4546e8eea702e6d228f141c2a3b3c5bf79aad61516f8d6e356e",
-  "imported_at": "2026-10-31T09:45:13Z",
+  "source_sha256": "81bcf43f52db06711e890f3c54c28e54fbed75f110bffbebf0ceded002e245fe",
+  "imported_at": "2026-10-31T17:14:56Z",
   "total": 1107,
   "accepted": 1107,
   "rejected": 0,
   "by_status": {
-   "approved": 511,
-   "review": 596
+   "approved": 1107
   }
  },
  "topics": {
@@ -10286,7 +10285,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-008",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10306,7 +10305,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-011",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10326,7 +10325,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-012",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10346,7 +10345,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-SEC13-2026-018;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10366,7 +10365,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-SEC13-2026-019;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10386,7 +10385,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-SEC13-2026-039;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10406,7 +10405,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-003;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10426,7 +10425,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-016;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10446,7 +10445,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-008;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10466,7 +10465,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-011;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10486,7 +10485,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-012;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10506,7 +10505,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-015;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10526,7 +10525,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-020;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10546,7 +10545,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-025;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10566,7 +10565,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-SEC13-2026-029;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10586,7 +10585,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-SOFTWARE-2026-010;concept_extension",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10606,7 +10605,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-SEC13-2026-018;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10626,7 +10625,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-SEC13-2026-019;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10646,7 +10645,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-003;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10666,7 +10665,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-012;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10686,7 +10685,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-SOFTWARE-2026-010",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10706,7 +10705,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-003",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10726,7 +10725,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-015",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10746,7 +10745,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-020",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10766,7 +10765,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-SEC13-2026-018",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10786,7 +10785,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-SEC13-2026-039",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10806,7 +10805,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-SEC13-2026-018;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10826,7 +10825,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-SEC13-2026-019;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10846,7 +10845,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-SEC13-2026-039;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10866,7 +10865,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-016;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10886,7 +10885,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-003;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10906,7 +10905,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-008;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10926,7 +10925,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-011;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10946,7 +10945,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-012;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10966,7 +10965,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-015;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -10986,7 +10985,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-020;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11006,7 +11005,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-025;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11026,7 +11025,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-SEC13-2026-029;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11046,7 +11045,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-SOFTWARE-2026-010;concept_extension",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11066,7 +11065,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-SEC13-2026-039;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11086,7 +11085,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-016",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11106,7 +11105,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-025",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11126,7 +11125,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-SEC13-2026-019",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11146,7 +11145,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-SEC13-2026-029",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11166,7 +11165,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-SEC13-2026-018;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11186,7 +11185,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-SEC13-2026-019;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11206,7 +11205,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-SEC13-2026-039;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11226,7 +11225,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-016;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11246,7 +11245,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-003;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11266,7 +11265,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-008;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11286,7 +11285,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-011;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11306,7 +11305,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-012;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11326,7 +11325,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-015;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11346,7 +11345,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-020;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11366,7 +11365,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-025;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11386,7 +11385,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-SEC13-2026-029;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11406,7 +11405,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-SOFTWARE-2026-010;concept_extension",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11426,7 +11425,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-SEC13-2026-018;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11446,7 +11445,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-SEC13-2026-019;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11466,7 +11465,7 @@
    "wrong_tip": "同時考慮目的、資料需要、受影響的人及證據來源，不要把方便等同合適。",
    "tags": "E;SOCIAL;original_rewrite;SUP-NET11-2026-016;concept_extension",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11486,7 +11485,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-HARDWARE-2026-002",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11506,7 +11505,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-HARDWARE-2026-004",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11526,7 +11525,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-HARDWARE-2026-005",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11546,7 +11545,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-HARDWARE-2026-009",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11566,7 +11565,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-HARDWARE-2026-014",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11586,7 +11585,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-HARDWARE-2026-017",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11606,7 +11605,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-HARDWARE-2026-019",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11626,7 +11625,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-HARDWARE-2026-024",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11646,7 +11645,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-HARDWARE-2026-027",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11666,7 +11665,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-HARDWARE-2026-028",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11686,7 +11685,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-HARDWARE-2026-033",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11706,7 +11705,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-009",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11726,7 +11725,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-014",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11746,7 +11745,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-023",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11766,7 +11765,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-025",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11786,7 +11785,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-029",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11806,7 +11805,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-033",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11826,7 +11825,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-SOFTWARE-2026-001",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11846,7 +11845,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-SOFTWARE-2026-003",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11866,7 +11865,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-SOFTWARE-2026-005",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11886,7 +11885,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-SOFTWARE-2026-007",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11906,7 +11905,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-SOFTWARE-2026-012",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11926,7 +11925,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-SOFTWARE-2026-014",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11946,7 +11945,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-SOFTWARE-2026-016",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11966,7 +11965,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-SOFTWARE-2026-017",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -11986,7 +11985,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-SOFTWARE-2026-022",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12006,7 +12005,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-SOFTWARE-2026-025",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12026,7 +12025,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-SOFTWARE-2026-027",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12046,7 +12045,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-SOFTWARE-2026-028",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12066,7 +12065,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-SOFTWARE-2026-030",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12086,7 +12085,7 @@
    "wrong_tip": "先辨認同一鏈路與跨子網的需求，再選擇裝置、介面或媒介。",
    "tags": "C;NET_DEVICE;original_rewrite;SUP-NET9-2026-002",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C9 建網及互聯網基本知識",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12106,7 +12105,7 @@
    "wrong_tip": "先辨認同一鏈路與跨子網的需求，再選擇裝置、介面或媒介。",
    "tags": "C;NET_DEVICE;original_rewrite;SUP-NET9-2026-005",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C9 建網及互聯網基本知識",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12126,7 +12125,7 @@
    "wrong_tip": "先辨認同一鏈路與跨子網的需求，再選擇裝置、介面或媒介。",
    "tags": "C;NET_DEVICE;original_rewrite;SUP-NET9-2026-008",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C9 建網及互聯網基本知識",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12146,7 +12145,7 @@
    "wrong_tip": "先辨認同一鏈路與跨子網的需求，再選擇裝置、介面或媒介。",
    "tags": "C;NET_DEVICE;original_rewrite;SUP-NET9-2026-009",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C9 建網及互聯網基本知識",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12166,7 +12165,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET9-2026-014",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C9 建網及互聯網基本知識",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12186,7 +12185,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET9-2026-015",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C9 建網及互聯網基本知識",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12206,7 +12205,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET9-2026-016",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C9 建網及互聯網基本知識",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12226,7 +12225,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-NET9-2026-018",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C9 建網及互聯網基本知識",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12246,7 +12245,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET10-2026-002",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C10 互聯網協定",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12266,7 +12265,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET10-2026-004",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C10 互聯網協定",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12286,7 +12285,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET10-2026-007",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C10 互聯網協定",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12306,7 +12305,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET10-2026-010",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C10 互聯網協定",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12326,7 +12325,7 @@
    "wrong_tip": "分開看網址結構、網頁內容及瀏覽器狀態；格式相似不代表功能相同。",
    "tags": "C;WEB;original_rewrite;SUP-NET10-2026-012",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C10 互聯網協定",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12346,7 +12345,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-NET10-2026-017",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C10 互聯網協定",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12366,7 +12365,7 @@
    "wrong_tip": "分開看網址結構、網頁內容及瀏覽器狀態；格式相似不代表功能相同。",
    "tags": "C;WEB;original_rewrite;SUP-NET11-2026-009",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12386,7 +12385,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET11-2026-029",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12406,7 +12405,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-009",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12426,7 +12425,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-012",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12446,7 +12445,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-015",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12466,7 +12465,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-021",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12486,7 +12485,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-023",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12506,7 +12505,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-024",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12526,7 +12525,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-028",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12546,7 +12545,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-034",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12566,7 +12565,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-035",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12586,7 +12585,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-036",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12606,7 +12605,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-038",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12626,7 +12625,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC14-2026-002",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／C14 互聯網上的保安措施",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12646,7 +12645,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC14-2026-004",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／C14 互聯網上的保安措施",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12666,7 +12665,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC14-2026-006",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／C14 互聯網上的保安措施",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12686,7 +12685,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC14-2026-008",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／C14 互聯網上的保安措施",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12706,7 +12705,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC14-2026-014",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／C14 互聯網上的保安措施",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12726,7 +12725,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC14-2026-016",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／C14 互聯網上的保安措施",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12746,7 +12745,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC14-2026-019",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／C14 互聯網上的保安措施",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12766,7 +12765,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC14-2026-021",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／C14 互聯網上的保安措施",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12786,7 +12785,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC14-2026-025",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／C14 互聯網上的保安措施",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12806,7 +12805,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-PROBLEM-2026-001",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／D15 問題建構和分析",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12826,7 +12825,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-PROBLEM-2026-002",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／D15 問題建構和分析",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12846,7 +12845,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-PROBLEM-2026-003",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／D15 問題建構和分析",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12866,7 +12865,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-PROBLEM-2026-004",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／D15 問題建構和分析",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12886,7 +12885,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-PROBLEM-2026-005",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／D15 問題建構和分析",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12906,7 +12905,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-PROBLEM-2026-006",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／D15 問題建構和分析",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12926,7 +12925,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-PROBLEM-2026-007",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／D15 問題建構和分析",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12946,7 +12945,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-PROBLEM-2026-008",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／D15 問題建構和分析",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12966,7 +12965,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-PROBLEM-2026-009",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／D15 問題建構和分析",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -12986,7 +12985,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-PROBLEM-2026-011",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／D15 問題建構和分析",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13006,7 +13005,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-PROBLEM-2026-012",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／D15 問題建構和分析",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13026,7 +13025,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-PROBLEM-2026-013",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／D15 問題建構和分析",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13046,7 +13045,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-PROBLEM-2026-014",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／D15 問題建構和分析",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13066,7 +13065,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；累加器從零開始。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-PROBLEM-2026-015",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／D15 問題建構和分析",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13086,7 +13085,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；賦值逐句執行。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-PROBLEM-2026-016",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／D15 問題建構和分析",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13106,7 +13105,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-PROBLEM-2026-017",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／D15 問題建構和分析",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13126,7 +13125,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-PROBLEM-2026-018",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／D15 問題建構和分析",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13146,7 +13145,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-PROBLEM-2026-019",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／D15 問題建構和分析",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13166,7 +13165,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-PROBLEM-2026-021",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／D15 問題建構和分析",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13186,7 +13185,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-PROBLEM-2026-023",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／D15 問題建構和分析",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13206,7 +13205,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-PROBLEM-2026-024",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／D15 問題建構和分析",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13226,7 +13225,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-PROBLEM-2026-025",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／D15 問題建構和分析",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13246,7 +13245,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-PROBLEM-2026-027",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／D15 問題建構和分析",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13266,7 +13265,7 @@
    "wrong_tip": "列出每輪使用的舊值與更新後新值，並檢查索引、短路及迴圈停止位置。",
    "tags": "D;PY_ADV;original_rewrite;SUP-PROBLEM-2026-028",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／D15 問題建構和分析",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13286,7 +13285,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-PROBLEM-2026-030",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／D15 問題建構和分析",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13306,7 +13305,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；OR 因 paid 為真而得到真。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-ALGO-2026-001",
    "source_note": "改寫自：出版社未載／ICT 演算法教材（書名未載）／D16 算法設計（一）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13326,7 +13325,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-ALGO-2026-003",
    "source_note": "改寫自：出版社未載／ICT 演算法教材（書名未載）／D16 算法設計（一）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13346,7 +13345,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-ALGO-2026-004",
    "source_note": "改寫自：出版社未載／ICT 演算法教材（書名未載）／D16 算法設計（一）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13366,7 +13365,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-ALGO-2026-005",
    "source_note": "改寫自：出版社未載／ICT 演算法教材（書名未載）／D16 算法設計（一）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13386,7 +13385,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；右方以舊值 6 加 5。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-ALGO-2026-006",
    "source_note": "改寫自：出版社未載／ICT 演算法教材（書名未載）／D16 算法設計（一）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13406,7 +13405,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-ALGO-2026-010",
    "source_note": "改寫自：出版社未載／ICT 演算法教材（書名未載）／D16 算法設計（一）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13426,7 +13425,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；range 包括 2 但不包括 7。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-ALGO-2026-012",
    "source_note": "改寫自：出版社未載／ICT 演算法教材（書名未載）／D16 算法設計（一）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13446,7 +13445,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；索引由零起。",
    "tags": "D;PY_ADV;original_rewrite;SUP-ALGO-2026-015",
    "source_note": "改寫自：出版社未載／ICT 演算法教材（書名未載）／D16 算法設計（一）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13466,7 +13465,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；-4 不滿足大於或等於零。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-ALGO-2026-017",
    "source_note": "改寫自：出版社未載／ICT 演算法教材（書名未載）／D16 算法設計（一）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13486,7 +13485,7 @@
    "wrong_tip": "列出每輪使用的舊值與更新後新值，並檢查索引、短路及迴圈停止位置。",
    "tags": "D;PY_ADV;original_rewrite;SUP-ALGO-2026-019",
    "source_note": "改寫自：出版社未載／ICT 演算法教材（書名未載）／D16 算法設計（一）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13506,7 +13505,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-ALGO-2026-020",
    "source_note": "改寫自：出版社未載／ICT 演算法教材（書名未載）／D16 算法設計（一）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13526,7 +13525,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；7<=6 為假。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-FLOW-2026-001",
    "source_note": "改寫自：不適用（原檔列作原創）／原創流程圖題／D16 算法設計（一）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13546,7 +13545,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；大於或等於包含恰好 12 的邊界。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-FLOW-2026-002",
    "source_note": "改寫自：不適用（原檔列作原創）／原創流程圖題／D16 算法設計（一）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13566,7 +13565,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；a 不大於 b。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-FLOW-2026-009",
    "source_note": "改寫自：不適用（原檔列作原創）／原創流程圖題／D16 算法設計（一）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13586,7 +13585,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；暫存變數保留原 x。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-004",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第16章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13606,7 +13605,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；兩端相同且包含等號。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-005",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第16章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13626,7 +13625,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-007",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第16章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13646,7 +13645,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-009",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第16章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13666,7 +13665,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-011",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第16章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13686,7 +13685,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；x=2 至 7 均執行主體。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-017",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第17章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13706,7 +13705,7 @@
    "wrong_tip": "列出每輪使用的舊值與更新後新值，並檢查索引、短路及迴圈停止位置。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-021",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第17章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13726,7 +13725,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；每項取相反數。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-024",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第17章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13746,7 +13745,7 @@
    "wrong_tip": "列出每輪使用的舊值與更新後新值，並檢查索引、短路及迴圈停止位置。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-026",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第17章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13766,7 +13765,7 @@
    "wrong_tip": "列出每輪使用的舊值與更新後新值，並檢查索引、短路及迴圈停止位置。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-028",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第17章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13786,7 +13785,7 @@
    "wrong_tip": "列出每輪使用的舊值與更新後新值，並檢查索引、短路及迴圈停止位置。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-030",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第17章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13806,7 +13805,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-031",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第17章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13826,7 +13825,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；只有 22 及 25 大於 18。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-032",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第17章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13846,7 +13845,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-033",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第17章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13866,7 +13865,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-034",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第17章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13886,7 +13885,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-035",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第18章 Python 編程入門",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13906,7 +13905,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-036",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第18章 Python 編程入門",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13926,7 +13925,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；字串加法直接串接。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-037",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第18章 Python 編程入門",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13946,7 +13945,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；三個變數為整數。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-038",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第18章 Python 編程入門",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13966,7 +13965,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；字串乘整數表示重複字串。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-039",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第18章 Python 編程入門",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -13986,7 +13985,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；同時賦值先求右方原值。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-040",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第18章 Python 編程入門",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14006,7 +14005,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；sep 放在多個輸出項目之間。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-041",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第18章 Python 編程入門",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14026,7 +14025,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；先轉成字串後。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-042",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第18章 Python 編程入門",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14046,7 +14045,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；正數整除向下取整。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-043",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第18章 Python 編程入門",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14066,7 +14065,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；38=6×6+2。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-044",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第18章 Python 編程入門",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14086,7 +14085,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；float 轉型得到浮點數。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-047",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第18章 Python 編程入門",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14106,7 +14105,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；第三位小數為 4。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-048",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第18章 Python 編程入門",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14126,7 +14125,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-050",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第18章 Python 編程入門",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14146,7 +14145,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；第一條件假、第二條件真。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-051",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第18章 Python 編程入門",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14166,7 +14165,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；由 3 起每次加 4。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-055",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第18章 Python 編程入門",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14186,7 +14185,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-061",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第18章 Python 編程入門",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14206,7 +14205,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；列表乘整數是重複整個序列。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-063",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第19章 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14226,7 +14225,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；索引 1 是第二項。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-064",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第19章 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14246,7 +14245,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；負索引 -1 是末項。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-066",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第19章 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14266,7 +14265,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；index 回傳第一個相符元素的零起算索引。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-068",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第19章 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14286,7 +14285,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；append 把整個子列表當作一個新元素。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-069",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第19章 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14306,7 +14305,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；只有 14 及 18 滿足至少 10。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-070",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第19章 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14326,7 +14325,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；以首項初始化可正確處理全負數。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-072",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第19章 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14346,7 +14345,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；負步長 -1 令字元從末端反向取出。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-074",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第19章 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14366,7 +14365,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；每次把字元接在末端。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-075",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第19章 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14386,7 +14385,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；總和 84 除以四項為 21.0。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-077",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第19章 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14406,7 +14405,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-082",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／19 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14426,7 +14425,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-083",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／19 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14446,7 +14445,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-085",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／19 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14466,7 +14465,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-087",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／19 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14486,7 +14485,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；只交換第一項及最後一項。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-088",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／19 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14506,7 +14505,7 @@
    "wrong_tip": "列出每輪使用的舊值與更新後新值，並檢查索引、短路及迴圈停止位置。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-089",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／19 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14526,7 +14525,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-091",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／19 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14546,7 +14545,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-093",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／20 程式測試和除錯",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14566,7 +14565,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-095",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／20 程式測試和除錯",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14586,7 +14585,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-096",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／20 程式測試和除錯",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14606,7 +14605,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-097",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／20 程式測試和除錯",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14626,7 +14625,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-098",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／20 程式測試和除錯",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14646,7 +14645,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-099",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／20 程式測試和除錯",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14666,7 +14665,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；range 包括 3 至 9。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-100",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／20 程式測試和除錯",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14686,7 +14685,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-102",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／20 程式測試和除錯",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14706,7 +14705,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-HARDWARE-2026-032",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14726,7 +14725,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-003",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14746,7 +14745,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-005",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14766,7 +14765,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-006",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14786,7 +14785,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-007",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14806,7 +14805,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-013",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14826,7 +14825,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-016",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14846,7 +14845,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-019",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14866,7 +14865,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-022",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14886,7 +14885,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-027",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14906,7 +14905,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-031",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14926,7 +14925,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-032",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14946,7 +14945,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-SOFTWARE-2026-020",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14966,7 +14965,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-HARDWARE-2026-034",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -14986,7 +14985,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-002",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15006,7 +15005,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-004",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15026,7 +15025,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-008",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15046,7 +15045,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-010",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15066,7 +15065,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-011",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15086,7 +15085,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-012",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15106,7 +15105,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-015",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15126,7 +15125,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-017",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15146,7 +15145,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-018",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15166,7 +15165,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-020",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15186,7 +15185,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-021",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15206,7 +15205,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-024",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15226,7 +15225,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-028",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15246,7 +15245,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-030",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15266,7 +15265,7 @@
    "wrong_tip": "分清資料進入或離開系統的方向，再核對裝置功能及規格單位。",
    "tags": "B;IO;original_rewrite;SUP-IO-2026-034",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15286,7 +15285,7 @@
    "wrong_tip": "先看橫縱軸、單位及資料種類，再判斷圖形是否忠實表達數據。",
    "tags": "A;EXCEL_CHART;original_rewrite;SUP-EXCEL-2026-002",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15306,7 +15305,7 @@
    "wrong_tip": "先看橫縱軸、單位及資料種類，再判斷圖形是否忠實表達數據。",
    "tags": "A;EXCEL_CHART;original_rewrite;SUP-EXCEL-2026-042",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15326,7 +15325,7 @@
    "wrong_tip": "先看橫縱軸、單位及資料種類，再判斷圖形是否忠實表達數據。",
    "tags": "A;EXCEL_CHART;original_rewrite;SUP-EXCEL-2026-044",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15346,7 +15345,7 @@
    "wrong_tip": "先看橫縱軸、單位及資料種類，再判斷圖形是否忠實表達數據。",
    "tags": "A;EXCEL_CHART;original_rewrite;SUP-EXCEL-2026-046",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15366,7 +15365,7 @@
    "wrong_tip": "先看橫縱軸、單位及資料種類，再判斷圖形是否忠實表達數據。",
    "tags": "A;EXCEL_CHART;original_rewrite;SUP-EXCEL-2026-042;concept_extension",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15386,7 +15385,7 @@
    "wrong_tip": "先看橫縱軸、單位及資料種類，再判斷圖形是否忠實表達數據。",
    "tags": "A;EXCEL_CHART;original_rewrite;SUP-EXCEL-2026-044;concept_extension",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15406,7 +15405,7 @@
    "wrong_tip": "先看橫縱軸、單位及資料種類，再判斷圖形是否忠實表達數據。",
    "tags": "A;EXCEL_CHART;original_rewrite;SUP-EXCEL-2026-043",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15426,7 +15425,7 @@
    "wrong_tip": "先看橫縱軸、單位及資料種類，再判斷圖形是否忠實表達數據。",
    "tags": "A;EXCEL_CHART;original_rewrite;SUP-EXCEL-2026-059",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15446,7 +15445,7 @@
    "wrong_tip": "先看橫縱軸、單位及資料種類，再判斷圖形是否忠實表達數據。",
    "tags": "A;EXCEL_CHART;original_rewrite;SUP-EXCEL-2026-043;concept_extension",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15466,7 +15465,7 @@
    "wrong_tip": "先看橫縱軸、單位及資料種類，再判斷圖形是否忠實表達數據。",
    "tags": "A;EXCEL_CHART;original_rewrite;SUP-EXCEL-2026-059;concept_extension",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15486,7 +15485,7 @@
    "wrong_tip": "先看橫縱軸、單位及資料種類，再判斷圖形是否忠實表達數據。",
    "tags": "A;EXCEL_CHART;original_rewrite;SUP-EXCEL-2026-042;concept_extension",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15506,7 +15505,7 @@
    "wrong_tip": "先看橫縱軸、單位及資料種類，再判斷圖形是否忠實表達數據。",
    "tags": "A;EXCEL_CHART;original_rewrite;SUP-EXCEL-2026-044;concept_extension",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15526,7 +15525,7 @@
    "wrong_tip": "先看橫縱軸、單位及資料種類，再判斷圖形是否忠實表達數據。",
    "tags": "A;EXCEL_CHART;original_rewrite;SUP-EXCEL-2026-046;concept_extension",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15546,7 +15545,7 @@
    "wrong_tip": "先看橫縱軸、單位及資料種類，再判斷圖形是否忠實表達數據。",
    "tags": "A;EXCEL_CHART;original_rewrite;SUP-EXCEL-2026-059;concept_extension",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15566,7 +15565,7 @@
    "wrong_tip": "先看橫縱軸、單位及資料種類，再判斷圖形是否忠實表達數據。",
    "tags": "A;EXCEL_CHART;original_rewrite;SUP-EXCEL-2026-045",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15586,7 +15585,7 @@
    "wrong_tip": "先看橫縱軸、單位及資料種類，再判斷圖形是否忠實表達數據。",
    "tags": "A;EXCEL_CHART;original_rewrite;SUP-EXCEL-2026-047",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15606,7 +15605,7 @@
    "wrong_tip": "先看橫縱軸、單位及資料種類，再判斷圖形是否忠實表達數據。",
    "tags": "A;EXCEL_CHART;original_rewrite;SUP-EXCEL-2026-043;concept_extension",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15626,7 +15625,7 @@
    "wrong_tip": "先看橫縱軸、單位及資料種類，再判斷圖形是否忠實表達數據。",
    "tags": "A;EXCEL_CHART;original_rewrite;SUP-EXCEL-2026-045;concept_extension",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15646,7 +15645,7 @@
    "wrong_tip": "先看橫縱軸、單位及資料種類，再判斷圖形是否忠實表達數據。",
    "tags": "A;EXCEL_CHART;original_rewrite;SUP-EXCEL-2026-047;concept_extension",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15666,7 +15665,7 @@
    "wrong_tip": "先看橫縱軸、單位及資料種類，再判斷圖形是否忠實表達數據。",
    "tags": "A;EXCEL_CHART;original_rewrite;SUP-EXCEL-2026-043;concept_extension",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15686,7 +15685,7 @@
    "wrong_tip": "先看橫縱軸、單位及資料種類，再判斷圖形是否忠實表達數據。",
    "tags": "A;EXCEL_CHART;original_rewrite;SUP-EXCEL-2026-045;concept_extension",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15706,7 +15705,7 @@
    "wrong_tip": "先看橫縱軸、單位及資料種類，再判斷圖形是否忠實表達數據。",
    "tags": "A;EXCEL_CHART;original_rewrite;SUP-EXCEL-2026-047;concept_extension",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15726,7 +15725,7 @@
    "wrong_tip": "先看橫縱軸、單位及資料種類，再判斷圖形是否忠實表達數據。",
    "tags": "A;EXCEL_CHART;original_rewrite;SUP-EXCEL-2026-043;concept_extension",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15746,7 +15745,7 @@
    "wrong_tip": "先看橫縱軸、單位及資料種類，再判斷圖形是否忠實表達數據。",
    "tags": "A;EXCEL_CHART;original_rewrite;SUP-EXCEL-2026-042;concept_extension",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15766,7 +15765,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-001",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15786,7 +15785,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-003",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15806,7 +15805,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-006",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15826,7 +15825,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-007",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15846,7 +15845,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-008",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15866,7 +15865,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-009",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15886,7 +15885,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-011",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15906,7 +15905,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-016",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15926,7 +15925,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-019",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15946,7 +15945,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-020",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15966,7 +15965,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-022",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -15986,7 +15985,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-024",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16006,7 +16005,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-025",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16026,7 +16025,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-026",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16046,7 +16045,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-037",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16066,7 +16065,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-038",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16086,7 +16085,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-051",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16106,7 +16105,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-054",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16126,7 +16125,7 @@
    "wrong_tip": "先分清紀錄、欄位、鍵及資料庫物件，再對照題目中的資料用途。",
    "tags": "A;DATABASE;original_rewrite;SUP-DB-2026-001",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16146,7 +16145,7 @@
    "wrong_tip": "先分清紀錄、欄位、鍵及資料庫物件，再對照題目中的資料用途。",
    "tags": "A;DATABASE;original_rewrite;SUP-DB-2026-002",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16166,7 +16165,7 @@
    "wrong_tip": "先分清紀錄、欄位、鍵及資料庫物件，再對照題目中的資料用途。",
    "tags": "A;DATABASE;original_rewrite;SUP-DB-2026-004",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16186,7 +16185,7 @@
    "wrong_tip": "先分清紀錄、欄位、鍵及資料庫物件，再對照題目中的資料用途。",
    "tags": "A;DATABASE;original_rewrite;SUP-DB-2026-005",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16206,7 +16205,7 @@
    "wrong_tip": "先分清紀錄、欄位、鍵及資料庫物件，再對照題目中的資料用途。",
    "tags": "A;DATABASE;original_rewrite;SUP-DB-2026-006",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16226,7 +16225,7 @@
    "wrong_tip": "先分清紀錄、欄位、鍵及資料庫物件，再對照題目中的資料用途。",
    "tags": "A;DATABASE;original_rewrite;SUP-DB-2026-007",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16246,7 +16245,7 @@
    "wrong_tip": "先分清紀錄、欄位、鍵及資料庫物件，再對照題目中的資料用途。",
    "tags": "A;DATABASE;original_rewrite;SUP-DB-2026-008",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16266,7 +16265,7 @@
    "wrong_tip": "先分清紀錄、欄位、鍵及資料庫物件，再對照題目中的資料用途。",
    "tags": "A;DATABASE;original_rewrite;SUP-DB-2026-010",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16286,7 +16285,7 @@
    "wrong_tip": "先分清紀錄、欄位、鍵及資料庫物件，再對照題目中的資料用途。",
    "tags": "A;DATABASE;original_rewrite;SUP-DB-2026-012",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16306,7 +16305,7 @@
    "wrong_tip": "先辨認輸入、處理、輸出或資訊核實的目的，再挑選對應方法。",
    "tags": "A;INFO_PROCESS;original_rewrite;SUP-DB-2026-017",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16326,7 +16325,7 @@
    "wrong_tip": "先辨認輸入、處理、輸出或資訊核實的目的，再挑選對應方法。",
    "tags": "A;INFO_PROCESS;original_rewrite;SUP-DB-2026-018",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16346,7 +16345,7 @@
    "wrong_tip": "先分清紀錄、欄位、鍵及資料庫物件，再對照題目中的資料用途。",
    "tags": "A;DATABASE;original_rewrite;SUP-DB-2026-020",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16366,7 +16365,7 @@
    "wrong_tip": "先分清紀錄、欄位、鍵及資料庫物件，再對照題目中的資料用途。",
    "tags": "A;DATABASE;original_rewrite;SUP-DB-2026-021",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16386,7 +16385,7 @@
    "wrong_tip": "先分清紀錄、欄位、鍵及資料庫物件，再對照題目中的資料用途。",
    "tags": "A;DATABASE;original_rewrite;SUP-DB-2026-022",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16406,7 +16405,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-024",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16426,7 +16425,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-025",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16446,7 +16445,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-026",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16466,7 +16465,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-030",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16486,7 +16485,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-035",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16506,7 +16505,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-036",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16526,7 +16525,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-042",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16546,7 +16545,7 @@
    "wrong_tip": "先分清紀錄、欄位、鍵及資料庫物件，再對照題目中的資料用途。",
    "tags": "A;DATABASE;original_rewrite;SUP-DB-2026-044",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16566,7 +16565,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-045",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16586,7 +16585,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-048",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16606,7 +16605,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-049",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16626,7 +16625,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-053",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16646,7 +16645,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-055",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16666,7 +16665,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-HARDWARE-2026-003",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16686,7 +16685,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-HARDWARE-2026-008",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16706,7 +16705,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-HARDWARE-2026-010",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16726,7 +16725,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-HARDWARE-2026-013",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16746,7 +16745,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-HARDWARE-2026-015",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16766,7 +16765,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-HARDWARE-2026-018",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16786,7 +16785,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-HARDWARE-2026-022",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16806,7 +16805,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-HARDWARE-2026-030",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16826,7 +16825,7 @@
    "wrong_tip": "先辨認輸入、處理、輸出或資訊核實的目的，再挑選對應方法。",
    "tags": "A;INFO_PROCESS;original_rewrite;SUP-IO-2026-001",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16846,7 +16845,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-IO-2026-026",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B7 輸入及輸出設備",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16866,7 +16865,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-SOFTWARE-2026-002",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16886,7 +16885,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-SOFTWARE-2026-004",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16906,7 +16905,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SOFTWARE-2026-011",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16926,7 +16925,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-SOFTWARE-2026-013",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16946,7 +16945,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-SOFTWARE-2026-018",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16966,7 +16965,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-SOFTWARE-2026-019",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -16986,7 +16985,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-SOFTWARE-2026-023",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17006,7 +17005,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-SOFTWARE-2026-032",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17026,7 +17025,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET9-2026-001",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C9 建網及互聯網基本知識",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17046,7 +17045,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET9-2026-004",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C9 建網及互聯網基本知識",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17066,7 +17065,7 @@
    "wrong_tip": "先辨認同一鏈路與跨子網的需求，再選擇裝置、介面或媒介。",
    "tags": "C;NET_DEVICE;original_rewrite;SUP-NET9-2026-011",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C9 建網及互聯網基本知識",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17086,7 +17085,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET9-2026-013",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C9 建網及互聯網基本知識",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17106,7 +17105,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET10-2026-001",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C10 互聯網協定",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17126,7 +17125,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET10-2026-008",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C10 互聯網協定",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17146,7 +17145,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET10-2026-013",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C10 互聯網協定",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17166,7 +17165,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET10-2026-015",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C10 互聯網協定",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17186,7 +17185,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET10-2026-018",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C10 互聯網協定",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17206,7 +17205,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET10-2026-019",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C10 互聯網協定",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17226,7 +17225,7 @@
    "wrong_tip": "先辨認輸入、處理、輸出或資訊核實的目的，再挑選對應方法。",
    "tags": "A;INFO_PROCESS;original_rewrite;SUP-NET11-2026-001",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17246,7 +17245,7 @@
    "wrong_tip": "先辨認輸入、處理、輸出或資訊核實的目的，再挑選對應方法。",
    "tags": "A;INFO_PROCESS;original_rewrite;SUP-NET11-2026-004",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17266,7 +17265,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET11-2026-007",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17286,7 +17285,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET11-2026-014",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17306,7 +17305,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-NET11-2026-017",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17326,7 +17325,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET11-2026-018",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17346,7 +17345,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET11-2026-019",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17366,7 +17365,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET11-2026-022",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17386,7 +17385,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET11-2026-023",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17406,7 +17405,7 @@
    "wrong_tip": "區分像素、位元率、容器與編碼，並比較播放需求和可用資源。",
    "tags": "A;MULTIMEDIA;original_rewrite;SUP-NET11-2026-024",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17426,7 +17425,7 @@
    "wrong_tip": "分開看網址結構、網頁內容及瀏覽器狀態；格式相似不代表功能相同。",
    "tags": "C;WEB;original_rewrite;SUP-NET11-2026-027",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17446,7 +17445,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-NET11-2026-031",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17466,7 +17465,7 @@
    "wrong_tip": "區分像素、位元率、容器與編碼，並比較播放需求和可用資源。",
    "tags": "A;MULTIMEDIA;original_rewrite;SUP-NET11-2026-034",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17486,7 +17485,7 @@
    "wrong_tip": "區分像素、位元率、容器與編碼，並比較播放需求和可用資源。",
    "tags": "A;MULTIMEDIA;original_rewrite;SUP-NET11-2026-036",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17506,7 +17505,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-001",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17526,7 +17525,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-007",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17546,7 +17545,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-008",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17566,7 +17565,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-011",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17586,7 +17585,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-013",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17606,7 +17605,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC14-2026-001",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／C14 互聯網上的保安措施",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17626,7 +17625,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC14-2026-003",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／C14 互聯網上的保安措施",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17646,7 +17645,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC14-2026-005",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／C14 互聯網上的保安措施",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17666,7 +17665,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC14-2026-012",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／C14 互聯網上的保安措施",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17686,7 +17685,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC14-2026-020",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／C14 互聯網上的保安措施",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17706,7 +17705,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC14-2026-024",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／C14 互聯網上的保安措施",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 40,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17726,7 +17725,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-004",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17746,7 +17745,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-005",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17766,7 +17765,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-010",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17786,7 +17785,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-012",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17806,7 +17805,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-013",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17826,7 +17825,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-014",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17846,7 +17845,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-017",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17866,7 +17865,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-018",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17886,7 +17885,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-021",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17906,7 +17905,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-023",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17926,7 +17925,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-027",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17946,7 +17945,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-028",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17966,7 +17965,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-029",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -17986,7 +17985,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-030",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18006,7 +18005,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-031",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18026,7 +18025,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-032",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18046,7 +18045,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-033",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18066,7 +18065,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-034",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18086,7 +18085,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-039",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18106,7 +18105,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-040",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18126,7 +18125,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-041",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18146,7 +18145,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-048",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18166,7 +18165,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-049",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18186,7 +18185,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-050",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18206,7 +18205,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-052",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18226,7 +18225,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-055",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18246,7 +18245,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-057",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18266,7 +18265,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-060",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18286,7 +18285,7 @@
    "wrong_tip": "先分清紀錄、欄位、鍵及資料庫物件，再對照題目中的資料用途。",
    "tags": "A;DATABASE;original_rewrite;SUP-DB-2026-003",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18306,7 +18305,7 @@
    "wrong_tip": "先分清紀錄、欄位、鍵及資料庫物件，再對照題目中的資料用途。",
    "tags": "A;DATABASE;original_rewrite;SUP-DB-2026-009",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18326,7 +18325,7 @@
    "wrong_tip": "先分清紀錄、欄位、鍵及資料庫物件，再對照題目中的資料用途。",
    "tags": "A;DATABASE;original_rewrite;SUP-DB-2026-011",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18346,7 +18345,7 @@
    "wrong_tip": "先分清紀錄、欄位、鍵及資料庫物件，再對照題目中的資料用途。",
    "tags": "A;DATABASE;original_rewrite;SUP-DB-2026-013",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18366,7 +18365,7 @@
    "wrong_tip": "先分清紀錄、欄位、鍵及資料庫物件，再對照題目中的資料用途。",
    "tags": "A;DATABASE;original_rewrite;SUP-DB-2026-015",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18386,7 +18385,7 @@
    "wrong_tip": "先分清紀錄、欄位、鍵及資料庫物件，再對照題目中的資料用途。",
    "tags": "A;DATABASE;original_rewrite;SUP-DB-2026-019",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18406,7 +18405,7 @@
    "wrong_tip": "先分清紀錄、欄位、鍵及資料庫物件，再對照題目中的資料用途。",
    "tags": "A;DATABASE;original_rewrite;SUP-DB-2026-023",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18426,7 +18425,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-027",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18446,7 +18445,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-028",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18466,7 +18465,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-029",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18486,7 +18485,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-031",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18506,7 +18505,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-032",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18526,7 +18525,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-033",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18546,7 +18545,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-037",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18566,7 +18565,7 @@
    "wrong_tip": "先分清紀錄、欄位、鍵及資料庫物件，再對照題目中的資料用途。",
    "tags": "A;DATABASE;original_rewrite;SUP-DB-2026-040",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18586,7 +18585,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-043",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18606,7 +18605,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-046",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18626,7 +18625,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-047",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18646,7 +18645,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-050",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18666,7 +18665,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-051",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18686,7 +18685,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-052",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18706,7 +18705,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-056",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18726,7 +18725,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-057",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18746,7 +18745,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-058",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18766,7 +18765,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-HARDWARE-2026-001",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18786,7 +18785,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-HARDWARE-2026-006",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18806,7 +18805,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-HARDWARE-2026-007",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18826,7 +18825,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-HARDWARE-2026-011",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18846,7 +18845,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-HARDWARE-2026-012",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18866,7 +18865,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-HARDWARE-2026-016",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18886,7 +18885,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-HARDWARE-2026-020",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18906,7 +18905,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-HARDWARE-2026-021",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18926,7 +18925,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-HARDWARE-2026-023",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18946,7 +18945,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-HARDWARE-2026-025",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18966,7 +18965,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-HARDWARE-2026-026",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -18986,7 +18985,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-HARDWARE-2026-029",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19006,7 +19005,7 @@
    "wrong_tip": "根據元件實際職責或量測瓶頸推論，不要把容量、頻率與傳輸速度混為一談。",
    "tags": "B;HARDWARE;original_rewrite;SUP-HARDWARE-2026-031",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B6 電腦系統",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19026,7 +19025,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-SOFTWARE-2026-006",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19046,7 +19045,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-SOFTWARE-2026-008",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19066,7 +19065,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-SOFTWARE-2026-009",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19086,7 +19085,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-SOFTWARE-2026-015",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19106,7 +19105,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-SOFTWARE-2026-021",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19126,7 +19125,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-SOFTWARE-2026-024",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19146,7 +19145,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-SOFTWARE-2026-026",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19166,7 +19165,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-SOFTWARE-2026-029",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19186,7 +19185,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-SOFTWARE-2026-031",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19206,7 +19205,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-SOFTWARE-2026-033",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19226,7 +19225,7 @@
    "wrong_tip": "留意題目涉及資源管理、驅動相容、排程或處理模式，這些功能並不相同。",
    "tags": "B;OS;original_rewrite;SUP-SOFTWARE-2026-034",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／B8 電腦軟件",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19246,7 +19245,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET9-2026-003",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C9 建網及互聯網基本知識",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19266,7 +19265,7 @@
    "wrong_tip": "先辨認同一鏈路與跨子網的需求，再選擇裝置、介面或媒介。",
    "tags": "C;NET_DEVICE;original_rewrite;SUP-NET9-2026-006",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C9 建網及互聯網基本知識",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19286,7 +19285,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET9-2026-007",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C9 建網及互聯網基本知識",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19306,7 +19305,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET9-2026-010",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C9 建網及互聯網基本知識",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19326,7 +19325,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET9-2026-012",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C9 建網及互聯網基本知識",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19346,7 +19345,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-NET9-2026-017",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C9 建網及互聯網基本知識",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19366,7 +19365,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET10-2026-003",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C10 互聯網協定",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19386,7 +19385,7 @@
    "wrong_tip": "先辨認同一鏈路與跨子網的需求，再選擇裝置、介面或媒介。",
    "tags": "C;NET_DEVICE;original_rewrite;SUP-NET10-2026-005",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C10 互聯網協定",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19406,7 +19405,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET10-2026-006",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C10 互聯網協定",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19426,7 +19425,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET10-2026-009",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C10 互聯網協定",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19446,7 +19445,7 @@
    "wrong_tip": "分開看網址結構、網頁內容及瀏覽器狀態；格式相似不代表功能相同。",
    "tags": "C;WEB;original_rewrite;SUP-NET10-2026-011",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C10 互聯網協定",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19466,7 +19465,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-NET10-2026-014",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C10 互聯網協定",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19486,7 +19485,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET10-2026-016",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C10 互聯網協定",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19506,7 +19505,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET10-2026-020",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C10 互聯網協定",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19526,7 +19525,7 @@
    "wrong_tip": "先辨認輸入、處理、輸出或資訊核實的目的，再挑選對應方法。",
    "tags": "A;INFO_PROCESS;original_rewrite;SUP-NET11-2026-002",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19546,7 +19545,7 @@
    "wrong_tip": "先辨認輸入、處理、輸出或資訊核實的目的，再挑選對應方法。",
    "tags": "A;INFO_PROCESS;original_rewrite;SUP-NET11-2026-005",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19566,7 +19565,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET11-2026-006",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19586,7 +19585,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-NET11-2026-010",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19606,7 +19605,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET11-2026-013",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19626,7 +19625,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET11-2026-021",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19646,7 +19645,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-NET11-2026-026",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19666,7 +19665,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET11-2026-028",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19686,7 +19685,7 @@
    "wrong_tip": "分清位址、協定與服務的角色；涉及傳輸時間時先統一 bit 與 byte。",
    "tags": "C;NET_CONCEPT;original_rewrite;SUP-NET11-2026-030",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19706,7 +19705,7 @@
    "wrong_tip": "區分像素、位元率、容器與編碼，並比較播放需求和可用資源。",
    "tags": "A;MULTIMEDIA;original_rewrite;SUP-NET11-2026-032",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19726,7 +19725,7 @@
    "wrong_tip": "區分像素、位元率、容器與編碼，並比較播放需求和可用資源。",
    "tags": "A;MULTIMEDIA;original_rewrite;SUP-NET11-2026-033",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19746,7 +19745,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-002",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19766,7 +19765,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-003",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19786,7 +19785,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-004",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19806,7 +19805,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-005",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19826,7 +19825,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-006",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19846,7 +19845,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-010",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19866,7 +19865,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-014",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19886,7 +19885,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-016",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19906,7 +19905,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-017",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19926,7 +19925,7 @@
    "wrong_tip": "分開看網址結構、網頁內容及瀏覽器狀態；格式相似不代表功能相同。",
    "tags": "C;WEB;original_rewrite;SUP-SEC13-2026-020",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19946,7 +19945,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-022",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19966,7 +19965,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-025",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -19986,7 +19985,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-026",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20006,7 +20005,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-027",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20026,7 +20025,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-030",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20046,7 +20045,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-031",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20066,7 +20065,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-032",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20086,7 +20085,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-033",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20106,7 +20105,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-037",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20126,7 +20125,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC13-2026-040",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C13 互聯網安全和私隱威脅",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20146,7 +20145,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC14-2026-007",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／C14 互聯網上的保安措施",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20166,7 +20165,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC14-2026-009",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／C14 互聯網上的保安措施",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20186,7 +20185,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC14-2026-010",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／C14 互聯網上的保安措施",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20206,7 +20205,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC14-2026-011",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／C14 互聯網上的保安措施",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20226,7 +20225,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC14-2026-013",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／C14 互聯網上的保安措施",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20246,7 +20245,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC14-2026-015",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／C14 互聯網上的保安措施",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20266,7 +20265,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC14-2026-017",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／C14 互聯網上的保安措施",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20286,7 +20285,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC14-2026-018",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／C14 互聯網上的保安措施",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20306,7 +20305,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC14-2026-022",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／C14 互聯網上的保安措施",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20326,7 +20325,7 @@
    "wrong_tip": "先找受保護的對象及攻擊途徑；單一保安措施通常不保證所有環節安全。",
    "tags": "C;SECURITY;original_rewrite;SUP-SEC14-2026-023",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／C14 互聯網上的保安措施",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20346,7 +20345,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-PROBLEM-2026-010",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／D15 問題建構和分析",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20366,7 +20365,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-PROBLEM-2026-020",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／D15 問題建構和分析",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20386,7 +20385,7 @@
    "wrong_tip": "列出每輪使用的舊值與更新後新值，並檢查索引、短路及迴圈停止位置。",
    "tags": "D;PY_ADV;original_rewrite;SUP-PROBLEM-2026-022",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／D15 問題建構和分析",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20406,7 +20405,7 @@
    "wrong_tip": "列出每輪使用的舊值與更新後新值，並檢查索引、短路及迴圈停止位置。",
    "tags": "D;PY_ADV;original_rewrite;SUP-PROBLEM-2026-026",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／D15 問題建構和分析",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20426,7 +20425,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；主體開始時 level 為 3、4、5、6、7。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-PROBLEM-2026-029",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／D15 問題建構和分析",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20446,7 +20445,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-ALGO-2026-002",
    "source_note": "改寫自：出版社未載／ICT 演算法教材（書名未載）／D16 算法設計（一）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20466,7 +20465,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；第一次賦值已覆蓋 left。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-ALGO-2026-007",
    "source_note": "改寫自：出版社未載／ICT 演算法教材（書名未載）／D16 算法設計（一）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20486,7 +20485,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；u 先成 19。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-ALGO-2026-008",
    "source_note": "改寫自：出版社未載／ICT 演算法教材（書名未載）／D16 算法設計（一）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20506,7 +20505,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-ALGO-2026-011",
    "source_note": "改寫自：出版社未載／ICT 演算法教材（書名未載）／D16 算法設計（一）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20526,7 +20525,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；amount 依次成為 6、12、24。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-ALGO-2026-013",
    "source_note": "改寫自：出版社未載／ICT 演算法教材（書名未載）／D16 算法設計（一）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20546,7 +20545,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；進入主體時 pos 為 1、5、9、13。",
    "tags": "D;PY_ADV;original_rewrite;SUP-ALGO-2026-014",
    "source_note": "改寫自：出版社未載／ICT 演算法教材（書名未載）／D16 算法設計（一）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20566,7 +20565,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；中間項先成 13。",
    "tags": "D;PY_ADV;original_rewrite;SUP-ALGO-2026-016",
    "source_note": "改寫自：出版社未載／ICT 演算法教材（書名未載）／D16 算法設計（一）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20586,7 +20585,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；step 變化為 2、5、8、11、14。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-ALGO-2026-018",
    "source_note": "改寫自：出版社未載／ICT 演算法教材（書名未載）／D16 算法設計（一）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20606,7 +20605,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；每輪先加再判斷。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-FLOW-2026-003",
    "source_note": "改寫自：不適用（原檔列作原創）／原創流程圖題／D16 算法設計（一）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20626,7 +20625,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；x 依次為 3、9、27。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-FLOW-2026-004",
    "source_note": "改寫自：不適用（原檔列作原創）／原創流程圖題／D16 算法設計（一）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20646,7 +20645,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；條件成立。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-FLOW-2026-005",
    "source_note": "改寫自：不適用（原檔列作原創）／原創流程圖題／D16 算法設計（一）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20666,7 +20665,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；累加 2、3、4、5 得 14。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-FLOW-2026-006",
    "source_note": "改寫自：不適用（原檔列作原創）／原創流程圖題／D16 算法設計（一）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20686,7 +20685,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；先更新再測試。",
    "tags": "D;PY_ADV;original_rewrite;SUP-FLOW-2026-007",
    "source_note": "改寫自：不適用（原檔列作原創）／原創流程圖題／D16 算法設計（一）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20706,7 +20705,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；燃料依次為 7、4、1、-2。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-FLOW-2026-008",
    "source_note": "改寫自：不適用（原檔列作原創）／原創流程圖題／D16 算法設計（一）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20726,7 +20725,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；只累加範圍中的奇數 3、5、7。",
    "tags": "D;PY_ADV;original_rewrite;SUP-FLOW-2026-010",
    "source_note": "改寫自：不適用（原檔列作原創）／原創流程圖題／D16 算法設計（一）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20746,7 +20745,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；r=16。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-001",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第16章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20766,7 +20765,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；兩個比較均為假。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-002",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第16章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20786,7 +20785,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；括號及次方先算出 36。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-003",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第16章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20806,7 +20805,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-008",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第16章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20826,7 +20825,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-010",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第16章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20846,7 +20845,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；範圍包括 1 至 12。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-012",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第16章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20866,7 +20865,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；主體在 i=10、7、4、1 時執行。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-013",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第17章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20886,7 +20885,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；依次乘 5、4、3、2、1。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-014",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第17章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20906,7 +20905,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；迴圈在乘上 1 後才停止。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-016",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第17章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20926,7 +20925,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；v 依次變 9、81、6561。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-020",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第17章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20946,7 +20945,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；先存後加。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-022",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第17章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20966,7 +20965,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；依次在前一項加 1、2、3、4。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-023",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第17章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -20986,7 +20985,7 @@
    "wrong_tip": "列出每輪使用的舊值與更新後新值，並檢查索引、短路及迴圈停止位置。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-027",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第17章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21006,7 +21005,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；先次方得 8。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-045",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第18章 Python 編程入門",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21026,7 +21025,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；括號內兩條件均假。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-046",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第18章 Python 編程入門",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21046,7 +21045,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；if 已成立。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-052",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第18章 Python 編程入門",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21066,7 +21065,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；外層 x>0 為假。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-053",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第18章 Python 編程入門",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21086,7 +21085,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；負步長遞減。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-056",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第18章 Python 編程入門",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21106,7 +21105,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；i=1 時略過 append。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-057",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第18章 Python 編程入門",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21126,7 +21125,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；n=6 時先遇 break。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-059",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第18章 Python 編程入門",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21146,7 +21145,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；累加 2 至 6。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-060",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第18章 Python 編程入門",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21166,7 +21165,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；按遞減次序遍歷。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-062",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第18章 Python 編程入門",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21186,7 +21185,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；取索引 0、2、4。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-065",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第19章 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21206,7 +21205,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；列表生成式對每個值平方。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-067",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第19章 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21226,7 +21225,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；由左至右遇到首個 10 便停止。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-071",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第19章 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21246,7 +21245,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；切片取索引 1 至 4。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-073",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第19章 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21266,7 +21265,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；每個新字元放在前端。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-076",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第19章 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21286,7 +21285,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；16 同時被 8 整除且大於 8。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-078",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第19章 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21306,7 +21305,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；0、6、9、1 各產生 True。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-080",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／19 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21326,7 +21325,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；插入到索引 1。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-081",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／19 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21346,7 +21345,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；四個元素等於 4。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-084",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／19 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21366,7 +21365,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；忽略大小寫後的母音為 A、i、a、e。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-086",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／19 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21386,7 +21385,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；每輪 (a,b) 為 (2,3)、(3,5)、(5,8)、(8,13)。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-092",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／19 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21406,7 +21405,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-094",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／20 程式測試和除錯",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21426,7 +21425,7 @@
    "wrong_tip": "列出每輪使用的舊值與更新後新值，並檢查索引、短路及迴圈停止位置。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-101",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／20 程式測試和除錯",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21446,7 +21445,7 @@
    "wrong_tip": "列出每輪使用的舊值與更新後新值，並檢查索引、短路及迴圈停止位置。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-103",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／20 程式測試和除錯",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21466,7 +21465,7 @@
    "wrong_tip": "逐步追蹤變數及條件，注意 Python 的縮排、型別、運算符和範圍端點。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-105",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／20 程式測試和除錯",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 65,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21486,7 +21485,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-015",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21506,7 +21505,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-035",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21526,7 +21525,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-036",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21546,7 +21545,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-053",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21566,7 +21565,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-056",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21586,7 +21585,7 @@
    "wrong_tip": "分開判斷函數用途、運算次序與儲存格參照；不要把顯示格式當作數值改變。",
    "tags": "A;EXCEL;original_rewrite;SUP-EXCEL-2026-058",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A4 試算表",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21606,7 +21605,7 @@
    "wrong_tip": "先分清紀錄、欄位、鍵及資料庫物件，再對照題目中的資料用途。",
    "tags": "A;DATABASE;original_rewrite;SUP-DB-2026-014",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21626,7 +21625,7 @@
    "wrong_tip": "先分清紀錄、欄位、鍵及資料庫物件，再對照題目中的資料用途。",
    "tags": "A;DATABASE;original_rewrite;SUP-DB-2026-016",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21646,7 +21645,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-034",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21666,7 +21665,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-038",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21686,7 +21685,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-039",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21706,7 +21705,7 @@
    "wrong_tip": "先分清紀錄、欄位、鍵及資料庫物件，再對照題目中的資料用途。",
    "tags": "A;DATABASE;original_rewrite;SUP-DB-2026-041",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21726,7 +21725,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-054",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21746,7 +21745,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-059",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21766,7 +21765,7 @@
    "wrong_tip": "依 SELECT、WHERE、GROUP BY、HAVING、ORDER BY 的角色分析，留意邊界及 NULL。",
    "tags": "A;SQL;original_rewrite;SUP-DB-2026-060",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／A5 數據庫",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21786,7 +21785,7 @@
    "wrong_tip": "區分像素、位元率、容器與編碼，並比較播放需求和可用資源。",
    "tags": "A;MULTIMEDIA;original_rewrite;SUP-NET11-2026-035",
    "source_note": "改寫自：出版社未載／坊間 ICT 練習書（書名未載）／C11 互聯網服務及應用",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21806,7 +21805,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；條件成立。",
    "tags": "D;PY_ADV;original_rewrite;SUP-ALGO-2026-009",
    "source_note": "改寫自：出版社未載／ICT 演算法教材（書名未載）／D16 算法設計（一）",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21826,7 +21825,7 @@
    "wrong_tip": "列出每輪使用的舊值與更新後新值，並檢查索引、短路及迴圈停止位置。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-006",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第16章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21846,7 +21845,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；按命令次序由 2 變 6、12、9。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-015",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第17章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21866,7 +21865,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；每輪後 (p,q) 為 (5,1)、(7,2)、(10,3)、(14,4)、(19,5)。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-018",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第17章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21886,7 +21885,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；先加後存。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-019",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第17章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21906,7 +21905,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；索引 1 對應 n=2 得 7。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-025",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第17章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21926,7 +21925,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；由左至右寫入令新值被下一輪再次讀取。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-029",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第17章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21946,7 +21945,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；Python // 向負無限大取整。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-049",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第18章 Python 編程入門",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21966,7 +21965,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；or 左方已為真。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-054",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第18章 Python 編程入門",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -21986,7 +21985,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；條件最後變為假而退出。",
    "tags": "D;PY_BASIC;original_rewrite;SUP-TEXT-2026-058",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第18章 Python 編程入門",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -22006,7 +22005,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；字串按字元順序比較。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-079",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第19章 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -22026,7 +22025,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；切片移除三項。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-090",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／19 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -22046,7 +22045,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；兩個獨立 if 都成立。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-104",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／20 程式測試和除錯",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -22066,7 +22065,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；由右至左搬移時。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-029;concept_extension",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第17章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -22086,7 +22085,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；先以兩項取代四項。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-090;concept_extension",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／19 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -22106,7 +22105,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；and 左方為假。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-054;concept_extension",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第18章 Python 編程入門",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -22126,7 +22125,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；第一步後 cost 變成 640.0。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-104;concept_extension",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／20 程式測試和除錯",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -22146,7 +22145,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；同時賦值每輪使用舊值。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-092;concept_extension",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／19 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -22166,7 +22165,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；索引 0、2、4、6 的字元為 N、t、b、o。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-086;concept_extension",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／19 Python 綜合解難",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
@@ -22186,7 +22185,7 @@
    "wrong_tip": "用追蹤表逐句更新變數；每輪後 (p,q) 為 (3,3)、(6,5)、(11,7)、(18,9)、(27,11)。",
    "tags": "D;PY_ADV;original_rewrite;SUP-TEXT-2026-018;concept_extension",
    "source_note": "改寫自：培進（依原檔標示）／文憑試系列 ICT MC／第17章 算法設計",
-   "review_status": "review",
+   "review_status": "approved",
    "version": "1",
    "time_sec": 100,
    "source_bank": "IT_Emperor_Extra_McQs.xlsx"
