@@ -431,3 +431,9 @@
 - `docs/proposals/titles.csv`（18 個稱號）及 `docs/QUESTION_BANK_WORK_GUIDE.md` Prompt 3。以實際 Excel 加上 CSV 模擬匯入：22 個稱號、0 拒絕。
 - 測試：`./scripts/test.sh` → JS 177 passed（新增 checkin 4 項、稱號 2 項）；Python OK（新增 1 項）；release 511 題；版本檢查通過。
 - 試玩（本機，手機闊度）：清除簽到後進入主頁彈出簽到卡（第 1 天 100 金幣），領取後金幣 50 → 150，同日再回主頁不再彈出。
+
+## Run 40 — 2026-10-31：Excel 稱號表更新
+- PR #31–#34 已由用戶合併；本機 main 同步，測試 177 passed。分支：`data/titles`。
+- 用戶要求（ChatGPT 用量已滿）：Claude 直接把 `docs/proposals/titles.csv` 的 18 行加入 `IT_Emperor_DseMcQs.xlsx` 的 Titles 表。先備份為 `IT_Emperor_DseMcQs_舊(20261031_稱號前）.xlsx`；只改 `xl/worksheets/sheet29.xml`（同一格式的 inline 文字列），其他壓縮檔成員逐位元相同；XML 及壓縮檔檢查通過；以匯入器比較 54 張工作表，只有 Titles 改變（4 → 22 行）。
+- 重新匯入遊戲資料：titles 22、rejected 0（21 個可取得；T-PVP 待連線版）。
+- 測試：`./scripts/test.sh` → JS 177 passed；Python OK；release 511 題；版本檢查通過。正式版任務與稱號頁顯示新稱號，沒有 undefined／NaN。

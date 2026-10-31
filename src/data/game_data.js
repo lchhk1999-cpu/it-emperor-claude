@@ -5,11 +5,11 @@
   ITE.gameData = {
  "meta": {
   "source_file": "IT_Emperor_DseMcQs.xlsx",
-  "source_sha256": "e51c1864d303b4546e8eea702e6d228f141c2a3b3c5bf79aad61516f8d6e356e",
-  "imported_at": "2026-10-31T09:43:35Z",
+  "source_sha256": "f50eab4ec1846c0c2d20b9c453d2f4dfbe20e9af49552ce23c178d8056d9406a",
+  "imported_at": "2026-10-31T10:01:27Z",
   "characters": 31,
   "missions": 5,
-  "titles": 4,
+  "titles": 22,
   "equipment": 5,
   "materials": 9,
   "events": 7,
@@ -455,6 +455,168 @@
    "topic": null,
    "description": "當季結算進入前 100 名",
    "supported": false
+  },
+  {
+   "id": "T-WORLD-A",
+   "name": "資訊處理達人",
+   "condition": "world_correct",
+   "target": 30,
+   "topic": "A",
+   "description": "A 資訊處理累計答對 30 題",
+   "supported": true
+  },
+  {
+   "id": "T-WORLD-B",
+   "name": "硬件工匠",
+   "condition": "world_correct",
+   "target": 30,
+   "topic": "B",
+   "description": "B 電腦系統基礎累計答對 30 題",
+   "supported": true
+  },
+  {
+   "id": "T-WORLD-C",
+   "name": "網絡守護者",
+   "condition": "world_correct",
+   "target": 30,
+   "topic": "C",
+   "description": "C 互聯網及其應用累計答對 30 題",
+   "supported": true
+  },
+  {
+   "id": "T-WORLD-D",
+   "name": "程式魔法師",
+   "condition": "world_correct",
+   "target": 30,
+   "topic": "D",
+   "description": "D 計算思維及程式編寫累計答對 30 題",
+   "supported": true
+  },
+  {
+   "id": "T-WORLD-E",
+   "name": "社會觀察家",
+   "condition": "world_correct",
+   "target": 30,
+   "topic": "E",
+   "description": "E 資訊科技的社會影響累計答對 30 題",
+   "supported": true
+  },
+  {
+   "id": "T-STREAK10",
+   "name": "穩打穩紮",
+   "condition": "best_streak",
+   "target": 10,
+   "topic": null,
+   "description": "連續答對 10 題",
+   "supported": true
+  },
+  {
+   "id": "T-STREAK20",
+   "name": "無錯神手",
+   "condition": "best_streak",
+   "target": 20,
+   "topic": null,
+   "description": "連續答對 20 題",
+   "supported": true
+  },
+  {
+   "id": "T-CORRECT200",
+   "name": "勤學小兵",
+   "condition": "total_correct",
+   "target": 200,
+   "topic": null,
+   "description": "累計答對 200 題",
+   "supported": true
+  },
+  {
+   "id": "T-CORRECT500",
+   "name": "ICT 學霸",
+   "condition": "total_correct",
+   "target": 500,
+   "topic": null,
+   "description": "累計答對 500 題",
+   "supported": true
+  },
+  {
+   "id": "T-CORRECT1000",
+   "name": "IT 帝王",
+   "condition": "total_correct",
+   "target": 1000,
+   "topic": null,
+   "description": "累計答對 1000 題",
+   "supported": true
+  },
+  {
+   "id": "T-ULTIMATE",
+   "name": "究極挑戰者",
+   "condition": "ultimate_clear",
+   "target": 1,
+   "topic": null,
+   "description": "首次通關任何一個究極關卡",
+   "supported": true
+  },
+  {
+   "id": "T-ALLSTAGES",
+   "name": "全制霸",
+   "condition": "all_world_stages",
+   "target": 20,
+   "topic": null,
+   "description": "通關 A–E 全部 20 個世界關卡",
+   "supported": true
+  },
+  {
+   "id": "T-STORY",
+   "name": "故事完結者",
+   "condition": "story_complete",
+   "target": 43,
+   "topic": null,
+   "description": "完成故事模式全部 43 關",
+   "supported": true
+  },
+  {
+   "id": "T-CHECKIN7",
+   "name": "每日報到",
+   "condition": "checkin_days",
+   "target": 7,
+   "topic": null,
+   "description": "累積簽到 7 天",
+   "supported": true
+  },
+  {
+   "id": "T-CHECKIN30",
+   "name": "全勤之星",
+   "condition": "checkin_days",
+   "target": 30,
+   "topic": null,
+   "description": "累積簽到 30 天",
+   "supported": true
+  },
+  {
+   "id": "T-EVOLVE",
+   "name": "進化大師",
+   "condition": "evolve_max",
+   "target": 1,
+   "topic": null,
+   "description": "完成第一次角色三階進化",
+   "supported": true
+  },
+  {
+   "id": "T-COLLECT",
+   "name": "收藏家",
+   "condition": "own_characters",
+   "target": 20,
+   "topic": null,
+   "description": "擁有 20 個角色",
+   "supported": true
+  },
+  {
+   "id": "T-DRILL",
+   "name": "操練狂人",
+   "condition": "drill_answers",
+   "target": 100,
+   "topic": null,
+   "description": "在操練區答 100 題",
+   "supported": true
   }
  ],
  "equipment": [
