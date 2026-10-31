@@ -54,4 +54,4 @@
 | 131 題發佈 | CONFIRMED 2026-10-31（用戶：「已審核，請發佈」） | 主題庫 97 題新增及 34 題改動經教師審核，從暫緩清單移除；正式版 511 題 approved。額外題庫 596 題仍是 review，待教師審核 |
 | 體力每日回滿 | CONFIRMED 2026-10-31（用戶要求） | 除每 5 分鐘回 1 點外，每日香港時間 00:00 體力回滿（與每日任務同時重置） |
 | 每日簽到 | CONFIRMED 2026-10-31（用戶：「兩個都做」） | 每日香港時間首次打開主頁彈出簽到卡；7 天循環按累積簽到計（缺席不重新開始）：100 金幣／5 寶石／課題素材 ×3／200 金幣／5 寶石／傳說核心 ×1／10 寶石（每週 +20 寶石） |
-| 新增稱號 | CONFIRMED 2026-10-31 | 新增 18 個稱號（`docs/proposals/titles.csv`），遊戲已支援 9 種新條件：world_correct、best_streak、ultimate_clear、all_world_stages、story_complete、checkin_days、evolve_max、own_characters、drill_answers。待 ChatGPT 加入 Excel Titles 表 |
+| 新增稱號 | CONFIRMED 2026-10-31 | 新增 18 個稱號（`docs/proposals/titles.csv`），遊戲已支援 9 種新條件：world_correct、best_streak、ultimate_clear、all_world_stages、story_complete、checkin_days、evolve_max、own_characters、drill_answers。2026-10-31 因 ChatGPT 用量已滿，用戶要求 Claude 直接把 18 行加入 Excel Titles 表（只改該表，其他 53 表逐位元相同；備份 `IT_Emperor_DseMcQs_舊(20261031_稱號前）.xlsx`） |
