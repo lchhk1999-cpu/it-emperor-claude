@@ -71,7 +71,9 @@
       ? h(
           "div",
           { class: "dev-banner", role: "note" },
-          bank ? "開發測試版｜包含未經教師核准（review）的題目" : "開發測試版｜題目為測試樣例，非 DSE 正式題庫"
+          !bank ? "開發測試版｜題目為測試樣例，非 DSE 正式題庫"
+            : bank.questions.some((q) => q.review_status !== "approved") ? "開發測試版｜包含未經教師核准（review）的題目"
+            : "開發測試版｜只供測試"
         )
       : null;
   }
@@ -219,6 +221,44 @@
     return Mi.claimableCount(save.progress, gameData.missions, Date.now());
   }
 
+  // Little scenes for the two big home tiles (original art, same ink style).
+  const TILE_ART = {
+    // An open storybook with a path winding up to a castle with a waving flag.
+    story: `<svg viewBox="0 0 150 76" aria-hidden="true">
+      <circle cx="122" cy="16" r="9" fill="#fff6d8" stroke="#3b3330" stroke-width="2"/>
+      <g class="tile-twinkle" fill="#fff"><path d="M18 10 l2 5 l5 2 l-5 2 l-2 5 l-2 -5 l-5 -2 l5 -2z"/><path d="M60 6 l1.5 3.5 l3.5 1.5 l-3.5 1.5 l-1.5 3.5 l-1.5 -3.5 l-3.5 -1.5 l3.5 -1.5z"/></g>
+      <path d="M86 40 L86 22 L92 22 L92 26 L98 26 L98 22 L104 22 L104 26 L110 26 L110 22 L116 22 L116 40Z" fill="#fff" stroke="#3b3330" stroke-width="2.5" stroke-linejoin="round"/>
+      <rect x="97" y="31" width="8" height="9" rx="4" fill="#c4b0e0" stroke="#3b3330" stroke-width="2"/>
+      <path d="M101 22 V8" stroke="#3b3330" stroke-width="2"/><path class="tile-flag" d="M101 8 L113 11 L101 15Z" fill="#f4a3b8" stroke="#3b3330" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M80 42 Q96 36 124 42 L124 46 L80 46Z" fill="#a7d8a0" stroke="#3b3330" stroke-width="2"/>
+      <path d="M8 70 Q8 50 36 46 Q58 44 75 52 Q92 44 114 46 Q142 50 142 70 Q112 62 75 72 Q38 62 8 70Z" fill="#fff" stroke="#3b3330" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M75 52 V72" stroke="#3b3330" stroke-width="2"/>
+      <path d="M22 58 h40 M24 64 h34 M88 58 h40 M92 64 h34" stroke="#e8b84a" stroke-width="2" stroke-linecap="round"/>
+      <path d="M75 52 Q82 44 90 44 Q100 44 101 40" fill="none" stroke="#e8b84a" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 5"/>
+    </svg>`,
+    // A </> code bolt striking a grumpy bug monster, with sparks.
+    dse: `<svg viewBox="0 0 150 76" aria-hidden="true">
+      <g class="tile-twinkle" fill="#fff6d8"><circle cx="20" cy="14" r="2.5"/><circle cx="132" cy="58" r="2"/><circle cx="58" cy="8" r="2"/></g>
+      <ellipse cx="104" cy="70" rx="26" ry="4" fill="#3b3330" opacity="0.18"/>
+      <g class="tile-monster">
+        <path d="M80 66 Q78 34 104 30 Q130 34 128 66Z" fill="#a993cf" stroke="#3b3330" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M92 32 Q86 20 80 22 M116 32 Q122 20 128 22" fill="none" stroke="#3b3330" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="80" cy="22" r="3.5" fill="#9fe8e0" stroke="#3b3330" stroke-width="1.8"/><circle cx="128" cy="22" r="3.5" fill="#9fe8e0" stroke="#3b3330" stroke-width="1.8"/>
+        <path d="M93 44 l8 3 M115 44 l-8 3" stroke="#3b3330" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="97" cy="50" r="2.5" fill="#3b3330"/><circle cx="111" cy="50" r="2.5" fill="#3b3330"/>
+        <path d="M98 59 q6 -4 12 0" fill="none" stroke="#3b3330" stroke-width="2.5" stroke-linecap="round"/>
+        <text x="104" y="40" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="7" font-weight="900" fill="#3b3330">404</text>
+      </g>
+      <g class="tile-bolt">
+        <path d="M12 52 L44 38 L40 46 L70 36" fill="none" stroke="#3b3330" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 52 L44 38 L40 46 L70 36" fill="none" stroke="#f4d36b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="8" y="44" width="26" height="18" rx="6" fill="#fff" stroke="#3b3330" stroke-width="2.5"/>
+        <text x="21" y="57" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="10" font-weight="900" fill="#3b3330">&lt;/&gt;</text>
+      </g>
+      <g class="tile-spark" stroke="#f4d36b" stroke-width="3" stroke-linecap="round"><path d="M74 26 l-4 -6 M78 34 l6 -2 M74 42 l-5 4"/></g>
+    </svg>`,
+  };
+
   function sideChip(iconName, label, onclick, badge) {
     return h(
       "button",
@@ -261,20 +301,32 @@
         h(
           "div",
           { class: "home-tiles" },
-          h(
-            "button",
-            { class: "home-tile tile-story", onclick: () => root.ITE.storyUi.show() },
-            h("span", { class: "tile-icon", html: icons.book }),
-            h("span", { class: "tile-name" }, "故事模式"),
-            h("span", { class: "tile-sub" }, next ? `${next.world.name}・${next.id}` : root.ITE.storyUi.anyPlayable() ? "已開放關卡全部完成" : "等待老師審核題目")
-          ),
-          h(
-            "button",
-            { class: "home-tile tile-dse", onclick: showStages },
-            h("span", { class: "tile-icon", html: icons.sword }),
-            h("span", { class: "tile-name" }, "DSE 挑戰"),
-            h("span", { class: "tile-sub" }, "A–E 世界・四個難度")
-          )
+          // Illustrated mode tiles (2026-11-01: the flat ones looked dull).
+          (() => {
+            const sum = root.ITE.storyUi.summary();
+            const pct = sum.total ? Math.round((sum.cleared / sum.total) * 100) : 0;
+            return h(
+              "button",
+              { class: "home-tile tile-story", onclick: () => root.ITE.storyUi.show() },
+              h("span", { class: "tile-art", html: TILE_ART.story }),
+              h("span", { class: "tile-title" }, "故事模式"),
+              h("span", { class: "tile-sub" }, next ? `下一關 ${next.id} ${next.name}` : root.ITE.storyUi.anyPlayable() ? "已開放關卡全部完成！" : "等待老師審核題目"),
+              sum.total
+                ? h("span", { class: "tile-progress", "aria-label": `完成 ${sum.cleared} / ${sum.total} 關` }, h("span", { class: "tile-progress-fill", style: `width:${pct}%` }), h("span", { class: "tile-progress-text" }, `${sum.cleared}/${sum.total}　★${sum.stars}`))
+                : null
+            );
+          })(),
+          (() => {
+            const cleared = Object.entries(save.stages).filter(([id, r]) => id.startsWith("dse-") && r.cleared).length;
+            return h(
+              "button",
+              { class: "home-tile tile-dse", onclick: showStages },
+              h("span", { class: "tile-art", html: TILE_ART.dse }),
+              h("span", { class: "tile-title" }, "DSE 挑戰"),
+              h("span", { class: "tile-sub" }, "5 世界・4 難度・UR 試煉"),
+              h("span", { class: "tile-progress" }, h("span", { class: "tile-progress-fill", style: `width:${Math.round((cleared / 20) * 100)}%` }), h("span", { class: "tile-progress-text" }, `已勝 ${cleared}/20 關`))
+            );
+          })()
         ),
         limited
           ? h(

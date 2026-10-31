@@ -313,5 +313,14 @@
     return !!bank && levels().some((l) => l.playable);
   }
 
-  root.ITE.storyUi = { show: showMap, nextLevel, anyPlayable, showIntro };
+  // For the home tile: cleared levels and stars so far.
+  function summary() {
+    if (!bank) return { cleared: 0, total: 0, stars: 0 };
+    const all = levels().filter((l) => l.playable);
+    const prog = progress();
+    const per = all.map((l) => St.levelProgress(prog, l.id));
+    return { cleared: per.filter((p) => p.cleared).length, total: all.length, stars: per.reduce((s, p) => s + p.stars, 0) };
+  }
+
+  root.ITE.storyUi = { show: showMap, nextLevel, anyPlayable, showIntro, summary };
 })(globalThis);
