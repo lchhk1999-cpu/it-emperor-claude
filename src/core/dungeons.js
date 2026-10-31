@@ -13,11 +13,12 @@
   const ITE = (root.ITE = root.ITE || {});
 
   const WORLDS = [
-    { id: "A", name: "資訊處理", topics: ["INFO_PROCESS", "DATA_REP", "EXCEL", "EXCEL_CHART", "DATABASE", "SQL", "MULTIMEDIA"], materials: ["MAT-EXCEL", "MAT-SQL"] },
-    { id: "B", name: "電腦系統基礎", topics: ["HARDWARE", "IO", "OS"], materials: ["MAT-HW"] },
-    { id: "C", name: "互聯網及其應用", topics: ["NET_DEVICE", "NET_CONCEPT", "SECURITY", "WEB"], materials: ["MAT-NET", "MAT-SEC"] },
-    { id: "D", name: "計算思維及程式編寫", topics: ["PY_BASIC", "PY_ADV"], materials: ["MAT-PY"] },
-    { id: "E", name: "資訊科技的社會影響", topics: ["SOCIAL"], materials: ["MAT-EXP"] },
+    // boss: the world's monster (art in src/ui/monsters.js).
+    { id: "A", name: "資訊處理", topics: ["INFO_PROCESS", "DATA_REP", "EXCEL", "EXCEL_CHART", "DATABASE", "SQL", "MULTIMEDIA"], materials: ["MAT-EXCEL", "MAT-SQL"], boss: "表格史萊姆" },
+    { id: "B", name: "電腦系統基礎", topics: ["HARDWARE", "IO", "OS"], materials: ["MAT-HW"], boss: "過熱 CPU 蟹" },
+    { id: "C", name: "互聯網及其應用", topics: ["NET_DEVICE", "NET_CONCEPT", "SECURITY", "WEB"], materials: ["MAT-NET", "MAT-SEC"], boss: "釣魚魚" },
+    { id: "D", name: "計算思維及程式編寫", topics: ["PY_BASIC", "PY_ADV"], materials: ["MAT-PY"], boss: "無限迴圈蛇" },
+    { id: "E", name: "資訊科技的社會影響", topics: ["SOCIAL"], materials: ["MAT-EXP"], boss: "假新聞鸚鵡" },
   ];
 
   // questions: preferred question difficulties (others fill in when a world has too few).
@@ -50,7 +51,7 @@
       questionCount: d.questionCount,
       topicIds: world.topics,
       questionDifficulties: d.questions,
-      boss: { name: "Bug 王", maxHp: bossHp(d.questionCount, d.hpFactor), attack: d.attack },
+      boss: { name: world.boss, maxHp: bossHp(d.questionCount, d.hpFactor), attack: d.attack },
       drops: { pick: world.materials, count: d.drops, extra: d.rare ? { [RARE_MATERIAL]: d.rare } : {} },
     };
   }
@@ -63,9 +64,11 @@
     const material = st && (gameData.materials || []).find((m) => m.id === st.material);
     if (!material) return null;
     const d = DIFFICULTIES[st.difficulty];
+    const world = worldOfTopic(st.topic);
     return {
       id: `limited-${event.id}`,
       kind: "limited",
+      world: world ? world.id : null,
       difficulty: st.difficulty,
       chapter: `今日限定｜${event.name}`,
       name: st.title,
@@ -74,9 +77,14 @@
       topicIds: st.topic === "ALL" ? null : [st.topic],
       questionDifficulties: d.questions,
       staminaCost: st.stamina || 0,
-      boss: { name: "Bug 王", maxHp: bossHp(st.questionCount, d.hpFactor), attack: d.attack },
+      boss: { name: world ? world.boss : "Bug 王", maxHp: bossHp(st.questionCount, d.hpFactor), attack: d.attack },
       drops: { pick: [], count: 0, extra: { [material.id]: LIMITED_DROPS[material.rarity] } },
     };
+  }
+
+  // The world a question topic belongs to, or null (e.g. "ALL").
+  function worldOfTopic(topic) {
+    return WORLDS.find((w) => w.topics.includes(topic)) || null;
   }
 
   function worldStages() {
@@ -117,5 +125,5 @@
     return out;
   }
 
-  ITE.dungeons = { WORLDS, DIFFICULTIES, DIFFICULTY_ORDER, LIMITED_DROPS, worldStages, limitedStage, allStages, stagePool, materialDrops };
+  ITE.dungeons = { WORLDS, DIFFICULTIES, DIFFICULTY_ORDER, LIMITED_DROPS, worldOfTopic, worldStages, limitedStage, allStages, stagePool, materialDrops };
 })(globalThis);

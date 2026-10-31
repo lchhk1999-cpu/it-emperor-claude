@@ -293,7 +293,7 @@
         h(
           "section",
           { class: "raid-hud" },
-          h("div", { class: `raid-sprite small ${feedback && r.correct ? "shake" : ""}`, html: root.ITE.sprites.raidBoss(feedback && r.correct ? "hurt" : "idle") }),
+          h("div", { class: `raid-sprite small ${feedback && r.correct ? "hit" : ""}`, html: root.ITE.sprites.raidBoss(feedback && r.correct ? "hurt" : "idle") }),
           h(
             "div",
             { class: "raid-hud-info" },

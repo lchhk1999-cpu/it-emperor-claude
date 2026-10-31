@@ -166,22 +166,22 @@
           showIntro.bind(null, runLevel.id),
           h("span", { class: "chip" }, `答對 ${solved} / ${run.questionCount}`)
         ),
-        h(
-          "section",
-          { class: "arena" },
-          h(
-            "div",
-            { class: "fighter boss" },
-            app.bar(isBoss ? "小 Boss" : "Bug 小兵", run.bossHp, run.bossMaxHp, "boss"),
-            h("div", { class: `sprite-wrap ${bossHit ? "shake" : ""}`, html: sprites.bugKing(bossHit ? "hurt" : heroMiss ? "smug" : "idle") }),
-            bossHit ? h("div", { class: "dmg-pop" }, `-${r.damage}`) : null
-          ),
-          h(
-            "div",
-            { class: "fighter hero" },
-            h("div", { class: "sprite-wrap", html: sprites.hero(heroMiss ? "speechless" : bossHit ? "happy" : "idle") })
-          )
-        ),
+        (() => {
+          // Each story world has its own monster and background; the mini-Boss wears a crown.
+          const look = root.ITE.scenes.forWorld(runLevel.world_id);
+          const leader = app.getSave().profile.team[0];
+          return app.arena({
+            theme: look.theme,
+            boss: {
+              label: isBoss ? `Boss・${look.name}` : look.name,
+              hp: run.bossHp,
+              max: run.bossMaxHp,
+              sprite: (e) => sprites.monster(look.monster, e, { tier: isBoss ? "medium" : "easy", crown: isBoss }),
+            },
+            hero: { sprite: (e) => (leader ? sprites.character(leader, e) : sprites.hero(e)), bar: null },
+            fx: bossHit ? { hit: "boss", damage: r.damage, combo: 0, ko: run.bossHp <= 0 } : heroMiss ? { hit: "hero", taken: 0 } : null,
+          });
+        })(),
         h(
           "section",
           { class: "question-card" },

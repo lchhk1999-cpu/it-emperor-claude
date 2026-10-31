@@ -258,7 +258,7 @@
           ? h(
               "button",
               { class: "limited-banner", onclick: () => startBattle(limited) },
-              h("span", { class: "limited-boss", html: sprites.bugKing("smug") }),
+              h("span", { class: "limited-boss", html: sprites.monster(root.ITE.scenes.forWorld(limited.world).monster, "smug", { tier: limited.difficulty }) }),
               h(
                 "span",
                 { class: "limited-info" },
@@ -298,7 +298,7 @@
     return h(
       "button",
       { class: `stage-card${stage.kind === "limited" ? " stage-limited" : ""}`, onclick: () => startBattle(stage) },
-      h("div", { class: "stage-boss", html: sprites.bugKing("smug") }),
+      h("div", { class: "stage-boss", html: sprites.monster(root.ITE.scenes.forWorld(stage.world).monster, "smug", { tier: stage.difficulty }) }),
       h(
         "div",
         { class: "stage-info" },
@@ -326,7 +326,12 @@
           h(
             "section",
             { class: "panel world-panel" },
-            h("h2", {}, `${w.id}｜${w.name}`),
+            h(
+              "div",
+              { class: "world-head" },
+              h("span", { class: "world-monster", html: sprites.monster(root.ITE.scenes.forWorld(w.id).monster, "smug") }),
+              h("div", {}, h("h2", {}, `${w.id}｜${w.name}`), h("p", { class: "hint" }, `Boss：${w.boss}`))
+            ),
             h("p", { class: "hint" }, `素材：${w.materials.map(matName).join("、")}`),
             h(
               "div",
@@ -508,24 +513,18 @@
           h("h1", {}, `第 ${s.index + 1} / ${s.deck.length} 題`),
           s.combo > 1 ? h("span", { class: "combo" }, `${s.combo} COMBO`) : h("span", {})
         ),
-        h(
-          "section",
-          { class: "arena" },
-          h(
-            "div",
-            { class: "fighter boss" },
-            bar(s.boss.name, s.boss.hp, s.boss.maxHp, "boss"),
-            h("div", { class: `sprite-wrap ${bossHit ? "shake" : ""}`, html: sprites.bugKing(bossHit ? "hurt" : heroHit ? "smug" : "idle") }),
-            bossHit ? h("div", { class: "dmg-pop" }, `-${r.damage}`) : null
-          ),
-          h(
-            "div",
-            { class: "fighter hero" },
-            h("div", { class: `sprite-wrap ${heroHit ? "shake" : ""}`, html: leaderSprite(s, heroHit ? "speechless" : bossHit ? "happy" : "idle") }),
-            heroHit ? h("div", { class: "dmg-pop dmg-hero" }, `-${r.taken}`) : null,
-            bar(s.team && s.team.length ? `我的隊伍（${s.team.length} 人）` : "我的隊伍", s.party.hp, s.party.maxHp, "party")
-          )
-        ),
+        (() => {
+          const look = stageLook(s.stageId);
+          return arena({
+            theme: look.theme,
+            boss: { label: s.boss.name, hp: s.boss.hp, max: s.boss.maxHp, sprite: (e) => sprites.monster(look.monster, e, { tier: look.tier }) },
+            hero: {
+              sprite: (e) => leaderSprite(s, e),
+              bar: bar(s.team && s.team.length ? `我的隊伍（${s.team.length} 人）` : "我的隊伍", s.party.hp, s.party.maxHp, "party"),
+            },
+            fx: bossHit ? { hit: "boss", damage: r.damage, combo: r.combo, ko: s.boss.hp <= 0 } : heroHit ? { hit: "hero", taken: r.taken } : null,
+          });
+        })(),
         h(
           "section",
           { class: "question-card" },
@@ -630,6 +629,50 @@
     persist();
   }
 
+  // Shared battle arena (DSE, story): themed background, monster, hero and the
+  // hit animations (user feedback 2026-10-31: more movement).
+  //   o.theme       background theme (ITE.scenes)
+  //   o.boss        { label, hp, max, sprite: (expr) => svg }
+  //   o.hero        { sprite: (expr) => svg, bar: element or null }
+  //   o.fx          null, or { hit: "boss", damage, combo, ko } or { hit: "hero", taken }
+  function arena(o) {
+    const fx = o.fx || {};
+    const bossHit = fx.hit === "boss";
+    const heroHit = fx.hit === "hero";
+    const bossExpr = bossHit ? "hurt" : heroHit ? "smug" : "idle";
+    const heroExpr = bossHit ? "happy" : heroHit ? "speechless" : "idle";
+    return h(
+      "section",
+      { class: `arena${heroHit ? " quake" : ""}` },
+      h("div", { class: "arena-scene", html: root.ITE.scenes.background(o.theme) }),
+      h(
+        "div",
+        { class: "fighter boss" },
+        bar(o.boss.label, o.boss.hp, o.boss.max, "boss"),
+        h("div", { class: `sprite-wrap${bossHit ? (fx.ko ? " ko" : " hit") : heroHit ? " lunge-right" : ""}`, html: o.boss.sprite(bossExpr) }),
+        bossHit ? h("div", { class: "impact", "aria-hidden": "true" }) : null,
+        bossHit ? h("div", { class: `dmg-pop${fx.combo >= 3 ? " big" : ""}` }, `-${fx.damage}`) : null,
+        bossHit && fx.combo >= 3 && !fx.ko ? h("div", { class: "combo-pop" }, `COMBO ×${fx.combo}!`) : null,
+        fx.ko ? h("div", { class: "ko-pop" }, "KO!") : null
+      ),
+      h(
+        "div",
+        { class: "fighter hero" },
+        h("div", { class: `sprite-wrap${bossHit ? " lunge-left" : heroHit ? " hit" : " breathe"}`, html: o.hero.sprite(heroExpr) }),
+        heroHit && fx.taken ? h("div", { class: "dmg-pop dmg-hero" }, `-${fx.taken}`) : null,
+        o.hero.bar || null
+      ),
+      bossHit ? h("div", { class: "bolt", "aria-hidden": "true" }, "</>") : null
+    );
+  }
+
+  // Theme and monster for a DSE stage: its world, else the IT lab and Bug 王.
+  function stageLook(stageId) {
+    const st = findStage(stageId);
+    const look = root.ITE.scenes.forWorld(st && st.world);
+    return { ...look, tier: (st && st.difficulty) || "easy" };
+  }
+
   function leaderSprite(state, expr) {
     const leader = state.team && state.team[0];
     return leader ? sprites.character(leader.id, expr) : sprites.hero(expr);
@@ -718,6 +761,7 @@
     bar,
     questionPool,
     buildMode: BUILD_MODE,
+    arena,
     sfx,
     showStages,
     online: ONLINE,
