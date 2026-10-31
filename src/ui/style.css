@@ -816,3 +816,29 @@ body[data-screen="guild"] { --page-bg: linear-gradient(180deg, #ebe2f8 0%, #fbf6
 .install-close { position: absolute; top: 6px; right: 8px; width: 34px; height: 34px; padding: 0; font-size: 22px; line-height: 1; color: var(--ink); background: none; border: none; cursor: pointer; }
 .install-guide .seg { margin-top: 8px; }
 .install-steps { margin: 10px 0 0; padding-left: 22px; font-size: 14px; line-height: 1.9; font-weight: 700; }
+/* 裝備欄及造型 (2026-11-01) */
+.geared { position: relative; display: block; }
+.geared > svg { width: 100%; height: auto; display: block; }
+.gear-badge { position: absolute; width: 38%; aspect-ratio: 1; background: #fff; border: 2px solid var(--ink); border-radius: 50%; padding: 4%; box-sizing: border-box; box-shadow: 0 2px 0 var(--ink); }
+.gear-badge svg { width: 100%; height: 100%; display: block; }
+.gear-slot-0 { left: -6%; bottom: 4%; }
+.gear-slot-1 { right: -6%; bottom: 4%; }
+.gear-slot-2 { right: -6%; top: 22%; }
+.equip-row { flex-wrap: wrap; }
+.equip-sprite { width: 64px; }
+.gear-slots { display: flex; gap: 8px; }
+.gear-slot { width: 48px; height: 48px; display: grid; place-items: center; padding: 5px; font: inherit; font-size: 22px; font-weight: 900; color: var(--muted); background: #fff; border: 2.5px dashed var(--ink); border-radius: 12px; cursor: pointer; box-sizing: border-box; }
+.gear-slot:not(.locked):has(.gear-slot-icon) { border-style: solid; }
+.gear-slot.open { outline: 3px solid var(--yellow); outline-offset: 2px; }
+.gear-slot.locked { font-size: 16px; opacity: 0.5; cursor: default; }
+.gear-slot-icon { width: 100%; height: 100%; }
+.gear-slot-icon svg { width: 100%; height: 100%; display: block; }
+.gear-picker { flex-basis: 100%; display: flex; flex-direction: column; gap: 6px; margin-top: 4px; padding: 8px; background: #fff8ea; border: 2px solid var(--line); border-radius: 14px; }
+.gear-option { display: flex; align-items: center; gap: 10px; padding: 6px 8px; font: inherit; text-align: left; color: var(--ink); background: #fff; border: 2px solid var(--ink); border-radius: 12px; cursor: pointer; }
+.gear-option.current { background: #fff1c9; }
+.gear-option-icon { width: 40px; flex: none; }
+.gear-option-icon svg { width: 100%; height: auto; display: block; }
+.gear-option-text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.gear-option-text .hint { margin: 0; }
+.gear-option-tag { font-size: 11px; font-weight: 800; color: var(--muted); white-space: nowrap; }
+.home .hero-stage .geared .gear-badge { width: 30%; }

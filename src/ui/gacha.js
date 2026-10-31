@@ -76,7 +76,7 @@
   }
 
   function miniArt(box) {
-    return box.type === "character" ? sprites.character(box.id, "idle") : EQUIP_ICON;
+    return box.type === "character" ? sprites.character(box.id, "idle") : root.ITE.gear.icon(box.id, 1);
   }
 
   function boxStage() {
@@ -139,7 +139,7 @@
       h("p", { class: "gacha-result-title" }, res.duplicate ? "已擁有" : "獲得！", res.pity ? "（保底）" : ""),
       isChar
         ? h("div", { class: "gacha-sprite", html: sprites.character(res.id, res.duplicate ? "idle" : "happy") })
-        : h("div", { class: "gacha-equip", html: EQUIP_ICON }),
+        : h("div", { class: "gacha-equip", html: root.ITE.gear.icon(res.id, 1) }),
       h(
         "p",
         { class: "gacha-name" },

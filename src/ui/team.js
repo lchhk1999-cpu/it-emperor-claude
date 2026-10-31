@@ -33,13 +33,13 @@
       const r = P.toggleMember(app.getSave().profile, id, data);
       if (r.error) return show(ERRORS[r.error] || "未能更改隊伍。");
       // Equipment follows the team: items of a removed member are returned.
-      const profile = { ...r.profile, equipment: root.ITE.equipment.cleanEquipment(r.profile.equipment || {}, r.profile.team, data) };
+      const profile = { ...r.profile, equipment: root.ITE.equipment.cleanEquipment(r.profile.equipment || {}, r.profile.team, data, r.profile.owned, r.profile) };
       app.setSave({ ...app.getSave(), profile });
       show();
     };
 
-    const equip = (characterId, equipmentId) => {
-      const r = root.ITE.equipment.assign(app.getSave().profile, characterId, equipmentId || null, data);
+    const equip = (characterId, equipmentId, slot) => {
+      const r = root.ITE.equipment.assign(app.getSave().profile, characterId, equipmentId || null, data, slot);
       if (r.error) return show("未能更換裝備。");
       app.setSave({ ...app.getSave(), profile: r.profile });
       show();
@@ -147,55 +147,84 @@
     );
   }
 
-  const EFFECT_TEXT = (e) => e.levels[0].text;
+  const E = root.ITE.equipment;
+  const tierOf = (profile, eid) => Math.min(3, root.ITE.growth ? root.ITE.growth.equipmentTier(profile, eid) : 1);
+  const effectText = (profile, e) => e.levels[tierOf(profile, e.id) - 1].text;
 
-  // Each team member holds one item (more slots need evolution, not built yet).
+  // Which slot's item list is open: { cid, slot } or null.
+  let picking = null;
+
+  // 裝備欄 (2026-11-01): 2 slots per member, a 3rd after the third evolution.
   function equipmentPanel(profile, team, equip) {
-    const map = profile.equipment || {};
+    const map = E.cleanEquipment(profile.equipment || {}, profile.team, data, profile.owned, profile);
     const usable = data.equipment.filter((e) => e.supported && profile.owned.equipment.includes(e.id));
-    const holderOf = (eid) => team.find((c) => map[c.id] === eid);
+    const holderOf = (eid) => team.find((c) => (map[c.id] || []).includes(eid));
+    const item = (eid) => data.equipment.find((e) => e.id === eid);
+    const rerender = () => show();
+
+    const picker = (c, slot, current) =>
+      h(
+        "div",
+        { class: "gear-picker", role: "listbox", "aria-label": `${c.name} 的第 ${slot + 1} 格` },
+        usable.length
+          ? usable.map((e) => {
+              const holder = holderOf(e.id);
+              const here = current === e.id;
+              return h(
+                "button",
+                { class: here ? "gear-option current" : "gear-option", role: "option", "aria-selected": here ? "true" : "false", onclick: () => ((picking = null), here ? rerender() : equip(c.id, e.id, slot)) },
+                h("span", { class: "gear-option-icon", html: root.ITE.gear.icon(e.id, tierOf(profile, e.id)) }),
+                h("span", { class: "gear-option-text" }, h("b", {}, e.name), h("span", { class: "hint" }, effectText(profile, e))),
+                h("span", { class: "gear-option-tag" }, here ? "使用中" : holder ? `${holder.name} 使用中` : "")
+              );
+            })
+          : h("p", { class: "hint" }, "未有裝備。可以在「抽蛋」取得。"),
+        current ? h("button", { class: "btn", onclick: () => ((picking = null), equip(c.id, null, slot)) }, "卸下") : null,
+        h("button", { class: "btn", onclick: () => ((picking = null), rerender()) }, "取消")
+      );
+
     return h(
       "section",
       { class: "panel" },
       h("h2", {}, "裝備"),
-      h("p", { class: "hint" }, "每位隊員可裝備 1 件（進化後可增至 3 件，未開放）。裝備只用於「DSE 題庫挑戰」。"),
-      h("p", { class: "hint" }, `已擁有裝備：${usable.map((e) => e.name).join("、") || "沒有"}（更多裝備可在「抽蛋」取得）`),
+      h("p", { class: "hint" }, "每位隊員有 2 個裝備格，角色第三階進化後開第 3 格。點格子揀裝備。裝備只用於「DSE 題庫挑戰」。"),
       team.map((c) => {
-        const select = h(
-          "select",
-          { class: "input equip-select", id: `eq-${c.id}`, "aria-label": `${c.name} 的裝備` },
-          h("option", { value: "" }, "（不裝備）"),
-          usable.map((e) => {
-            const holder = holderOf(e.id);
-            const label = holder && holder.id !== c.id ? `${e.name}（由 ${holder.name} 使用中）` : e.name;
-            const opt = h("option", { value: e.id }, label);
-            if (map[c.id] === e.id) opt.selected = true;
-            return opt;
-          })
-        );
-        select.addEventListener("change", () => equip(c.id, select.value));
-        const current = map[c.id] && data.equipment.find((e) => e.id === map[c.id]);
+        const mine = map[c.id] || [];
+        const slots = E.slotsFor(profile, c.id);
+        const cells = [0, 1, 2].map((i) => {
+          if (i >= slots) return h("span", { class: "gear-slot locked", title: "第三階進化後開放" }, "🔒");
+          const eid = mine[i];
+          const open = picking && picking.cid === c.id && picking.slot === i;
+          return h(
+            "button",
+            { class: open ? "gear-slot open" : "gear-slot", "aria-label": eid ? `第 ${i + 1} 格：${item(eid).name}` : `第 ${i + 1} 格：空`, onclick: () => ((picking = open ? null : { cid: c.id, slot: Math.min(i, mine.length) }), app.sfx("tap"), rerender()) },
+            eid ? h("span", { class: "gear-slot-icon", html: root.ITE.gear.icon(eid, tierOf(profile, eid)) }) : "＋"
+          );
+        });
+        const pick = picking && picking.cid === c.id ? picker(c, picking.slot, mine[picking.slot]) : null;
         return h(
           "div",
           { class: "equip-row" },
-          h("span", { class: "equip-sprite", html: sprites.character(c.id, "idle") }),
+          h("span", { class: "equip-sprite", html: root.ITE.gear.dressed(sprites.character(c.id, "idle"), mine.map((id) => ({ id, tier: tierOf(profile, id) }))) }),
           h(
             "div",
             { class: "equip-info" },
-            h("label", { class: "label", for: `eq-${c.id}` }, c.name),
-            select,
-            h("span", { class: "hint" }, current ? EFFECT_TEXT(current) : "未裝備")
-          )
+            h("span", { class: "label" }, c.name),
+            h("div", { class: "gear-slots" }, cells),
+            h("span", { class: "hint" }, mine.length ? mine.map((id) => `${item(id).name}：${effectText(profile, item(id))}`).join("；") : "未裝備")
+          ),
+          pick
         );
       }),
+      h("p", { class: "hint" }, `已擁有裝備：${usable.map((e) => e.name).join("、") || "沒有"}（更多裝備可在「抽蛋」取得）`),
       h(
         "p",
         { class: "hint" },
         "即將開放：",
-        data.equipment.filter((e) => !e.supported).map((e) => `${e.name}（${EFFECT_TEXT(e)}，需要限時戰鬥）`).join("、") || "沒有"
+        data.equipment.filter((e) => !e.supported).map((e) => `${e.name}（${e.levels[0].text}，用於魔王限時模式）`).join("、") || "沒有"
       )
     );
   }
 
-  root.ITE.teamUi = { show: () => show() };
+  root.ITE.teamUi = { show: () => ((picking = null), show()) };
 })(globalThis);

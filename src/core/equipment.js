@@ -1,6 +1,9 @@
-// Equipment (P3-09, PROTOTYPE). Definitions and level-1 effects come from the
-// workbook (ITE.gameData.equipment); evolution (levels 2-3, extra slots) is not
-// built yet, so each team member holds at most one item and uses level 1.
+// Equipment (P3-09, PROTOTYPE). Definitions and effects come from the workbook
+// (ITE.gameData.equipment); items evolve to tiers 2-3 in 培養.
+// 裝備欄 (user request 2026-11-01): each team member has 2 slots, and a 3rd once
+// that character reaches the third evolution. Each item is held by one member.
+// profile.equipment is { characterId: [equipmentId, ...] }; saves from before
+// slots hold a single id string, which is read as a one-item list.
 //
 // Applies to the DSE 題庫挑戰 only, like teams: story clears need every answer
 // and the guild raid is competitive (GameConfig pvp_stats_normalized).
@@ -12,50 +15,77 @@
 (function (root) {
   const ITE = (root.ITE = root.ITE || {});
 
-  const EQUIP_RULES = { healUsesPerBattle: 1 };
+  const EQUIP_RULES = { healUsesPerBattle: 1, baseSlots: 2, extraSlotEvo: 3 };
 
   function itemById(gameData, id) {
     return (gameData.equipment || []).find((e) => e.id === id) || null;
   }
 
-  // { [characterId]: equipmentId } limited to team members, supported (and,
-  // when `owned` is given, owned) items, and each item held by one member.
-  function cleanEquipment(map, team, gameData, owned) {
+  // Slots a team member has: 2, or 3 after the character's third evolution.
+  function slotsFor(profile, characterId) {
+    const evo = profile && ITE.growth ? ITE.growth.charGrowth(profile, characterId).evo : 0;
+    return EQUIP_RULES.baseSlots + (evo >= EQUIP_RULES.extraSlotEvo ? 1 : 0);
+  }
+
+  function itemsOf(value) {
+    return Array.isArray(value) ? value : typeof value === "string" ? [value] : [];
+  }
+
+  // Every equipped item id, in team order.
+  function equippedIds(map) {
+    return Object.values(map || {}).flatMap(itemsOf);
+  }
+
+  // { [characterId]: [equipmentId, ...] } limited to team members, their slot
+  // count, supported (and, when `owned` is given, owned) items, and each item
+  // held by one member. `profile` (optional) gives evolution for the 3rd slot.
+  function cleanEquipment(map, team, gameData, owned, profile) {
     const out = {};
     const used = new Set();
     for (const cid of team) {
-      const eid = map && map[cid];
-      const item = eid && itemById(gameData, eid);
-      if (item && item.supported && !used.has(eid) && (!owned || owned.equipment.includes(eid))) {
-        out[cid] = eid;
-        used.add(eid);
+      const list = [];
+      for (const eid of itemsOf(map && map[cid])) {
+        const item = itemById(gameData, eid);
+        if (item && item.supported && !used.has(eid) && (!owned || owned.equipment.includes(eid)) && list.length < slotsFor(profile, cid)) {
+          list.push(eid);
+          used.add(eid);
+        }
       }
+      if (list.length) out[cid] = list;
     }
     return out;
   }
 
-  // Gives the item to a team member (taking it from whoever had it), or clears
-  // that member's slot when equipmentId is null.
-  function assign(profile, characterId, equipmentId, gameData) {
+  // Puts the item on a team member (taking it from whoever had it). With a full
+  // member, `slot` (default: the last) is replaced. equipmentId null clears
+  // `slot`, or every slot of that member when no slot is given.
+  function assign(profile, characterId, equipmentId, gameData, slot) {
     if (!profile.team.includes(characterId)) return { profile, error: "not_in_team" };
-    const map = { ...(profile.equipment || {}) };
+    const map = {};
+    for (const [k, v] of Object.entries(profile.equipment || {})) map[k] = itemsOf(v).slice();
+    const mine = map[characterId] || [];
     if (equipmentId === null) {
-      delete map[characterId];
+      map[characterId] = Number.isInteger(slot) ? mine.filter((_, i) => i !== slot) : [];
     } else {
       const item = itemById(gameData, equipmentId);
       if (!item) return { profile, error: "unknown_equipment" };
       if (!item.supported) return { profile, error: "not_supported" };
       if (profile.owned && !profile.owned.equipment.includes(equipmentId)) return { profile, error: "not_owned" };
-      for (const k of Object.keys(map)) if (map[k] === equipmentId) delete map[k];
-      map[characterId] = equipmentId;
+      if (mine.includes(equipmentId)) return { profile, error: null };
+      for (const k of Object.keys(map)) map[k] = map[k].filter((x) => x !== equipmentId);
+      const list = map[characterId] || [];
+      const max = slotsFor(profile, characterId);
+      if (list.length < max && !(Number.isInteger(slot) && slot < list.length)) list.push(equipmentId);
+      else list[Number.isInteger(slot) && slot < list.length ? slot : list.length - 1] = equipmentId;
+      map[characterId] = list;
     }
-    return { profile: { ...profile, equipment: cleanEquipment(map, profile.team, gameData, profile.owned) }, error: null };
+    return { profile: { ...profile, equipment: cleanEquipment(map, profile.team, gameData, profile.owned, profile) }, error: null };
   }
 
   // Snapshot for battle state: [{ id, name, type, holder, tier, ...effect of the item's tier }].
   function battleLoadout(profile, gameData) {
-    const map = cleanEquipment(profile.equipment || {}, profile.team, gameData, profile.owned);
-    return Object.entries(map).map(([holder, eid]) => {
+    const map = cleanEquipment(profile.equipment || {}, profile.team, gameData, profile.owned, profile);
+    return Object.entries(map).flatMap(([holder, ids]) => ids.map((eid) => [holder, eid])).map(([holder, eid]) => {
       const item = itemById(gameData, eid);
       const tier = Math.min(item.levels.length, ITE.growth ? ITE.growth.equipmentTier(profile, eid) : 1);
       const effect = { ...item.levels[tier - 1] };
@@ -137,6 +167,9 @@
   ITE.equipment = {
     EQUIP_RULES,
     itemById,
+    slotsFor,
+    itemsOf,
+    equippedIds,
     cleanEquipment,
     assign,
     battleLoadout,

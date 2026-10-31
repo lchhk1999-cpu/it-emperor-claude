@@ -1,8 +1,8 @@
 # 遊戲資料匯入報告（自動產生）
 
 - 來源檔案：`IT_Emperor_DseMcQs.xlsx`
-- SHA-256：`f50eab4ec1846c0c2d20b9c453d2f4dfbe20e9af49552ce23c178d8056d9406a`
-- 匯入時間：2026-10-31T10:01:27Z
+- SHA-256：`75d4703b665c7c975ace7cea64adb94816ebe84d6191336cb613e6639a0cdcd7`
+- 匯入時間：2026-10-31T16:39:57Z
 - 工作表：`Characters`、`GameConfig`、`Missions`、`Titles`、`Equipment`、`Pools`、`Materials`、`Stages`、`Events`（Topics 用作檢查課題）
 
 ## 角色
@@ -97,9 +97,9 @@
 | ID | 名稱 | 類型 | 第 1 階 | 解讀數值 | 遊戲支援 |
 |---|---|---|---|---|---|
 | EQ-AI | AI 模型 | hint | 刪去 1 個錯誤選項；冷卻 6 題 | remove=1、cooldown=6 | ✅ |
-| EQ-EYEDROP | 眼藥水 | healing | 回復 10 HP | heal=10 | ✅ |
+| EQ-EYEDROP | 眼藥水 | healing | 回復 20 HP | heal=20 | ✅ |
 | EQ-COMPUTER | 電腦 | damage | 冷卻 6 題：額外傷害 40 | cooldown=6、bonus=40 | ✅ |
-| EQ-ANTIVIRUS | 防毒軟件 | defense | 受傷害 -10% | reduce_pct=10 | ✅ |
+| EQ-ANTIVIRUS | 防毒軟件 | defense | 受傷害 -15% | reduce_pct=15 | ✅ |
 | EQ-GLASSES | 眼鏡 | time | 每題 +3 秒 | seconds=3 | ❌ 即將開放 |
 
 ## 抽蛋池（只用免費寶石）

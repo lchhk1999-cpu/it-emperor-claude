@@ -52,7 +52,7 @@
     const known = (ids, list) => ids.filter((id, i) => ids.indexOf(id) === i && list.some((x) => x.id === id));
     const base = profile.owned || {
       characters: [s.character].concat(profile.team || []),
-      equipment: (s.equipment ? [s.equipment] : []).concat(Object.values(profile.equipment || {})),
+      equipment: (s.equipment ? [s.equipment] : []).concat(Object.values(profile.equipment || {}).flat()),
     };
     return {
       ...profile,

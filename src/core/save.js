@@ -115,7 +115,14 @@
     const team = Array.isArray(raw.team) ? raw.team.filter(isText).filter((id, i, a) => a.indexOf(id) === i).slice(0, 10) : [];
     const equipment = {};
     if (raw.equipment && typeof raw.equipment === "object" && !Array.isArray(raw.equipment)) {
-      for (const [k, v] of Object.entries(raw.equipment)) if (isText(v)) equipment[k] = v;
+      // A single id (before 裝備欄) or a list of up to 3 ids.
+      for (const [k, v] of Object.entries(raw.equipment)) {
+        if (isText(v)) equipment[k] = v;
+        else if (Array.isArray(v)) {
+          const ids = v.filter(isText).filter((id, i, a) => a.indexOf(id) === i).slice(0, 3);
+          if (ids.length) equipment[k] = ids;
+        }
+      }
     }
     const out = { level: int(raw.level, 1), exp: int(raw.exp, 0), coins: int(raw.coins, 0), gems: int(raw.gems, 0), team, equipment };
     if (raw.name !== undefined) {

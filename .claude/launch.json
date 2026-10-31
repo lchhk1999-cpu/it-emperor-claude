@@ -1,0 +1,1 @@
+{"version":"0.0.1","configurations":[{"name":"web","runtimeExecutable":"sh","runtimeArgs":["-c","cd /private/tmp/claude-501/-Users-lchj--claude-spares-spare-5nh5oQ/2f6be5a8-9d46-45f0-855a-baecc094e13d/scratchpad/web && exec python3 -m http.server 8769"],"port":8769}]}

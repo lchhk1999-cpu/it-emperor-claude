@@ -5,8 +5,8 @@
   ITE.gameData = {
  "meta": {
   "source_file": "IT_Emperor_DseMcQs.xlsx",
-  "source_sha256": "f50eab4ec1846c0c2d20b9c453d2f4dfbe20e9af49552ce23c178d8056d9406a",
-  "imported_at": "2026-10-31T10:01:27Z",
+  "source_sha256": "75d4703b665c7c975ace7cea64adb94816ebe84d6191336cb613e6639a0cdcd7",
+  "imported_at": "2026-10-31T16:39:57Z",
   "characters": 31,
   "missions": 5,
   "titles": 22,
@@ -649,16 +649,16 @@
    "type": "healing",
    "levels": [
     {
-     "heal": 10,
-     "text": "回復 10 HP"
+     "heal": 20,
+     "text": "回復 20 HP"
     },
     {
-     "heal": 16,
-     "text": "回復 16 HP"
+     "heal": 28,
+     "text": "回復 28 HP"
     },
     {
-     "heal": 22,
-     "text": "回復 22 HP"
+     "heal": 36,
+     "text": "回復 36 HP"
     }
    ],
    "supported": true
@@ -692,16 +692,16 @@
    "type": "defense",
    "levels": [
     {
-     "reduce_pct": 10,
-     "text": "受傷害 -10%"
-    },
-    {
      "reduce_pct": 15,
      "text": "受傷害 -15%"
     },
     {
-     "reduce_pct": 20,
-     "text": "受傷害 -20%"
+     "reduce_pct": 22,
+     "text": "受傷害 -22%"
+    },
+    {
+     "reduce_pct": 30,
+     "text": "受傷害 -30%"
     }
    ],
    "supported": true

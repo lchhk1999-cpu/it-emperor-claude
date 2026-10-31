@@ -37,7 +37,7 @@
   {
     const base = P.ensureOwned(save.profile || P.defaultProfile(gameData), gameData);
     const team = P.cleanTeam(base.team, base.level, gameData, base.owned);
-    const equipment = root.ITE.equipment.cleanEquipment(base.equipment || {}, team, gameData, base.owned);
+    const equipment = root.ITE.equipment.cleanEquipment(base.equipment || {}, team, gameData, base.owned, base);
     save = { ...save, profile: { ...base, team, equipment } };
   }
   const Mi = root.ITE.missions;
@@ -253,7 +253,7 @@
           next
             ? h("button", { class: "speech", onclick: () => root.ITE.storyUi.showIntro(next.id) }, `繼續學習：${next.id} ${next.name}`)
             : h("p", { class: "speech" }, "答啱 ICT 題，打倒 Bug 王！"),
-          h("div", { class: "hero-stage", html: leader ? sprites.character(leader, "happy") : sprites.hero("idle") }),
+          h("div", { class: "hero-stage", html: leader ? homeLeaderSprite(leader) : sprites.hero("idle") }),
           h("div", { class: "hero-shadow" })
         ),
         resume ? h("button", { class: "btn btn-primary resume", onclick: resumeBattle }, "繼續 DSE 挑戰") : null,
@@ -714,9 +714,20 @@
     return { ...look, tier: (st && st.difficulty) || "easy" };
   }
 
+  // The leader wears its equipment in battle (裝備造型, 2026-11-01).
   function leaderSprite(state, expr) {
     const leader = state.team && state.team[0];
-    return leader ? sprites.character(leader.id, expr) : sprites.hero(expr);
+    if (!leader) return sprites.hero(expr);
+    const items = (state.loadout || []).filter((x) => x.holder === leader.id).map((x) => ({ id: x.id, tier: x.tier }));
+    return root.ITE.gear ? root.ITE.gear.dressed(sprites.character(leader.id, expr), items) : sprites.character(leader.id, expr);
+  }
+
+  // Home: the leader with its equipped items.
+  function homeLeaderSprite(leader) {
+    const p = save.profile;
+    const ids = root.ITE.equipment.itemsOf((p.equipment || {})[leader]);
+    const items = ids.map((id) => ({ id, tier: Math.min(3, root.ITE.growth ? root.ITE.growth.equipmentTier(p, id) : 1) }));
+    return root.ITE.gear ? root.ITE.gear.dressed(sprites.character(leader, "happy"), items) : sprites.character(leader, "happy");
   }
 
   // Adds a reward to the profile, saves, and returns what to show the player.
