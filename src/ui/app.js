@@ -195,19 +195,22 @@
     return h(
       "header",
       { class: "status-bar" },
-      p.name || title
-        ? h("div", { class: "name-row" }, p.name ? h("span", { class: "player-name" }, p.name) : null, title ? h("span", { class: "title-badge" }, title.name) : null)
-        : null,
+      // Kept to two rows (user 2026-11-01: the old four-row bar pushed the
+      // stage buttons below the fold).
       h(
         "div",
         { class: "status-row" },
         h("span", { class: "lv" }, `Lv ${p.level}`),
-        h("span", { class: "status-spacer" }),
+        h(
+          "span",
+          { class: "status-who" },
+          p.name ? h("span", { class: "player-name" }, p.name) : null,
+          title ? h("span", { class: "title-badge" }, title.name) : null
+        ),
         h("span", { class: "currency", "aria-label": `金幣 ${p.coins}` }, h("span", { class: "cur-icon", html: icons.coin }), String(p.coins)),
         h("span", { class: "currency", "aria-label": `寶石 ${p.gems || 0}` }, h("span", { class: "cur-icon", html: icons.gem }), String(p.gems || 0))
       ),
-      meter("經驗", p.exp, need, "fill-exp"),
-      meter("體力", st.value, st.max, "fill-stamina")
+      h("div", { class: "meter-row" }, meter("經驗", p.exp, need, "fill-exp"), meter("體力", st.value, st.max, "fill-stamina"))
     );
   }
 

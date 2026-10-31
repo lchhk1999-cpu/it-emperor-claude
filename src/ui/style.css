@@ -786,3 +786,27 @@ body[data-screen="guild"] { --page-bg: linear-gradient(180deg, #ebe2f8 0%, #fbf6
 @media (prefers-reduced-motion: reduce) {
   .blind-box, .blind-box.box-jiggle, .blind-box.box-burst, .reveal-cell { animation: none !important; }
 }
+/* Home status bar in two rows (2026-11-01) */
+.status-bar { gap: 6px; padding: 8px 12px; }
+.status-row { gap: 6px; }
+.status-who { flex: 1; min-width: 0; display: flex; align-items: center; gap: 6px; overflow: hidden; }
+.status-who .player-name { flex: 0 1 auto; min-width: 0; font-size: 15px; }
+.status-who .title-badge { flex: 0 1 auto; min-width: 0; margin: 0; font-size: 12px; padding: 0 8px; }
+.meter-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.meter-row .meter { grid-template-columns: auto 1fr auto; gap: 4px; font-size: 11px; }
+.meter-row .meter-num { min-width: 0; }
+.meter-row .meter-track { height: 8px; }
+/* Shorter home scene so the 故事模式／DSE 挑戰 buttons sit higher (2026-11-01). */
+.home-stage { min-height: 250px; margin-top: 8px; padding-top: 10px; }
+.home .hero-stage { width: 150px; margin-top: 4px; }
+.side-chips { gap: 24px; }
+.side-chip { width: 48px; height: 48px; }
+@media (max-height: 740px) {
+  .home-stage { min-height: 212px; }
+  .home .hero-stage { width: 118px; }
+  .home .hero-shadow { width: 100px; }
+  .side-chips { top: 10px; gap: 20px; }
+  .side-chip { width: 42px; height: 42px; border-radius: 13px; }
+  .chip-icon svg { width: 22px; height: 22px; }
+  .chip-label { bottom: -18px; font-size: 11px; }
+}
