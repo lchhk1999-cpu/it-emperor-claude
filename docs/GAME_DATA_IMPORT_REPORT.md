@@ -1,8 +1,8 @@
 # 遊戲資料匯入報告（自動產生）
 
 - 來源檔案：`IT_Emperor_DseMcQs.xlsx`
-- SHA-256：`e51c1864d303b4546e8eea702e6d228f141c2a3b3c5bf79aad61516f8d6e356e`
-- 匯入時間：2026-10-31T09:43:35Z
+- SHA-256：`f50eab4ec1846c0c2d20b9c453d2f4dfbe20e9af49552ce23c178d8056d9406a`
+- 匯入時間：2026-10-31T10:01:27Z
 - 工作表：`Characters`、`GameConfig`、`Missions`、`Titles`、`Equipment`、`Pools`、`Materials`、`Stages`、`Events`（Topics 用作檢查課題）
 
 ## 角色
@@ -71,6 +71,24 @@
 | T-EXCEL | 公式達人 | topic_correct | 100 | EXCEL | ✅ |
 | T-SQL | JOIN 大師 | sql_join_correct | 100 | — | ✅ |
 | T-PVP | 競技王者 | season_rank | 100 | — | ❌ 即將開放 |
+| T-WORLD-A | 資訊處理達人 | world_correct | 30 | A | ✅ |
+| T-WORLD-B | 硬件工匠 | world_correct | 30 | B | ✅ |
+| T-WORLD-C | 網絡守護者 | world_correct | 30 | C | ✅ |
+| T-WORLD-D | 程式魔法師 | world_correct | 30 | D | ✅ |
+| T-WORLD-E | 社會觀察家 | world_correct | 30 | E | ✅ |
+| T-STREAK10 | 穩打穩紮 | best_streak | 10 | — | ✅ |
+| T-STREAK20 | 無錯神手 | best_streak | 20 | — | ✅ |
+| T-CORRECT200 | 勤學小兵 | total_correct | 200 | — | ✅ |
+| T-CORRECT500 | ICT 學霸 | total_correct | 500 | — | ✅ |
+| T-CORRECT1000 | IT 帝王 | total_correct | 1000 | — | ✅ |
+| T-ULTIMATE | 究極挑戰者 | ultimate_clear | 1 | — | ✅ |
+| T-ALLSTAGES | 全制霸 | all_world_stages | 20 | — | ✅ |
+| T-STORY | 故事完結者 | story_complete | 43 | — | ✅ |
+| T-CHECKIN7 | 每日報到 | checkin_days | 7 | — | ✅ |
+| T-CHECKIN30 | 全勤之星 | checkin_days | 30 | — | ✅ |
+| T-EVOLVE | 進化大師 | evolve_max | 1 | — | ✅ |
+| T-COLLECT | 收藏家 | own_characters | 20 | — | ✅ |
+| T-DRILL | 操練狂人 | drill_answers | 100 | — | ✅ |
 
 註：`Titles` 表沒有課題欄，`topic_correct` 稱號的課題取自 title_id 後綴（例如 T-EXCEL → EXCEL）。建議在 Excel 加入明確的 topic_id 欄。
 
