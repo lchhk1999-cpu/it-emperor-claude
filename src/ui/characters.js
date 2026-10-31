@@ -54,7 +54,8 @@
           : `<ellipse cx="22" cy="58" rx="12" ry="24" fill="${v.ear}" stroke="${INK}" stroke-width="3" transform="rotate(14 22 58)"/><ellipse cx="110" cy="58" rx="12" ry="24" fill="${v.ear}" stroke="${INK}" stroke-width="3" transform="rotate(-14 110 58)"/>`;
       const mask = v.mask ? `<path d="M40 78 Q42 56 58 52 L66 66 L74 52 Q90 56 92 78 Q66 104 40 78Z" fill="#ffffff"/>` : "";
       // 機械老虎狗 = a mecha bulldog (user, 2026-10-31: "老虎狗是類似八哥的嗰款"):
-      // wide flat face, forehead wrinkles, droopy jowls with an underbite.
+      // wide flat face, forehead wrinkles, droopy jowl lines and an underbite
+      // (no white muzzle patch — the user read it as a mouth cover).
       const head = v.bulldog
         ? `<ellipse cx="66" cy="60" rx="47" ry="40" fill="${v.fur}" stroke="${INK}" stroke-width="3"/>`
         : `<circle cx="66" cy="58" r="42" fill="${v.fur}" stroke="${INK}" stroke-width="3"/>`;
@@ -62,8 +63,8 @@
         ? `<g stroke="${INK}" stroke-width="2.5" stroke-linecap="round" fill="none"><path d="M54 36 Q66 31 78 36"/><path d="M58 43 Q66 39 74 43"/></g>`
         : "";
       const muzzle = v.bulldog
-        ? `<path d="M30 74 Q24 114 54 110 Q66 104 78 110 Q108 114 102 74 Q84 90 66 84 Q48 90 30 74Z" fill="${v.jowl}" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/>
-           <path d="M56 100 L58 90 L61 100 M71 100 L74 90 L76 100" fill="#ffffff" stroke="${INK}" stroke-width="1.8" stroke-linejoin="round"/>
+        ? `<path d="M36 78 Q34 100 54 100 Q66 96 78 100 Q98 100 96 78" fill="none" stroke="${INK}" stroke-width="2.5" stroke-linecap="round"/>
+           <path d="M57 96 L59 88 L62 96 M70 96 L73 88 L75 96" fill="#ffffff" stroke="${INK}" stroke-width="1.8" stroke-linejoin="round"/>
            <ellipse cx="66" cy="76" rx="10" ry="6" fill="${INK}"/><ellipse cx="63" cy="74" rx="3" ry="1.6" fill="#ffffff" opacity="0.7"/>`
         : `<ellipse cx="66" cy="82" rx="18" ry="13" fill="#fbf0e2" stroke="${INK}" stroke-width="2.5"/>
       <ellipse cx="66" cy="76" rx="6" ry="4.5" fill="${INK}"/>`;
@@ -77,7 +78,7 @@
              <path d="M26 126 L30 140 L34 126Z M98 126 L102 140 L106 126Z" fill="#8fc3e8" class="thrust"/>
            </g>
            <ellipse cx="66" cy="122" rx="32" ry="24" fill="${v.fur}" stroke="${INK}" stroke-width="3"/>
-           <path d="M54 102 Q66 100 78 102 Q80 128 66 140 Q52 128 54 102Z" fill="#fbf0e2"/>
+           <path d="M54 112 Q66 110 78 112 Q80 130 66 140 Q52 130 54 112Z" fill="#fbf0e2"/>
            <rect x="36" y="112" width="14" height="18" rx="3" fill="${METAL}" stroke="${INK}" stroke-width="2"/>
            <g fill="${INK}"><circle cx="40" cy="116" r="1.5"/><circle cx="46" cy="116" r="1.5"/><circle cx="40" cy="126" r="1.5"/><circle cx="46" cy="126" r="1.5"/></g>
            <circle cx="66" cy="120" r="8" fill="#8fc3e8" stroke="${INK}" stroke-width="2.5"/><circle cx="66" cy="120" r="3.5" fill="#ffffff"/>
@@ -90,7 +91,7 @@
       <rect x="71" y="138" width="13" height="20" rx="6" fill="${v.fur}" stroke="${INK}" stroke-width="3"/>`;
       // Bolted collar and a cyber eye over the right eye (drawn over the face).
       const collar = v.bulldog
-        ? `<rect x="38" y="94" width="56" height="11" rx="5" fill="${METAL}" stroke="${INK}" stroke-width="2.5"/><g fill="#f4d36b" stroke="${INK}" stroke-width="1.5"><circle cx="48" cy="99.5" r="2.5"/><circle cx="66" cy="99.5" r="2.5"/><circle cx="84" cy="99.5" r="2.5"/></g>`
+        ? `<rect x="40" y="103" width="52" height="9" rx="4.5" fill="${METAL}" stroke="${INK}" stroke-width="2.5"/><g fill="#f4d36b" stroke="${INK}" stroke-width="1.5"><circle cx="50" cy="107.5" r="2.2"/><circle cx="66" cy="107.5" r="2.2"/><circle cx="82" cy="107.5" r="2.2"/></g>`
         : "";
       const cyberEye = v.bulldog
         ? `<path d="M70 48 Q84 42 100 50 L100 70 Q86 74 72 70Z" fill="${METAL}" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/>
@@ -317,7 +318,7 @@
     "CH-ITDOG-HUSKY": ["dog", { fur: "#a9adbb", ear: "#7d8394", ears: "point", mask: true, eye: "#4a8cc4", hoodie: "#8fc3e8", phones: "#ffffff", tail: "#9fd4b4" }],
     "CH-ITDOG-GOLDEN": ["dog", { fur: "#e8c27a", ear: "#c99a45", glasses: true, hoodie: "#ee8b7a", phones: "#f4d36b", tail: "#9fd4b4" }],
     // SSR 機械老虎狗: a mecha bulldog (redesigned 2026-10-31; was a silver robot dog).
-    "CH-ITDOG-MECHA": ["dog", { fur: "#e3b27a", ear: "#a8743f", ears: "rose", bulldog: true, jowl: "#fbf0e2", mecha: true, eye: "#d2553f", phones: "#c9ced8", tail: "#e3b27a", heroic: { aura: "#f2a541" } }],
+    "CH-ITDOG-MECHA": ["dog", { fur: "#e3b27a", ear: "#a8743f", ears: "rose", bulldog: true, mecha: true, eye: "#d2553f", phones: "#c9ced8", tail: "#e3b27a", heroic: { aura: "#f2a541" } }],
     // 數據庫師
     "CH-DB-JR": ["db", { coat: "#ffffff", hair: INK, beret: "#9fd4b4", db: "#c9e2f4", dbTop: "#e6eff8" }],
     "CH-DB": ["db", { coat: "#ffffff", hair: INK, beret: "#8fc3e8", db: "#8fc3e8", dbTop: "#c9e2f4" }],
