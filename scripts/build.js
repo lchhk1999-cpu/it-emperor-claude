@@ -9,6 +9,8 @@
 const args = typeof scriptArgs !== "undefined" ? scriptArgs : arguments;
 const mode = args[0] || "dev";
 const edition = args[1] || "online";
+// "demo" (老師示範版): release content with a rich starting profile (src/core/demo.js).
+const demo = args[2] === "demo";
 if (mode !== "dev" && mode !== "release") throw new Error(`unknown build mode: ${mode}`);
 if (edition !== "online" && edition !== "offline") throw new Error(`unknown edition: ${edition}`);
 const ONLINE_ONLY = ["src/ui/guild.js", "src/data/demo_guilds.js"];
@@ -25,6 +27,6 @@ html = html.replace(/<script src="([^"]+)"><\/script>/g, (_, src) => {
 });
 html = html.replace(
   "<body>",
-  `<body>\n<script>(globalThis.ITE = globalThis.ITE || {}).BUILD_MODE = ${JSON.stringify(mode)}; ITE.EDITION = ${JSON.stringify(edition)};</script>`
+  `<body>\n<script>(globalThis.ITE = globalThis.ITE || {}).BUILD_MODE = ${JSON.stringify(mode)}; ITE.EDITION = ${JSON.stringify(edition)};${demo ? " ITE.DEMO = true;" : ""}</script>`
 );
 print(html);

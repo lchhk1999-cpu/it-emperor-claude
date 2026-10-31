@@ -5,6 +5,7 @@
 #  3. Release bundle contains no dev samples and no non-approved questions
 #  4. 單機版 bundles contain no guild screen; the online edition does
 #  5. The web version (加到主畫面) builds with its manifest, icons and offline worker
+#  6. The 老師示範版 build is flagged and holds approved questions only
 set -e
 cd "$(dirname "$0")/.."
 ./scripts/jsc.sh tests/run.js
@@ -51,9 +52,21 @@ echo "✓ editions: 單機版 has no guild; online edition keeps it"
 for f in index.html manifest.webmanifest sw.js icon-192.png icon-512.png apple-touch-icon.png; do
   [ -s "dist/web/$f" ] || { echo "✗ web version is missing $f"; exit 1; }
 done
-grep -q "__BUILD__" dist/web/sw.js && { echo "✗ web worker cache name was not stamped"; exit 1; }
+grep -q "__BUILD__\|__KIND__" dist/web/sw.js && { echo "✗ web worker cache name was not stamped"; exit 1; }
 sed -n '/<body>/,$p' dist/web/index.html > dist/.web-body
 sed -n '/<body>/,$p' dist/it-emperor-release.html > dist/.release-body
 cmp -s dist/.web-body dist/.release-body || { echo "✗ web version is not the release build"; exit 1; }
 rm -f dist/.web-body dist/.release-body
 echo "✓ web version: release build with manifest, icons and offline worker"
+# 6. 老師示範版: release questions only, flagged as demo; the normal builds are not.
+./scripts/build.sh demo > /dev/null
+grep -q "ITE.DEMO = true" dist/it-emperor-demo.html || { echo "✗ demo build is not flagged"; exit 1; }
+for f in dist/it-emperor-release.html dist/web/index.html; do
+  grep -q "ITE.DEMO = true" "$f" && { echo "✗ $f is flagged as the demo"; exit 1; }
+done
+if grep -q "DEV-0\|devSampleQuestions = \[\|\"source_note\"" dist/it-emperor-demo.html || grep -q '"review_status": "\(review\|draft\|rejected\)"' dist/it-emperor-demo.html; then
+  echo "✗ demo build has dev samples, source notes or unapproved questions"; exit 1
+fi
+./scripts/build-web.sh demo > /dev/null
+grep -q '"short_name": "IT帝 示範"' dist/web-demo/manifest.webmanifest || { echo "✗ demo web manifest name"; exit 1; }
+echo "✓ demo: approved questions only; normal builds are not demo"

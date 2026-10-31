@@ -495,3 +495,8 @@
 - **Branch:** `feat/name-splash-blindbox`
 - **What changed:** `data/question_bank/teacher_reviews.csv`（129 approved）；重新匯入故事題庫；審閱紀錄補充
 - **Verification (actual):** 自動檢查及 3 題程式執行；129 題逐題審閱無錯；`./scripts/test.sh` 全部通過（release 1236 題全部 approved）；瀏覽器開正式版：故事 A-01 顯示「挑戰！」並可作答，沒有「等待老師審核」
+
+## Run 50 — 2026-11-01：老師示範版
+- **Branch:** `feat/teacher-demo`（PR #39 已合併，本機 main 已同步）
+- **What changed:** `src/core/demo.js`；`app.js`（示範存檔、橫額）、`story.js`（全部開放）、`settings.js`（重設）；`build.js`／`build.sh demo`、`build-web.sh demo`；sw.js 快取分開；`tests/demo.test.js`；test.sh 第 6 項
+- **Verification (actual):** `./scripts/test.sh` 全部通過（JS 194、Python OK、正式版／版本／網頁版／示範版檢查）；瀏覽器開 `dist/web-demo`：Lv 30、99999 金幣、33 角色、UR 領隊、故事 A–E 全部開放、重設可用，同機正式版存檔不受影響

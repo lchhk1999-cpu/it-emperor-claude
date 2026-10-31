@@ -954,3 +954,4 @@ body[data-screen="guild"] { --page-bg: linear-gradient(180deg, #ebe2f8 0%, #fbf6
   .home-tile::after, .tile-flag, .tile-twinkle, .tile-monster, .tile-bolt, .tile-spark { animation: none; }
   .tile-spark { opacity: 1; }
 }
+.demo-banner { background: #e0d5f0; border-color: #6e589a; }

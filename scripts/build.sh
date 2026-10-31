@@ -1,6 +1,6 @@
 #!/bin/sh
 # Builds one self-contained playable file.
-#   ./scripts/build.sh [dev|release] [online|offline]
+#   ./scripts/build.sh [dev|release|demo] [online|offline]
 #   mode:    dev = labelled test questions; release = approved questions only
 #   edition: online = with 校際公會 (and later friends / leaderboard);
 #            offline = 單機版, no guild (user decision 2026-10-31: ship offline first)
@@ -9,10 +9,18 @@
 #   dev offline     -> dist/it-emperor-offline.html
 #   release offline -> dist/it-emperor-release.html
 #   release online  -> dist/it-emperor-release-online.html
+#   demo            -> dist/it-emperor-demo.html (老師示範版: release questions,
+#                      單機版, rich starting profile, every story level open)
 set -e
 cd "$(dirname "$0")/.."
 MODE="${1:-dev}"
 EDITION="${2:-}"
+if [ "$MODE" = "demo" ]; then
+  mkdir -p dist
+  ./scripts/jsc.sh scripts/build.js -- release offline demo > dist/it-emperor-demo.html
+  echo "built dist/it-emperor-demo.html ($(wc -c < dist/it-emperor-demo.html | tr -d ' ') bytes, 老師示範版)"
+  exit 0
+fi
 if [ -z "$EDITION" ]; then
   if [ "$MODE" = "release" ]; then EDITION=offline; else EDITION=online; fi
 fi
