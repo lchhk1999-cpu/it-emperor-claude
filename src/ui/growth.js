@@ -13,7 +13,7 @@
   const ERRORS = {
     not_enough_coins: "金幣不足。",
     not_enough_materials: "素材不足。到「DSE 題庫挑戰」取得素材。",
-    not_enough_shards: "碎片不足。抽蛋抽到重複角色或裝備會得到碎片。",
+    not_enough_shards: "碎片不足。開盲盒開到重複角色或裝備會得到碎片。",
     needs_level: "要先升到等級上限。",
     needs_evolution: "已到等級上限，進化後可以再升級。",
     max_level: "已到最高等級。",
@@ -170,7 +170,7 @@
           : (() => {
               const cur = equipment.find((e) => e.id === pickedEquip) || equipment[0];
               return [
-                cur ? equipmentCard(profile, cur) : h("p", { class: "hint" }, "未有裝備。可以在「抽蛋」取得。"),
+                cur ? equipmentCard(profile, cur) : h("p", { class: "hint" }, "未有裝備。可以在「盲盒」取得。"),
                 h("p", { class: "hint" }, "裝備有 3 階效果。第 2 階要傳說核心；第 3 階另要該裝備的碎片。"),
                 pickerGrid(
                   equipment.map((e) => ({ id: e.id, art: root.ITE.gear.icon(e.id, Gr.equipmentTier(profile, e.id)), name: e.name, sub: `第 ${Gr.equipmentTier(profile, e.id)} 階` })),

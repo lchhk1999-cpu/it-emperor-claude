@@ -5,7 +5,7 @@
 
   const SAMPLES = [
     ["stageStart", "入關"], ["correct", "答對"], ["wrong", "答錯"], ["win", "勝利"], ["lose", "失敗"], ["levelUp", "升級"],
-    ["reward", "領獎"], ["gacha", "抽蛋"], ["gachaSSR", "抽中 SSR"], ["evolve", "進化"], ["tap", "按分頁"],
+    ["reward", "領獎"], ["gacha", "開盲盒"], ["gachaSSR", "抽中 SSR"], ["evolve", "進化"], ["tap", "按分頁"],
   ];
 
   function setSound(on) {
@@ -113,7 +113,7 @@
           { class: "panel" },
           h("h2", {}, "音效"),
           onOff("音效", settings.sound, setSound),
-          h("p", { class: "hint" }, "入關、答對、答錯、勝利、升級及抽蛋都有音效。上課時可以關掉。"),
+          h("p", { class: "hint" }, "入關、答對、答錯、勝利、升級及開盲盒都有音效。上課時可以關掉。"),
           h("h3", { class: "rates-title" }, "試聽"),
           settings.sound
             ? h(

@@ -171,7 +171,7 @@
           "header",
           { class: "topbar" },
           h("button", { class: "btn-back", onclick: () => ((lastResult = null), (stage = null), app.showHome()), "aria-label": "返回" }, "‹"),
-          h("h1", {}, "抽蛋")
+          h("h1", {}, "盲盒")
         ),
         app.profileBar(),
         h("p", { class: "hint center" }, `每次 ${G.GACHA_RULES.cost} 顆寶石。寶石只可透過學習任務免費取得，不設現金購買。`),

@@ -13,7 +13,7 @@
   const ERRORS = {
     team_full: "隊伍已滿。升級可以解鎖更多位置，或先移除一名成員。",
     team_needs_one: "隊伍最少要有一名成員。",
-    not_owned: "未擁有這個角色。可以用學習任務得到的寶石抽蛋取得。",
+    not_owned: "未擁有這個角色。可以用學習任務得到的寶石開盲盒取得。",
   };
 
   function topicName(id) {
@@ -148,7 +148,7 @@
             })
           )
         : h("p", { class: "hint" }, "沒有角色。"),
-      h("p", { class: "hint" }, "新角色只可在「抽蛋」取得；UR 角色由帝王試煉／魔王限時的碎片合成。")
+      h("p", { class: "hint" }, "新角色只可在「盲盒」取得；UR 角色由帝王試煉／魔王限時的碎片合成。")
     );
   }
 
@@ -183,7 +183,7 @@
                 h("span", { class: "gear-option-tag" }, here ? "使用中" : holder ? `${holder.name} 使用中` : "")
               );
             })
-          : h("p", { class: "hint" }, "未有裝備。可以在「抽蛋」取得。"),
+          : h("p", { class: "hint" }, "未有裝備。可以在「盲盒」取得。"),
         current ? h("button", { class: "btn", onclick: () => ((picking = null), equip(c.id, null, slot)) }, "卸下") : null,
         h("button", { class: "btn", onclick: () => ((picking = null), rerender()) }, "取消")
       );
@@ -221,7 +221,7 @@
           pick
         );
       }),
-      h("p", { class: "hint" }, `已擁有裝備：${usable.map((e) => e.name).join("、") || "沒有"}（更多裝備可在「抽蛋」取得）`),
+      h("p", { class: "hint" }, `已擁有裝備：${usable.map((e) => e.name).join("、") || "沒有"}（更多裝備可在「盲盒」取得）`),
       h(
         "p",
         { class: "hint" },
