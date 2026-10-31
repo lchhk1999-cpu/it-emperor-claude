@@ -139,7 +139,8 @@
           "section",
           { class: "panel" },
           h("h2", {}, "新手教學"),
-          h("button", { class: "btn", onclick: () => (app.showHome(), root.ITE.tutorialUi.show(0)) }, "再看一次新手教學")
+          h("button", { class: "btn", onclick: () => (app.showHome(), root.ITE.tutorialUi.show(0)) }, "再看一次新手教學"),
+          root.ITE.guideUi ? h("button", { class: "btn", onclick: () => root.ITE.guideUi.show() }, "遊戲指南（全部玩法及裝備策略）") : null
         ),
         app.demo
           ? h(

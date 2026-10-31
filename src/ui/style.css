@@ -955,3 +955,33 @@ body[data-screen="guild"] { --page-bg: linear-gradient(180deg, #ebe2f8 0%, #fbf6
   .tile-spark { opacity: 1; }
 }
 .demo-banner { background: #e0d5f0; border-color: #6e589a; }
+/* Fuller 新手教學 (2026-11-01) */
+.tutorial-card { max-height: calc(100vh - 32px); max-height: calc(100dvh - 32px); overflow-y: auto; }
+.tutorial-art { width: 120px; }
+.tutorial-text { font-size: 15px; }
+.tutorial-nav { display: flex; gap: 10px; }
+.tutorial-nav .btn { flex: 1; }
+.tutorial-art.wide { width: 210px; }
+.tut-gear { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; }
+.tut-gear span { padding: 4px; background: #fff; border: 2px solid var(--ink); border-radius: 50%; }
+.tut-gear svg, .tut-pair svg { width: 100%; height: auto; display: block; }
+.tut-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; width: 180px; margin: 0 auto; }
+.tut-pair.tut-three { grid-template-columns: repeat(3, 1fr); width: 210px; }
+/* 遊戲指南 (2026-11-01) */
+.guide-sec { padding: 0; overflow: hidden; }
+.guide-sec > summary { padding: 14px 16px; font-size: 17px; font-weight: 900; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+.guide-sec > summary::-webkit-details-marker { display: none; }
+.guide-sec > summary::after { content: "＋"; font-weight: 900; color: var(--muted); }
+.guide-sec[open] > summary::after { content: "－"; }
+.guide-body { padding: 0 16px 14px; }
+.guide-body h3 { margin: 12px 0 6px; font-size: 15px; }
+.guide-list { margin: 0; padding-left: 20px; font-size: 14px; line-height: 1.7; }
+.guide-gear { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; border-top: 1.5px dashed var(--line); }
+.guide-gear-icon { width: 40px; flex: none; }
+.guide-gear-icon svg { width: 100%; height: auto; display: block; }
+.guide-gear p { margin: 2px 0 0; }
+.guide-when { font-size: 14px; font-weight: 800; color: #4672b3; }
+.guide-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.guide-table th, .guide-table td { padding: 6px 4px; text-align: left; vertical-align: top; border-bottom: 1.5px solid var(--line); }
+.guide-table th { white-space: nowrap; }
+.guide-table td:first-child { font-weight: 800; white-space: nowrap; }

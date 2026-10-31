@@ -296,6 +296,8 @@
             { class: "side-chips" },
             ONLINE ? sideChip("mission", "任務", () => root.ITE.missionsUi.show(), claimable) : null,
             sideChip("bag", "背包", () => root.ITE.inventoryUi.show()),
+            // 遊戲指南 (2026-11-01); the 單機版 has room for a third chip.
+            !ONLINE && root.ITE.guideUi ? sideChip("book", "指南", () => root.ITE.guideUi.show()) : null,
             sideChip("settings", "設定", () => root.ITE.settingsUi.show())
           ),
           next
