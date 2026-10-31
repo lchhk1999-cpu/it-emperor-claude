@@ -539,3 +539,5 @@ button.speech:focus-visible { outline: 3px solid #6aa0d8; outline-offset: 2px; }
 .limited-name { font-size: 15px; font-weight: 900; }
 .limited-sub { font-size: 12px; font-weight: 700; }
 .home .btn-review { width: 100%; margin-top: 14px; }
+.tab-btn { position: relative; }
+.tab-btn .badge { top: 0; right: 10%; min-width: 20px; height: 20px; font-size: 11px; }

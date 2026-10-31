@@ -36,6 +36,7 @@
 | P5-05 | 主頁改版（原創設計，參考手機 RPG 常見佈局，不複製 P&D 介面） | ui-art-engineer | — | 用戶選用 A（2026-10-31） | DONE 2026-10-31 |
 | P5-06 | 好友系統（好友支援角色） | backend（未建立） | 線上後端 | 需要伺服器及帳戶，屬付費服務及學生私隱決定 | NEEDS APPROVAL |
 | P5-07 | 排行榜（前 100 名、每月重置） | backend（未建立） | 線上後端 | `docs/05` 已列 OPEN_DECISION：學生資料、作弊、成本 | NEEDS APPROVAL |
+| P5-08 | 單機／連線版本開關 | release-engineer | — | 單機版沒有公會畫面及示範公會；連線版保留 | DONE 2026-10-31 |
 
 ## 優先次序（下一步）
 1. 用戶：安裝 Command Line Tools（解鎖 git、Python）→ P0-02a。

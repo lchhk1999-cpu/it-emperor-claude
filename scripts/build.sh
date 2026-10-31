@@ -1,12 +1,28 @@
 #!/bin/sh
 # Builds one self-contained playable file.
-#   ./scripts/build.sh           -> dist/it-emperor.html (dev: labelled test questions)
-#   ./scripts/build.sh release   -> dist/it-emperor-release.html (approved questions only)
+#   ./scripts/build.sh [dev|release] [online|offline]
+#   mode:    dev = labelled test questions; release = approved questions only
+#   edition: online = with 校際公會 (and later friends / leaderboard);
+#            offline = 單機版, no guild (user decision 2026-10-31: ship offline first)
+#   Defaults: dev -> online, release -> offline.
+#   dev online      -> dist/it-emperor.html
+#   dev offline     -> dist/it-emperor-offline.html
+#   release offline -> dist/it-emperor-release.html
+#   release online  -> dist/it-emperor-release-online.html
 set -e
 cd "$(dirname "$0")/.."
 MODE="${1:-dev}"
-OUT="dist/it-emperor.html"
-[ "$MODE" = "release" ] && OUT="dist/it-emperor-release.html"
+EDITION="${2:-}"
+if [ -z "$EDITION" ]; then
+  if [ "$MODE" = "release" ]; then EDITION=offline; else EDITION=online; fi
+fi
+case "$MODE-$EDITION" in
+  dev-online) OUT="dist/it-emperor.html" ;;
+  dev-offline) OUT="dist/it-emperor-offline.html" ;;
+  release-offline) OUT="dist/it-emperor-release.html" ;;
+  release-online) OUT="dist/it-emperor-release-online.html" ;;
+  *) echo "usage: $0 [dev|release] [online|offline]" >&2; exit 2 ;;
+esac
 mkdir -p dist
-./scripts/jsc.sh scripts/build.js -- "$MODE" > "$OUT"
-echo "built $OUT ($(wc -c < "$OUT" | tr -d ' ') bytes, mode=$MODE)"
+./scripts/jsc.sh scripts/build.js -- "$MODE" "$EDITION" > "$OUT"
+echo "built $OUT ($(wc -c < "$OUT" | tr -d ' ') bytes, mode=$MODE, edition=$EDITION)"

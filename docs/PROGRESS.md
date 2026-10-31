@@ -328,3 +328,12 @@
 - 測試：`./scripts/test.sh` → JS 151 passed, 0 failed；release 檢查通過。Python 31 tests OK。
 - 試玩（本機，手機闊度 375×812）：五個分頁、任務、背包、對話框、故事、DSE、今日限定全部可到達正確畫面；戰鬥畫面不顯示分頁；隊伍畫面最底內容沒有被分頁遮住；正式版沒有教師審核按鈕。
 - 下一步：P5-06 好友、P5-07 排行榜需要線上伺服器及帳戶，屬付費服務及學生私隱決定，等用戶批准。
+
+## Run 28 — 2026-10-31：單機版／連線版開關
+- 用戶決定：先推出單機版，連線功能之後以更新加入；同一套程式，不分兩套。
+- 分支：`feat/offline-edition`（由 `feat/home-redesign` 開出，需先合併該 PR）。
+- `scripts/build.sh [dev|release] [online|offline]`：預設 dev→連線、release→單機。單機版不包含 `src/ui/guild.js`、`src/data/demo_guilds.js`，並設定 `ITE.EDITION = "offline"`。輸出：`dist/it-emperor.html`（開發・連線）、`dist/it-emperor-offline.html`（開發・單機）、`dist/it-emperor-release.html`（正式・單機）、`dist/it-emperor-release-online.html`（正式・連線）。
+- 單機版底部第五個分頁由「公會」改為「任務」（有獎勵時顯示數字），主頁側邊只留「背包」。
+- 修正：正式版畫面頂部顯示「null」字樣（正式版沒有開發橫額，空值被當成文字）——舊問題，一併修正。
+- 測試：`./scripts/test.sh` → JS 151 passed；Python OK；release 檢查通過；新增版本檢查「單機版沒有公會；連線版保留」通過。
+- 試玩（本機，手機闊度）：正式單機版分頁為 主頁／隊伍／培養／抽蛋／任務，沒有任何「公會」字樣；開發連線版分頁仍有公會，可進入校際公會。

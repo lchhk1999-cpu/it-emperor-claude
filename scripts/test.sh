@@ -3,6 +3,7 @@
 #  1. JS unit tests (JavaScriptCore on macOS, Node elsewhere)
 #  2. Python question-bank importer tests (if python3 is available)
 #  3. Release bundle contains no dev samples and no non-approved questions
+#  4. 單機版 bundles contain no guild screen; the online edition does
 set -e
 cd "$(dirname "$0")/.."
 ./scripts/jsc.sh tests/run.js
@@ -27,3 +28,14 @@ if [ "$total" != "$approved" ]; then
   echo "✗ release bundle: $approved of $total questions are approved"; exit 1
 fi
 echo "✓ release bundle: no dev samples; all $approved questions are approved"
+# 4. Editions: 單機版 (offline) has no guild screen or demo guilds; online keeps them.
+./scripts/build.sh release online > /dev/null
+./scripts/build.sh dev offline > /dev/null
+for f in dist/it-emperor-release.html dist/it-emperor-offline.html; do
+  if grep -q "ITE.guildUi = \|ITE.demoGuilds" "$f"; then
+    echo "✗ $f (單機版) contains the guild screen or demo guilds"; exit 1
+  fi
+  grep -q 'ITE.EDITION = "offline"' "$f" || { echo "✗ $f is not marked offline"; exit 1; }
+done
+grep -q "ITE.guildUi = " dist/it-emperor-release-online.html || { echo "✗ online edition is missing the guild screen"; exit 1; }
+echo "✓ editions: 單機版 has no guild; online edition keeps it"

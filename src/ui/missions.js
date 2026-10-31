@@ -52,7 +52,7 @@
     app.render(
       h(
         "main",
-        { class: "screen missions" },
+        { class: "screen missions", "data-tab": "missions" },
         h(
           "header",
           { class: "topbar" },
