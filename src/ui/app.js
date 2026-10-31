@@ -127,6 +127,7 @@
     if (!c) return "home";
     if (c.contains("result")) return "result";
     if (c.contains("battle") || c.contains("raid")) return "battle";
+    if (c.contains("drill")) return "stages";
     return PAGE_THEMES.find((t) => c.contains(t)) || "home";
   }
 
@@ -333,6 +334,12 @@
         { class: "screen stages" },
         h("header", { class: "topbar" }, h("button", { class: "btn-back", onclick: showHome, "aria-label": "返回" }, "‹"), h("h1", {}, "DSE 題庫挑戰")),
         profileBar(),
+        h(
+          "button",
+          { class: "drill-entry", onclick: () => root.ITE.drillUi.show() },
+          h("span", { class: "drill-entry-title" }, "操練區"),
+          h("span", { class: "drill-entry-sub" }, "不扣體力・不設獎勵・隨機出題，隨時離開")
+        ),
         limited ? stageCard(limited) : null,
         Dg.WORLDS.map((w) =>
           h(
