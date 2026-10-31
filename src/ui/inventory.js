@@ -76,7 +76,7 @@
           h("h2", {}, "角色碎片"),
           charShards.length
             ? h("ul", { class: "mat-list" }, charShards.map((c) => shardItem(sprites.character(c.id, "idle"), c.name, c.rarity, shardUse(c), have[c.id])))
-            : h("p", { class: "hint" }, "未有角色碎片。抽蛋抽到重複角色、帝王試煉及魔王限時都會得到碎片。"),
+            : h("p", { class: "hint" }, "未有角色碎片。開盲盒開到重複角色、帝王試煉及魔王限時都會得到碎片。"),
           equipShards.length ? h("h2", { class: "shard-sub" }, "裝備碎片") : null,
           equipShards.length
             ? h("ul", { class: "mat-list" }, equipShards.map((e) => shardItem(root.ITE.gear.icon(e.id, 1), e.name, null, "第三階進化用", have[e.id])))

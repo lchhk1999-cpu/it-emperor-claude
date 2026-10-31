@@ -88,7 +88,7 @@
     ["home", "主頁", () => showHome()],
     ["team", "隊伍", () => root.ITE.teamUi.show()],
     ["growth", "培養", () => root.ITE.growthUi.show()],
-    ["gacha", "抽蛋", () => root.ITE.gachaUi.show()],
+    ["gacha", "盲盒", () => root.ITE.gachaUi.show()],
     ONLINE ? ["guild", "公會", () => root.ITE.guildUi.show()] : ["missions", "任務", () => root.ITE.missionsUi.show()],
   ];
 
@@ -162,7 +162,8 @@
     home: '<path d="M4 11 L12 4 L20 11 V20 H14 V14 H10 V20 H4 Z"/>',
     team: '<circle cx="8" cy="9" r="3.2"/><circle cx="16" cy="9" r="3.2"/><path d="M2.5 20 C3 15 13 15 13.5 20"/><path d="M10.5 20 C11 15 21 15 21.5 20"/>',
     growth: '<path d="M12 20 V9"/><path d="M12 13 C7 13 5 9 5 6 C9 6 12 8 12 13Z"/><path d="M12 11 C16 11 19 8 19 5 C15 5 12 7 12 11Z"/>',
-    gacha: '<ellipse cx="12" cy="13" rx="7" ry="8.5"/><path d="M5.5 12 L9 10 L12 13 L15 10 L18.5 12"/>',
+    // 盲盒 (was an egg until the 抽蛋 → 盲盒 rename, 2026-11-01): a gift box with a bow.
+    gacha: '<rect x="4" y="10" width="16" height="10" rx="2"/><rect x="3" y="7" width="18" height="4" rx="1.5"/><path d="M12 7 V20"/><path d="M12 7 C9 3 5.5 4.5 7.5 7 M12 7 C15 3 18.5 4.5 16.5 7"/>',
     guild: '<path d="M4 20 V9 L12 4 L20 9 V20 Z"/><path d="M9.5 20 V14 H14.5 V20"/><path d="M12 4 V1.5 H16"/>',
     bag: '<rect x="4" y="8" width="16" height="12" rx="3"/><path d="M8.5 8 V6 C8.5 3.5 15.5 3.5 15.5 6 V8"/><path d="M4 13 H20"/>',
     missions: '<rect x="5" y="3.5" width="14" height="17" rx="2.5"/><path d="M8.5 9 L10.5 11 L15.5 6.5"/><path d="M8.5 15 H15.5"/>',
