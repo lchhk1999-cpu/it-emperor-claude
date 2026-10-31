@@ -6,14 +6,14 @@
  "meta": {
   "source_file": "IT_Emperor_Offline_Story_Mode_QuestionBank_129.xlsx",
   "source_sha256": "2208acebaf0bb4c2ecb2462e19b1d5ee9dc1d4ea5440653c20c09bc2d9107dbb",
-  "imported_at": "2026-10-30T09:42:48Z",
+  "imported_at": "2026-10-31T17:17:38Z",
   "total": 129,
   "accepted": 129,
   "rejected": 0,
   "by_status": {
-   "review": 129
+   "approved": 129
   },
-  "teacher_reviews": 0
+  "teacher_reviews": 129
  },
  "worlds": {
   "A": {
@@ -401,7 +401,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-A-01-02",
@@ -420,7 +426,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-A-01-03",
@@ -439,7 +451,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-A-02-01",
@@ -458,7 +476,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-A-02-02",
@@ -477,7 +501,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-A-02-03",
@@ -496,7 +526,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-A-03-01",
@@ -515,7 +551,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-A-03-02",
@@ -534,7 +576,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-A-03-03",
@@ -553,7 +601,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-A-04-01",
@@ -572,7 +626,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-A-04-02",
@@ -591,7 +651,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-A-04-03",
@@ -610,7 +676,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-A-05-01",
@@ -629,7 +701,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-A-05-02",
@@ -648,7 +726,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-A-05-03",
@@ -667,7 +751,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-A-06-01",
@@ -686,7 +776,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-A-06-02",
@@ -705,7 +801,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-A-06-03",
@@ -724,7 +826,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-A-07-01",
@@ -743,7 +851,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-A-07-02",
@@ -762,7 +876,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-A-07-03",
@@ -781,7 +901,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-A-08-01",
@@ -800,7 +926,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-A-08-02",
@@ -819,7 +951,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-A-08-03",
@@ -838,7 +976,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-A-09-01",
@@ -857,7 +1001,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-A-09-02",
@@ -876,7 +1026,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-A-09-03",
@@ -895,7 +1051,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-B-01-01",
@@ -914,7 +1076,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-B-01-02",
@@ -933,7 +1101,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-B-01-03",
@@ -952,7 +1126,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-B-02-01",
@@ -971,7 +1151,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-B-02-02",
@@ -990,7 +1176,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-B-02-03",
@@ -1009,7 +1201,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-B-03-01",
@@ -1028,7 +1226,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-B-03-02",
@@ -1047,7 +1251,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-B-03-03",
@@ -1066,7 +1276,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-B-04-01",
@@ -1085,7 +1301,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-B-04-02",
@@ -1104,7 +1326,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-B-04-03",
@@ -1123,7 +1351,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-B-05-01",
@@ -1142,7 +1376,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-B-05-02",
@@ -1161,7 +1401,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-B-05-03",
@@ -1180,7 +1426,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-B-06-01",
@@ -1199,7 +1451,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-B-06-02",
@@ -1218,7 +1476,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-B-06-03",
@@ -1237,7 +1501,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-B-07-01",
@@ -1256,7 +1526,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-B-07-02",
@@ -1275,7 +1551,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-B-07-03",
@@ -1294,7 +1576,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-B-08-01",
@@ -1313,7 +1601,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-B-08-02",
@@ -1332,7 +1626,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-B-08-03",
@@ -1351,7 +1651,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-C-01-01",
@@ -1370,7 +1676,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）；建議日後把選項 C「PAN 全球網絡」改為「PAN」，避免錯誤描述"
+   }
   },
   {
    "question_id": "STORY-C-01-02",
@@ -1389,7 +1701,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-C-01-03",
@@ -1408,7 +1726,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-C-02-01",
@@ -1427,7 +1751,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-C-02-02",
@@ -1446,7 +1776,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-C-02-03",
@@ -1465,7 +1801,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-C-03-01",
@@ -1484,7 +1826,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-C-03-02",
@@ -1503,7 +1851,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-C-03-03",
@@ -1522,7 +1876,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-C-04-01",
@@ -1541,7 +1901,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-C-04-02",
@@ -1560,7 +1926,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-C-04-03",
@@ -1579,7 +1951,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-C-05-01",
@@ -1598,7 +1976,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-C-05-02",
@@ -1617,7 +2001,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-C-05-03",
@@ -1636,7 +2026,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-C-06-01",
@@ -1655,7 +2051,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-C-06-02",
@@ -1674,7 +2076,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-C-06-03",
@@ -1693,7 +2101,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-C-07-01",
@@ -1712,7 +2126,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-C-07-02",
@@ -1731,7 +2151,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-C-07-03",
@@ -1750,7 +2176,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-C-08-01",
@@ -1769,7 +2201,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-C-08-02",
@@ -1788,7 +2226,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-C-08-03",
@@ -1807,7 +2251,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-C-09-01",
@@ -1826,7 +2276,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-C-09-02",
@@ -1845,7 +2301,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-C-09-03",
@@ -1864,7 +2326,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-C-10-01",
@@ -1883,7 +2351,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-C-10-02",
@@ -1902,7 +2376,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-C-10-03",
@@ -1921,7 +2401,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-D-01-01",
@@ -1940,7 +2426,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-D-01-02",
@@ -1959,7 +2451,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-D-01-03",
@@ -1978,7 +2476,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-D-02-01",
@@ -1997,7 +2501,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-D-02-02",
@@ -2016,7 +2526,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-D-02-03",
@@ -2035,7 +2551,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-D-03-01",
@@ -2054,7 +2576,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-D-03-02",
@@ -2073,7 +2601,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-D-03-03",
@@ -2092,7 +2626,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-D-04-01",
@@ -2111,7 +2651,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-D-04-02",
@@ -2130,7 +2676,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-D-04-03",
@@ -2149,7 +2701,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-D-05-01",
@@ -2168,7 +2726,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-D-05-02",
@@ -2187,7 +2751,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-D-05-03",
@@ -2206,7 +2776,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-D-06-01",
@@ -2225,7 +2801,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-D-06-02",
@@ -2244,7 +2826,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-D-06-03",
@@ -2263,7 +2851,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-D-07-01",
@@ -2282,7 +2876,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-D-07-02",
@@ -2301,7 +2901,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-D-07-03",
@@ -2320,7 +2926,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-D-08-01",
@@ -2339,7 +2951,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-D-08-02",
@@ -2358,7 +2976,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-D-08-03",
@@ -2377,7 +3001,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-D-09-01",
@@ -2396,7 +3026,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-D-09-02",
@@ -2415,7 +3051,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-D-09-03",
@@ -2434,7 +3076,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-D-10-01",
@@ -2453,7 +3101,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-D-10-02",
@@ -2472,7 +3126,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-D-10-03",
@@ -2491,7 +3151,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-E-01-01",
@@ -2510,7 +3176,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-E-01-02",
@@ -2529,7 +3201,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-E-01-03",
@@ -2548,7 +3226,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-E-02-01",
@@ -2567,7 +3251,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-E-02-02",
@@ -2586,7 +3276,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-E-02-03",
@@ -2605,7 +3301,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-E-03-01",
@@ -2624,7 +3326,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-E-03-02",
@@ -2643,7 +3351,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-E-03-03",
@@ -2662,7 +3376,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-E-04-01",
@@ -2681,7 +3401,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-E-04-02",
@@ -2700,7 +3426,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-E-04-03",
@@ -2719,7 +3451,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-E-05-01",
@@ -2738,7 +3476,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-E-05-02",
@@ -2757,7 +3501,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-E-05-03",
@@ -2776,7 +3526,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-E-06-01",
@@ -2795,7 +3551,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-E-06-02",
@@ -2814,7 +3576,13 @@
    "points": 50,
    "boss": false,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   },
   {
    "question_id": "STORY-E-06-03",
@@ -2833,7 +3601,13 @@
    "points": 100,
    "boss": true,
    "excel_status": "review",
-   "review_status": "review"
+   "review_status": "approved",
+   "teacher_review": {
+    "decision": "approved",
+    "reviewer": "Claude（用戶指示）",
+    "reviewed_at": "2026-11-01",
+    "note": "Claude 逐題審閱，答案正確（用戶 ICT 老師指示核准）"
+   }
   }
  ]
 };

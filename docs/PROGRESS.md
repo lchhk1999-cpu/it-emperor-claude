@@ -490,3 +490,8 @@
 - **用戶指示：** 以 ICT 老師及專家身份審閱 1107 題並 approved
 - **What changed:** Excel 額外題庫 status → approved（備份已留）；重新匯入（正式版 1107 題）；`docs/QUESTION_REVIEW_2026-11-01.md`；App Store 文字更新題數及角色數
 - **Verification (actual):** 自動檢查 1107 題全部通過；102 個 Python 程式實際執行，輸出與答案一致；596 題逐題人工審閱無錯；`./scripts/test.sh` 全部通過（release 1107 題全部 approved）
+
+## Run 49 — 2026-11-01：故事模式 129 題審閱及核准
+- **Branch:** `feat/name-splash-blindbox`
+- **What changed:** `data/question_bank/teacher_reviews.csv`（129 approved）；重新匯入故事題庫；審閱紀錄補充
+- **Verification (actual):** 自動檢查及 3 題程式執行；129 題逐題審閱無錯；`./scripts/test.sh` 全部通過（release 1236 題全部 approved）；瀏覽器開正式版：故事 A-01 顯示「挑戰！」並可作答，沒有「等待老師審核」
