@@ -445,3 +445,11 @@
 - 設計畫布新增「App 圖示候選稿」A（IT狗笑臉＋皇冠）／B（IT帝字標）／C（機械老虎狗）。
 - 測試：`./scripts/test.sh` → JS 177 passed；Python OK；release 511 題、無來源備註；版本檢查通過。iPhone SE 尺寸（375×667）主頁及戰鬥頁沒有左右溢出。
 - 未做（需用戶決定或工具）：Capacitor 包裝（需 Xcode、Node）、存檔改 Preferences、備份碼（D6）、移除 PLACEHOLDER 字樣（D3）、截圖（需模擬器）。
+
+## Run — 2026-10-31（HKT）上架決定及備份碼
+- **Branch / commit:** `release/prep` b1bfbe4（未 merge main）
+- **用戶決定：** D1 個人帳戶、D2 iPhone + iPad、D3 沿用現有畫風、D4 Google Sites、D5「IT帝：ICT 學習冒險」、D6 加入備份碼（記入 `docs/RELEASE_CHECKLIST.md`、`docs/05_DECISIONS.md`）
+- **What changed:** 設定頁「備份進度」（`ITE.save.exportCode/importCode`）；iPad 以 CSS zoom 放大版面；正式版隱藏 PLACEHOLDER 字樣；上架文件更新 iPad 截圖及備份說明
+- **Verification (actual):** `./scripts/test.sh` → JS 179 passed、Python 35 OK、正式版及版本檢查通過；瀏覽器實測 iPad 1024×1366／1366×1024、iPhone 375×812，備份→改動→還原成功（金幣 1 → 100）
+- **Blocking:** Xcode、Node.js 未安裝；故事 129 題待老師審核
+- **Next:** Capacitor iOS 包裝（等工具）；教用戶建立 Google Sites 私隱政策頁
