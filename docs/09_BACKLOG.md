@@ -30,7 +30,7 @@
 | P4-03 | 抽蛋（角色／裝備兩池） | gameplay-engineer | P3-08 | 只用遊戲內免費寶石（GameConfig gacha_paid_enabled=0）；遊戲內公開機率；保底規則；需用戶批准設計後才實作 | DONE（2026-10-30：用戶批准設計；角色池按 Excel 機率及保底；裝備池暫為平均機率，待 Excel 補稀有度） |
 | P4-06 | 角色品種（31 個）接入遊戲 | gameplay-engineer + ui-art-engineer | ChatGPT 把 `docs/proposals/character_variants.csv` 加入 Excel | 匯入器讀 family 欄；角色隊伍及抽蛋按系列顯示；機率表列出全部品種；測試及試玩 | DONE 2026-10-31（Excel 已更新，31 個角色匯入） |
 | P5-01 | 背包＋進化素材（Excel `Materials`） | gameplay-engineer | — | 素材可存取、背包畫面、存檔修復 | DONE 2026-10-31（暫定掉落：DSE 挑戰勝出得 1 個課題素材，P5-02 改為按關卡掉落） |
-| P5-02 | DSE 挑戰分課題（A–E）及難度（簡單／中等／困難／究極）＋每週限定素材關（Excel `Stages`／`Events`） | gameplay-engineer + content-pipeline | P5-01 | 每關掉落素材；限定關掉落較多 | PROPOSAL |
+| P5-02 | DSE 挑戰分課題（A–E）及難度（簡單／中等／困難／究極）＋每週限定素材關（Excel `Stages`／`Events`） | gameplay-engineer + content-pipeline | P5-01 | 每關掉落素材；限定關掉落較多 | DONE 2026-10-31（PROTOTYPE 數值；全部關卡開放，未設解鎖條件） |
 | P5-03 | 體力系統（Excel `Stages.stamina_cost`） | gameplay-engineer | P5-02 | 體力上限、回復時間、故事模式是否免體力 | PROPOSAL |
 | P5-04 | 角色／裝備升級及三階段進化；第三階段需重複角色分解碎片 | gameplay-engineer | P5-01 | 會改動「重複角色換金幣」規則，需用戶確認 | PROPOSAL |
 | P5-05 | 主頁改版（原創設計，參考手機 RPG 常見佈局，不複製 P&D 介面） | ui-art-engineer | — | 畫布候選稿先給用戶核准 | PROPOSAL |

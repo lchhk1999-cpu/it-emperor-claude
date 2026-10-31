@@ -27,19 +27,6 @@
     assert.equal(I.count(p, "MAT-EXCEL"), 0);
   });
 
-  test("inventory: a DSE win drops one topic material; a loss drops nothing", () => {
-    assert.deepEqual(I.dseMaterialDrops({ outcome: "lost" }, data, () => 0), {});
-    const first = I.dseMaterialDrops({ outcome: "won" }, data, () => 0);
-    const last = I.dseMaterialDrops({ outcome: "won" }, data, () => 0.9999);
-    assert.deepEqual(first, { "MAT-EXCEL": 1 });
-    assert.deepEqual(last, { "MAT-PY": 1 });
-    // Only topic materials drop (not 傳說核心／金幣寶箱／經驗芯片).
-    for (let i = 0; i < 20; i++) {
-      const [id] = Object.keys(I.dseMaterialDrops({ outcome: "won" }, data, () => i / 20));
-      assert.ok(I.materialById(data, id).topic !== "ALL", id);
-    }
-  });
-
   test("inventory: materials survive save/load; bad entries are dropped; old saves still load", () => {
     const store = S.createMemoryStorage();
     const p = I.addMaterials(fresh(), { "MAT-SQL": 4 }, data);

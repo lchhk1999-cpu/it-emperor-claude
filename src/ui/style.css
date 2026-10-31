@@ -432,3 +432,17 @@ button { font: inherit; color: inherit; }
 .mat-rare { background: #8fc3e8; }
 .mat-legendary { background: #f4d36b; }
 .reward-material { color: #2f7a52; }
+
+/* DSE 題庫挑戰：世界 A–E × 難度 */
+.stage-card.stage-limited { background: #fff1c9; }
+.world-panel h2 { margin-bottom: 2px; }
+.diff-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 8px; }
+.diff-btn { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 10px 12px; font: inherit; text-align: left; color: #3b3330; background: #fff; border: 2.5px solid #3b3330; border-radius: 14px; box-shadow: 0 3px 0 #3b3330; cursor: pointer; }
+.diff-btn:focus-visible { outline: 3px solid #6aa0d8; outline-offset: 2px; }
+.diff-btn.diff-easy { background: #e6f5ec; }
+.diff-btn.diff-medium { background: #e3effa; }
+.diff-btn.diff-hard { background: #fde8e1; }
+.diff-btn.diff-ultimate { background: #efe6fa; }
+.diff-name { font-weight: 900; }
+.diff-meta { font-size: 0.8rem; color: #5e534d; }
+.section-title { margin: 18px 4px 8px; font-size: 1.1rem; }

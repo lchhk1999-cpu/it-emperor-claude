@@ -300,6 +300,62 @@ def import_materials(sheets, topics):
     return out, rejected
 
 
+STAGE_DIFFICULTIES = ("easy", "medium", "hard", "ultimate")
+
+
+def import_stages_and_events(sheets, topics, material_ids):
+    """Stages + Events sheets (optional): the weekly rotation of limited material
+    stages (P5-02). Each weekday (1 = Monday) points at one stage."""
+    stages, events, rejected = {}, [], []
+    if "Stages" not in sheets or "Events" not in sheets:
+        return [], [], rejected
+    cols = ["stage_id", "title", "topic_id", "difficulty", "question_count", "material_id", "active"]
+    for row, d in _rows(sheets, "Stages", cols):
+        if d["active"].lower() == "no":
+            continue
+        errors = []
+        if d["topic_id"] != "ALL" and d["topic_id"] not in topics:
+            errors.append(f"topic_id '{d['topic_id']}' is not in the Topics sheet")
+        if d["difficulty"] not in STAGE_DIFFICULTIES:
+            errors.append(f"difficulty must be easy/medium/hard/ultimate, got '{d['difficulty']}'")
+        if d["material_id"] not in material_ids:
+            errors.append(f"material_id '{d['material_id']}' is not in the Materials sheet")
+        try:
+            count = _num(d["question_count"], int)
+            if not 1 <= count <= 30:
+                errors.append("question_count must be 1-30")
+        except ValueError:
+            errors.append(f"question_count must be a number, got '{d['question_count']}'")
+        if errors:
+            rejected.append({"row": row, "id": d["stage_id"], "errors": errors})
+            continue
+        stages[d["stage_id"]] = {"id": d["stage_id"], "title": d["title"], "world": d.get("world", ""), "topic": d["topic_id"],
+                                 "difficulty": d["difficulty"], "questionCount": count, "material": d["material_id"]}
+    used, days = set(), set()
+    for row, d in _rows(sheets, "Events", ["event_id", "weekday_iso", "event_name", "stage_id", "active"]):
+        if d["active"].lower() == "no":
+            continue
+        errors = []
+        try:
+            day = _num(d["weekday_iso"], int)
+            if not 1 <= day <= 7:
+                errors.append("weekday_iso must be 1-7")
+            elif day in days:
+                errors.append(f"weekday {day} already has an event")
+        except ValueError:
+            day = None
+            errors.append(f"weekday_iso must be a number, got '{d['weekday_iso']}'")
+        if d["stage_id"] not in stages:
+            errors.append(f"stage_id '{d['stage_id']}' is not an active, valid row of the Stages sheet")
+        if errors:
+            rejected.append({"row": row, "id": d["event_id"], "errors": errors})
+            continue
+        days.add(day)
+        used.add(d["stage_id"])
+        events.append({"id": d["event_id"], "weekday": day, "name": d["event_name"], "stage": d["stage_id"]})
+    return [st for sid, st in stages.items() if sid in used], sorted(events, key=lambda e: e["weekday"]), rejected
+
+
 def import_config(sheets):
     config, problems = {}, []
     raw = {d["config_key"]: d.get("value", "") for _, d in _rows(sheets, "GameConfig", ["config_key", "value"])}
@@ -331,7 +387,8 @@ def run(xlsx, out_dir=".", now=None):
     equipment, rejected_equipment = import_equipment(sheets)
     pools, rejected_pools = import_pools(sheets)
     materials, rejected_materials = import_materials(sheets, topics)
-    rejected = rejected + rejected_missions + rejected_titles + rejected_equipment + rejected_pools + rejected_materials
+    event_stages, events, rejected_events = import_stages_and_events(sheets, topics, {m["id"] for m in materials})
+    rejected = rejected + rejected_missions + rejected_titles + rejected_equipment + rejected_pools + rejected_materials + rejected_events
     if config_problems:
         raise ImportError_("; ".join(config_problems))
     if not characters:
@@ -345,10 +402,12 @@ def run(xlsx, out_dir=".", now=None):
         "titles": len(titles),
         "equipment": len(equipment),
         "materials": len(materials),
+        "events": len(events),
         "rejected": len(rejected),
     }
     payload = {"meta": meta, "config": config, "characters": characters, "missions": missions, "titles": titles,
-               "equipment": equipment, "pools": pools, "materials": materials}
+               "equipment": equipment, "pools": pools, "materials": materials,
+               "eventStages": event_stages, "events": events}
     js_path = os.path.join(out_dir, "src", "data", "game_data.js")
     report_path = os.path.join(out_dir, "docs", "GAME_DATA_IMPORT_REPORT.md")
     for p in (js_path, report_path):
@@ -360,7 +419,7 @@ def run(xlsx, out_dir=".", now=None):
                 f"  ITE.gameData = {json.dumps(payload, ensure_ascii=False, indent=1)};\n}})(globalThis);\n")
     lines = ["# 遊戲資料匯入報告（自動產生）", "",
              f"- 來源檔案：`{meta['source_file']}`", f"- SHA-256：`{meta['source_sha256']}`",
-             f"- 匯入時間：{meta['imported_at']}", "- 工作表：`Characters`、`GameConfig`、`Missions`、`Titles`、`Equipment`、`Pools`、`Materials`（Topics 用作檢查課題）", "",
+             f"- 匯入時間：{meta['imported_at']}", "- 工作表：`Characters`、`GameConfig`、`Missions`、`Titles`、`Equipment`、`Pools`、`Materials`、`Stages`、`Events`（Topics 用作檢查課題）", "",
              "## 角色", "", "| ID | 名稱 | 專長 | 稀有度 | 攻擊 | HP | 專長加成 |", "|---|---|---|---|---|---|---|"]
     for c in characters:
         lines.append(f"| {c['id']} | {c['name']} | {c['specialty']} | {c['rarity']} | {c['attack']} | {c['hp']} | {round(c['bonus'] * 100)}% |")
@@ -386,6 +445,13 @@ def run(xlsx, out_dir=".", now=None):
     rarity_name = {"common": "普通", "rare": "稀有", "legendary": "傳說"}
     lines += ["", "## 素材（背包）", "", "| ID | 名稱 | 課題 | 稀有度 | 說明 |", "|---|---|---|---|---|"]
     lines += [f"| {m['id']} | {m['name']} | {m['topic']} | {rarity_name[m['rarity']]} | {m['description']} |" for m in materials]
+    weekday_name = "一二三四五六日"
+    stage_by_id = {st["id"]: st for st in event_stages}
+    lines += ["", "## 每日限定素材關（每週輪換）", "", "| 星期 | 活動 | 關卡 | 課題 | 難度 | 題數 | 素材 |", "|---|---|---|---|---|---|---|"]
+    for e in events:
+        st = stage_by_id[e["stage"]]
+        lines.append(f"| {weekday_name[e['weekday'] - 1]} | {e['name']} | {st['title']} | {st['topic']} | {st['difficulty']} | {st['questionCount']} | {st['material']} |")
+    lines += ["", "註：`Stages` 表的 boss_hp、reward_coins、reward_exp、stamina_cost 暫未使用（Boss 血量按遊戲傷害公式計算；體力在 P5-03 處理）。"]
     lines += ["", "## 拒絕的資料", ""]
     if rejected:
         lines += ["| 列 | ID | 原因 |", "|---|---|---|"] + [f"| {r['row']} | {r['id']} | {'；'.join(r['errors'])} |" for r in rejected]
@@ -407,7 +473,7 @@ def main(argv=None):
         print(f"IMPORT FAILED: {e}", file=sys.stderr)
         return 2
     print(f"characters {meta['characters']}, missions {meta['missions']}, titles {meta['titles']}, "
-          f"equipment {meta['equipment']}, materials {meta['materials']}, rejected {meta['rejected']}")
+          f"equipment {meta['equipment']}, materials {meta['materials']}, events {meta['events']}, rejected {meta['rejected']}")
     for k, v in paths.items():
         print(f"wrote {k}: {v}")
     return 0

@@ -89,6 +89,23 @@ class GameDataImporterTest(unittest.TestCase):
         self.assertEqual(data["materials"][0], {"id": "M1", "name": "資料碎片", "topic": "SQL", "rarity": "common", "description": "SQL 進化"})
         self.assertEqual([r["id"] for r in rejected], ["M3", "M4", "M1"])
 
+    def test_weekly_events_point_at_valid_stages(self):
+        mats = [["material_id", "material_name", "topic_id", "rarity", "description", "active"],
+                ["M1", "資料碎片", "SQL", "common", "", "yes"]]
+        stages = [["stage_id", "world", "title", "topic_id", "mode", "difficulty", "question_count", "material_id", "active"],
+                  ["S1", "SQL 地下城", "記錄", "SQL", "story", "medium", "6", "M1", "yes"],
+                  ["S2", "", "壞難度", "SQL", "story", "insane", "6", "M1", "yes"],
+                  ["S3", "", "壞素材", "ALL", "event", "easy", "6", "NOPE", "yes"],
+                  ["S4", "", "沒有活動", "SQL", "story", "easy", "5", "M1", "yes"]]
+        events = [["event_id", "weekday_iso", "event_name", "stage_id", "active"],
+                  ["E1", "3", "SQL 素材日", "S1", "yes"], ["E2", "3", "同一天", "S1", "yes"],
+                  ["E3", "8", "壞星期", "S1", "yes"], ["E4", "1", "壞關卡", "S2", "yes"]]
+        _, rejected, data = self.run_import([ch("C1")], extra={"Materials": mats, "Stages": stages, "Events": events})
+        self.assertEqual(data["events"], [{"id": "E1", "weekday": 3, "name": "SQL 素材日", "stage": "S1"}])
+        self.assertEqual(data["eventStages"], [{"id": "S1", "title": "記錄", "world": "SQL 地下城", "topic": "SQL",
+                                                 "difficulty": "medium", "questionCount": 6, "material": "M1"}])
+        self.assertEqual(sorted(r["id"] for r in rejected), ["E2", "E3", "E4", "S2", "S3"])
+
     def test_inactive_characters_are_skipped(self):
         _, rejected, data = self.run_import([ch("C1"), ch("C2", active="no")])
         self.assertEqual([c["id"] for c in data["characters"]], ["C1"])
