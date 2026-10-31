@@ -18,6 +18,15 @@
     const cheeks = `<ellipse cx="${lx - 12}" cy="${my - 4}" rx="6" ry="3.5" fill="#f2b4b0" opacity="0.8"/><ellipse cx="${rx + 12}" cy="${my - 4}" rx="6" ry="3.5" fill="#f2b4b0" opacity="0.8"/>`;
     const sweat = `<path d="M${o.sx} ${o.sy} q7 11 0 15 q-7 -4 0 -15Z" fill="#8fc3e8" stroke="${INK}" stroke-width="2"/>`;
     const gloom = `<g stroke="#8fc3e8" stroke-width="3" stroke-linecap="round"><line x1="${o.gx}" y1="${o.gy}" x2="${o.gx}" y2="${o.gy + 12}"/><line x1="${o.gx + 9}" y1="${o.gy - 2}" x2="${o.gx + 9}" y2="${o.gy + 10}"/><line x1="${o.gx + 18}" y1="${o.gy - 2}" x2="${o.gx + 18}" y2="${o.gy + 10}"/></g>`;
+    // "fightL" / "fightR": furious, glaring sideways at an opponent on the left / right,
+    // shouting (開場激戰 poster, 2026-11-01).
+    if (expr === "fightL" || expr === "fightR") {
+      const d = expr === "fightR" ? 3 : -3;
+      return `<path d="M${lx - 11} ${ey - 13} L${lx + 7} ${ey - 6}" stroke="${INK}" stroke-width="5" stroke-linecap="round"/><path d="M${rx + 11} ${ey - 13} L${rx - 7} ${ey - 6}" stroke="${INK}" stroke-width="5" stroke-linecap="round"/>`
+        + `<ellipse cx="${lx}" cy="${ey}" rx="6.5" ry="5" fill="#fff" stroke="${INK}" stroke-width="2.5"/><ellipse cx="${rx}" cy="${ey}" rx="6.5" ry="5" fill="#fff" stroke="${INK}" stroke-width="2.5"/>`
+        + `<circle cx="${lx + d}" cy="${ey + 0.5}" r="2.8" fill="${eye}"/><circle cx="${rx + d}" cy="${ey + 0.5}" r="2.8" fill="${eye}"/>`
+        + `<path d="M${mx - 9} ${my - 3} L${mx + 9} ${my - 3} L${mx + 6} ${my + 7} L${mx - 6} ${my + 7}Z" fill="#8a3a33" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/><path d="M${mx - 7} ${my - 1} h14" stroke="#fff" stroke-width="2.5"/>`;
+    }
     switch (expr) {
       case "happy":
         return `${cheeks}<path d="M${lx - 6} ${ey + 2} q6 -7 12 0" stroke="${INK}" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M${rx - 6} ${ey + 2} q6 -7 12 0" stroke="${INK}" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M${mx - 9} ${my - 3} q9 13 18 0Z" fill="#ee8b7a" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/>`;
@@ -320,7 +329,7 @@
       <path d="M40 46 Q70 30 100 46 Q92 40 70 40 Q48 40 40 46Z" fill="${INK}" opacity="0.35"/>
       <ellipse cx="70" cy="76" rx="24" ry="14" fill="${v.belly}" opacity="0.45"/>
       ${face(expr, { lx: 54, rx: 86, ey: 60, mx: 70, my: 80, sx: 106, sy: 38, gx: 50, gy: 28, eye: v.eyeGlow })}
-      ${expr === "idle" || expr === "happy" ? `<circle cx="54" cy="60" r="7" fill="${v.eyeGlow}" opacity="0.3"/><circle cx="86" cy="60" r="7" fill="${v.eyeGlow}" opacity="0.3"/><path d="M60 84 l3 7 l3 -7 M74 84 l3 7 l3 -7" fill="#fff" stroke="${INK}" stroke-width="1.8" stroke-linejoin="round"/>` : ""}
+      ${expr === "idle" || expr === "happy" || expr.startsWith("fight") ? `<circle cx="54" cy="60" r="7" fill="${v.eyeGlow}" opacity="0.3"/><circle cx="86" cy="60" r="7" fill="${v.eyeGlow}" opacity="0.3"/><path d="M60 84 l3 7 l3 -7 M74 84 l3 7 l3 -7" fill="#fff" stroke="${INK}" stroke-width="1.8" stroke-linejoin="round"/>` : ""}
       <g fill="${v.glow}" opacity="0.85"><rect x="8" y="96" width="5" height="5"/><rect x="14" y="104" width="3" height="3"/><rect x="124" y="92" width="5" height="5"/><rect x="120" y="100" width="3" height="3"/><rect x="6" y="122" width="4" height="4"/><rect x="128" y="118" width="4" height="4"/></g>`,
 
     // 人工智能機械人: body/head colours, eye colour, extras.
