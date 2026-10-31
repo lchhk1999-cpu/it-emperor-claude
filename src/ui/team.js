@@ -48,7 +48,7 @@
     app.render(
       h(
         "main",
-        { class: "screen team" },
+        { class: "screen team", "data-tab": "team" },
         h(
           "header",
           { class: "topbar" },

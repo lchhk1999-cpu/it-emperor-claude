@@ -33,7 +33,7 @@
 | P5-02 | DSE 挑戰分課題（A–E）及難度（簡單／中等／困難／究極）＋每週限定素材關（Excel `Stages`／`Events`） | gameplay-engineer + content-pipeline | P5-01 | 每關掉落素材；限定關掉落較多 | DONE 2026-10-31（PROTOTYPE 數值；全部關卡開放，未設解鎖條件） |
 | P5-03 | 體力系統（Excel `Stages.stamina_cost`） | gameplay-engineer | P5-02 | 體力上限、回復時間、故事模式是否免體力 | DONE 2026-10-31（故事模式及公會不扣體力） |
 | P5-04 | 角色／裝備升級及三階段進化；第三階段需重複角色分解碎片 | gameplay-engineer | P5-01 | 重複角色／裝備全部換碎片（用戶 2026-10-31 決定） | DONE 2026-10-31（PROTOTYPE 數值；裝備格數 3 格未做） |
-| P5-05 | 主頁改版（原創設計，參考手機 RPG 常見佈局，不複製 P&D 介面） | ui-art-engineer | — | 畫布候選稿先給用戶核准 | PROPOSAL |
+| P5-05 | 主頁改版（原創設計，參考手機 RPG 常見佈局，不複製 P&D 介面） | ui-art-engineer | — | 用戶選用 A（2026-10-31） | DONE 2026-10-31 |
 | P5-06 | 好友系統（好友支援角色） | backend（未建立） | 線上後端 | 需要伺服器及帳戶，屬付費服務及學生私隱決定 | NEEDS APPROVAL |
 | P5-07 | 排行榜（前 100 名、每月重置） | backend（未建立） | 線上後端 | `docs/05` 已列 OPEN_DECISION：學生資料、作弊、成本 | NEEDS APPROVAL |
 
