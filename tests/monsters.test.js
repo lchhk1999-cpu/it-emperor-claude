@@ -57,4 +57,12 @@
     assert.equal(sun.world, null);
     assert.equal(sun.boss.name, "Bug 王");
   });
+  test("scenes: the home courtyard follows the time of day in Hong Kong", () => {
+    const at = (hkHour) => Date.UTC(2026, 10, 2, (hkHour + 24 - 8) % 24, 0);
+    assert.deepEqual([7, 13, 18, 22, 3].map((hh) => Sc.timeOfDay(at(hh))), ["morning", "day", "evening", "night", "night"]);
+    const scenes = ["morning", "day", "evening", "night"].map((k, i) => Sc.homeScene(at([7, 13, 18, 22][i])));
+    scenes.forEach((svg) => assert.ok(balanced(svg) && !/undefined|NaN/.test(svg)));
+    assert.equal(new Set(scenes).size, 4, "each time of day looks different");
+    assert.ok(scenes[3].includes('class="twinkle"'), "stars at night");
+  });
 })();

@@ -120,7 +120,18 @@
     return "home";
   }
 
+  // Page background theme: the screen's own class (team, gacha, …), see style.css.
+  const PAGE_THEMES = ["home", "stages", "battle", "result", "team", "growth", "gacha", "missions", "inventory", "settings", "story", "guild"];
+  function pageTheme(screen) {
+    const c = screen.classList;
+    if (!c) return "home";
+    if (c.contains("result")) return "result";
+    if (c.contains("battle") || c.contains("raid")) return "battle";
+    return PAGE_THEMES.find((t) => c.contains(t)) || "home";
+  }
+
   function render(screen) {
+    root.document.body.setAttribute("data-screen", pageTheme(screen));
     if (root.ITE.music) root.ITE.music.play(musicFor(screen));
     const tab = screen.getAttribute && screen.getAttribute("data-tab");
     app.classList.toggle("with-tabbar", !!tab);
@@ -221,7 +232,8 @@
         statusBar(),
         h(
           "section",
-          { class: "home-stage" },
+          { class: `home-stage time-${root.ITE.scenes.timeOfDay(Date.now())}` },
+          h("div", { class: "home-scene", html: root.ITE.scenes.homeScene(Date.now()) }),
           h(
             "div",
             { class: "side-chips" },
