@@ -1,8 +1,8 @@
 # 遊戲資料匯入報告（自動產生）
 
 - 來源檔案：`IT_Emperor_DseMcQs.xlsx`
-- SHA-256：`75d4703b665c7c975ace7cea64adb94816ebe84d6191336cb613e6639a0cdcd7`
-- 匯入時間：2026-10-31T16:39:57Z
+- SHA-256：`901ba03a474cf72cdcbf5b56a61d271b59f33add27fcf5bfa9adb3e00d393c20`
+- 匯入時間：2026-10-31T16:45:21Z
 - 工作表：`Characters`、`GameConfig`、`Missions`、`Titles`、`Equipment`、`Pools`、`Materials`、`Stages`、`Events`（Topics 用作檢查課題）
 
 ## 角色
@@ -40,6 +40,7 @@
 | CH-AIBOT-STUDY | 學習機械人 | ALL | R | 95 | 95 | 10% |
 | CH-AIBOT-CHAT | 對話機械人 | ALL | SR | 100 | 100 | 10% |
 | CH-AIBOT-QUANTUM | 量子機械人 | ALL | SSR | 105 | 105 | 10% |
+| CH-ITEMPEROR | IT帝 | ALL | UR | 120 | 120 | 15% |
 
 ## 遊戲設定
 

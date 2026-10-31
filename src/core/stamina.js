@@ -63,7 +63,7 @@
   // limited stage uses its workbook stamina_cost (question count when 0);
   // mixed practice is free.
   function stageCost(stage) {
-    if (!stage || !stage.kind) return 0;
+    if (!stage || !stage.kind || stage.kind === "trial") return 0; // 帝王試煉: weekly limit instead
     if (stage.kind === "limited") return stage.staminaCost > 0 ? stage.staminaCost : stage.questionCount;
     return stage.questionCount;
   }

@@ -25,7 +25,9 @@ import sys
 sys.path.insert(0, os.path.dirname(__file__))
 from import_question_bank import ImportError_, _cell_text, load_topics, read_workbook, sha256_of  # noqa: E402
 
-RARITIES = ("R", "SR", "SSR")
+RARITIES = ("R", "SR", "SSR")  # 抽蛋 pools
+# UR (帝王試煉, 2026-11-01) exists only for characters: never in a pool.
+CHAR_RARITIES = RARITIES + ("UR",)
 CHAR_REQUIRED = ["character_id", "character_name", "specialty_topic", "rarity", "base_attack", "base_hp",
                  "topic_bonus_pct", "active"]
 # GameConfig keys the game reads, with type and allowed range.
@@ -75,8 +77,8 @@ def import_characters(sheets, topics):
         for k in CHAR_REQUIRED:
             if not d.get(k):
                 errors.append(f"{k} is empty")
-        if d["rarity"] and d["rarity"] not in RARITIES:
-            errors.append(f"rarity must be R/SR/SSR, got '{d['rarity']}'")
+        if d["rarity"] and d["rarity"] not in CHAR_RARITIES:
+            errors.append(f"rarity must be R/SR/SSR/UR, got '{d['rarity']}'")
         if d["specialty_topic"] and d["specialty_topic"] != "ALL" and d["specialty_topic"] not in topics:
             errors.append(f"specialty_topic '{d['specialty_topic']}' is not in the Topics sheet")
         nums = {}

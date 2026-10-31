@@ -172,7 +172,7 @@
   // Groups characters by family (角色品種): families in workbook order, members
   // R → SR → SSR (workbook order within a rarity). A character without family
   // columns forms its own group.
-  const RARITY_RANK = { R: 0, SR: 1, SSR: 2 };
+  const RARITY_RANK = { R: 0, SR: 1, SSR: 2, UR: 3 };
   function familyGroups(characters) {
     const groups = [];
     const byKey = {};

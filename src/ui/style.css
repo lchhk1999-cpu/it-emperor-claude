@@ -842,3 +842,15 @@ body[data-screen="guild"] { --page-bg: linear-gradient(180deg, #ebe2f8 0%, #fbf6
 .gear-option-text .hint { margin: 0; }
 .gear-option-tag { font-size: 11px; font-weight: 800; color: var(--muted); white-space: nowrap; }
 .home .hero-stage .geared .gear-badge { width: 30%; }
+.rarity-UR { color: var(--ink); font-weight: 900; background: linear-gradient(90deg, #f4a3b8, #f4d36b, #8fc7f0, #c4b0e0); }
+/* 帝王試煉 boss: IT帝's shadow */
+.shadow-boss { display: block; filter: brightness(0.45) saturate(0.4) drop-shadow(0 0 8px #6e589a); }
+.shadow-boss svg { width: 100%; height: auto; display: block; }
+/* 帝王試煉 (2026-11-01) */
+.trial-entry { background: linear-gradient(100deg, #fff1c9, #f4d5f0 60%, #d8e8fa); }
+.trial-hero { text-align: center; }
+.trial-hero .meter { margin: 8px 0; }
+.trial-sprite { width: 150px; margin: 0 auto; }
+.trial-sprite svg { width: 100%; height: auto; display: block; }
+.trial-card { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; width: 100%; margin-bottom: 10px; }
+.trial-card.trial-done { opacity: 0.75; }

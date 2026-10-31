@@ -51,8 +51,14 @@ class GameDataImporterTest(unittest.TestCase):
         self.assertEqual(data["config"]["team_slots_max"], 5)
         self.assertEqual(data["config"]["specialist_bonus"], 0.2)
 
+    def test_ur_characters_are_accepted_but_ur_pools_are_not(self):
+        # UR (帝王試煉) is earned from shards, never drawn from a pool.
+        meta, rejected, data = self.run_import([ch("U1", rarity="UR")])
+        self.assertEqual([c["rarity"] for c in data["characters"]], ["UR"])
+        self.assertEqual(rejected, [])
+
     def test_invalid_characters_are_rejected_with_reasons(self):
-        rows = [ch("B1", rarity="UR"), ch("B2", specialty_topic="MAGIC"), ch("B3", base_attack="lots"),
+        rows = [ch("B1", rarity="LR"), ch("B2", specialty_topic="MAGIC"), ch("B3", base_attack="lots"),
                 ch("B4", topic_bonus_pct="150"), ch("OK"), ch("OK")]
         meta, rejected, data = self.run_import(rows)
         self.assertEqual([c["id"] for c in data["characters"]], ["OK"])

@@ -163,6 +163,13 @@
         out.checkin = { days: Math.min(ci.days, 99999), lastDay: ci.lastDay };
       }
     }
+    // 帝王試煉 { week, cleared: [tier] }; a damaged entry is dropped (no tier cleared).
+    if (raw.trials !== undefined) {
+      const t = raw.trials;
+      if (t && isText(t.week) && /^\d{4}-\d{2}-\d{2}$/.test(t.week) && Array.isArray(t.cleared)) {
+        out.trials = { week: t.week, cleared: t.cleared.filter(isText).filter((k, i, a) => a.indexOf(k) === i).slice(0, 8) };
+      }
+    }
     if (raw.growth !== undefined) {
       const g = raw.growth && typeof raw.growth === "object" ? raw.growth : {};
       const characters = {};

@@ -96,7 +96,7 @@
   // Every playable DSE stage: the mixed practice stage(s), the world stages and today's limited stage.
   function allStages(gameData, now) {
     const limited = limitedStage(gameData, now);
-    return (ITE.stages || []).concat(worldStages(), limited ? [limited] : []);
+    return (ITE.stages || []).concat(worldStages(), limited ? [limited] : [], ITE.trial ? ITE.trial.stages() : []);
   }
 
   // Questions a stage draws from: matching topics, preferred difficulties first;

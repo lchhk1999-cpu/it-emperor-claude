@@ -356,6 +356,14 @@
           h("span", { class: "drill-entry-title" }, "操練區"),
           h("span", { class: "drill-entry-sub" }, "不扣體力・不設獎勵・隨機出題，隨時離開")
         ),
+        root.ITE.trialUi
+          ? h(
+              "button",
+              { class: "drill-entry trial-entry", onclick: () => root.ITE.trialUi.show() },
+              h("span", { class: "drill-entry-title" }, "👑 帝王試煉"),
+              h("span", { class: "drill-entry-sub" }, "每週一次・收集碎片合成 UR「IT帝」")
+            )
+          : null,
         limited ? stageCard(limited) : null,
         Dg.WORLDS.map((w) =>
           h(
@@ -427,7 +435,8 @@
   // playing without enough stamina, gives experience only (practice).
   function startBattle(stage, opts) {
     const cost = root.ITE.stamina.stageCost(stage);
-    const practice = cost === 0 || !!(opts && opts.practice);
+    // 帝王試煉 costs no stamina but is not practice: it gives rewards.
+    const practice = (cost === 0 && stage.kind !== "trial") || !!(opts && opts.practice);
     let paid = null;
     if (!practice) {
       const r = root.ITE.stamina.spend(save.profile, cost, gameData.config, Date.now());
@@ -492,6 +501,13 @@
         ? grantReward({ exp: base.exp, coins: 0 })
         : grantReward({ ...base, materials: root.ITE.dungeons.materialDrops(findStage(battleState.stageId), sum, gameData, root.ITE.rng.createRng(Date.now() ^ Math.floor(Math.random() * 2 ** 31))) });
       lastReward.practice = !!battleState.practice;
+      const stageNow = findStage(battleState.stageId);
+      if (stageNow && stageNow.kind === "trial") {
+        const t = root.ITE.trial.claim(save.profile, stageNow.trial, sum.outcome, Date.now(), Math.random);
+        save = { ...save, profile: t.profile };
+        lastReward.trial = { won: sum.outcome === "won", shards: t.shards };
+        persist();
+      }
       sfx(sum.outcome === "won" ? "win" : "lose");
       showResult();
       return;
@@ -552,7 +568,7 @@
           const look = stageLook(s.stageId);
           return arena({
             theme: look.theme,
-            boss: { label: s.boss.name, hp: s.boss.hp, max: s.boss.maxHp, sprite: (e) => sprites.monster(look.monster, e, { tier: look.tier }) },
+            boss: { label: s.boss.name, hp: s.boss.hp, max: s.boss.maxHp, sprite: look.bossSprite || ((e) => sprites.monster(look.monster, e, { tier: look.tier })) },
             hero: {
               sprite: (e) => leaderSprite(s, e),
               bar: bar(s.team && s.team.length ? `我的隊伍（${s.team.length} 人）` : "我的隊伍", s.party.hp, s.party.maxHp, "party"),
@@ -711,7 +727,9 @@
   function stageLook(stageId) {
     const st = findStage(stageId);
     const look = root.ITE.scenes.forWorld(st && st.world);
-    return { ...look, tier: (st && st.difficulty) || "easy" };
+    // 帝王試煉: the boss is IT帝's shadow (the UR art, darkened in CSS).
+    const bossSprite = st && st.kind === "trial" ? (e) => `<span class="shadow-boss">${sprites.character("CH-ITEMPEROR", e === "hurt" ? "surprised" : e === "smug" ? "happy" : "idle")}</span>` : null;
+    return { ...look, tier: (st && st.difficulty) || "easy", bossSprite };
   }
 
   // The leader wears its equipment in battle (裝備造型, 2026-11-01).
@@ -753,6 +771,8 @@
         return m ? h("p", { class: "reward-line reward-material" }, `獲得素材：${m.name} ×${n}`) : null;
       }),
       g.practice ? h("p", { class: "hint" }, "練習模式：只獲得經驗（不扣體力，沒有素材及金幣）") : null,
+      g.trial && g.trial.shards ? h("p", { class: "reward-line reward-material" }, `獲得 IT帝碎片 ×${g.trial.shards}（共 ${root.ITE.trial.shardsOf(save.profile)} / ${root.ITE.trial.TRIAL_RULES.unlockShards}）`) : null,
+      g.trial && g.trial.won && !g.trial.shards ? h("p", { class: "hint" }, "這個難度本週已領取碎片，下星期一再來！") : null,
       g.levelsGained ? h("p", { class: "reward-level" }, `升級！現在是 Lv ${g.level}，體力已回滿，+${g.levelsGained * P.PROFILE_RULES.levelUpGems} 寶石`) : null,
       g.slotsUnlocked ? h("p", { class: "reward-level" }, `解鎖新隊伍位置！到「角色隊伍」加入新成員`) : null
     );
@@ -817,6 +837,7 @@
     arena,
     sfx,
     showStages,
+    startBattle,
     online: ONLINE,
     storage,
     grantReward,

@@ -245,6 +245,36 @@
       </g>`;
     },
 
+    // IT帝 (UR, 帝王試煉 2026-11-01): a young emperor of IT — big jewelled crown,
+    // royal robe with an ermine collar, and a sceptre topped by a glowing </> key.
+    emperor: (expr, v) => `
+      ${shadow(70)}
+      <path d="M40 100 Q26 130 22 160 L118 160 Q114 130 100 100Z" fill="${v.cape}" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M22 160 L118 160" stroke="${GOLD}" stroke-width="4"/>
+      <rect x="46" y="98" width="48" height="46" rx="14" fill="${v.robe}" stroke="${INK}" stroke-width="3"/>
+      <path d="M70 100 L70 144" stroke="${GOLD}" stroke-width="4"/>
+      <circle cx="70" cy="116" r="4" fill="${GOLD}" stroke="${INK}" stroke-width="2"/><circle cx="70" cy="130" r="4" fill="${GOLD}" stroke="${INK}" stroke-width="2"/>
+      ${legs(NAVY)}
+      <path d="M38 100 Q70 116 102 100 Q102 92 94 90 Q70 102 46 90 Q38 92 38 100Z" fill="#ffffff" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+      <g fill="${INK}"><circle cx="52" cy="99" r="1.8"/><circle cx="64" cy="103" r="1.8"/><circle cx="78" cy="103" r="1.8"/><circle cx="90" cy="99" r="1.8"/></g>
+      <g transform="translate(-5 0) rotate(8 120 120)">
+        <rect x="117" y="92" width="6" height="56" rx="3" fill="${GOLD}" stroke="${INK}" stroke-width="2.5"/>
+        <rect x="106" y="70" width="28" height="24" rx="6" fill="${v.key}" stroke="${INK}" stroke-width="3"/>
+        <text x="120" y="87" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="12" font-weight="900" fill="${INK}">&lt;/&gt;</text>
+      </g>
+      <circle cx="112" cy="122" r="7" fill="${SKIN}" stroke="${INK}" stroke-width="2.5"/>
+      ${humanHead(58)}
+      <path d="M28 62 Q26 24 70 20 Q114 24 112 62 Q106 44 94 42 L88 52 L80 40 L70 50 L60 40 L52 52 L46 42 Q34 44 28 62Z" fill="${v.hair}" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/>
+      ${face(expr, { ...std, sx: 108, sy: 40, gy: 34 })}
+      <g transform="translate(70 27) scale(0.72)">
+        <path d="M-30 10 L-34 -18 L-16 -4 L0 -26 L16 -4 L34 -18 L30 10Z" fill="${GOLD}" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+        <rect x="-31" y="6" width="62" height="10" rx="4" fill="#e8b84a" stroke="${INK}" stroke-width="3"/>
+        <circle cx="0" cy="-6" r="5" fill="#d2553f" stroke="${INK}" stroke-width="2"/>
+        <circle cx="-18" cy="2" r="3.5" fill="#8fc3e8" stroke="${INK}" stroke-width="1.8"/><circle cx="18" cy="2" r="3.5" fill="#9fd4b4" stroke="${INK}" stroke-width="1.8"/>
+        <circle cx="0" cy="-27" r="3.5" fill="${GOLD}" stroke="${INK}" stroke-width="2"/><circle cx="-34" cy="-19" r="3" fill="${GOLD}" stroke="${INK}" stroke-width="2"/><circle cx="34" cy="-19" r="3" fill="${GOLD}" stroke="${INK}" stroke-width="2"/>
+      </g>
+      ${sparkle(18, 34)}${sparkle(124, 30)}`,
+
     // 人工智能機械人: body/head colours, eye colour, extras.
     robot: (expr, v) => {
       const c = v.eye;
@@ -279,7 +309,7 @@
   // ---------- SSR look (user request 2026-10-31: SSR 要有威猛的形象) ----------
   // An energy burst behind, an optional cape, and determined eyebrows.
   // Brow positions per family: [left eye x, right eye x, brow y].
-  const BROWS = { dog: [50, 82, 47], db: [54, 86, 50], suit: [54, 86, 50], office: [54, 86, 50], net: [54, 86, 54], hacker: [53, 87, 50], robot: [56, 84, 40] };
+  const BROWS = { dog: [50, 82, 47], db: [54, 86, 50], suit: [54, 86, 50], office: [54, 86, 50], net: [54, 86, 54], hacker: [53, 87, 50], robot: [56, 84, 40], emperor: [54, 86, 52] };
 
   function burst(color) {
     const pts = [];
@@ -289,6 +319,19 @@
       pts.push(`${(70 + r * Math.cos(a)).toFixed(1)},${(88 + r * Math.sin(a)).toFixed(1)}`);
     }
     return `<g class="ssr-aura"><polygon points="${pts.join(" ")}" fill="${color}" opacity="0.38"/><circle cx="70" cy="88" r="46" fill="${color}" opacity="0.25"/></g>`;
+  }
+
+  // UR: a rainbow burst (one colour per ray) behind the character.
+  function rainbowBurst() {
+    const colors = ["#f4a3b8", "#f6b38a", "#f4d36b", "#a7d8a0", "#8fc7f0", "#c4b0e0"];
+    let rays = "";
+    for (let i = 0; i < 12; i++) {
+      const a1 = (Math.PI * 2 * i) / 12;
+      const a2 = (Math.PI * 2 * (i + 0.5)) / 12;
+      const p = (a, r) => `${(70 + r * Math.cos(a)).toFixed(1)},${(88 + r * Math.sin(a)).toFixed(1)}`;
+      rays += `<polygon points="70,88 ${p(a1, 74)} ${p(a2, 74)}" fill="${colors[i % colors.length]}" opacity="0.45"/>`;
+    }
+    return `<g class="ssr-aura ur-aura">${rays}<circle cx="70" cy="88" r="44" fill="#fff6d8" opacity="0.5"/></g>`;
   }
 
   function heroic(family, expr, v) {
@@ -302,7 +345,8 @@
     const brows = expr === "idle" || expr === "happy"
       ? `<g stroke="${browColor}" stroke-width="4" stroke-linecap="round"><line x1="${lx - 10}" y1="${y - 4}" x2="${lx + 6}" y2="${y + 2}"/><line x1="${rx + 10}" y1="${y - 4}" x2="${rx - 6}" y2="${y + 2}"/></g>`
       : "";
-    return { back: burst(h.aura) + cape, front: brows };
+    const aura = h.aura === "rainbow" ? rainbowBurst() : burst(h.aura);
+    return { back: aura + cape, front: brows };
   }
 
   // ---------- variants (品種) ----------
@@ -342,6 +386,8 @@
     "CH-BROADBAND-ROUTER": ["net", { helmet: "#8fc3e8", vest: GOLD, shirt: "#ffffff", cable: "#ee8b7a", badge: "antenna" }],
     "CH-BROADBAND-5G": ["net", { helmet: "#c4b0e0", vest: "#f2b4b0", shirt: "#e6eff8", cable: "#c4b0e0", badge: "fiveG" }],
     "CH-BROADBAND-CHIEF": ["net", { helmet: GOLD, vest: "#ee8b7a", shirt: NAVY, cable: GOLD, badge: "mic", heroic: { aura: "#f4d36b", cape: NAVY } }],
+    // 帝王系列 (UR, only from 帝王試煉 shards)
+    "CH-ITEMPEROR": ["emperor", { robe: "#d2553f", cape: "#6e589a", hair: "#3b3330", key: "#8fc7f0", heroic: { aura: "rainbow" } }],
     // 人工智能機械人
     "CH-AIBOT-STUDY": ["robot", { head: "#ffffff", body: "#9fd4b4", screen: NAVY, eye: "#9fd4b4", antenna: GOLD }],
     "CH-AIBOT-CHAT": ["robot", { head: "#e6eff8", body: "#8fc3e8", screen: NAVY, eye: "#8fc3e8", antenna: "#ee8b7a", extra: "bubble" }],
@@ -357,6 +403,7 @@
     "CH-HACK-ROOKIE": "見習白帽", "CH-HACK": "黑客", "CH-HACK-FIREWALL": "防火牆騎士", "CH-HACK-LEGEND": "白帽傳說",
     "CH-OFFICE-INTERN": "實習生", "CH-OFFICE": "辦公室職員", "CH-OFFICE-LEAD": "試算表主任", "CH-OFFICE-PIVOT": "樞紐分析師", "CH-OFFICE-QUEEN": "公式女王",
     "CH-BROADBAND": "寬頻職員", "CH-BROADBAND-FIBRE": "光纖技師", "CH-BROADBAND-ROUTER": "路由器隊長", "CH-BROADBAND-5G": "5G 工程師", "CH-BROADBAND-CHIEF": "網絡總指揮",
+    "CH-ITEMPEROR": "IT帝",
     "CH-AIBOT-STUDY": "學習機械人", "CH-AIBOT-CHAT": "對話機械人", "CH-AIBOT": "人工智能機械人", "CH-AIBOT-QUANTUM": "量子機械人",
   };
 
