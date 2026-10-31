@@ -29,6 +29,7 @@
   let save = loaded.save;
   const sfx = (name) => root.ITE.sound && root.ITE.sound.play(name);
   if (root.ITE.sound) root.ITE.sound.setEnabled(save.settings.sound);
+  if (root.ITE.music) root.ITE.music.setEnabled(save.settings.music);
   const P = root.ITE.profile;
   const gameData = root.ITE.gameData;
   {
@@ -108,7 +109,19 @@
     );
   }
 
+  // Background music follows the kind of screen: battles, story levels, silent
+  // results (so the win / lose jingle stands out), everything else 主頁 music.
+  function musicFor(screen) {
+    const c = screen.classList;
+    if (!c) return "home";
+    if (c.contains("result")) return null;
+    if (c.contains("battle") && c.contains("story")) return "story";
+    if (c.contains("battle") || c.contains("raid")) return "battle";
+    return "home";
+  }
+
   function render(screen) {
+    if (root.ITE.music) root.ITE.music.play(musicFor(screen));
     const tab = screen.getAttribute && screen.getAttribute("data-tab");
     app.classList.toggle("with-tabbar", !!tab);
     // devBanner() is null in release builds; replaceChildren would print it as "null".
@@ -393,6 +406,7 @@
     if (paid) save = { ...save, profile: paid };
     save = S.withActiveBattle(save, battleState);
     persist();
+    sfx("stageStart");
     showBattle();
   }
 

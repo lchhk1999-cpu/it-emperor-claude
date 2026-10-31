@@ -10,6 +10,14 @@
   // type = oscillator wave, v = volume (0-1).
   const SOUNDS = {
     tap: [{ t: 0, d: 0.05, f: 660, type: "triangle", v: 0.18 }],
+    // 入關: a short rising fanfare when a battle or story level starts.
+    stageStart: [
+      { t: 0, d: 0.1, f: 392, type: "square", v: 0.1 },
+      { t: 0.1, d: 0.1, f: 523, type: "square", v: 0.1 },
+      { t: 0.2, d: 0.1, f: 659, type: "square", v: 0.1 },
+      { t: 0.3, d: 0.35, f: 784, type: "triangle", v: 0.26 },
+      { t: 0.3, d: 0.35, f: 392, type: "triangle", v: 0.16 },
+    ],
     correct: [
       { t: 0, d: 0.09, f: 784, type: "triangle", v: 0.28 },
       { t: 0.08, d: 0.18, f: 1175, type: "triangle", v: 0.28 },
@@ -98,6 +106,7 @@
   ITE.sound = {
     SOUNDS,
     play,
+    context: audio, // shared with background music (src/ui/music.js)
     setEnabled: (on) => (enabled = !!on),
     isEnabled: () => enabled,
   };

@@ -565,3 +565,5 @@ button.speech:focus-visible { outline: 3px solid #6aa0d8; outline-offset: 2px; }
 .seg-btn { flex: 1; min-height: 48px; font: inherit; font-weight: 900; color: var(--ink); background: #f1ebe3; border: 2.5px solid var(--ink); border-radius: 14px; cursor: pointer; }
 .seg-btn.active { background: var(--yellow); box-shadow: 0 3px 0 var(--ink); }
 .seg-btn:focus-visible { outline: 3px solid #6aa0d8; outline-offset: 2px; }
+.sound-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.sound-btn { min-height: 48px; padding: 8px; font-size: 15px; }

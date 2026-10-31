@@ -6,15 +6,17 @@
   const SAVE_KEY = "it-emperor.save";
   const SAVE_VERSION = 1;
 
-  // Player settings: sound on/off and whether the new-player tutorial was seen.
+  // Player settings: sound effects and background music on/off, and whether the
+  // new-player tutorial was seen.
   function defaultSettings() {
-    return { sound: true, tutorialDone: false };
+    return { sound: true, music: true, tutorialDone: false };
   }
 
   function sanitizeSettings(raw) {
     const d = defaultSettings();
     if (!raw || typeof raw !== "object" || Array.isArray(raw)) return d;
-    return { sound: typeof raw.sound === "boolean" ? raw.sound : d.sound, tutorialDone: typeof raw.tutorialDone === "boolean" ? raw.tutorialDone : d.tutorialDone };
+    const pick = (k) => (typeof raw[k] === "boolean" ? raw[k] : d[k]);
+    return { sound: pick("sound"), music: pick("music"), tutorialDone: pick("tutorialDone") };
   }
 
   function defaultSave() {
