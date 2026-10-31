@@ -27,6 +27,8 @@
 
   const loaded = S.load(storage);
   let save = loaded.save;
+  const sfx = (name) => root.ITE.sound && root.ITE.sound.play(name);
+  if (root.ITE.sound) root.ITE.sound.setEnabled(save.settings.sound);
   const P = root.ITE.profile;
   const gameData = root.ITE.gameData;
   {
@@ -94,7 +96,7 @@
           "button",
           {
             class: id === active ? "tab-btn active" : "tab-btn",
-            onclick: go,
+            onclick: () => (sfx("tap"), go()),
             ...(id === active ? { "aria-current": "page" } : {}),
             ...(id === "missions" && claimableNow() ? { "aria-label": `${label}，${claimableNow()} 個獎勵可領取` } : {}),
           },
@@ -138,6 +140,7 @@
     book: '<path d="M3.5 5 C7 4 10 4.5 12 6.5 C14 4.5 17 4 20.5 5 V19 C17 18 14 18.5 12 20 C10 18.5 7 18 3.5 19 Z"/><path d="M12 6.5 V20"/>',
     sword: '<path d="M5 19 L15.5 8.5"/><path d="M13 4 L20 4 L20 11"/><path d="M4 16 L8 20"/><path d="M15 4.5 L19.5 9"/>',
     coin: '<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5 V16.5"/><path d="M9.5 9.5 H13.5 C15 9.5 15 12 13.5 12 H10.5 C9 12 9 14.5 10.5 14.5 H14.5"/>',
+    settings: '<circle cx="12" cy="12" r="3.2"/><path d="M12 2.5 V5.5 M12 18.5 V21.5 M2.5 12 H5.5 M18.5 12 H21.5 M5.3 5.3 L7.4 7.4 M16.6 16.6 L18.7 18.7 M5.3 18.7 L7.4 16.6 M16.6 7.4 L18.7 5.3"/><circle cx="12" cy="12" r="6.5"/>',
     gem: '<path d="M6 4 H18 L22 9.5 L12 21 L2 9.5 Z"/><path d="M2 9.5 H22"/><path d="M9 4 L12 21 L15 4"/>',
   };
   const ICON_FILL = { coin: "#f4d36b", gem: "#8fc3e8" };
@@ -210,7 +213,8 @@
             "div",
             { class: "side-chips" },
             ONLINE ? sideChip("mission", "任務", () => root.ITE.missionsUi.show(), claimable) : null,
-            sideChip("bag", "背包", () => root.ITE.inventoryUi.show())
+            sideChip("bag", "背包", () => root.ITE.inventoryUi.show()),
+            sideChip("settings", "設定", () => root.ITE.settingsUi.show())
           ),
           next
             ? h("button", { class: "speech", onclick: () => root.ITE.storyUi.showIntro(next.id) }, `繼續學習：${next.id} ${next.name}`)
@@ -262,6 +266,8 @@
         h("p", { class: "placeholder-note" }, "PLACEHOLDER 美術｜非正式設計")
       )
     );
+    // First visit: the new-player tutorial (設定 can replay it).
+    if (!save.settings.tutorialDone && root.ITE.tutorialUi) root.ITE.tutorialUi.show(0);
   }
 
   // ---------- Stage select ----------
@@ -432,6 +438,7 @@
         ? grantReward({ exp: base.exp, coins: 0 })
         : grantReward({ ...base, materials: root.ITE.dungeons.materialDrops(findStage(battleState.stageId), sum, gameData, root.ITE.rng.createRng(Date.now() ^ Math.floor(Math.random() * 2 ** 31))) });
       lastReward.practice = !!battleState.practice;
+      sfx(sum.outcome === "won" ? "win" : "lose");
       showResult();
       return;
     }
@@ -596,7 +603,10 @@
   }
 
   // Every answered question in any mode counts towards missions and titles.
+  // Every mode (DSE, story, guild) reports answers here, so this is also where
+  // the correct / wrong sound plays.
   function recordAnswer(q, correct, doPersist = true) {
+    sfx(correct ? "correct" : "wrong");
     save = { ...save, progress: Mi.recordAnswer(save.progress, q, correct, Date.now()) };
     if (doPersist) persist();
   }
@@ -615,7 +625,10 @@
   function grantReward(reward) {
     const r = P.addReward(save.profile, reward, gameData);
     let profile = reward.materials ? root.ITE.inventory.addMaterials(r.profile, reward.materials, gameData) : r.profile;
-    if (r.levelsGained) profile = root.ITE.stamina.refill(profile, gameData.config, Date.now());
+    if (r.levelsGained) {
+      profile = root.ITE.stamina.refill(profile, gameData.config, Date.now());
+      setTimeout(() => sfx("levelUp"), 700); // after the win jingle
+    }
     save = { ...save, profile: { ...profile, team: P.cleanTeam(profile.team, profile.level, gameData, profile.owned) } };
     persist();
     return { reward, levelsGained: r.levelsGained, slotsUnlocked: r.slotsUnlocked, level: r.profile.level };
@@ -691,6 +704,8 @@
     bar,
     questionPool,
     buildMode: BUILD_MODE,
+    sfx,
+    showStages,
     online: ONLINE,
     storage,
     grantReward,

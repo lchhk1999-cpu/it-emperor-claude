@@ -36,9 +36,10 @@
     );
   }
 
-  function act(fn, message) {
+  function act(fn, message, sound) {
     const r = fn(app.getSave().profile);
     if (r.error) return show(ERRORS[r.error] || r.error);
+    app.sfx(sound || "reward");
     app.setSave({ ...app.getSave(), profile: r.profile });
     show(null, message);
   }
@@ -78,7 +79,7 @@
               "button",
               {
                 class: "btn btn-primary",
-                onclick: () => act((p) => Gr.evolve(p, c.id, data), `${c.name} 完成${Gr.EVO_NAMES[g.evo + 1]}！`),
+                onclick: () => act((p) => Gr.evolve(p, c.id, data), `${c.name} 完成${Gr.EVO_NAMES[g.evo + 1]}！`, "evolve"),
                 ...(cost.every((x) => x.have >= x.need) ? {} : { disabled: "" }),
               },
               Gr.EVO_NAMES[g.evo + 1]
@@ -106,7 +107,7 @@
               "button",
               {
                 class: "btn btn-primary",
-                onclick: () => act((p) => Gr.evolveEquipment(p, e.id, data), `${e.name} 進化到第 ${tier + 1} 階！`),
+                onclick: () => act((p) => Gr.evolveEquipment(p, e.id, data), `${e.name} 進化到第 ${tier + 1} 階！`, "evolve"),
                 ...(cost.every((x) => x.have >= x.need) ? {} : { disabled: "" }),
               },
               `進化到第 ${tier + 1} 階`

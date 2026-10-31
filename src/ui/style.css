@@ -541,3 +541,27 @@ button.speech:focus-visible { outline: 3px solid #6aa0d8; outline-offset: 2px; }
 .home .btn-review { width: 100%; margin-top: 14px; }
 .tab-btn { position: relative; }
 .tab-btn .badge { top: 0; right: 10%; min-width: 20px; height: 20px; font-size: 11px; }
+
+/* 新手教學 */
+.tutorial-backdrop { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 16px; background: rgba(59, 51, 48, 0.55); }
+.tutorial-card {
+  width: 100%; max-width: 420px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 8px;
+  padding: 18px 18px 16px; text-align: center; background: var(--bg); border: 3px solid var(--ink); border-radius: 26px; box-shadow: 0 6px 0 var(--ink);
+}
+.tutorial-count { margin: 0; font-size: 12px; font-weight: 800; color: var(--muted); }
+.tutorial-art { width: 130px; }
+.tutorial-art svg { width: 100%; height: auto; display: block; }
+.tutorial-card h2 { margin: 0; font-size: 22px; }
+.tutorial-text { margin: 0; font-size: 16px; line-height: 1.6; }
+.tutorial-dots { display: flex; gap: 6px; margin: 4px 0; }
+.tutorial-dots .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--line); border: 1.5px solid var(--ink); }
+.tutorial-dots .dot.active { width: 22px; border-radius: 6px; background: var(--yellow); }
+.tutorial-actions { display: grid; gap: 10px; width: 100%; }
+.btn-link { padding: 8px; font: inherit; font-size: 14px; font-weight: 700; color: var(--muted); background: none; border: none; text-decoration: underline; cursor: pointer; }
+.btn-link:focus-visible { outline: 3px solid #6aa0d8; outline-offset: 2px; }
+
+/* 設定 */
+.seg { display: flex; gap: 8px; margin: 8px 0; }
+.seg-btn { flex: 1; min-height: 48px; font: inherit; font-weight: 900; color: var(--ink); background: #f1ebe3; border: 2.5px solid var(--ink); border-radius: 14px; cursor: pointer; }
+.seg-btn.active { background: var(--yellow); box-shadow: 0 3px 0 var(--ink); }
+.seg-btn:focus-visible { outline: 3px solid #6aa0d8; outline-offset: 2px; }

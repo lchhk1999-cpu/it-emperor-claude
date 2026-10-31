@@ -27,6 +27,7 @@
     if (r.error) return show(ERRORS[r.error]);
     app.setSave({ ...app.getSave(), profile: r.profile });
     lastResult = r.result;
+    app.sfx(r.result.rarity === "SSR" ? "gachaSSR" : "gacha");
     show();
   }
 

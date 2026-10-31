@@ -6,8 +6,19 @@
   const SAVE_KEY = "it-emperor.save";
   const SAVE_VERSION = 1;
 
+  // Player settings: sound on/off and whether the new-player tutorial was seen.
+  function defaultSettings() {
+    return { sound: true, tutorialDone: false };
+  }
+
+  function sanitizeSettings(raw) {
+    const d = defaultSettings();
+    if (!raw || typeof raw !== "object" || Array.isArray(raw)) return d;
+    return { sound: typeof raw.sound === "boolean" ? raw.sound : d.sound, tutorialDone: typeof raw.tutorialDone === "boolean" ? raw.tutorialDone : d.tutorialDone };
+  }
+
   function defaultSave() {
-    return { version: SAVE_VERSION, stages: {}, activeBattle: null, guild: null, story: { levels: {} }, profile: null, progress: null };
+    return { version: SAVE_VERSION, stages: {}, activeBattle: null, guild: null, story: { levels: {} }, profile: null, progress: null, settings: defaultSettings() };
   }
 
   function isValidSave(data) {
@@ -201,14 +212,18 @@
     const profile = sanitizeProfile(rawProfile);
     const rawProgress = data.progress === undefined ? null : data.progress;
     const progress = sanitizeProgress(rawProgress);
+    // Saves from before settings existed simply get the defaults (not damage).
+    const rawSettings = data.settings === undefined ? defaultSettings() : data.settings;
+    const settings = sanitizeSettings(rawSettings);
     const repaired =
       activeBattle !== data.activeBattle ||
       guild !== rawGuild ||
       stable(stages) !== stable(data.stages) ||
       stable(story) !== stable(rawStory) ||
       stable(profile) !== stable(rawProfile) ||
-      stable(progress) !== stable(rawProgress);
-    return { save: { version: SAVE_VERSION, stages, activeBattle, guild, story, profile, progress }, repaired };
+      stable(progress) !== stable(rawProgress) ||
+      stable(settings) !== stable(rawSettings);
+    return { save: { version: SAVE_VERSION, stages, activeBattle, guild, story, profile, progress, settings }, repaired };
   }
 
   function withStory(save, story) {
