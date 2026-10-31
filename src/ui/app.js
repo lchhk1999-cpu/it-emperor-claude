@@ -29,7 +29,7 @@
 
   const loaded = S.load(storage);
   let save = loaded.save;
-  const sfx = (name) => root.ITE.sound && root.ITE.sound.play(name);
+  const sfx = (name, pitch) => root.ITE.sound && root.ITE.sound.play(name, pitch);
   if (root.ITE.sound) root.ITE.sound.setEnabled(save.settings.sound);
   if (root.ITE.music) root.ITE.music.setEnabled(save.settings.music);
   const P = root.ITE.profile;
@@ -195,11 +195,14 @@
     return h(
       "header",
       { class: "status-bar" },
+      p.name || title
+        ? h("div", { class: "name-row" }, p.name ? h("span", { class: "player-name" }, p.name) : null, title ? h("span", { class: "title-badge" }, title.name) : null)
+        : null,
       h(
         "div",
         { class: "status-row" },
         h("span", { class: "lv" }, `Lv ${p.level}`),
-        title ? h("span", { class: "title-badge" }, title.name) : h("span", { class: "status-spacer" }),
+        h("span", { class: "status-spacer" }),
         h("span", { class: "currency", "aria-label": `金幣 ${p.coins}` }, h("span", { class: "cur-icon", html: icons.coin }), String(p.coins)),
         h("span", { class: "currency", "aria-label": `寶石 ${p.gems || 0}` }, h("span", { class: "cur-icon", html: icons.gem }), String(p.gems || 0))
       ),
@@ -296,8 +299,13 @@
     );
     // First visit: the new-player tutorial (設定 can replay it); after that, the
     // daily check-in once per Hong Kong day.
-    if (!save.settings.tutorialDone && root.ITE.tutorialUi) root.ITE.tutorialUi.show(0);
-    else if (root.ITE.checkinUi && root.ITE.checkin.canCheckIn(save.profile, Date.now())) root.ITE.checkinUi.show();
+    // A name is asked first (also once for saves from before names existed).
+    const afterName = () => {
+      if (!save.settings.tutorialDone && root.ITE.tutorialUi) root.ITE.tutorialUi.show(0);
+      else if (root.ITE.checkinUi && root.ITE.checkin.canCheckIn(save.profile, Date.now())) root.ITE.checkinUi.show();
+    };
+    if (!save.profile.name && root.ITE.nameUi) root.ITE.nameUi.show(showHome);
+    else afterName();
   }
 
   // ---------- Stage select ----------
@@ -623,6 +631,7 @@
     return h(
       "p",
       { class: "profile-bar" },
+      p.name ? h("span", { class: "player-name" }, p.name) : null,
       h("span", { class: "lv" }, `Lv ${p.level}`),
       h("span", {}, `經驗 ${p.exp} / ${P.PROFILE_RULES.expToNext(p.level)}`),
       h("span", {}, `金幣 ${p.coins}`),
@@ -808,6 +817,8 @@
     },
   };
   // Wait for every script (guild, story, review screens) before the first render.
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", showHome);
-  else showHome();
+  // The opening animation (splash.js) shows first and then opens the home screen.
+  const start = () => (root.ITE.splashUi ? root.ITE.splashUi.show(showHome) : showHome());
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);
+  else start();
 })(globalThis);

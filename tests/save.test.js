@@ -148,4 +148,20 @@
     assert.equal(S.importCode(code.slice(0, code.length - 12) + code.slice(-9)).ok, false);
     assert.equal(S.importCode(S.exportCode({ version: 99, stages: {} })).reason, "invalid");
   });
+
+  test("save: nicknames are trimmed, limited to 10 characters and kept through save/load", () => {
+    assert.equal(S.cleanName("  IT  小勇者 "), "IT 小勇者");
+    assert.equal(S.cleanName("一二三四五六七八九十十一"), "一二三四五六七八九十");
+    assert.equal(S.cleanName("a\u0000b\u202ec"), "abc");
+    assert.equal(S.cleanName("   "), "");
+    assert.equal(S.cleanName(42), "");
+    const store = S.createMemoryStorage();
+    const save = { ...S.defaultSave(), profile: { ...ITE.profile.defaultProfile(ITE.gameData), name: "阿明" } };
+    S.persist(store, save);
+    assert.equal(S.load(store).save.profile.name, "阿明");
+    store.setItem(S.SAVE_KEY, JSON.stringify({ ...save, profile: { ...save.profile, name: "  " } }));
+    const r = S.load(store);
+    assert.equal(r.save.profile.name, undefined);
+    assert.equal(r.status, "repaired");
+  });
 })();

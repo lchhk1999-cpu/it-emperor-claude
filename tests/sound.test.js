@@ -3,7 +3,7 @@
   const WAVES = ["sine", "triangle", "square", "sawtooth"];
 
   test("sound: every game event has a short, quiet, synthesised sound", () => {
-    for (const name of ["tap", "stageStart", "correct", "wrong", "win", "lose", "levelUp", "reward", "gacha", "gachaSSR", "evolve"]) {
+    for (const name of ["tap", "stageStart", "correct", "wrong", "win", "lose", "levelUp", "reward", "gacha", "gachaSSR", "evolve", "boxTap", "boxOpen"]) {
       const notes = Snd.SOUNDS[name];
       assert.ok(notes && notes.length, name);
       for (const n of notes) {

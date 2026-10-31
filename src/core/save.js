@@ -101,6 +101,14 @@
   // Player profile { level >= 1, exp >= 0, coins >= 0, team: unique ids }. Numbers
   // are clamped; a non-object is dropped (the game then starts a fresh profile).
   // Unknown character ids are filtered later by ITE.profile.cleanTeam.
+  // 暱稱 (user request 2026-11-01): 1–10 characters, no control characters.
+  // Returns the cleaned name, or "" when nothing usable is left.
+  const NAME_MAX = 10;
+  function cleanName(raw) {
+    if (typeof raw !== "string") return "";
+    return Array.from(raw.replace(/[\u0000-\u001f\u007f-\u009f\u200b-\u200f\u2028-\u202e\u2066-\u2069]/g, "").replace(/\s+/g, " ").trim()).slice(0, NAME_MAX).join("").trim();
+  }
+
   function sanitizeProfile(raw) {
     if (!raw || typeof raw !== "object" || Array.isArray(raw)) return null;
     const int = (v, min) => (Number.isInteger(v) && v >= min ? v : min);
@@ -110,6 +118,10 @@
       for (const [k, v] of Object.entries(raw.equipment)) if (isText(v)) equipment[k] = v;
     }
     const out = { level: int(raw.level, 1), exp: int(raw.exp, 0), coins: int(raw.coins, 0), gems: int(raw.gems, 0), team, equipment };
+    if (raw.name !== undefined) {
+      const name = cleanName(raw.name);
+      if (name) out.name = name;
+    }
     // 抽蛋 fields (missing in older saves; ITE.profile.ensureOwned fills them in).
     const ids = (v) => (Array.isArray(v) ? v.filter(isText).filter((id, i, a) => a.indexOf(id) === i) : []);
     if (raw.owned !== undefined) {
@@ -368,5 +380,5 @@
     }
   }
 
-  ITE.save = { SAVE_KEY, SAVE_VERSION, defaultSave, isValidBattle, isValidGuildState, createMemoryStorage, load, persist, withActiveBattle, withGuild, withStory, recordStageResult, exportCode, importCode };
+  ITE.save = { SAVE_KEY, SAVE_VERSION, defaultSave, isValidBattle, isValidGuildState, createMemoryStorage, load, persist, withActiveBattle, withGuild, withStory, recordStageResult, exportCode, importCode, cleanName, NAME_MAX };
 })(globalThis);

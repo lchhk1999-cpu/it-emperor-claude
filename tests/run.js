@@ -34,6 +34,21 @@ globalThis.assert = {
 ["src/core/rng.js", "src/core/questions.js", "src/core/battle.js", "src/core/save.js", "src/core/guildRaid.js", "src/core/story.js", "src/core/profile.js", "src/core/missions.js", "src/core/equipment.js", "src/core/gacha.js", "src/core/inventory.js", "src/core/dungeons.js", "src/core/stamina.js", "src/core/growth.js", "src/core/drill.js", "src/core/checkin.js", "src/data/game_data.js", "src/data/demo_guilds.js", "src/data/story_bank.js", "src/data/stages.js", "src/data/dev_sample_questions.js", "src/data/question_bank.js", "src/ui/sprites.js", "src/ui/characters.js", "src/ui/monsters.js", "src/ui/scenes.js", "src/ui/sound.js", "src/ui/music.js"].forEach((f) => load(f));
 ["tests/questions.test.js", "tests/battle.test.js", "tests/save.test.js", "tests/guildRaid.test.js", "tests/bank.test.js", "tests/story.test.js", "tests/profile.test.js", "tests/sprites.test.js", "tests/missions.test.js", "tests/equipment.test.js", "tests/gacha.test.js", "tests/inventory.test.js", "tests/dungeons.test.js", "tests/stamina.test.js", "tests/growth.test.js", "tests/drill.test.js", "tests/checkin.test.js", "tests/sound.test.js", "tests/music.test.js", "tests/monsters.test.js", "tests/settings.test.js"].forEach((f) => load(f));
 
+// Every script the page loads must at least compile (UI files are not unit-tested,
+// so a syntax error there would otherwise only show up in the browser).
+test("build: every script in index.html compiles", () => {
+  const html = readFile("index.html");
+  const srcs = [...html.matchAll(/<script src="([^"]+)"/g)].map((m) => m[1]);
+  assert.ok(srcs.length > 30, "found the page scripts");
+  for (const f of srcs) {
+    try {
+      new Function(readFile(f));
+    } catch (e) {
+      throw new Error(`${f}: ${e.message}`);
+    }
+  }
+});
+
 let failed = 0;
 for (const t of tests) {
   try {

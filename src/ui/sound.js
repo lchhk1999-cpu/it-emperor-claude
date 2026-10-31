@@ -59,6 +59,16 @@
       { t: 0.2, d: 0.6, f: 784, type: "triangle", v: 0.18 },
       { t: 0.2, d: 0.7, f: 2093, type: "sine", v: 0.12 },
     ],
+    // 盲盒: a boing when a box is tapped (pitch rises box by box), a rattle-and-pop when opened.
+    boxTap: [{ t: 0, d: 0.16, f: 330, to: 660, type: "triangle", v: 0.2 }],
+    boxOpen: [
+      { t: 0, d: 0.05, f: 180, type: "square", v: 0.1 },
+      { t: 0.08, d: 0.05, f: 200, type: "square", v: 0.1 },
+      { t: 0.16, d: 0.05, f: 180, type: "square", v: 0.1 },
+      { t: 0.24, d: 0.05, f: 220, type: "square", v: 0.1 },
+      { t: 0.34, d: 0.25, f: 400, to: 1600, type: "sine", v: 0.22 },
+      { t: 0.56, d: 0.3, f: 1568, type: "triangle", v: 0.2 },
+    ],
     evolve: [
       { t: 0, d: 0.45, f: 330, to: 990, type: "sine", v: 0.22 },
       { t: 0.42, d: 0.35, f: 1319, type: "triangle", v: 0.24 },
@@ -80,8 +90,10 @@
     return ctx;
   }
 
-  function play(name) {
+  // pitch: optional multiplier (e.g. 1.25 plays everything a third higher).
+  function play(name, pitch) {
     const notes = SOUNDS[name];
+    const k = pitch > 0 ? pitch : 1;
     if (!enabled || !notes) return;
     const ac = audio();
     if (!ac) return;
@@ -91,8 +103,8 @@
       const osc = ac.createOscillator();
       const gain = ac.createGain();
       osc.type = n.type;
-      osc.frequency.setValueAtTime(n.f, now + n.t);
-      if (n.to) osc.frequency.exponentialRampToValueAtTime(n.to, now + n.t + n.d);
+      osc.frequency.setValueAtTime(n.f * k, now + n.t);
+      if (n.to) osc.frequency.exponentialRampToValueAtTime(n.to * k, now + n.t + n.d);
       // Short fade in and out so notes do not click.
       gain.gain.setValueAtTime(0.0001, now + n.t);
       gain.gain.exponentialRampToValueAtTime(n.v, now + n.t + 0.012);

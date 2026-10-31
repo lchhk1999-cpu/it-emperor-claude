@@ -1,4 +1,4 @@
-// 設定 screen: sound effects and music on/off, replay the tutorial, 進度備份碼, version info.
+// 設定 screen: 暱稱, sound effects and music on/off, replay the tutorial, 進度備份碼, version info.
 (function (root) {
   const app = root.ITE.app;
   const { h } = app;
@@ -100,6 +100,7 @@
           h("button", { class: "btn-back", onclick: () => app.showHome(), "aria-label": "返回" }, "‹"),
           h("h1", {}, "設定")
         ),
+        root.ITE.nameUi ? root.ITE.nameUi.settingsPanel(show) : null,
         h(
           "section",
           { class: "panel" },

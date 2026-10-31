@@ -453,3 +453,10 @@
 - **Verification (actual):** `./scripts/test.sh` → JS 179 passed、Python 35 OK、正式版及版本檢查通過；瀏覽器實測 iPad 1024×1366／1366×1024、iPhone 375×812，備份→改動→還原成功（金幣 1 → 100）
 - **Blocking:** Xcode、Node.js 未安裝；故事 129 題待老師審核
 - **Next:** Capacitor iOS 包裝（等工具）；教用戶建立 Google Sites 私隱政策頁
+
+## Run 44 — 2026-11-01：暱稱、開場動畫、盲盒六選一
+- **Branch:** `feat/name-splash-blindbox`（基於 `release/prep`，未 merge main）
+- **用戶決定：** 1.0 加入 15 項中的 #1、#2、#4、#5、#10、#11、#12；廣告 1.0 不加；盲盒揭曉其餘 5 個。評估見 `docs/proposals/ideas_2026-11-01.md`
+- **What changed:** `src/ui/name.js`（暱稱）、`src/ui/splash.js`（開場）、`ITE.gacha.rollBoxes/openBox`（盲盒）、盲盒畫面及音效 boxTap／boxOpen；新測試：每個頁面腳本都能編譯（曾因 app.js 變數重名令頁面空白，此測試可攔截）
+- **Verification (actual):** `./scripts/test.sh` 全部通過（JS 183）；瀏覽器 375×812 實測開場→暱稱（空白提示、🎲、Enter）→新手教學由第 1 步開始→盲盒點擊、開啟、揭曉→主頁暱稱＋稱號
+- **Next:** 裝備欄及造型＋數值（#4、#12）→ UR 副本（#2）→ 魔王限時模式（#11）
