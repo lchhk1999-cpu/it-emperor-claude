@@ -291,7 +291,7 @@
         BUILD_MODE === "dev" && bankCheck.report.rejected
           ? h("p", { class: "note" }, `題庫檢查：${bankCheck.report.accepted} 條通過，${bankCheck.report.rejected} 條被拒絕（見 console）`)
           : null,
-        h("p", { class: "placeholder-note" }, "PLACEHOLDER 美術｜非正式設計")
+        BUILD_MODE === "dev" ? h("p", { class: "placeholder-note" }, "PLACEHOLDER 美術｜非正式設計") : null
       )
     );
     // First visit: the new-player tutorial (設定 can replay it); after that, the

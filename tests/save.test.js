@@ -120,4 +120,32 @@
       assert.equal(r.save.stages.s1.bestAccuracy, 50);
     }
   });
+
+  test("save: backup code round-trips a save with Chinese text and drops the active battle", () => {
+    const battle = ITE.battle.createBattle(ITE.stages[0], ITE.devSampleQuestions, ITE.rng.createRng(5));
+    const base = S.withActiveBattle({ ...S.defaultSave(), stages: { "stage-1": { cleared: true, bestAccuracy: 90, plays: 3 } } }, battle);
+    const code = S.exportCode(base);
+    assert.ok(code.startsWith("ITE1."));
+    const r = S.importCode(code);
+    assert.ok(r.ok);
+    assert.equal(r.save.activeBattle, null);
+    assert.deepEqual(r.save.stages, base.stages);
+    // spaces and line breaks from copy-paste are ignored
+    assert.ok(S.importCode(" " + code.slice(0, 20) + "\n" + code.slice(20) + " ").ok);
+    const loaded = S.load(S.createMemoryStorage());
+    const withProfile = { ...loaded.save, profile: ITE.profile.defaultProfile(ITE.gameData) };
+    assert.deepEqual(S.importCode(S.exportCode(withProfile)).save.profile, S.load((() => { const m = S.createMemoryStorage(); S.persist(m, withProfile); return m; })()).save.profile);
+  });
+
+  test("save: bad backup codes are rejected without throwing", () => {
+    const code = S.exportCode(S.defaultSave());
+    assert.equal(S.importCode("").reason, "empty");
+    assert.equal(S.importCode("hello").reason, "format");
+    assert.equal(S.importCode("ITE1.@@@@.00000000").reason, "format");
+    const body = code.split(".")[1];
+    const flipped = (body[5] === "A" ? "B" : "A");
+    assert.equal(S.importCode(`ITE1.${body.slice(0, 5)}${flipped}${body.slice(6)}.${code.split(".")[2]}`).reason, "checksum");
+    assert.equal(S.importCode(code.slice(0, code.length - 12) + code.slice(-9)).ok, false);
+    assert.equal(S.importCode(S.exportCode({ version: 99, stages: {} })).reason, "invalid");
+  });
 })();

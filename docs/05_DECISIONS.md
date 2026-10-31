@@ -55,3 +55,7 @@
 | 體力每日回滿 | CONFIRMED 2026-10-31（用戶要求） | 除每 5 分鐘回 1 點外，每日香港時間 00:00 體力回滿（與每日任務同時重置） |
 | 每日簽到 | CONFIRMED 2026-10-31（用戶：「兩個都做」） | 每日香港時間首次打開主頁彈出簽到卡；7 天循環按累積簽到計（缺席不重新開始）：100 金幣／5 寶石／課題素材 ×3／200 金幣／5 寶石／傳說核心 ×1／10 寶石（每週 +20 寶石） |
 | 新增稱號 | CONFIRMED 2026-10-31 | 新增 18 個稱號（`docs/proposals/titles.csv`），遊戲已支援 9 種新條件：world_correct、best_streak、ultimate_clear、all_world_stages、story_complete、checkin_days、evolve_max、own_characters、drill_answers。待 ChatGPT 加入 Excel Titles 表 |
+| 上架決定 D1–D6 | CONFIRMED 2026-10-31（用戶揀選） | D1 個人開發者帳戶；D2 支援 iPhone + iPad；D3 沿用現有原創畫風作 1.0、移除 PLACEHOLDER 字樣；D4 私隱政策放 Google Sites；D5 App 名稱「IT帝：ICT 學習冒險」；D6 加入進度備份碼。見 `docs/RELEASE_CHECKLIST.md` |
+| 進度備份碼 | PROTOTYPE 2026-10-31（D6） | 設定頁「備份進度」：產生 `ITE1.<base64>.<FNV 校驗碼>` 文字（整個存檔，不含進行中戰鬥），可複製；貼上後先檢查並顯示等級及角色數，再按「確定還原」取代本機進度並重新載入。不經網絡、無帳戶。錯誤分「格式／校驗／版本」提示 |
+| iPad 版面 | PROTOTYPE 2026-10-31（D2） | 保持手機版面，在 iPad 用 CSS zoom 放大（直向 1.4／1.7 倍、橫向 1.2 倍），避免窄欄留白；iPhone 不受影響 |
+| PLACEHOLDER 字樣 | CONFIRMED 2026-10-31（D3） | 主頁「PLACEHOLDER 美術｜非正式設計」只在開發版顯示，正式版移除 |

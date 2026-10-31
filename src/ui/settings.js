@@ -1,4 +1,4 @@
-// 設定 screen: sound effects and music on/off, replay the tutorial, version info.
+// 設定 screen: sound effects and music on/off, replay the tutorial, 進度備份碼, version info.
 (function (root) {
   const app = root.ITE.app;
   const { h } = app;
@@ -21,6 +21,61 @@
     app.setSave({ ...save, settings: { ...save.settings, music: on } });
     root.ITE.music.setEnabled(on);
     show();
+  }
+
+  // 進度備份碼 (D6). Restoring needs a second tap and then reloads the app so
+  // every screen starts from the restored save.
+  const IMPORT_ERRORS = {
+    empty: "請先貼上備份碼。",
+    format: "這不是《IT帝》的備份碼，請檢查是否完整複製。",
+    checksum: "備份碼不完整或有錯字，請重新複製整段。",
+    invalid: "備份碼無法讀取，可能來自不同版本。",
+  };
+  let backup = { code: "", copied: false, pending: null, error: "" };
+
+  function makeCode() {
+    backup = { code: root.ITE.save.exportCode(app.getSave()), copied: false, pending: null, error: "" };
+    show();
+  }
+
+  function copyCode(textarea) {
+    textarea.select();
+    const done = () => ((backup = { ...backup, copied: true }), show());
+    if (root.navigator && root.navigator.clipboard) root.navigator.clipboard.writeText(backup.code).then(done, () => {});
+    else if (document.execCommand && document.execCommand("copy")) done();
+  }
+
+  function checkCode(text) {
+    const r = root.ITE.save.importCode(text);
+    backup = { ...backup, pending: r.ok ? r.save : null, error: r.ok ? "" : IMPORT_ERRORS[r.reason] };
+    show();
+  }
+
+  function restore() {
+    app.setSave(backup.pending);
+    root.location.reload();
+  }
+
+  function backupPanel() {
+    const out = h("textarea", { class: "backup-code", readonly: "readonly", rows: "4", "aria-label": "你的備份碼" }, backup.code);
+    const input = h("textarea", { class: "backup-code", rows: "4", placeholder: "在這裡貼上備份碼", "aria-label": "貼上備份碼" });
+    const p = backup.pending && backup.pending.profile;
+    return h(
+      "section",
+      { class: "panel" },
+      h("h2", {}, "備份進度"),
+      h("p", { class: "hint" }, "換手機或刪除 App 前，先取得備份碼並保存好（例如傳給自己或寫在筆記）。在新手機貼上即可取回進度。"),
+      h("button", { class: "btn", onclick: makeCode }, backup.code ? "重新產生備份碼" : "取得備份碼"),
+      backup.code ? [out, h("button", { class: "btn", onclick: () => copyCode(out) }, backup.copied ? "已複製 ✓" : "複製備份碼")] : null,
+      h("h3", { class: "rates-title" }, "還原進度"),
+      backup.pending
+        ? [
+            h("p", { class: "note" }, `找到進度：等級 ${p ? p.level : 1}${p ? `、角色 ${p.owned ? p.owned.characters.length : 1} 個` : ""}。還原後，這部裝置現有的進度會被取代。`),
+            h("button", { class: "btn btn-primary", onclick: restore }, "確定還原"),
+            h("button", { class: "btn", onclick: () => ((backup = { ...backup, pending: null }), show()) }, "取消"),
+          ]
+        : [input, h("button", { class: "btn", onclick: () => checkCode(input.value) }, "檢查備份碼"), backup.error ? h("p", { class: "note", role: "alert" }, backup.error) : null]
+    );
   }
 
   function onOff(label, value, set) {
@@ -73,12 +128,13 @@
           h("h2", {}, "新手教學"),
           h("button", { class: "btn", onclick: () => (app.showHome(), root.ITE.tutorialUi.show(0)) }, "再看一次新手教學")
         ),
+        backupPanel(),
         h(
           "section",
           { class: "panel" },
           h("h2", {}, "版本"),
           h("p", { class: "hint" }, `版本 ${app.version}｜${app.online ? "連線版" : "單機版"}｜${app.buildMode === "release" ? "正式版" : "開發測試版"}`),
-          h("p", { class: "hint" }, "進度只儲存在這部裝置。")
+          h("p", { class: "hint" }, "進度只儲存在這部裝置，換機請使用備份碼。")
         )
       )
     );
