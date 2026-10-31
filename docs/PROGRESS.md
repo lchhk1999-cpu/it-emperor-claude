@@ -431,3 +431,8 @@
 - `docs/proposals/titles.csv`（18 個稱號）及 `docs/QUESTION_BANK_WORK_GUIDE.md` Prompt 3。以實際 Excel 加上 CSV 模擬匯入：22 個稱號、0 拒絕。
 - 測試：`./scripts/test.sh` → JS 177 passed（新增 checkin 4 項、稱號 2 項）；Python OK（新增 1 項）；release 511 題；版本檢查通過。
 - 試玩（本機，手機闊度）：清除簽到後進入主頁彈出簽到卡（第 1 天 100 金幣），領取後金幣 50 → 150，同日再回主頁不再彈出。
+
+## Run 41 — 2026-10-31：上架清單
+- 分支：`docs/release-checklist`（只有文件）。
+- 新增 `docs/RELEASE_CHECKLIST.md`：6 個待用戶決定事項（帳戶名義、支援裝置、美術、私隱政策網址、App 名稱、備份碼）、內容／技術／帳戶費用／App Store 資料／測試／提交發佈各項及負責人、建議次序。查閱 Apple 年齡分級新制、截圖尺寸、4.2 網頁包裝風險（2026-10-31）。
+- 現況：本機沒有 Xcode（只有 Command Line Tools）及 Node.js；故事 129 題仍未審核（正式版故事模式空白）——兩者都是上架阻礙。
