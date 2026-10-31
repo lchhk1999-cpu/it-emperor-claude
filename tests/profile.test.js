@@ -35,9 +35,9 @@
     assert.equal(groups[0].characters.map((c) => c.id).join(","), "A2,A3,A1");
   });
 
-  test("profile: new player is level 1 with one team slot and one member", () => {
+  test("profile: new player is level 1 with one team slot, one member and 30 gems (3 draws)", () => {
     const p = fresh();
-    assert.deepEqual([p.level, p.exp, p.coins, p.gems, p.team.length], [1, 0, 0, 0, 1]);
+    assert.deepEqual([p.level, p.exp, p.coins, p.gems, p.team.length], [1, 0, 0, 30, 1]);
     assert.equal(P.teamSlots(1, data.config), 1);
   });
 
@@ -69,6 +69,13 @@
     assert.deepEqual([r.profile.level, r.profile.exp, r.levelsGained, r.slotsUnlocked], [2, 0, 1, 0]);
     r = P.addReward(r.profile, { exp: 100 + 150 }, data); // Lv2 -> 3 (100), Lv3 -> 4 (150)
     assert.deepEqual([r.profile.level, r.profile.exp, r.levelsGained, r.slotsUnlocked], [4, 0, 2, 1]);
+  });
+
+  test("profile: every level gained gives 5 gems (balance 2026-10-31)", () => {
+    const start = { ...fresh(), gems: 0 };
+    assert.equal(P.addReward(start, { exp: 40 }, data).profile.gems, 0);
+    assert.equal(P.addReward(start, { exp: 50 }, data).profile.gems, 5);
+    assert.equal(P.addReward(start, { exp: 50 + 100 + 150, gems: 2 }, data).profile.gems, 17);
   });
 
   test("profile: cleanTeam drops unknown, duplicate and over-limit members", () => {

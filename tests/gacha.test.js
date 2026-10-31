@@ -18,11 +18,16 @@
     assert.equal(E.assign(p, "CH-ITDOG", "EQ-AI", data).error, null);
   });
 
-  test("gacha: workbook pool rates (77/20/3) and SSR pity at 80; no paid gacha", () => {
+  test("gacha: workbook pool rates (77/20/3); SSR pity lowered to 50 (balance); no paid gacha", () => {
     const rates = G.characterRates(data);
     assert.deepEqual(rates.map((r) => [r.rarity, r.pct]), [["R", 77], ["SR", 20], ["SSR", 3]]);
     assert.deepEqual(rates.map((r) => r.characters.length), [11, 12, 8]);
-    assert.equal(G.pityThreshold(data), 80);
+    assert.equal(G.pityThreshold(data), 50);
+    // A workbook pity lower than 50 still wins; no SSR row means no pity.
+    const pools = (pity) => ({ ...data, pools: { character: { rates: [{ rarity: "R", pct: 97, pity: 0 }, { rarity: "SSR", pct: 3, pity }] } } });
+    assert.equal(G.pityThreshold(pools(30)), 30);
+    assert.equal(G.pityThreshold(pools(80)), 50);
+    assert.equal(G.pityThreshold(pools(0)), 0);
     assert.equal(data.config.gacha_paid_enabled, 0);
     assert.equal(G.GACHA_RULES.cost, 10);
   });
@@ -56,15 +61,15 @@
     assert.equal(fresh.result.shards, 0);
   });
 
-  test("gacha: the 80th draw without an SSR is a guaranteed SSR", () => {
-    let p = withGems(10 * 80);
+  test("gacha: the 50th draw without an SSR is a guaranteed SSR", () => {
+    let p = withGems(10 * 50);
     const rngNoSsr = fixedRng([0.1]); // always R
-    for (let i = 0; i < 79; i++) {
+    for (let i = 0; i < 49; i++) {
       const r = G.draw(p, "character", data, rngNoSsr);
       assert.equal(r.result.rarity, "R");
       p = r.profile;
     }
-    assert.equal(p.pity.character, 79);
+    assert.equal(p.pity.character, 49);
     assert.equal(G.drawsUntilPity(p, data), 1);
     const last = G.draw(p, "character", data, rngNoSsr);
     assert.deepEqual([last.result.rarity, last.result.pity], ["SSR", true]);

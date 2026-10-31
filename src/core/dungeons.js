@@ -23,11 +23,13 @@
 
   // questions: preferred question difficulties (others fill in when a world has too few).
   // hpFactor: boss HP = questionCount x baseDamage x hpFactor.
+  // winCoins and rareChance (chance of one more 傳說核心) from the balance
+  // approved 2026-10-31 (docs/BALANCE_REPORT.md).
   const DIFFICULTIES = {
-    easy: { name: "簡單", questionCount: 5, questions: ["easy"], hpFactor: 0.6, attack: 15, drops: 1, rare: 0 },
-    medium: { name: "中等", questionCount: 8, questions: ["medium"], hpFactor: 0.7, attack: 20, drops: 2, rare: 0 },
-    hard: { name: "困難", questionCount: 10, questions: ["hard"], hpFactor: 0.8, attack: 25, drops: 3, rare: 0 },
-    ultimate: { name: "究極", questionCount: 15, questions: ["hard", "medium"], hpFactor: 0.85, attack: 30, drops: 4, rare: 1 },
+    easy: { name: "簡單", questionCount: 5, questions: ["easy"], hpFactor: 0.6, attack: 15, drops: 1, rare: 0, rareChance: 0, winCoins: 20 },
+    medium: { name: "中等", questionCount: 8, questions: ["medium"], hpFactor: 0.7, attack: 20, drops: 2, rare: 0, rareChance: 0.08, winCoins: 35 },
+    hard: { name: "困難", questionCount: 10, questions: ["hard"], hpFactor: 0.8, attack: 25, drops: 3, rare: 0, rareChance: 0.25, winCoins: 50 },
+    ultimate: { name: "究極", questionCount: 15, questions: ["hard", "medium"], hpFactor: 0.85, attack: 30, drops: 4, rare: 1, rareChance: 0, winCoins: 70 },
   };
   const DIFFICULTY_ORDER = ["easy", "medium", "hard", "ultimate"];
   // Limited stages drop many of one material (fewer when it is rarer).
@@ -52,7 +54,7 @@
       topicIds: world.topics,
       questionDifficulties: d.questions,
       boss: { name: world.boss, maxHp: bossHp(d.questionCount, d.hpFactor), attack: d.attack },
-      drops: { pick: world.materials, count: d.drops, extra: d.rare ? { [RARE_MATERIAL]: d.rare } : {} },
+      drops: { pick: world.materials, count: d.drops, extra: d.rare ? { [RARE_MATERIAL]: d.rare } : {}, chance: d.rareChance ? { [RARE_MATERIAL]: d.rareChance } : {} },
     };
   }
 
@@ -109,6 +111,15 @@
     return preferred.concat(others.slice(0, stage.questionCount - preferred.length));
   }
 
+  // Experience and coins for a finished DSE battle: coins by stage difficulty;
+  // stages without one (mixed practice) use the flat profile rule.
+  function rewards(stage, summary) {
+    const base = ITE.profile.dseRewards(summary);
+    const d = stage && DIFFICULTIES[stage.difficulty];
+    if (!d || summary.outcome !== "won") return base;
+    return { ...base, coins: d.winCoins };
+  }
+
   // Materials for a finished battle: { material_id: count }. Losing drops
   // nothing; neither does mixed practice (it costs no stamina, P5-03).
   function materialDrops(stage, summary, gameData, rng) {
@@ -122,8 +133,10 @@
       out[id] = (out[id] || 0) + 1;
     }
     for (const [id, n] of Object.entries(spec.extra || {})) if (known.has(id)) out[id] = (out[id] || 0) + n;
+    // chance: { material_id: probability } of one more (e.g. 傳說核心 on hard stages).
+    for (const [id, p] of Object.entries(spec.chance || {})) if (known.has(id) && rng() < p) out[id] = (out[id] || 0) + 1;
     return out;
   }
 
-  ITE.dungeons = { WORLDS, DIFFICULTIES, DIFFICULTY_ORDER, LIMITED_DROPS, worldOfTopic, worldStages, limitedStage, allStages, stagePool, materialDrops };
+  ITE.dungeons = { WORLDS, DIFFICULTIES, DIFFICULTY_ORDER, LIMITED_DROPS, worldOfTopic, worldStages, limitedStage, allStages, stagePool, rewards, materialDrops };
 })(globalThis);
