@@ -2,8 +2,8 @@
   const M = ITE.music;
   const WAVES = ["sine", "triangle", "square", "sawtooth"];
 
-  test("music: home, story and battle loops are original note data, lively, and line up", () => {
-    assert.deepEqual(Object.keys(M.TRACKS).sort(), ["battle", "home", "story"]);
+  test("music: home, story, battle and opening epic loops are original note data, lively, and line up", () => {
+    assert.deepEqual(Object.keys(M.TRACKS).sort(), ["battle", "epic", "home", "story"]);
     const okNote = (n) => Number.isInteger(n) && n >= 28 && n <= 100;
     for (const [name, t] of Object.entries(M.TRACKS)) {
       assert.ok(t.bpm >= 110 && t.bpm <= 180, `${name} tempo is lively (user: too sleepy before)`);

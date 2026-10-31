@@ -79,6 +79,30 @@
         { drum: "hat", v: 0.025, notes: rep([1, 1, 1, 1, 1, 1, 1, 1], 8) },
       ],
     },
+    // 開場激戰 (2026-11-01): epic A-minor battle theme — Am F G E, heroic
+    // sawtooth lead, power-chord stabs, galloping octave bass, driving drums
+    // with a snare roll and a rising sweep into the loop.
+    epic: {
+      bpm: 150,
+      stepsPerBeat: 2,
+      parts: [
+        { wave: "sawtooth", v: 0.026, len: 0.6, notes: [
+          69, 0, 72, 0, 76, 0, 74, 72,
+          77, 0, 76, 74, 72, 0, 69, 0,
+          71, 0, 74, 0, 79, 0, 77, 76,
+          76, 0, 75, 0, [71, 76], 0, 0, 0,
+          81, 0, 79, 77, 76, 0, 72, 0,
+          77, 76, 74, 72, 77, 0, 81, 0,
+          79, 0, 83, 0, 86, 84, 83, 79,
+          [64, 88], 0, 0, 0, 76, 75, 76, 0] },
+        { wave: "triangle", v: 0.09, len: 0.4, notes: [].concat(...[33, 29, 31, 28, 33, 29, 31, 28].map((r) => [r, r, r + 12, r, r, r + 12, r, r + 12])) },
+        { wave: "square", v: 0.016, len: 0.3, notes: [].concat(...[57, 53, 55, 52, 57, 53, 55, 52].map((n) => [n, 0, 0, n, 0, 0, n, 0])) },
+        { wave: "square", v: 0.016, len: 0.3, notes: [].concat(...[64, 60, 62, 59, 64, 60, 62, 59].map((n) => [n, 0, 0, n, 0, 0, n, 0])) },
+        { drum: "kick", v: 0.2, notes: rep([1, 0, 0, 1, 1, 0, 0, 0], 8) },
+        { drum: "snare", v: 0.08, notes: rep([0, 0, 1, 0, 0, 0, 1, 0], 7).concat([0, 0, 1, 0, 1, 1, 1, 1]) },
+        { drum: "hat", v: 0.025, notes: rep([1, 1, 1, 1, 1, 1, 1, 1], 8) },
+      ],
+    },
   };
 
   const LOOKAHEAD_S = 0.15;
@@ -194,7 +218,7 @@
     playing = p;
   }
 
-  // Ask for a track ("home", "story", "battle") or null for silence.
+  // Ask for a track ("home", "story", "battle", "epic") or null for silence.
   function play(name) {
     wanted = name || null;
     if (!enabled || !wanted) return stopNow();
