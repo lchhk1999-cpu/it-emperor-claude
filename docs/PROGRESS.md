@@ -408,3 +408,11 @@
 - 測試：`./scripts/test.sh` → JS 170 passed（新增 drill 測試 3 項）；Python OK；release 及版本檢查通過。
 - 試玩（本機，手機闊度）：C 世界共 93 題可操練；連答 6 題，經驗、金幣、體力、等級完全不變；結束後顯示答題數、正確率、最長連續答對。修正：操練區頁面主題誤加到音樂判斷，已移回背景判斷。
 - 待辦：用戶交來 `IT_Emperor_Extra_McQs.xlsx` 後，擴充匯入器合併兩個題庫。
+
+## Run 37 — 2026-10-31：主題庫更新及額外題庫匯入
+- 用戶交來 ChatGPT 更新的主題庫（511 題）及額外題庫 `IT_Emperor_Extra_McQs.xlsx`（596 題，全部 review，答案 A–D 各 149）。
+- 主題庫與備份逐表比較：其他工作表沒有刪改；Pools SSR 保底已改 50；CH-ITDOG-MECHA 已改名「機械老虎狗」；32 題課題代碼已修正（31 題只改代碼，DSE2015-12 同時改寫）；新增 97 題；2 題已核准舊題的錯誤選項被調整（正確答案不變）。**問題：新增及改動題目全部被標 approved（Prompt 要求 review）**。
+- 匯入器：新增 `--extra`、`--hold`；報告新增來源檔案、暫緩題數及「世界 × 難度（approved／全部）」表。新增 Python 測試 2 項。
+- 建立 `data/question_bank/hold_for_review.txt`（131 題）。匯入結果：1107 題、0 拒絕、0 重複；approved 380（正式版）、review 727（開發版）。
+- 測試：`./scripts/test.sh` → JS 170 passed；Python 33 OK；release 只含 380 題 approved；版本檢查通過。遊戲驗證 1107 題全部有效；開發版 20 個世界關卡全部有足夠指定難度題目。
+- 等待：用戶確認 131 題是否已經教師審核；額外題庫 596 題亦需教師審核。

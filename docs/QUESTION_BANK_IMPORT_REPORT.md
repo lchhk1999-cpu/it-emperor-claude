@@ -1,97 +1,55 @@
 # 題庫匯入報告（自動產生）
 
-- 來源檔案：`IT_Emperor_DseMcQs.xlsx`
-- SHA-256：`93f04990806f97f3014dcdd7403451ee8d8745daa0f4ffd6fe3adf9b1d019459`
-- 匯入時間：2026-10-30T09:53:44Z
+- 來源檔案：`IT_Emperor_DseMcQs.xlsx + IT_Emperor_Extra_McQs.xlsx`
+- SHA-256：`e51c1864d303b4546e8eea702e6d228f141c2a3b3c5bf79aad61516f8d6e356e`
+- 匯入時間：2026-10-31T09:43:35Z
 - 匯入工作表：`Questions`（Topic_* 分頁只供人手檢閱，不匯入）
 
-## 審核確認
+## 來源檔案
 
-- 2026-10-30：本版 `Questions` 表 382 題由 status `review` 改為 `approved`（題目內容不變）。
-- 用戶（專案負責人）於對話中確認「已審核，請匯入」，即題目已經教師審核。
-- 注意：同一活頁簿的 Topic_* 檢閱表、`DSE_來源追蹤` 及 `2024_可行性評估` 的狀態欄仍未同步更新，建議請 ChatGPT 一併更新，避免日後混淆。
+| 檔案 | 匯入 | 拒絕 | SHA-256 |
+|---|---|---|---|
+| `IT_Emperor_DseMcQs.xlsx` | 511 | 0 | `e51c1864d303b454…` |
+| `IT_Emperor_Extra_McQs.xlsx` | 596 | 0 | `ead4da4ffd0652c2…` |
+
+⚠ **暫緩發佈 131 題**：Excel 標為 approved，但屬今次新增或改動、未經教師確認（`data/question_bank/hold_for_review.txt`）。這些題目只在開發版出現（標示 review），教師確認後從清單刪除即可進入正式版。
+
+## 世界 × 難度（全部已匯入題目）
+
+| 世界 | 簡單（approved／全部） | 中等（approved／全部） | 困難（approved／全部） |
+|---|---|---|---|
+| A | 30／90 | 78／151 | 24／54 |
+| B | 22／51 | 40／80 | 4／50 |
+| C | 32／66 | 57／117 | 4／57 |
+| D | 5／117 | 43／106 | 23／48 |
+| E | 3／40 | 15／40 | 0／40 |
 
 ## 摘要
 
 | 項目 | 數量 |
 |---|---|
-| 題目總數 | 414 |
-| 成功匯入 | 382 |
-| 拒絕 | 32 |
+| 題目總數 | 1107 |
+| 成功匯入 | 1107 |
+| 拒絕 | 0 |
 | 重複 ID | 0 |
-| Topic（有題目／Topics 表） | 16 / 17 |
-| 狀態 approved | 382 |
-| **正式版可用（approved）** | **382** |
+| Topic（有題目／Topics 表） | 17 / 17 |
+| 狀態 approved | 380 |
+| 狀態 review | 727 |
+| **正式版可用（approved）** | **380** |
 
 ## 答案分佈（已匯入題目）
 
 | 答案 | 數量 | 比例 |
 |---|---|---|
-| A | 124 | 32% |
-| B | 168 | 44% |
-| C | 77 | 20% |
-| D | 13 | 3% |
-
-⚠ 答案 D 少於 15%，學生可能憑「很少選 D」猜中答案。建議題庫平衡答案位置，或遊戲顯示時打亂選項次序（待決定）。
+| A | 309 | 28% |
+| B | 354 | 32% |
+| C | 256 | 23% |
+| D | 188 | 17% |
 
 ## 公式儲存格（已保留公式文字，未使用 Excel 計算結果）
 
-| 列 | 儲存格 | 欄位 | 保留文字 | Excel 顯示 |
-|---|---|---|---|---|
-| 17 | G17 | option_a | `=$B3*D$1` | `#VALUE!` |
-| 17 | H17 | option_b | `=$B2*C$1` | `#VALUE!` |
-| 17 | I17 | option_c | `=$C3*D$2` | `#VALUE!` |
-| 17 | J17 | option_d | `=$B3*C$1` | `#VALUE!` |
-| 41 | G41 | option_a | `=RANK(C2,$C$2:$C$6,0)` | `#VALUE!` |
-| 41 | H41 | option_b | `=RANK(C2,$C$2:$C$6,1)` | `#VALUE!` |
-| 41 | I41 | option_c | `=RANK(C2,C2:C6,0)` | `#VALUE!` |
-| 41 | J41 | option_d | `=RANK($C$2,$C$2:$C$6,0)` | `#VALUE!` |
-
-建議在 Excel 中把這些儲存格改為文字（在公式前加 `'`），避免日後顯示 `#VALUE!`。
+沒有。
 
 ## 拒絕的題目（需要在 Excel 修正）
 
-| 列 | question_id | 原因 |
-|---|---|---|
-| 314 | ICT-2018-IA-24 | topic_id 'NETWORK' is not in the Topics sheet |
-| 315 | ICT-2018-IA-26 | topic_id 'NETWORK' is not in the Topics sheet |
-| 316 | ICT-2018-IA-27 | topic_id 'NETWORK' is not in the Topics sheet |
-| 317 | ICT-2018-IA-28 | topic_id 'NETWORK' is not in the Topics sheet |
-| 319 | ICT-2018-IA-31 | topic_id 'ALGORITHM' is not in the Topics sheet |
-| 320 | ICT-2018-IA-34 | topic_id 'ALGORITHM' is not in the Topics sheet |
-| 328 | DSE2017-06 | topic_id 'INFO' is not in the Topics sheet |
-| 332 | DSE2017-22 | topic_id 'DATA' is not in the Topics sheet |
-| 333 | DSE2017-23 | topic_id 'NETDEVICE' is not in the Topics sheet |
-| 334 | DSE2017-24 | topic_id 'NETWORK' is not in the Topics sheet |
-| 348 | DSE2013-30 | topic_id 'ALGORITHM' is not in the Topics sheet |
-| 351 | DSE2014-24 | topic_id 'NETWORK' is not in the Topics sheet |
-| 352 | DSE2014-33 | topic_id 'ALGORITHM' is not in the Topics sheet |
-| 356 | DSE2015-29 | topic_id 'ALGORITHM' is not in the Topics sheet |
-| 359 | DSE2016-32 | topic_id 'ALGORITHM' is not in the Topics sheet |
-| 363 | DSE2016-06 | topic_id 'DATA' is not in the Topics sheet |
-| 369 | DSE2016-24 | topic_id 'NETWORK' is not in the Topics sheet |
-| 370 | DSE2016-30 | topic_id 'ALGORITHM' is not in the Topics sheet |
-| 379 | DSE2017-26 | topic_id 'NETWORK' is not in the Topics sheet |
-| 381 | DSE2017-30 | topic_id 'ALGORITHM' is not in the Topics sheet |
-| 382 | DSE2017-31 | topic_id 'ALGORITHM' is not in the Topics sheet |
-| 383 | DSE2017-32 | topic_id 'ALGORITHM' is not in the Topics sheet |
-| 384 | DSE2017-33 | topic_id 'ALGORITHM' is not in the Topics sheet |
-| 387 | DSE2013-03 | topic_id 'DATA' is not in the Topics sheet |
-| 388 | DSE2013-04 | topic_id 'DATA' is not in the Topics sheet |
-| 393 | DSE2013-29 | topic_id 'NETWORK' is not in the Topics sheet |
-| 394 | DSE2013-31 | topic_id 'ALGORITHM' is not in the Topics sheet |
-| 395 | DSE2013-32 | topic_id 'ALGORITHM' is not in the Topics sheet |
-| 401 | DSE2014-25 | topic_id 'NETWORK' is not in the Topics sheet |
-| 402 | DSE2014-26 | topic_id 'NETWORK' is not in the Topics sheet |
-| 409 | DSE2015-12 | topic_id 'DATA' is not in the Topics sheet |
-| 413 | DSE2015-24 | topic_id 'NETWORK' is not in the Topics sheet |
-
-### 不在 Topics 表的 topic_id
-
-- `ALGORITHM`：13 題
-- `NETWORK`：12 題
-- `DATA`：5 題
-- `INFO`：1 題
-- `NETDEVICE`：1 題
-
-請在 Topics 表新增這些 Topic，或把題目改用現有的 topic_id。匯入器不會自行猜測對應。
+沒有。

@@ -24,3 +24,9 @@ ChatGPT 獨立整理 DSE ICT 歷屆題目，按年份做概念改編與可行性
 - 產生 import report（成功數／拒絕數／重複數／Topic 數／版本 checksum）。
 - 範例 Excel 位置 `data/question_bank/`，目前只放 `README.md`；由 ChatGPT 新一輪交付的檔案供人工提供／明確同步。
 - 不從本 ZIP 推斷「已經匯入最新 147 題」；需實際提供並驗證 Excel。
+
+## 額外題庫及暫緩清單（2026-10-31）
+- 額外題庫 `IT_Emperor_Extra_McQs.xlsx`：欄位與 `Questions` 相同；ID 前綴 `ICT-EXT-`；必須為按知識點改寫的原創題（不可原文收錄出版社題目）；`source_note` 記錄來源（遊戲不顯示）。
+- 匯入：`python3 tools/import_question_bank.py data/question_bank/IT_Emperor_DseMcQs.xlsx --extra data/question_bank/IT_Emperor_Extra_McQs.xlsx --hold data/question_bank/hold_for_review.txt`
+- 題目 ID 必須跨檔唯一；Topics 以主題庫為準。
+- `hold_for_review.txt`：Excel 已標 approved 但未經教師確認的 ID，匯入時降為 review（只在開發版出現）。教師確認後刪除該行再匯入。

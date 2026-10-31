@@ -5,14 +5,30 @@
   const ITE = (root.ITE = root.ITE || {});
   ITE.questionBank = {
  "meta": {
-  "source_file": "IT_Emperor_DseMcQs.xlsx",
-  "source_sha256": "93f04990806f97f3014dcdd7403451ee8d8745daa0f4ffd6fe3adf9b1d019459",
-  "imported_at": "2026-10-30T09:53:44Z",
-  "total": 414,
-  "accepted": 382,
-  "rejected": 32,
+  "source_file": "IT_Emperor_DseMcQs.xlsx + IT_Emperor_Extra_McQs.xlsx",
+  "sources": [
+   {
+    "file": "IT_Emperor_DseMcQs.xlsx",
+    "sha256": "e51c1864d303b4546e8eea702e6d228f141c2a3b3c5bf79aad61516f8d6e356e",
+    "accepted": 511,
+    "rejected": 0
+   },
+   {
+    "file": "IT_Emperor_Extra_McQs.xlsx",
+    "sha256": "ead4da4ffd0652c20884bd9e6efa66357bb0fd4e8062a7ea439db3a7ef0af4e6",
+    "accepted": 596,
+    "rejected": 0
+   }
+  ],
+  "held": 131,
+  "source_sha256": "e51c1864d303b4546e8eea702e6d228f141c2a3b3c5bf79aad61516f8d6e356e",
+  "imported_at": "2026-10-31T09:43:35Z",
+  "total": 1107,
+  "accepted": 380,
+  "rejected": 0,
   "by_status": {
-   "approved": 382
+   "approved": 380,
+   "review": 727
   },
   "note": "release build: approved questions only"
  },
@@ -53,7 +69,8 @@
    "source_note": "原創示例",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 30
+   "time_sec": 30,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-EX-002",
@@ -72,7 +89,8 @@
    "source_note": "原創示例",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 40
+   "time_sec": 40,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-SQL-001",
@@ -91,7 +109,8 @@
    "source_note": "原創示例",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 30
+   "time_sec": 30,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-SQL-002",
@@ -110,7 +129,8 @@
    "source_note": "原創示例",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 40
+   "time_sec": 40,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-HW-001",
@@ -129,7 +149,8 @@
    "source_note": "原創示例",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 25
+   "time_sec": 25,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-HW-002",
@@ -148,7 +169,8 @@
    "source_note": "原創示例",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 30
+   "time_sec": 30,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NET-001",
@@ -167,7 +189,8 @@
    "source_note": "原創示例",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 30
+   "time_sec": 30,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NET-002",
@@ -186,7 +209,8 @@
    "source_note": "原創示例",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 40
+   "time_sec": 40,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-SEC-001",
@@ -205,7 +229,8 @@
    "source_note": "原創示例",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 30
+   "time_sec": 30,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-SEC-002",
@@ -224,7 +249,8 @@
    "source_note": "原創示例",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 40
+   "time_sec": 40,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-PY-001",
@@ -243,7 +269,8 @@
    "source_note": "原創示例",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 35
+   "time_sec": 35,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-PY-002",
@@ -262,7 +289,8 @@
    "source_note": "原創示例",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 40
+   "time_sec": 40,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-DATA-001",
@@ -281,7 +309,8 @@
    "source_note": "原創示例",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 30
+   "time_sec": 30,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-SOC-001",
@@ -300,7 +329,8 @@
    "source_note": "原創示例",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 30
+   "time_sec": 30,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-001",
@@ -319,26 +349,8 @@
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 35
-  },
-  {
-   "question_id": "ICT-NEW-002",
-   "topic_id": "EXCEL",
-   "difficulty": "hard",
-   "question_type": "MC4",
-   "stem": "D2 的公式為 =$B2*C$1。把公式複製到 E3 後，公式變成？",
-   "option_a": "=$B3*D$1",
-   "option_b": "=$B2*C$1",
-   "option_c": "=$C3*D$2",
-   "option_d": "=$B3*C$1",
-   "answer": "A",
-   "explanation": "B 欄固定但列相對移動；C 欄相對移動但第 1 列固定。",
-   "wrong_tip": "逐個檢查 $ 固定的是列還是欄。",
-   "tags": "mixed reference",
-   "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
-   "review_status": "approved",
-   "version": "1",
-   "time_sec": 45
+   "time_sec": 35,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-003",
@@ -357,7 +369,8 @@
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 35
+   "time_sec": 35,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-004",
@@ -376,7 +389,8 @@
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 35
+   "time_sec": 35,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-005",
@@ -395,7 +409,8 @@
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-006",
@@ -414,7 +429,8 @@
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 35
+   "time_sec": 35,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-007",
@@ -433,7 +449,8 @@
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-008",
@@ -452,7 +469,8 @@
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-009",
@@ -471,7 +489,8 @@
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 35
+   "time_sec": 35,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-010",
@@ -490,7 +509,8 @@
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-011",
@@ -509,7 +529,8 @@
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 35
+   "time_sec": 35,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-012",
@@ -528,7 +549,8 @@
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-013",
@@ -547,7 +569,8 @@
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 35
+   "time_sec": 35,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-014",
@@ -566,7 +589,8 @@
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-015",
@@ -585,7 +609,8 @@
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 35
+   "time_sec": 35,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-016",
@@ -604,7 +629,8 @@
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-017",
@@ -623,7 +649,8 @@
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-018",
@@ -642,7 +669,8 @@
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 35
+   "time_sec": 35,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-019",
@@ -661,7 +689,8 @@
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-NEW-020",
@@ -680,7 +709,8 @@
    "source_note": "AI原創改編｜DSE知識點參照；非歷屆原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 35
+   "time_sec": 35,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-01",
@@ -699,7 +729,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q1｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 30
+   "time_sec": 30,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-02",
@@ -718,7 +749,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q2｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 30
+   "time_sec": 30,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-03",
@@ -737,7 +769,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q3｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 40
+   "time_sec": 40,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-04",
@@ -756,7 +789,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q4｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 40
+   "time_sec": 40,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-05",
@@ -775,26 +809,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q5｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 55
-  },
-  {
-   "question_id": "ICT-2026-IA-06",
-   "topic_id": "EXCEL",
-   "difficulty": "medium",
-   "question_type": "MC4",
-   "stem": "Excel 中 C2:C6 記錄五隊得分，D2 用 RANK 計算名次，分數越高名次越前，公式將向下複製。哪個公式正確？",
-   "option_a": "=RANK(C2,$C$2:$C$6,0)",
-   "option_b": "=RANK(C2,$C$2:$C$6,1)",
-   "option_c": "=RANK(C2,C2:C6,0)",
-   "option_d": "=RANK($C$2,$C$2:$C$6,0)",
-   "answer": "A",
-   "explanation": "RANK 的第三參數 0 代表按降序排名；資料範圍必須用絕對參照固定，第一參數 C2 則按列改變。",
-   "wrong_tip": "同時檢查排名次序與複製公式時的儲存格參照。",
-   "tags": "RANK;absolute-reference",
-   "source_note": "2026 HKDSE ICT 卷一甲部 Q6｜AI 概念改編｜非原題",
-   "review_status": "approved",
-   "version": "1",
-   "time_sec": 40
+   "time_sec": 55,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-07",
@@ -813,7 +829,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q7｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 30
+   "time_sec": 30,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-08",
@@ -832,7 +849,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q8｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 40
+   "time_sec": 40,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-09",
@@ -851,7 +869,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q9｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 55
+   "time_sec": 55,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-10",
@@ -870,7 +889,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q10｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 30
+   "time_sec": 30,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-11",
@@ -889,7 +909,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q11｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 40
+   "time_sec": 40,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-12",
@@ -908,7 +929,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q12｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 40
+   "time_sec": 40,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-13",
@@ -927,7 +949,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q13｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 40
+   "time_sec": 40,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-14",
@@ -946,7 +969,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q14｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 30
+   "time_sec": 30,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-15",
@@ -965,7 +989,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q15｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 30
+   "time_sec": 30,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-16",
@@ -984,7 +1009,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q16｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 40
+   "time_sec": 40,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-17",
@@ -1003,7 +1029,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q17｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 40
+   "time_sec": 40,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-18",
@@ -1022,7 +1049,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q18｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 40
+   "time_sec": 40,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-19",
@@ -1041,7 +1069,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q19｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 30
+   "time_sec": 30,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-20",
@@ -1060,7 +1089,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q20｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 40
+   "time_sec": 40,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-21",
@@ -1079,7 +1109,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q21｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 30
+   "time_sec": 30,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-22",
@@ -1098,7 +1129,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q22｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 40
+   "time_sec": 40,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-23",
@@ -1117,7 +1149,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q23｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 40
+   "time_sec": 40,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-24",
@@ -1136,7 +1169,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q24｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 40
+   "time_sec": 40,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-25",
@@ -1155,7 +1189,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q25｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 30
+   "time_sec": 30,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-26",
@@ -1174,7 +1209,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q26｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 40
+   "time_sec": 40,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-27",
@@ -1193,7 +1229,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q27｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 55
+   "time_sec": 55,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-28",
@@ -1212,7 +1249,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q28｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 55
+   "time_sec": 55,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-29",
@@ -1231,7 +1269,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q29｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 40
+   "time_sec": 40,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-30",
@@ -1250,7 +1289,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q30｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 55
+   "time_sec": 55,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-31",
@@ -1269,7 +1309,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q31｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 55
+   "time_sec": 55,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-32",
@@ -1288,7 +1329,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q32｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 40
+   "time_sec": 40,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-33",
@@ -1307,7 +1349,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q33｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 40
+   "time_sec": 40,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-34",
@@ -1326,7 +1369,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q34｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 40
+   "time_sec": 40,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-35",
@@ -1345,7 +1389,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q35｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 55
+   "time_sec": 55,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-36",
@@ -1364,7 +1409,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q36｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 40
+   "time_sec": 40,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-37",
@@ -1383,7 +1429,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q37｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 40
+   "time_sec": 40,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-38",
@@ -1402,7 +1449,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q38｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 40
+   "time_sec": 40,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-39",
@@ -1421,7 +1469,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q39｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 40
+   "time_sec": 40,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2026-IA-40",
@@ -1440,7 +1489,8 @@
    "source_note": "2026 HKDSE ICT 卷一甲部 Q40｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 40
+   "time_sec": 40,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-01",
@@ -1459,7 +1509,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q1｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-02",
@@ -1478,7 +1529,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q2｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-03",
@@ -1497,7 +1549,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q3｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-04",
@@ -1516,7 +1569,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q4｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-05",
@@ -1535,7 +1589,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q5｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-06",
@@ -1554,7 +1609,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q6｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-07",
@@ -1573,7 +1629,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q7｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-08",
@@ -1592,7 +1649,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q8｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-09",
@@ -1611,7 +1669,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q9｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-10",
@@ -1630,7 +1689,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q10｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-11",
@@ -1649,7 +1709,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q11｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-12",
@@ -1668,7 +1729,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q12｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-13",
@@ -1687,7 +1749,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q13｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-14",
@@ -1706,7 +1769,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q14｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-15",
@@ -1725,7 +1789,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q15｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-16",
@@ -1744,7 +1809,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q16｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-17",
@@ -1763,7 +1829,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q17｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-18",
@@ -1782,7 +1849,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q18｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-19",
@@ -1801,7 +1869,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q19｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-20",
@@ -1820,7 +1889,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q20｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-21",
@@ -1839,7 +1909,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q21｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-22",
@@ -1858,7 +1929,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q22｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-23",
@@ -1877,7 +1949,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q23｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-24",
@@ -1896,7 +1969,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q24｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-25",
@@ -1915,7 +1989,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q25｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-26",
@@ -1934,7 +2009,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q26｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-27",
@@ -1953,7 +2029,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q27｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-28",
@@ -1972,7 +2049,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q28｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-29",
@@ -1991,7 +2069,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q29｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-30",
@@ -2010,7 +2089,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q30｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-31",
@@ -2029,7 +2109,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q31｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-32",
@@ -2048,7 +2129,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q32｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-33",
@@ -2067,7 +2149,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q33｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-34",
@@ -2086,7 +2169,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q34｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-35",
@@ -2105,7 +2189,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q35｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-36",
@@ -2124,7 +2209,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q36｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-37",
@@ -2143,7 +2229,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q37｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-38",
@@ -2162,7 +2249,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q38｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-39",
@@ -2181,7 +2269,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q39｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2025-IA-40",
@@ -2200,7 +2289,8 @@
    "source_note": "2025 HKDSE ICT 卷一甲部 Q40｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-01",
@@ -2219,7 +2309,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q1｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-02",
@@ -2238,7 +2329,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q2｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-03",
@@ -2257,7 +2349,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q3｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-04",
@@ -2276,7 +2369,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q4｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-05",
@@ -2295,7 +2389,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q5｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-06",
@@ -2314,7 +2409,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q6｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-07",
@@ -2333,7 +2429,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q7｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-08",
@@ -2352,7 +2449,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q8｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-11",
@@ -2371,7 +2469,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q11｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-12",
@@ -2390,7 +2489,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q12｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-13",
@@ -2409,7 +2509,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q13｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-14",
@@ -2428,7 +2529,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q14｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 60
+   "time_sec": 60,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-15",
@@ -2447,7 +2549,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q15｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-16",
@@ -2466,7 +2569,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q16｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-17",
@@ -2485,7 +2589,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q17｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-19",
@@ -2504,7 +2609,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q19｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-20",
@@ -2523,7 +2629,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q20｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-21",
@@ -2542,7 +2649,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q21｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-22",
@@ -2561,7 +2669,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q22｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 60
+   "time_sec": 60,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-23",
@@ -2580,7 +2689,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q23｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-24",
@@ -2599,7 +2709,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q24｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-26",
@@ -2618,7 +2729,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q26｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-27",
@@ -2637,7 +2749,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q27｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-28",
@@ -2656,7 +2769,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q28｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-29",
@@ -2675,7 +2789,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q29｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-30",
@@ -2694,7 +2809,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q30｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-31",
@@ -2713,7 +2829,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q31｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 60
+   "time_sec": 60,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-32",
@@ -2732,7 +2849,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q32｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-33",
@@ -2751,7 +2869,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q33｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-34",
@@ -2770,7 +2889,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q34｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-35",
@@ -2789,7 +2909,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q35｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-36",
@@ -2808,7 +2929,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q36｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2024-IA-40",
@@ -2827,7 +2949,8 @@
    "source_note": "2024 HKDSE ICT Paper 1A Q40｜AI 概念改編｜非原題",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 60
+   "time_sec": 60,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-01",
@@ -2846,7 +2969,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q1（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-02",
@@ -2865,7 +2989,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q2（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-03",
@@ -2884,7 +3009,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q3（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-04",
@@ -2903,7 +3029,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q4（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-05",
@@ -2922,7 +3049,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q5（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-06",
@@ -2941,7 +3069,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q6（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-08",
@@ -2960,7 +3089,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q8（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-11",
@@ -2979,7 +3109,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q11（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-13",
@@ -2998,7 +3129,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q13（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-14",
@@ -3017,7 +3149,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q14（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-15",
@@ -3036,7 +3169,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q15（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-16",
@@ -3055,7 +3189,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q16（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-17",
@@ -3074,7 +3209,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q17（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-18",
@@ -3093,7 +3229,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q18（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-19",
@@ -3112,7 +3249,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q19（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-20",
@@ -3131,7 +3269,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q20（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-21",
@@ -3150,7 +3289,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q21（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-22",
@@ -3169,7 +3309,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q22（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-24",
@@ -3188,7 +3329,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q24（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-25",
@@ -3207,7 +3349,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q25（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-26",
@@ -3226,7 +3369,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q26（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-27",
@@ -3245,7 +3389,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q27（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-28",
@@ -3264,7 +3409,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q28（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-29",
@@ -3283,7 +3429,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q29（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-30",
@@ -3302,7 +3449,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q30（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-31",
@@ -3321,7 +3469,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q31（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-32",
@@ -3340,7 +3489,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q32（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-33",
@@ -3359,7 +3509,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q33（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-35",
@@ -3378,7 +3529,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q35（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-36",
@@ -3397,7 +3549,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q36（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-37",
@@ -3416,7 +3569,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q37（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-38",
@@ -3435,7 +3589,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q38（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2023-IA-40",
@@ -3454,7 +3609,8 @@
    "source_note": "2023 DSE ICT Paper 1A Q40（概念改寫）；原卷及評卷參考已核對；https://drive.google.com/file/d/16_C3_iojB8_jPKAokln5TUCrAONT2zvm/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-01",
@@ -3473,7 +3629,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q1 原題答案A；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-02",
@@ -3492,7 +3649,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q2 原題答案D；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-03",
@@ -3511,7 +3669,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q3 原題答案B；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-04",
@@ -3530,7 +3689,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q4 原題答案C；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-05",
@@ -3549,7 +3709,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q5 原題答案A；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-06",
@@ -3568,7 +3729,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q6 原題答案B；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-07",
@@ -3587,7 +3749,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q7 原題答案A；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-10",
@@ -3606,7 +3769,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q10 原題答案C；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-11",
@@ -3625,7 +3789,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q11 原題答案A；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-12",
@@ -3644,7 +3809,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q12 原題答案B；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-13",
@@ -3663,7 +3829,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q13 原題答案D；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-14",
@@ -3682,7 +3849,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q14 原題答案C；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-15",
@@ -3701,7 +3869,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q15 原題答案A；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-17",
@@ -3720,7 +3889,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q17 原題答案D；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-18",
@@ -3739,7 +3909,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q18 原題答案D；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-19",
@@ -3758,7 +3929,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q19 原題答案B；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-21",
@@ -3777,7 +3949,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q21 原題答案B；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-22",
@@ -3796,7 +3969,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q22 原題答案C；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-24",
@@ -3815,7 +3989,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q24 原題答案D；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-25",
@@ -3834,7 +4009,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q25 原題答案C；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-26",
@@ -3853,7 +4029,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q26 原題答案A；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-28",
@@ -3872,7 +4049,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q28 原題答案C；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-29",
@@ -3891,7 +4069,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q29 原題答案C；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-30",
@@ -3910,7 +4089,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q30 原題答案C；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-31",
@@ -3929,7 +4109,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q31 原題答案A；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-32",
@@ -3948,7 +4129,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q32 原題答案A；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-33",
@@ -3967,7 +4149,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q33 原題答案D；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-34",
@@ -3986,7 +4169,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q34 原題答案D；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-35",
@@ -4005,7 +4189,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q35 原題答案B；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-38",
@@ -4024,7 +4209,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q38 原題答案A；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2022-IA-39",
@@ -4043,7 +4229,8 @@
    "source_note": "2022 DSE ICT Paper 1A Q39 原題答案A；概念改編，答案獨立核算；https://drive.google.com/file/d/17YdOcv3bKORr4vCo8bYziWSzxTgNPcth/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2020-IA-01",
@@ -4062,7 +4249,8 @@
    "source_note": "2020 DSE ICT Paper 1A Q1 (原題答案 C); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2020-IA-02",
@@ -4081,7 +4269,8 @@
    "source_note": "2020 DSE ICT Paper 1A Q2 (原題答案 D); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2020-IA-03",
@@ -4100,7 +4289,8 @@
    "source_note": "2020 DSE ICT Paper 1A Q3 (原題答案 A); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2020-IA-04",
@@ -4119,7 +4309,8 @@
    "source_note": "2020 DSE ICT Paper 1A Q4 (原題答案 C); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2020-IA-05",
@@ -4138,7 +4329,8 @@
    "source_note": "2020 DSE ICT Paper 1A Q5 (原題答案 D); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2020-IA-06",
@@ -4157,7 +4349,8 @@
    "source_note": "2020 DSE ICT Paper 1A Q6 (原題答案 B); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2020-IA-09",
@@ -4176,7 +4369,8 @@
    "source_note": "2020 DSE ICT Paper 1A Q9 (原題答案 A); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2020-IA-10",
@@ -4195,7 +4389,8 @@
    "source_note": "2020 DSE ICT Paper 1A Q10 (原題答案 B); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2020-IA-11",
@@ -4214,7 +4409,8 @@
    "source_note": "2020 DSE ICT Paper 1A Q11 (原題答案 D); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2020-IA-13",
@@ -4233,7 +4429,8 @@
    "source_note": "2020 DSE ICT Paper 1A Q13 (原題答案 A); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2020-IA-14",
@@ -4252,7 +4449,8 @@
    "source_note": "2020 DSE ICT Paper 1A Q14 (原題答案 A); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2020-IA-15",
@@ -4271,7 +4469,8 @@
    "source_note": "2020 DSE ICT Paper 1A Q15 (原題答案 C); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2020-IA-16",
@@ -4290,7 +4489,8 @@
    "source_note": "2020 DSE ICT Paper 1A Q16 (原題答案 C); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2020-IA-17",
@@ -4309,7 +4509,8 @@
    "source_note": "2020 DSE ICT Paper 1A Q17 (原題答案 B); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2020-IA-18",
@@ -4328,7 +4529,8 @@
    "source_note": "2020 DSE ICT Paper 1A Q18 (原題答案 A); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2020-IA-21",
@@ -4347,7 +4549,8 @@
    "source_note": "2020 DSE ICT Paper 1A Q21 (原題答案 B); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2020-IA-22",
@@ -4366,7 +4569,8 @@
    "source_note": "2020 DSE ICT Paper 1A Q22 (原題答案 D); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2020-IA-24",
@@ -4385,7 +4589,8 @@
    "source_note": "2020 DSE ICT Paper 1A Q24 (原題答案 C); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2020-IA-25",
@@ -4404,7 +4609,8 @@
    "source_note": "2020 DSE ICT Paper 1A Q25 (原題答案 D); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2020-IA-26",
@@ -4423,7 +4629,8 @@
    "source_note": "2020 DSE ICT Paper 1A Q26 (原題答案 B); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2020-IA-28",
@@ -4442,7 +4649,8 @@
    "source_note": "2020 DSE ICT Paper 1A Q28 (原題答案 D); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2020-IA-31",
@@ -4461,7 +4669,8 @@
    "source_note": "2020 DSE ICT Paper 1A Q31 (原題答案 C); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2020-IA-32",
@@ -4480,7 +4689,8 @@
    "source_note": "2020 DSE ICT Paper 1A Q32 (原題答案 B); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2020-IA-33",
@@ -4499,7 +4709,8 @@
    "source_note": "2020 DSE ICT Paper 1A Q33 (原題答案 D); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2020-IA-34",
@@ -4518,7 +4729,8 @@
    "source_note": "2020 DSE ICT Paper 1A Q34 (原題答案 C); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2020-IA-36",
@@ -4537,7 +4749,8 @@
    "source_note": "2020 DSE ICT Paper 1A Q36 (原題答案 C); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2020-IA-37",
@@ -4556,7 +4769,8 @@
    "source_note": "2020 DSE ICT Paper 1A Q37 (原題答案 B); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2020-IA-38",
@@ -4575,7 +4789,8 @@
    "source_note": "2020 DSE ICT Paper 1A Q38 (原題答案 D); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2020-IA-39",
@@ -4594,7 +4809,8 @@
    "source_note": "2020 DSE ICT Paper 1A Q39 (原題答案 A); 原創概念改編；https://drive.google.com/file/d/1z3gBjensN2AfYU4M2LdRm2gBrUDnwzSO/view",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2021-IA-02",
@@ -4613,7 +4829,8 @@
    "source_note": "2021 HKDSE ICT Paper 1A Q2（原卷答案 D）；AI 重新創作，答案獨立核算",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2021-IA-03",
@@ -4632,7 +4849,8 @@
    "source_note": "2021 HKDSE ICT Paper 1A Q3（原卷答案 C）；AI 重新創作，答案獨立核算",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2021-IA-04",
@@ -4651,7 +4869,8 @@
    "source_note": "2021 HKDSE ICT Paper 1A Q4（原卷答案 B）；AI 重新創作，答案獨立核算",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2021-IA-05",
@@ -4670,7 +4889,8 @@
    "source_note": "2021 HKDSE ICT Paper 1A Q5（原卷答案 B）；AI 重新創作，答案獨立核算",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2021-IA-09",
@@ -4689,7 +4909,8 @@
    "source_note": "2021 HKDSE ICT Paper 1A Q9（原卷答案 B）；AI 重新創作，答案獨立核算",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2021-IA-11",
@@ -4708,7 +4929,8 @@
    "source_note": "2021 HKDSE ICT Paper 1A Q11（原卷答案 A）；AI 重新創作，答案獨立核算",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2021-IA-13",
@@ -4727,7 +4949,8 @@
    "source_note": "2021 HKDSE ICT Paper 1A Q13（原卷答案 D）；AI 重新創作，答案獨立核算",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2021-IA-14",
@@ -4746,7 +4969,8 @@
    "source_note": "2021 HKDSE ICT Paper 1A Q14（原卷答案 D）；AI 重新創作，答案獨立核算",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2021-IA-15",
@@ -4765,7 +4989,8 @@
    "source_note": "2021 HKDSE ICT Paper 1A Q15（原卷答案 B）；AI 重新創作，答案獨立核算",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2021-IA-16",
@@ -4784,7 +5009,8 @@
    "source_note": "2021 HKDSE ICT Paper 1A Q16（原卷答案 C）；AI 重新創作，答案獨立核算",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2021-IA-17",
@@ -4803,7 +5029,8 @@
    "source_note": "2021 HKDSE ICT Paper 1A Q17（原卷答案 B）；AI 重新創作，答案獨立核算",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2021-IA-19",
@@ -4822,7 +5049,8 @@
    "source_note": "2021 HKDSE ICT Paper 1A Q19（原卷答案 C）；AI 重新創作，答案獨立核算",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2021-IA-21",
@@ -4841,7 +5069,8 @@
    "source_note": "2021 HKDSE ICT Paper 1A Q21（原卷答案 D）；AI 重新創作，答案獨立核算",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2021-IA-22",
@@ -4860,7 +5089,8 @@
    "source_note": "2021 HKDSE ICT Paper 1A Q22（原卷答案 C）；AI 重新創作，答案獨立核算",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2021-IA-23",
@@ -4879,7 +5109,8 @@
    "source_note": "2021 HKDSE ICT Paper 1A Q23（原卷答案 A）；AI 重新創作，答案獨立核算",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2021-IA-24",
@@ -4898,7 +5129,8 @@
    "source_note": "2021 HKDSE ICT Paper 1A Q24（原卷答案 D）；AI 重新創作，答案獨立核算",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2021-IA-25",
@@ -4917,7 +5149,8 @@
    "source_note": "2021 HKDSE ICT Paper 1A Q25（原卷答案 D）；AI 重新創作，答案獨立核算",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2021-IA-26",
@@ -4936,7 +5169,8 @@
    "source_note": "2021 HKDSE ICT Paper 1A Q26（原卷答案 D）；AI 重新創作，答案獨立核算",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2021-IA-27",
@@ -4955,7 +5189,8 @@
    "source_note": "2021 HKDSE ICT Paper 1A Q27（原卷答案 A）；AI 重新創作，答案獨立核算",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2021-IA-28",
@@ -4974,7 +5209,8 @@
    "source_note": "2021 HKDSE ICT Paper 1A Q28（原卷答案 A）；AI 重新創作，答案獨立核算",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2021-IA-29",
@@ -4993,7 +5229,8 @@
    "source_note": "2021 HKDSE ICT Paper 1A Q29（原卷答案 D）；AI 重新創作，答案獨立核算",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2021-IA-30",
@@ -5012,7 +5249,8 @@
    "source_note": "2021 HKDSE ICT Paper 1A Q30（原卷答案 B）；AI 重新創作，答案獨立核算",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2021-IA-31",
@@ -5031,7 +5269,8 @@
    "source_note": "2021 HKDSE ICT Paper 1A Q31（原卷答案 D）；AI 重新創作，答案獨立核算",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2021-IA-32",
@@ -5050,7 +5289,8 @@
    "source_note": "2021 HKDSE ICT Paper 1A Q32（原卷答案 A）；AI 重新創作，答案獨立核算",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2021-IA-33",
@@ -5069,7 +5309,8 @@
    "source_note": "2021 HKDSE ICT Paper 1A Q33（原卷答案 C）；AI 重新創作，答案獨立核算",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2021-IA-34",
@@ -5088,7 +5329,8 @@
    "source_note": "2021 HKDSE ICT Paper 1A Q34（原卷答案 D）；AI 重新創作，答案獨立核算",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2021-IA-35",
@@ -5107,7 +5349,8 @@
    "source_note": "2021 HKDSE ICT Paper 1A Q35（原卷答案 C）；AI 重新創作，答案獨立核算",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2021-IA-37",
@@ -5126,7 +5369,8 @@
    "source_note": "2021 HKDSE ICT Paper 1A Q37（原卷答案 A）；AI 重新創作，答案獨立核算",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2021-IA-38",
@@ -5145,7 +5389,8 @@
    "source_note": "2021 HKDSE ICT Paper 1A Q38（原卷答案 A）；AI 重新創作，答案獨立核算",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2021-IA-40",
@@ -5164,7 +5409,8 @@
    "source_note": "2021 HKDSE ICT Paper 1A Q40（原卷答案 B）；AI 重新創作，答案獨立核算",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2019-IA-01",
@@ -5183,7 +5429,8 @@
    "source_note": "2019 DSE ICT Paper 1A Q1; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2019-IA-03",
@@ -5202,7 +5449,8 @@
    "source_note": "2019 DSE ICT Paper 1A Q3; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2019-IA-04",
@@ -5221,7 +5469,8 @@
    "source_note": "2019 DSE ICT Paper 1A Q4; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2019-IA-05",
@@ -5240,7 +5489,8 @@
    "source_note": "2019 DSE ICT Paper 1A Q5; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2019-IA-06",
@@ -5259,7 +5509,8 @@
    "source_note": "2019 DSE ICT Paper 1A Q6; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2019-IA-07",
@@ -5278,7 +5529,8 @@
    "source_note": "2019 DSE ICT Paper 1A Q7; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2019-IA-09",
@@ -5297,7 +5549,8 @@
    "source_note": "2019 DSE ICT Paper 1A Q9; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2019-IA-10",
@@ -5316,7 +5569,8 @@
    "source_note": "2019 DSE ICT Paper 1A Q10; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2019-IA-11",
@@ -5335,7 +5589,8 @@
    "source_note": "2019 DSE ICT Paper 1A Q11; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2019-IA-12",
@@ -5354,7 +5609,8 @@
    "source_note": "2019 DSE ICT Paper 1A Q12; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2019-IA-13",
@@ -5373,7 +5629,8 @@
    "source_note": "2019 DSE ICT Paper 1A Q13; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2019-IA-15",
@@ -5392,7 +5649,8 @@
    "source_note": "2019 DSE ICT Paper 1A Q15; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2019-IA-16",
@@ -5411,7 +5669,8 @@
    "source_note": "2019 DSE ICT Paper 1A Q16; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2019-IA-18",
@@ -5430,7 +5689,8 @@
    "source_note": "2019 DSE ICT Paper 1A Q18; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2019-IA-19",
@@ -5449,7 +5709,8 @@
    "source_note": "2019 DSE ICT Paper 1A Q19; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2019-IA-20",
@@ -5468,7 +5729,8 @@
    "source_note": "2019 DSE ICT Paper 1A Q20; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2019-IA-22",
@@ -5487,7 +5749,8 @@
    "source_note": "2019 DSE ICT Paper 1A Q22; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2019-IA-23",
@@ -5506,7 +5769,8 @@
    "source_note": "2019 DSE ICT Paper 1A Q23; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2019-IA-24",
@@ -5525,7 +5789,8 @@
    "source_note": "2019 DSE ICT Paper 1A Q24; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2019-IA-26",
@@ -5544,7 +5809,8 @@
    "source_note": "2019 DSE ICT Paper 1A Q26; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2019-IA-28",
@@ -5563,7 +5829,8 @@
    "source_note": "2019 DSE ICT Paper 1A Q28; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2019-IA-29",
@@ -5582,7 +5849,8 @@
    "source_note": "2019 DSE ICT Paper 1A Q29; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2019-IA-32",
@@ -5601,7 +5869,8 @@
    "source_note": "2019 DSE ICT Paper 1A Q32; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2019-IA-33",
@@ -5620,7 +5889,8 @@
    "source_note": "2019 DSE ICT Paper 1A Q33; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2019-IA-35",
@@ -5639,7 +5909,8 @@
    "source_note": "2019 DSE ICT Paper 1A Q35; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2019-IA-37",
@@ -5658,7 +5929,8 @@
    "source_note": "2019 DSE ICT Paper 1A Q37; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2019-IA-38",
@@ -5677,7 +5949,8 @@
    "source_note": "2019 DSE ICT Paper 1A Q38; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2019-IA-39",
@@ -5696,7 +5969,8 @@
    "source_note": "2019 DSE ICT Paper 1A Q39; 英文原卷概念改編；新題答案獨立核對；來源：https://paperpapa.com/wp-content/uploads/2022/06/2019-DSE-ICT-1A-E.pdf",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2018-IA-02",
@@ -5715,7 +5989,8 @@
    "source_note": "2018 DSE ICT Paper 1A Q2; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2018-IA-03",
@@ -5734,7 +6009,8 @@
    "source_note": "2018 DSE ICT Paper 1A Q3; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2018-IA-05",
@@ -5753,7 +6029,8 @@
    "source_note": "2018 DSE ICT Paper 1A Q5; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2018-IA-07",
@@ -5772,7 +6049,8 @@
    "source_note": "2018 DSE ICT Paper 1A Q7; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2018-IA-08",
@@ -5791,7 +6069,8 @@
    "source_note": "2018 DSE ICT Paper 1A Q8; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2018-IA-09",
@@ -5810,7 +6089,8 @@
    "source_note": "2018 DSE ICT Paper 1A Q9; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2018-IA-11",
@@ -5829,7 +6109,8 @@
    "source_note": "2018 DSE ICT Paper 1A Q11; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2018-IA-13",
@@ -5848,7 +6129,8 @@
    "source_note": "2018 DSE ICT Paper 1A Q13; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2018-IA-16",
@@ -5867,7 +6149,8 @@
    "source_note": "2018 DSE ICT Paper 1A Q16; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2018-IA-17",
@@ -5886,7 +6169,8 @@
    "source_note": "2018 DSE ICT Paper 1A Q17; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2018-IA-18",
@@ -5905,7 +6189,8 @@
    "source_note": "2018 DSE ICT Paper 1A Q18; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2018-IA-19",
@@ -5924,7 +6209,8 @@
    "source_note": "2018 DSE ICT Paper 1A Q19; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2018-IA-22",
@@ -5943,7 +6229,8 @@
    "source_note": "2018 DSE ICT Paper 1A Q22; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2018-IA-23",
@@ -5962,7 +6249,8 @@
    "source_note": "2018 DSE ICT Paper 1A Q23; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2018-IA-30",
@@ -5981,7 +6269,8 @@
    "source_note": "2018 DSE ICT Paper 1A Q30; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2018-IA-35",
@@ -6000,7 +6289,8 @@
    "source_note": "2018 DSE ICT Paper 1A Q35; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2018-IA-37",
@@ -6019,7 +6309,8 @@
    "source_note": "2018 DSE ICT Paper 1A Q37; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2018-IA-38",
@@ -6038,7 +6329,8 @@
    "source_note": "2018 DSE ICT Paper 1A Q38; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2018-IA-39",
@@ -6057,7 +6349,8 @@
    "source_note": "2018 DSE ICT Paper 1A Q39; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "ICT-2018-IA-40",
@@ -6076,7 +6369,8 @@
    "source_note": "2018 DSE ICT Paper 1A Q40; 英文原卷概念改編，未取得官方答案表；改編題答案獨立推算；https://www.scribd.com/document/924831783/2018-DSE-ICT-1A-E",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2017-04",
@@ -6095,7 +6389,8 @@
    "source_note": "2017 DSE ICT P1A Q4；參考原題概念重新創作；原卷與2017答案表核對",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2017-05",
@@ -6114,7 +6409,8 @@
    "source_note": "2017 DSE ICT P1A Q5；參考原題概念重新創作；原卷與2017答案表核對",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2017-14",
@@ -6133,7 +6429,8 @@
    "source_note": "2017 DSE ICT P1A Q14；參考原題概念重新創作；原卷與2017答案表核對",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2017-15",
@@ -6152,7 +6449,8 @@
    "source_note": "2017 DSE ICT P1A Q15；參考原題概念重新創作；原卷與2017答案表核對",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2017-21",
@@ -6171,7 +6469,8 @@
    "source_note": "2017 DSE ICT P1A Q21；參考原題概念重新創作；原卷與2017答案表核對",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2017-25",
@@ -6190,7 +6489,8 @@
    "source_note": "2017 DSE ICT P1A Q25；參考原題概念重新創作；原卷與2017答案表核對",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2017-38",
@@ -6209,7 +6509,8 @@
    "source_note": "2017 DSE ICT P1A Q38；參考原題概念重新創作；原卷與2017答案表核對",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2017-39",
@@ -6228,7 +6529,8 @@
    "source_note": "2017 DSE ICT P1A Q39；參考原題概念重新創作；原卷與2017答案表核對",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2017-40",
@@ -6247,7 +6549,8 @@
    "source_note": "2017 DSE ICT P1A Q40；參考原題概念重新創作；原卷與2017答案表核對",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2016-01",
@@ -6266,7 +6569,8 @@
    "source_note": "2016 DSE ICT P1A Q1；根據可核對原題概念獨立改寫；原題答案見2016 P1A MS",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2016-02",
@@ -6285,7 +6589,8 @@
    "source_note": "2016 DSE ICT P1A Q2；根據可核對原題概念獨立改寫；原題答案見2016 P1A MS",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2016-03",
@@ -6304,7 +6609,8 @@
    "source_note": "2016 DSE ICT P1A Q3；根據可核對原題概念獨立改寫；原題答案見2016 P1A MS",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2016-05",
@@ -6323,7 +6629,8 @@
    "source_note": "2016 DSE ICT P1A Q5；根據可核對原題概念獨立改寫；原題答案見2016 P1A MS",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2016-08",
@@ -6342,7 +6649,8 @@
    "source_note": "2016 DSE ICT P1A Q8；根據可核對原題概念獨立改寫；原題答案見2016 P1A MS",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2016-23",
@@ -6361,7 +6669,8 @@
    "source_note": "2016 DSE ICT P1A Q23；根據可核對原題概念獨立改寫；原題答案見2016 P1A MS",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2013-06",
@@ -6380,7 +6689,8 @@
    "source_note": "2013 DSE ICT Paper 1A Q6（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2013-08",
@@ -6399,7 +6709,8 @@
    "source_note": "2013 DSE ICT Paper 1A Q8（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2013-10",
@@ -6418,7 +6729,8 @@
    "source_note": "2013 DSE ICT Paper 1A Q10（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2014-03",
@@ -6437,7 +6749,8 @@
    "source_note": "2014 DSE ICT Paper 1A Q3（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2014-11",
@@ -6456,7 +6769,8 @@
    "source_note": "2014 DSE ICT Paper 1A Q11（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2015-10",
@@ -6475,7 +6789,8 @@
    "source_note": "2015 DSE ICT Paper 1A Q10（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2015-14",
@@ -6494,7 +6809,8 @@
    "source_note": "2015 DSE ICT Paper 1A Q14（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2015-17",
@@ -6513,7 +6829,8 @@
    "source_note": "2015 DSE ICT Paper 1A Q17（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2016-20",
@@ -6532,7 +6849,8 @@
    "source_note": "2016 DSE ICT Paper 1A Q20（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2016-22",
@@ -6551,7 +6869,8 @@
    "source_note": "2016 DSE ICT Paper 1A Q22（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2017-01",
@@ -6570,7 +6889,8 @@
    "source_note": "2017 DSE ICT Paper 1A Q1（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2017-12",
@@ -6589,7 +6909,8 @@
    "source_note": "2017 DSE ICT Paper 1A Q12（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2017-16",
@@ -6608,7 +6929,8 @@
    "source_note": "2017 DSE ICT Paper 1A Q16（中文原卷核對；數字/情境/選項另行改編；答案獨立檢查，非官方改編答案）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2016-07",
@@ -6627,7 +6949,8 @@
    "source_note": "2016 DSE ICT Paper 1A Q7；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2016-10",
@@ -6646,7 +6969,8 @@
    "source_note": "2016 DSE ICT Paper 1A Q10；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2016-13",
@@ -6665,7 +6989,8 @@
    "source_note": "2016 DSE ICT Paper 1A Q13；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2016-16",
@@ -6684,7 +7009,8 @@
    "source_note": "2016 DSE ICT Paper 1A Q16；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2016-17",
@@ -6703,7 +7029,8 @@
    "source_note": "2016 DSE ICT Paper 1A Q17；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2016-36",
@@ -6722,7 +7049,8 @@
    "source_note": "2016 DSE ICT Paper 1A Q36；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2016-37",
@@ -6741,7 +7069,8 @@
    "source_note": "2016 DSE ICT Paper 1A Q37；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2016-40",
@@ -6760,7 +7089,8 @@
    "source_note": "2016 DSE ICT Paper 1A Q40；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2017-08",
@@ -6779,7 +7109,8 @@
    "source_note": "2017 DSE ICT Paper 1A Q8；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2017-09",
@@ -6798,7 +7129,8 @@
    "source_note": "2017 DSE ICT Paper 1A Q9；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2017-11",
@@ -6817,7 +7149,8 @@
    "source_note": "2017 DSE ICT Paper 1A Q11；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2017-17",
@@ -6836,7 +7169,8 @@
    "source_note": "2017 DSE ICT Paper 1A Q17；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2017-19",
@@ -6855,7 +7189,8 @@
    "source_note": "2017 DSE ICT Paper 1A Q19；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2017-28",
@@ -6874,7 +7209,8 @@
    "source_note": "2017 DSE ICT Paper 1A Q28；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2017-34",
@@ -6893,7 +7229,8 @@
    "source_note": "2017 DSE ICT Paper 1A Q34；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2017-37",
@@ -6912,7 +7249,8 @@
    "source_note": "2017 DSE ICT Paper 1A Q37；官方中文原卷已取得；本題重新設計情境與選項，答案獨立推算（未取得官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2013-07",
@@ -6931,7 +7269,8 @@
    "source_note": "2013 DSE ICT Paper 1A Q7（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2013-21",
@@ -6950,7 +7289,8 @@
    "source_note": "2013 DSE ICT Paper 1A Q21（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2013-22",
@@ -6969,7 +7309,8 @@
    "source_note": "2013 DSE ICT Paper 1A Q22（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2013-26",
@@ -6988,7 +7329,8 @@
    "source_note": "2013 DSE ICT Paper 1A Q26（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2014-01",
@@ -7007,7 +7349,8 @@
    "source_note": "2014 DSE ICT Paper 1A Q1（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2014-04",
@@ -7026,7 +7369,8 @@
    "source_note": "2014 DSE ICT Paper 1A Q4（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2014-06",
@@ -7045,7 +7389,8 @@
    "source_note": "2014 DSE ICT Paper 1A Q6（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2014-15",
@@ -7064,7 +7409,8 @@
    "source_note": "2014 DSE ICT Paper 1A Q15（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2014-18",
@@ -7083,7 +7429,8 @@
    "source_note": "2014 DSE ICT Paper 1A Q18（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2014-36",
@@ -7102,7 +7449,8 @@
    "source_note": "2014 DSE ICT Paper 1A Q36（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2014-37",
@@ -7121,7 +7469,8 @@
    "source_note": "2014 DSE ICT Paper 1A Q37（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2014-40",
@@ -7140,7 +7489,8 @@
    "source_note": "2014 DSE ICT Paper 1A Q40（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2015-04",
@@ -7159,7 +7509,8 @@
    "source_note": "2015 DSE ICT Paper 1A Q4（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2015-05",
@@ -7178,7 +7529,8 @@
    "source_note": "2015 DSE ICT Paper 1A Q5（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2015-07",
@@ -7197,7 +7549,8 @@
    "source_note": "2015 DSE ICT Paper 1A Q7（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2015-15",
@@ -7216,7 +7569,8 @@
    "source_note": "2015 DSE ICT Paper 1A Q15（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2015-22",
@@ -7235,7 +7589,8 @@
    "source_note": "2015 DSE ICT Paper 1A Q22（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2015-23",
@@ -7254,7 +7609,8 @@
    "source_note": "2015 DSE ICT Paper 1A Q23（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2015-27",
@@ -7273,7 +7629,8 @@
    "source_note": "2015 DSE ICT Paper 1A Q27（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   },
   {
    "question_id": "DSE2015-35",
@@ -7292,7 +7649,8 @@
    "source_note": "2015 DSE ICT Paper 1A Q35（正式中文原卷，按概念獨立改編；未有官方評卷參考）",
    "review_status": "approved",
    "version": "1",
-   "time_sec": 45
+   "time_sec": 45,
+   "source_bank": "IT_Emperor_DseMcQs.xlsx"
   }
  ]
 };
