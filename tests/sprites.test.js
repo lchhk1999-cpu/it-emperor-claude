@@ -38,4 +38,15 @@
   test("sprites: an unknown character falls back to the hero", () => {
     assert.ok(ITE.sprites.character("CH-NEW", "idle").includes('aria-label="主角"'));
   });
+  test("sprites: SSR characters look powerful; 機械 IT狗 is now a mecha bulldog (老虎狗)", () => {
+    const data = ITE.gameData;
+    for (const c of data.characters) {
+      const svg = ITE.sprites.character(c.id, "idle");
+      assert.equal(svg.includes('class="ssr-aura"'), c.rarity === "SSR", `${c.id}: only SSR have the energy aura`);
+    }
+    const tiger = ITE.sprites.character("CH-ITDOG-MECHA", "idle");
+    assert.ok(tiger.includes("M54 36 Q66 31 78 36") && tiger.includes("M30 74 Q24 114"), "bulldog wrinkles and jowls");
+    // R and SR dogs keep their approved look (no tiger stripes).
+    for (const id of ["CH-ITDOG", "CH-ITDOG-CORGI", "CH-ITDOG-HUSKY", "CH-ITDOG-GOLDEN"]) assert.ok(!ITE.sprites.character(id, "idle").includes("M30 74 Q24 114"), id);
+  });
 })();
