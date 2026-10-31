@@ -5,9 +5,9 @@
   ITE.gameData = {
  "meta": {
   "source_file": "IT_Emperor_DseMcQs.xlsx",
-  "source_sha256": "93f04990806f97f3014dcdd7403451ee8d8745daa0f4ffd6fe3adf9b1d019459",
-  "imported_at": "2026-10-30T15:36:07Z",
-  "characters": 7,
+  "source_sha256": "f3597057436409958589fb5f9171cccfb76019e8c9018b54ca9668c3b7fab345",
+  "imported_at": "2026-10-30T16:09:18Z",
+  "characters": 31,
   "missions": 5,
   "titles": 4,
   "equipment": 5,
@@ -28,7 +28,9 @@
    "rarity": "R",
    "attack": 95,
    "hp": 105,
-   "bonus": 0.2
+   "bonus": 0.2,
+   "family": "FAM-ITDOG",
+   "familyName": "IT狗系列"
   },
   {
    "id": "CH-DB",
@@ -37,7 +39,9 @@
    "rarity": "SR",
    "attack": 100,
    "hp": 95,
-   "bonus": 0.2
+   "bonus": 0.2,
+   "family": "FAM-DB",
+   "familyName": "數據庫師系列"
   },
   {
    "id": "CH-GOLD",
@@ -46,7 +50,9 @@
    "rarity": "SR",
    "attack": 100,
    "hp": 110,
-   "bonus": 0.2
+   "bonus": 0.2,
+   "family": "FAM-GOLD",
+   "familyName": "職員系列"
   },
   {
    "id": "CH-HACK",
@@ -55,7 +61,9 @@
    "rarity": "SR",
    "attack": 110,
    "hp": 90,
-   "bonus": 0.2
+   "bonus": 0.2,
+   "family": "FAM-HACK",
+   "familyName": "白帽黑客系列"
   },
   {
    "id": "CH-OFFICE",
@@ -64,7 +72,9 @@
    "rarity": "R",
    "attack": 95,
    "hp": 110,
-   "bonus": 0.2
+   "bonus": 0.2,
+   "family": "FAM-OFFICE",
+   "familyName": "辦公室系列"
   },
   {
    "id": "CH-BROADBAND",
@@ -73,7 +83,9 @@
    "rarity": "R",
    "attack": 105,
    "hp": 95,
-   "bonus": 0.2
+   "bonus": 0.2,
+   "family": "FAM-BROADBAND",
+   "familyName": "網絡工程系列"
   },
   {
    "id": "CH-AIBOT",
@@ -82,7 +94,273 @@
    "rarity": "SSR",
    "attack": 105,
    "hp": 105,
-   "bonus": 0.1
+   "bonus": 0.1,
+   "family": "FAM-AIBOT",
+   "familyName": "機械人系列"
+  },
+  {
+   "id": "CH-ITDOG-CORGI",
+   "name": "柯基 IT狗",
+   "specialty": "PY_BASIC",
+   "rarity": "R",
+   "attack": 95,
+   "hp": 105,
+   "bonus": 0.2,
+   "family": "FAM-ITDOG",
+   "familyName": "IT狗系列"
+  },
+  {
+   "id": "CH-ITDOG-HUSKY",
+   "name": "哈士奇 IT狗",
+   "specialty": "PY_BASIC",
+   "rarity": "SR",
+   "attack": 100,
+   "hp": 110,
+   "bonus": 0.2,
+   "family": "FAM-ITDOG",
+   "familyName": "IT狗系列"
+  },
+  {
+   "id": "CH-ITDOG-GOLDEN",
+   "name": "黃金獵犬 IT狗",
+   "specialty": "PY_BASIC",
+   "rarity": "SR",
+   "attack": 100,
+   "hp": 110,
+   "bonus": 0.2,
+   "family": "FAM-ITDOG",
+   "familyName": "IT狗系列"
+  },
+  {
+   "id": "CH-ITDOG-MECHA",
+   "name": "機械 IT狗",
+   "specialty": "PY_BASIC",
+   "rarity": "SSR",
+   "attack": 105,
+   "hp": 116,
+   "bonus": 0.2,
+   "family": "FAM-ITDOG",
+   "familyName": "IT狗系列"
+  },
+  {
+   "id": "CH-DB-JR",
+   "name": "見習數據庫師",
+   "specialty": "SQL",
+   "rarity": "R",
+   "attack": 95,
+   "hp": 90,
+   "bonus": 0.2,
+   "family": "FAM-DB",
+   "familyName": "數據庫師系列"
+  },
+  {
+   "id": "CH-DB-INDEX",
+   "name": "索引大師",
+   "specialty": "SQL",
+   "rarity": "SR",
+   "attack": 100,
+   "hp": 95,
+   "bonus": 0.2,
+   "family": "FAM-DB",
+   "familyName": "數據庫師系列"
+  },
+  {
+   "id": "CH-DB-CHIEF",
+   "name": "首席數據庫師",
+   "specialty": "SQL",
+   "rarity": "SSR",
+   "attack": 105,
+   "hp": 100,
+   "bonus": 0.2,
+   "family": "FAM-DB",
+   "familyName": "數據庫師系列"
+  },
+  {
+   "id": "CH-GOLD-BRONZE",
+   "name": "青銅職員",
+   "specialty": "HARDWARE",
+   "rarity": "R",
+   "attack": 95,
+   "hp": 105,
+   "bonus": 0.2,
+   "family": "FAM-GOLD",
+   "familyName": "職員系列"
+  },
+  {
+   "id": "CH-GOLD-SILVER",
+   "name": "白銀職員",
+   "specialty": "HARDWARE",
+   "rarity": "R",
+   "attack": 95,
+   "hp": 105,
+   "bonus": 0.2,
+   "family": "FAM-GOLD",
+   "familyName": "職員系列"
+  },
+  {
+   "id": "CH-GOLD-DIAMOND",
+   "name": "鑽石職員",
+   "specialty": "HARDWARE",
+   "rarity": "SSR",
+   "attack": 105,
+   "hp": 115,
+   "bonus": 0.2,
+   "family": "FAM-GOLD",
+   "familyName": "職員系列"
+  },
+  {
+   "id": "CH-HACK-ROOKIE",
+   "name": "見習白帽",
+   "specialty": "SECURITY",
+   "rarity": "R",
+   "attack": 105,
+   "hp": 86,
+   "bonus": 0.2,
+   "family": "FAM-HACK",
+   "familyName": "白帽黑客系列"
+  },
+  {
+   "id": "CH-HACK-FIREWALL",
+   "name": "防火牆騎士",
+   "specialty": "SECURITY",
+   "rarity": "SR",
+   "attack": 110,
+   "hp": 90,
+   "bonus": 0.2,
+   "family": "FAM-HACK",
+   "familyName": "白帽黑客系列"
+  },
+  {
+   "id": "CH-HACK-LEGEND",
+   "name": "白帽傳說",
+   "specialty": "SECURITY",
+   "rarity": "SSR",
+   "attack": 115,
+   "hp": 94,
+   "bonus": 0.2,
+   "family": "FAM-HACK",
+   "familyName": "白帽黑客系列"
+  },
+  {
+   "id": "CH-OFFICE-INTERN",
+   "name": "實習生",
+   "specialty": "EXCEL",
+   "rarity": "R",
+   "attack": 95,
+   "hp": 110,
+   "bonus": 0.2,
+   "family": "FAM-OFFICE",
+   "familyName": "辦公室系列"
+  },
+  {
+   "id": "CH-OFFICE-LEAD",
+   "name": "試算表主任",
+   "specialty": "EXCEL",
+   "rarity": "SR",
+   "attack": 100,
+   "hp": 116,
+   "bonus": 0.2,
+   "family": "FAM-OFFICE",
+   "familyName": "辦公室系列"
+  },
+  {
+   "id": "CH-OFFICE-PIVOT",
+   "name": "樞紐分析師",
+   "specialty": "EXCEL",
+   "rarity": "SR",
+   "attack": 100,
+   "hp": 116,
+   "bonus": 0.2,
+   "family": "FAM-OFFICE",
+   "familyName": "辦公室系列"
+  },
+  {
+   "id": "CH-OFFICE-QUEEN",
+   "name": "公式女王",
+   "specialty": "EXCEL",
+   "rarity": "SSR",
+   "attack": 105,
+   "hp": 121,
+   "bonus": 0.2,
+   "family": "FAM-OFFICE",
+   "familyName": "辦公室系列"
+  },
+  {
+   "id": "CH-BROADBAND-FIBRE",
+   "name": "光纖技師",
+   "specialty": "NET_DEVICE",
+   "rarity": "R",
+   "attack": 105,
+   "hp": 95,
+   "bonus": 0.2,
+   "family": "FAM-BROADBAND",
+   "familyName": "網絡工程系列"
+  },
+  {
+   "id": "CH-BROADBAND-ROUTER",
+   "name": "路由器隊長",
+   "specialty": "NET_DEVICE",
+   "rarity": "SR",
+   "attack": 110,
+   "hp": 100,
+   "bonus": 0.2,
+   "family": "FAM-BROADBAND",
+   "familyName": "網絡工程系列"
+  },
+  {
+   "id": "CH-BROADBAND-5G",
+   "name": "5G 工程師",
+   "specialty": "NET_DEVICE",
+   "rarity": "SR",
+   "attack": 110,
+   "hp": 100,
+   "bonus": 0.2,
+   "family": "FAM-BROADBAND",
+   "familyName": "網絡工程系列"
+  },
+  {
+   "id": "CH-BROADBAND-CHIEF",
+   "name": "網絡總指揮",
+   "specialty": "NET_DEVICE",
+   "rarity": "SSR",
+   "attack": 116,
+   "hp": 105,
+   "bonus": 0.2,
+   "family": "FAM-BROADBAND",
+   "familyName": "網絡工程系列"
+  },
+  {
+   "id": "CH-AIBOT-STUDY",
+   "name": "學習機械人",
+   "specialty": "ALL",
+   "rarity": "R",
+   "attack": 95,
+   "hp": 95,
+   "bonus": 0.1,
+   "family": "FAM-AIBOT",
+   "familyName": "機械人系列"
+  },
+  {
+   "id": "CH-AIBOT-CHAT",
+   "name": "對話機械人",
+   "specialty": "ALL",
+   "rarity": "SR",
+   "attack": 100,
+   "hp": 100,
+   "bonus": 0.1,
+   "family": "FAM-AIBOT",
+   "familyName": "機械人系列"
+  },
+  {
+   "id": "CH-AIBOT-QUANTUM",
+   "name": "量子機械人",
+   "specialty": "ALL",
+   "rarity": "SSR",
+   "attack": 105,
+   "hp": 105,
+   "bonus": 0.1,
+   "family": "FAM-AIBOT",
+   "familyName": "機械人系列"
   }
  ],
  "missions": [

@@ -60,6 +60,20 @@ class GameDataImporterTest(unittest.TestCase):
         for text, frag in zip(reasons, ["rarity", "MAGIC", "base_attack", "topic_bonus_pct", "duplicate"]):
             self.assertIn(frag, text)
 
+    def test_optional_family_columns(self):
+        header = CH + ["family_id", "family_name"]
+        rows = [ch("C1") + ["FAM-A", "A 系列"], ch("C2") + ["", ""], ch("C3") + ["FAM-A", ""]]
+        xlsx = os.path.join(self.dir, "fam.xlsx")
+        make_xlsx(xlsx, {"Characters": [header] + rows, "GameConfig": CONFIG, "Topics": TOPICS})
+        _, rejected, paths = gd.run(xlsx, self.dir)
+        with open(paths["js"], encoding="utf-8") as f:
+            data = json.loads(re.search(r"ITE\.gameData = (\{.*\});\n\}\)", f.read(), re.S).group(1))
+        by_id = {c["id"]: c for c in data["characters"]}
+        self.assertEqual((by_id["C1"]["family"], by_id["C1"]["familyName"]), ("FAM-A", "A 系列"))
+        self.assertNotIn("family", by_id["C2"])
+        self.assertEqual([r["id"] for r in rejected], ["C3"])
+        self.assertIn("family_id and family_name", rejected[0]["errors"][0])
+
     def test_inactive_characters_are_skipped(self):
         _, rejected, data = self.run_import([ch("C1"), ch("C2", active="no")])
         self.assertEqual([c["id"] for c in data["characters"]], ["C1"])

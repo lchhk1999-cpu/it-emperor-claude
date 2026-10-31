@@ -255,3 +255,29 @@
 - **Verification (actual):** `./scripts/test.sh` → JS `124 passed, 0 failed`（新增 11 項，包括 4,000 次抽蛋機率接近 77/20/3%、第 80 抽保底）+ Python `Ran 27 tests OK` + `✓ release bundle: … all 382 questions are approved`；本機伺服器 375×812：新玩家只擁有 IT狗＋AI 模型、其餘角色灰色「未擁有」、寶石不足時按鈕停用、抽 3 次角色（2 新 1 重複 → 金幣 30）及 1 次裝備（重複 → 金幣 50）、保底倒數 77、重新整理後擁有權保留、抽到的數據庫師可換上隊伍；無橫向捲動
 - **Found & fixed while play-testing:** 裝備結果卡名稱重複及空白 → 改為裝備圖示
 - **Human/ChatGPT follow-up:** Excel `Equipment` 表補上稀有度欄
+
+## Run 19 — 2026-10-30（HKT，coordinator）— 提案，待核准
+- **Branch:** `feat/character-variants`
+- **Why:** 用戶說明抽蛋原意是「更多角色、同一角色有不同品種及稀有度」（例如 IT狗 有不同品種）。用戶決定：7 個系列全部有品種、每系列 4–5 個、稀有度越高稍強（SR +5%、SSR +10%）、由 Claude 起草名單及造型、用戶核准後由 ChatGPT 加入 Excel
+- **What changed:** `src/ui/characters.js` 改為「系列＋參數」繪圖，原有 7 個角色 28 張圖與之前逐一比對完全相同；新增 24 個品種造型（共 31 個）；`tools/character_variants_proposal.js` 產生 `docs/proposals/character_variants.csv`（可貼進 Excel `Characters` 表，新增 `family_id`／`family_name` 欄）及設計畫布「角色品種」圖鑑（由同一繪圖程式產生）
+- **Verification (actual):** `./scripts/test.sh` → JS `125 passed, 0 failed`（新增品種造型檢查）+ Python OK；31 個品種四種表情 SVG 全部完整且各不相同
+- **未接入遊戲:** 需用戶核准 → ChatGPT 把 CSV 加入 Excel → 重新匯入（匯入器需支援 family 欄）→ 抽蛋及角色畫面按系列顯示
+- **注意（經濟節奏）:** SSR 由 1 個增至 8 個；按每週約 40 寶石（約 4 抽）計，第 80 抽保底約需 20 週，集齊全部角色需時很長，可能要調整寶石收入或保底
+
+## Run 20 — 2026-10-31：角色品種核准及接入準備
+- 分支：`feat/character-variants`
+- 用戶核准 31 個品種（「可以，核准」）。記錄於 `docs/05_DECISIONS.md`；設計畫布標示為已核准；新增 backlog P4-06（等 Excel 更新）。
+- 匯入器 `tools/import_game_data.py`：`Characters` 表可選 `family_id`／`family_name` 欄（兩欄須同時填寫或同時留空），輸出 `family`／`familyName`。
+- `ITE.profile.familyGroups`：按系列分組（保留 Excel 次序；無系列的角色自成一組）。角色隊伍畫面按系列顯示並列出「已擁有 / 系列總數」；抽蛋結果顯示系列名稱。
+- 測試：`./scripts/test.sh` → JS 126 passed, 0 failed；release 檢查通過。`python3 -m unittest discover -s tests -p 'test_*.py'` → 28 tests OK。
+- 試玩：本機 http 伺服器開啟 dev bundle，角色隊伍畫面正常（7 張角色卡，沒有系列標題）；在瀏覽器暫時加入系列資料後出現兩個系列標題，卡片數正確。
+- 阻塞：要等 ChatGPT 把 `docs/proposals/character_variants.csv` 加入 Excel `Characters` 表，用戶放回 `data/question_bank/` 後，才可重新匯入 31 個品種。
+- 待決定：寶石經濟節奏（8 個 SSR、保底 80 抽約 20 週）。
+
+## Run 21 — 2026-10-31：31 個角色品種接入遊戲
+- 用戶以 ChatGPT 更新 `IT_Emperor_DseMcQs.xlsx`。逐表比較新舊檔：只有 `Characters` 有改動（31 行），其餘 53 張工作表完全相同；31 行與 `docs/proposals/character_variants.csv` 逐欄比對，0 個差異。
+- 重新匯入：`python3 tools/import_game_data.py data/question_bank/IT_Emperor_DseMcQs.xlsx` → characters 31, rejected 0。題庫（Questions 表未變）沒有重新匯入。
+- 系列內角色改為 R → SR → SSR 排列。
+- 測試：`./scripts/test.sh` → JS 126 passed, 0 failed；release 檢查通過（382 題全部 approved）。Python 28 tests OK。
+- 試玩（本機 http 伺服器，dev bundle）：角色隊伍 31 張卡、7 個系列標題、全部角色都有自己的造型；抽蛋機率表列出 R 11／SR 12／SSR 8。
+- 用戶提出新系統清單，已加入 backlog P5-01 至 P5-07（等用戶確認次序）。

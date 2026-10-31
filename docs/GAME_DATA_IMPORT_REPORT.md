@@ -1,8 +1,8 @@
 # 遊戲資料匯入報告（自動產生）
 
 - 來源檔案：`IT_Emperor_DseMcQs.xlsx`
-- SHA-256：`93f04990806f97f3014dcdd7403451ee8d8745daa0f4ffd6fe3adf9b1d019459`
-- 匯入時間：2026-10-30T15:36:07Z
+- SHA-256：`f3597057436409958589fb5f9171cccfb76019e8c9018b54ca9668c3b7fab345`
+- 匯入時間：2026-10-30T16:09:18Z
 - 工作表：`Characters`、`GameConfig`、`Missions`、`Titles`（Topics 用作檢查課題）
 
 ## 角色
@@ -16,6 +16,30 @@
 | CH-OFFICE | 辦公室職員 | EXCEL | R | 95 | 110 | 20% |
 | CH-BROADBAND | 寬頻職員 | NET_DEVICE | R | 105 | 95 | 20% |
 | CH-AIBOT | 人工智能機械人 | ALL | SSR | 105 | 105 | 10% |
+| CH-ITDOG-CORGI | 柯基 IT狗 | PY_BASIC | R | 95 | 105 | 20% |
+| CH-ITDOG-HUSKY | 哈士奇 IT狗 | PY_BASIC | SR | 100 | 110 | 20% |
+| CH-ITDOG-GOLDEN | 黃金獵犬 IT狗 | PY_BASIC | SR | 100 | 110 | 20% |
+| CH-ITDOG-MECHA | 機械 IT狗 | PY_BASIC | SSR | 105 | 116 | 20% |
+| CH-DB-JR | 見習數據庫師 | SQL | R | 95 | 90 | 20% |
+| CH-DB-INDEX | 索引大師 | SQL | SR | 100 | 95 | 20% |
+| CH-DB-CHIEF | 首席數據庫師 | SQL | SSR | 105 | 100 | 20% |
+| CH-GOLD-BRONZE | 青銅職員 | HARDWARE | R | 95 | 105 | 20% |
+| CH-GOLD-SILVER | 白銀職員 | HARDWARE | R | 95 | 105 | 20% |
+| CH-GOLD-DIAMOND | 鑽石職員 | HARDWARE | SSR | 105 | 115 | 20% |
+| CH-HACK-ROOKIE | 見習白帽 | SECURITY | R | 105 | 86 | 20% |
+| CH-HACK-FIREWALL | 防火牆騎士 | SECURITY | SR | 110 | 90 | 20% |
+| CH-HACK-LEGEND | 白帽傳說 | SECURITY | SSR | 115 | 94 | 20% |
+| CH-OFFICE-INTERN | 實習生 | EXCEL | R | 95 | 110 | 20% |
+| CH-OFFICE-LEAD | 試算表主任 | EXCEL | SR | 100 | 116 | 20% |
+| CH-OFFICE-PIVOT | 樞紐分析師 | EXCEL | SR | 100 | 116 | 20% |
+| CH-OFFICE-QUEEN | 公式女王 | EXCEL | SSR | 105 | 121 | 20% |
+| CH-BROADBAND-FIBRE | 光纖技師 | NET_DEVICE | R | 105 | 95 | 20% |
+| CH-BROADBAND-ROUTER | 路由器隊長 | NET_DEVICE | SR | 110 | 100 | 20% |
+| CH-BROADBAND-5G | 5G 工程師 | NET_DEVICE | SR | 110 | 100 | 20% |
+| CH-BROADBAND-CHIEF | 網絡總指揮 | NET_DEVICE | SSR | 116 | 105 | 20% |
+| CH-AIBOT-STUDY | 學習機械人 | ALL | R | 95 | 95 | 10% |
+| CH-AIBOT-CHAT | 對話機械人 | ALL | SR | 100 | 100 | 10% |
+| CH-AIBOT-QUANTUM | 量子機械人 | ALL | SSR | 105 | 105 | 10% |
 
 ## 遊戲設定
 

@@ -412,3 +412,7 @@ button { font: inherit; color: inherit; }
 .rarity-bg-SR { background: #e6eff8; }
 .gacha-log { margin: 0; padding-left: 22px; font-size: 14px; line-height: 1.9; }
 .gacha-log .rarity { margin-left: 6px; }
+
+/* 角色品種：系列標題 */
+.family-title { display: flex; justify-content: space-between; align-items: baseline; margin: 14px 2px 6px; font-size: 1rem; }
+.family-count { font-size: 0.85rem; font-weight: 700; color: #7a6e66; }
