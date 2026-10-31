@@ -126,7 +126,7 @@
     app.render(
       h(
         "main",
-        { class: "screen growth" },
+        { class: "screen growth", "data-tab": "growth" },
         h(
           "header",
           { class: "topbar" },

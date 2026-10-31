@@ -279,5 +279,18 @@
     );
   }
 
-  root.ITE.storyUi = { show: showMap };
+  // First playable, unlocked level not cleared yet (home "繼續學習" bubble), or
+  // null. Release builds have no playable level until teachers approve the bank.
+  function nextLevel() {
+    if (!bank) return null;
+    const all = levels();
+    const prog = progress();
+    return all.find((l) => l.playable && St.isUnlocked(all, prog, l.id) && !St.levelProgress(prog, l.id).cleared) || null;
+  }
+
+  function anyPlayable() {
+    return !!bank && levels().some((l) => l.playable);
+  }
+
+  root.ITE.storyUi = { show: showMap, nextLevel, anyPlayable, showIntro };
 })(globalThis);

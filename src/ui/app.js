@@ -73,8 +73,34 @@
     S.persist(storage, save);
   }
 
+  // Screens marked with data-tab get the bottom tab bar (主頁 A, user choice 2026-10-31).
+  const TABS = [
+    ["home", "主頁", () => showHome()],
+    ["team", "隊伍", () => root.ITE.teamUi.show()],
+    ["growth", "培養", () => root.ITE.growthUi.show()],
+    ["gacha", "抽蛋", () => root.ITE.gachaUi.show()],
+    ["guild", "公會", () => root.ITE.guildUi.show()],
+  ];
+
+  function tabBar(active) {
+    return h(
+      "nav",
+      { class: "tabbar", "aria-label": "主要功能" },
+      TABS.map(([id, label, go]) =>
+        h(
+          "button",
+          { class: id === active ? "tab-btn active" : "tab-btn", onclick: go, ...(id === active ? { "aria-current": "page" } : {}) },
+          h("span", { class: "tab-icon", html: icons[id] }),
+          h("span", { class: "tab-label" }, label)
+        )
+      )
+    );
+  }
+
   function render(screen) {
-    app.replaceChildren(devBanner(), screen);
+    const tab = screen.getAttribute && screen.getAttribute("data-tab");
+    app.classList.toggle("with-tabbar", !!tab);
+    app.replaceChildren(devBanner(), screen, ...(tab ? [tabBar(tab)] : []));
     root.scrollTo(0, 0);
   }
 
@@ -89,40 +115,130 @@
   }
 
   // ---------- Home ----------
+  // Original line icons (24px grid) for the home screen and tab bar.
+  const ICON_PATHS = {
+    home: '<path d="M4 11 L12 4 L20 11 V20 H14 V14 H10 V20 H4 Z"/>',
+    team: '<circle cx="8" cy="9" r="3.2"/><circle cx="16" cy="9" r="3.2"/><path d="M2.5 20 C3 15 13 15 13.5 20"/><path d="M10.5 20 C11 15 21 15 21.5 20"/>',
+    growth: '<path d="M12 20 V9"/><path d="M12 13 C7 13 5 9 5 6 C9 6 12 8 12 13Z"/><path d="M12 11 C16 11 19 8 19 5 C15 5 12 7 12 11Z"/>',
+    gacha: '<ellipse cx="12" cy="13" rx="7" ry="8.5"/><path d="M5.5 12 L9 10 L12 13 L15 10 L18.5 12"/>',
+    guild: '<path d="M4 20 V9 L12 4 L20 9 V20 Z"/><path d="M9.5 20 V14 H14.5 V20"/><path d="M12 4 V1.5 H16"/>',
+    bag: '<rect x="4" y="8" width="16" height="12" rx="3"/><path d="M8.5 8 V6 C8.5 3.5 15.5 3.5 15.5 6 V8"/><path d="M4 13 H20"/>',
+    mission: '<rect x="5" y="3.5" width="14" height="17" rx="2.5"/><path d="M8.5 9 L10.5 11 L15.5 6.5"/><path d="M8.5 15 H15.5"/>',
+    book: '<path d="M3.5 5 C7 4 10 4.5 12 6.5 C14 4.5 17 4 20.5 5 V19 C17 18 14 18.5 12 20 C10 18.5 7 18 3.5 19 Z"/><path d="M12 6.5 V20"/>',
+    sword: '<path d="M5 19 L15.5 8.5"/><path d="M13 4 L20 4 L20 11"/><path d="M4 16 L8 20"/><path d="M15 4.5 L19.5 9"/>',
+    coin: '<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5 V16.5"/><path d="M9.5 9.5 H13.5 C15 9.5 15 12 13.5 12 H10.5 C9 12 9 14.5 10.5 14.5 H14.5"/>',
+    gem: '<path d="M6 4 H18 L22 9.5 L12 21 L2 9.5 Z"/><path d="M2 9.5 H22"/><path d="M9 4 L12 21 L15 4"/>',
+  };
+  const ICON_FILL = { coin: "#f4d36b", gem: "#8fc3e8" };
+  const icons = Object.fromEntries(
+    Object.entries(ICON_PATHS).map(([k, d]) => [
+      k,
+      `<svg viewBox="0 0 24 24" aria-hidden="true" fill="${ICON_FILL[k] || "none"}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`,
+    ])
+  );
+
+  // Home status bar: level, coins, gems, experience and stamina bars.
+  function statusBar() {
+    const p = save.profile;
+    const need = P.PROFILE_RULES.expToNext(p.level);
+    const st = root.ITE.stamina.current(p, gameData.config, Date.now());
+    const meter = (label, value, max, cls) =>
+      h(
+        "div",
+        { class: "meter", role: "meter", "aria-label": label, "aria-valuenow": String(value), "aria-valuemin": "0", "aria-valuemax": String(max) },
+        h("span", { class: "meter-label" }, label),
+        h("span", { class: "meter-track" }, h("span", { class: `meter-fill ${cls}`, style: `width: ${Math.min(100, Math.round((value / max) * 100))}%` })),
+        h("span", { class: "meter-num" }, `${value} / ${max}`)
+      );
+    const title = Mi.equippedTitle(save.progress, gameData.titles);
+    return h(
+      "header",
+      { class: "status-bar" },
+      h(
+        "div",
+        { class: "status-row" },
+        h("span", { class: "lv" }, `Lv ${p.level}`),
+        title ? h("span", { class: "title-badge" }, title.name) : h("span", { class: "status-spacer" }),
+        h("span", { class: "currency", "aria-label": `金幣 ${p.coins}` }, h("span", { class: "cur-icon", html: icons.coin }), String(p.coins)),
+        h("span", { class: "currency", "aria-label": `寶石 ${p.gems || 0}` }, h("span", { class: "cur-icon", html: icons.gem }), String(p.gems || 0))
+      ),
+      meter("經驗", p.exp, need, "fill-exp"),
+      meter("體力", st.value, st.max, "fill-stamina")
+    );
+  }
+
+  function sideChip(iconName, label, onclick, badge) {
+    return h(
+      "button",
+      { class: "side-chip", onclick, "aria-label": badge ? `${label}，${badge} 個獎勵可領取` : label },
+      h("span", { class: "chip-icon", html: icons[iconName] }),
+      badge ? h("span", { class: "badge" }, String(badge)) : null,
+      h("span", { class: "chip-label" }, label)
+    );
+  }
+
   function showHome() {
     const resume = !!save.activeBattle;
+    const leader = save.profile.team[0];
+    const next = root.ITE.storyUi && root.ITE.storyUi.nextLevel();
+    const limited = root.ITE.dungeons.limitedStage(gameData, Date.now());
+    const claimable = Mi.claimableCount(save.progress, gameData.missions, Date.now());
     render(
       h(
         "main",
-        { class: "screen home" },
-        h("div", { class: "logo" }, h("span", { class: "logo-it" }, "IT"), h("span", { class: "logo-emp" }, "帝")),
-        h("p", { class: "tagline" }, "答啱 ICT 題，打倒 Bug 王！"),
-        profileBar(),
-        h("div", { class: "hero-stage", html: sprites.hero("idle") }),
+        { class: "screen home", "data-tab": "home" },
+        statusBar(),
+        h(
+          "section",
+          { class: "home-stage" },
+          h(
+            "div",
+            { class: "side-chips" },
+            sideChip("mission", "任務", () => root.ITE.missionsUi.show(), claimable),
+            sideChip("bag", "背包", () => root.ITE.inventoryUi.show())
+          ),
+          next
+            ? h("button", { class: "speech", onclick: () => root.ITE.storyUi.showIntro(next.id) }, `繼續學習：${next.id} ${next.name}`)
+            : h("p", { class: "speech" }, "答啱 ICT 題，打倒 Bug 王！"),
+          h("div", { class: "hero-stage", html: leader ? sprites.character(leader, "happy") : sprites.hero("idle") }),
+          h("div", { class: "hero-shadow" })
+        ),
+        resume ? h("button", { class: "btn btn-primary resume", onclick: resumeBattle }, "繼續 DSE 挑戰") : null,
         h(
           "div",
-          { class: "menu" },
-          resume ? h("button", { class: "btn btn-primary", onclick: resumeBattle }, "繼續 DSE 挑戰") : null,
-          h("button", { class: resume ? "btn" : "btn btn-primary", onclick: () => root.ITE.storyUi.show() }, "故事模式"),
-          h("button", { class: "btn", onclick: showStages }, "DSE 題庫挑戰"),
-          h("button", { class: "btn btn-guild", onclick: () => root.ITE.guildUi.show() }, "校際公會"),
-          h("button", { class: "btn", onclick: () => root.ITE.teamUi.show() }, "角色隊伍"),
-          h("button", { class: "btn", onclick: () => root.ITE.gachaUi.show() }, "抽蛋"),
-          h("button", { class: "btn", onclick: () => root.ITE.inventoryUi.show() }, "背包"),
-          h("button", { class: "btn", onclick: () => root.ITE.growthUi.show() }, "培養（升級／進化）"),
-          (() => {
-            const n = Mi.claimableCount(save.progress, gameData.missions, Date.now());
-            return h(
-              "button",
-              { class: "btn", onclick: () => root.ITE.missionsUi.show(), "aria-label": n ? `任務與稱號，${n} 個獎勵可領取` : "任務與稱號" },
-              "任務與稱號",
-              n ? h("span", { class: "badge" }, String(n)) : null
-            );
-          })(),
-          BUILD_MODE === "dev" && root.ITE.reviewUi
-            ? h("button", { class: "btn btn-review", onclick: () => root.ITE.reviewUi.show() }, "教師審核（開發版）")
-            : null
+          { class: "home-tiles" },
+          h(
+            "button",
+            { class: "home-tile tile-story", onclick: () => root.ITE.storyUi.show() },
+            h("span", { class: "tile-icon", html: icons.book }),
+            h("span", { class: "tile-name" }, "故事模式"),
+            h("span", { class: "tile-sub" }, next ? `${next.world.name}・${next.id}` : root.ITE.storyUi.anyPlayable() ? "已開放關卡全部完成" : "等待老師審核題目")
+          ),
+          h(
+            "button",
+            { class: "home-tile tile-dse", onclick: showStages },
+            h("span", { class: "tile-icon", html: icons.sword }),
+            h("span", { class: "tile-name" }, "DSE 挑戰"),
+            h("span", { class: "tile-sub" }, "A–E 世界・四個難度")
+          )
         ),
+        limited
+          ? h(
+              "button",
+              { class: "limited-banner", onclick: () => startBattle(limited) },
+              h("span", { class: "limited-boss", html: sprites.bugKing("smug") }),
+              h(
+                "span",
+                { class: "limited-info" },
+                h("span", { class: "limited-tag" }, "今日限定"),
+                h("span", { class: "limited-name" }, limited.chapter.replace("今日限定｜", "")),
+                h("span", { class: "limited-sub" }, limited.description)
+              )
+            )
+          : null,
+        BUILD_MODE === "dev" && root.ITE.reviewUi
+          ? h("button", { class: "btn btn-review", onclick: () => root.ITE.reviewUi.show() }, "教師審核（開發版）")
+          : null,
         loaded.status === "recovered" ? h("p", { class: "note" }, "存檔讀取失敗，已建立新存檔（舊資料已備份）。") : null,
         loaded.status === "repaired" ? h("p", { class: "note" }, "存檔部分資料損壞，已自動修復。") : null,
         BUILD_MODE === "dev" && bankCheck.report.rejected

@@ -103,7 +103,7 @@
     render(
       h(
         "main",
-        { class: "screen guild" },
+        { class: "screen guild", "data-tab": "guild" },
         topbar("校際公會", app.showHome),
         h("p", { class: "note" }, "示範版：其他公會及成員均為虛構，資料只存在這部手機。"),
         h(
@@ -175,7 +175,7 @@
     render(
       h(
         "main",
-        { class: "screen guild" },
+        { class: "screen guild", "data-tab": "guild" },
         topbar(gs.guild.name, app.showHome),
         h("p", { class: "hint center" }, `會長 ${gs.guild.founder}｜成員 ${gs.guild.members.length} 人｜我是 ${gs.nickname}`),
         h(

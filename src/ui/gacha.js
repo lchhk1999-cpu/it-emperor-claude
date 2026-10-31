@@ -67,7 +67,7 @@
     app.render(
       h(
         "main",
-        { class: "screen gacha" },
+        { class: "screen gacha", "data-tab": "gacha" },
         h(
           "header",
           { class: "topbar" },
