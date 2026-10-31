@@ -98,5 +98,55 @@
     return { theme: SCENES[world] ? world : "lab", monster, name: ITE.sprites.MONSTER_NAMES[monster] };
   }
 
-  ITE.scenes = { THEMES: Object.keys(SCENES), WORLD_MONSTERS, background, forWorld };
+  // 主頁 scene behind the leader (user feedback 2026-10-31: home too plain): the
+  // IT school courtyard, with the sky following the time of day in Hong Kong.
+  const SKIES = {
+    morning: { top: "#cfe8fb", bottom: "#fdf3e1", light: "sun", lightColor: "#f4d36b", hill: "#bfe8c9" },
+    day: { top: "#9fd0f2", bottom: "#e6f4fc", light: "sun", lightColor: "#f4d36b", hill: "#9fd4b4" },
+    evening: { top: "#f6b49a", bottom: "#fde3c4", light: "sun", lightColor: "#ee8b7a", hill: "#c9b48f" },
+    night: { top: "#2f3a63", bottom: "#5b5f8f", light: "moon", lightColor: "#fdf3c4", hill: "#4b5e7a" },
+  };
+
+  function timeOfDay(now) {
+    const hour = new Date(now + 8 * 3600 * 1000).getUTCHours(); // HKT
+    if (hour >= 6 && hour < 11) return "morning";
+    if (hour >= 11 && hour < 17) return "day";
+    if (hour >= 17 && hour < 19) return "evening";
+    return "night";
+  }
+
+  function homeScene(now) {
+    const key = timeOfDay(now);
+    const sky = SKIES[key];
+    const night = key === "night";
+    // Layout: the speech bubble covers the top left and the side buttons the right,
+    // so the sun / moon and the school sit on the left, beside the leader.
+    const light = sky.light === "sun"
+      ? `<g class="float"><circle cx="52" cy="108" r="15" fill="${sky.lightColor}" stroke="${INK}" stroke-width="2"/><g stroke="${sky.lightColor}" stroke-width="3" stroke-linecap="round"><line x1="52" y1="84" x2="52" y2="78"/><line x1="28" y1="108" x2="22" y2="108"/><line x1="76" y1="108" x2="82" y2="108"/><line x1="35" y1="91" x2="31" y2="87"/><line x1="69" y1="91" x2="73" y2="87"/></g></g>`
+      : `<g class="float"><path d="M58 92 A16 16 0 1 0 68 122 A13 13 0 1 1 58 92Z" fill="${sky.lightColor}" stroke="${INK}" stroke-width="2"/></g>`;
+    const stars = night
+      ? `<g class="twinkle" fill="#fdf3c4"><circle cx="120" cy="30" r="2"/><circle cx="200" cy="18" r="2.5"/><circle cx="260" cy="44" r="2"/><circle cx="330" cy="22" r="2.5"/><circle cx="160" cy="60" r="1.6"/></g>`
+      : `${cloud(150, 26, 0.8)}${cloud(270, 46, 0.65, "drift slow")}`;
+    const win = night ? "#f4d36b" : "#cfe3f6";
+    return `<svg class="home-scene-bg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <defs><linearGradient id="home-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${sky.top}"/><stop offset="1" stop-color="${sky.bottom}"/></linearGradient></defs>
+      <rect width="400" height="300" fill="url(#home-sky)"/>
+      ${stars}${light}
+      <g class="float" font-family="monospace" font-weight="900" fill="${night ? "#c4b0e0" : "#a993cf"}" opacity="0.8"><text x="104" y="150" font-size="14">{ }</text><text x="290" y="236" font-size="14">&lt;/&gt;</text></g>
+      <path d="M0 210 Q100 170 200 196 Q300 168 400 200 V300 H0Z" fill="${sky.hill}" stroke="${INK}" stroke-width="2"/>
+      <g stroke="${INK}" stroke-width="2">
+        <rect x="8" y="150" width="86" height="62" fill="#fff7ea"/>
+        <path d="M2 152 L51 128 L100 152Z" fill="#ee8b7a" stroke-linejoin="round"/>
+        <line x1="51" y1="128" x2="51" y2="140"/>
+      </g>
+      <g fill="${win}" stroke="${INK}" stroke-width="1.5"><rect x="16" y="164" width="16" height="14" rx="2"/><rect x="70" y="164" width="16" height="14" rx="2"/><rect x="16" y="188" width="16" height="14" rx="2"/><rect x="70" y="188" width="16" height="14" rx="2"/></g>
+      <rect x="42" y="180" width="18" height="32" fill="#c4b0e0" stroke="${INK}" stroke-width="1.5"/>
+      <text x="51" y="174" font-family="monospace" font-size="8" font-weight="900" text-anchor="middle" fill="${INK}">IT 學院</text>
+      <g stroke="${INK}" stroke-width="2"><rect x="316" y="186" width="7" height="26" fill="#c9a27a"/><circle cx="319" cy="180" r="16" fill="${night ? "#5f8a72" : "#bfe8c9"}"/></g>
+      <path d="M0 252 H400 V300 H0Z" fill="${night ? "#6b6f98" : "#f6e3d6"}"/>
+      <line x1="0" y1="252" x2="400" y2="252" stroke="${INK}" stroke-width="2"/>
+    </svg>`;
+  }
+
+  ITE.scenes = { THEMES: Object.keys(SCENES), WORLD_MONSTERS, background, forWorld, timeOfDay, homeScene };
 })(globalThis);

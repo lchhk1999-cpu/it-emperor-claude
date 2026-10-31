@@ -381,3 +381,10 @@
 - 用戶決定套用建議數值。改動：`PROFILE_RULES.starterGems 30`、`levelUpGems 5`（`addReward` 內計算）；`dungeons.DIFFICULTIES` 加 `winCoins`、`rareChance`，新增 `dungeons.rewards()`；`GACHA_RULES.ssrPity 50`（Excel Pools 仍為 80，待同步）。移除提案用的 `src/core/balance.js`；模擬工具改為預設跑遊戲現行規則，`-- before` 重現調整前。升級訊息顯示「+5 寶石」。
 - 測試：`./scripts/test.sh` → JS 165 passed；Python OK；release 及版本檢查通過。模擬器現行結果與建議表完全相同；`-- before` 與調整前表相同。
 - 試玩（本機）：新存檔 30 寶石；困難關勝出 +50 金幣、升級 +5 寶石；抽蛋畫面「再抽 50 次內必定獲得 SSR」。
+
+## Run 34 — 2026-10-31：主頁及各頁背景
+- 用戶意見：主頁和其他頁面背景太悶。分支：`feat/page-backgrounds`（由 `feat/balance` 開出）。
+- `scenes.homeScene(now)`、`scenes.timeOfDay(now)`：主頁角色後的校園場景，按香港時間分早上／日間／黃昏／夜晚。學校及太陽月亮放在角色左邊，避開對話框及右側按鈕。
+- 各頁面主題：`app.render` 設定 `body[data-screen]`；CSS 為 12 種畫面設定漸變色及 SVG 線條圖案，圖案慢速飄動（`body::before`）。修正：body 設為獨立疊層，圖案才不會被背景蓋住。
+- 測試：`./scripts/test.sh` → JS 166 passed（新增主頁場景測試）；Python OK；release 及版本檢查通過。
+- 試玩（本機，手機闊度）：主頁日間及夜晚場景正常，學校、太陽／月亮不被遮住；抽蛋（星星）、培養（小芽）、選關（電路）圖案清楚可見，文字仍清晰。
