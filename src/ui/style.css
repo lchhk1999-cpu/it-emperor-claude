@@ -883,3 +883,43 @@ body[data-screen="guild"] { --page-bg: linear-gradient(180deg, #ebe2f8 0%, #fbf6
 .tile-state { font-size: 11px; font-weight: 800; }
 .tile-rarity { position: absolute; top: 5px; left: 5px; font-size: 10px; }
 .tile-check { position: absolute; top: 4px; right: 6px; width: 20px; height: 20px; display: grid; place-items: center; font-size: 12px; font-weight: 900; background: #9fd4b4; border: 2px solid var(--ink); border-radius: 50%; }
+/* DSE 挑戰: mode tiles and world tabs (2026-11-01) */
+.mode-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 6px 0 12px; }
+.mode-tile {
+  display: flex; flex-direction: column; align-items: center; gap: 1px; padding: 10px 4px; min-width: 0;
+  font: inherit; color: var(--ink); background: var(--mint); border: 2.5px solid var(--ink); border-radius: 16px; box-shadow: 0 3px 0 var(--ink); cursor: pointer;
+}
+.mode-tile:focus-visible { outline: 3px solid #6aa0d8; outline-offset: 2px; }
+.mode-icon { font-size: 22px; line-height: 1.1; }
+.mode-name { font-size: 15px; font-weight: 900; white-space: nowrap; }
+.mode-sub { font-size: 11.5px; font-weight: 700; color: var(--muted); white-space: nowrap; }
+.world-tabs { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; margin: 14px 0 10px; }
+.world-tab {
+  display: flex; flex-direction: column; align-items: center; padding: 6px 0 5px; min-width: 0;
+  font: inherit; color: var(--ink); background: #f1ebe3; border: 2.5px solid var(--ink); border-radius: 14px; cursor: pointer;
+}
+.world-tab.active { background: var(--yellow); box-shadow: 0 3px 0 var(--ink); }
+.world-tab:focus-visible { outline: 3px solid #6aa0d8; outline-offset: 2px; }
+.world-tab-big { font-size: 20px; font-weight: 900; line-height: 1.1; }
+.world-tab-small { font-size: 10.5px; font-weight: 800; white-space: nowrap; overflow: hidden; max-width: 100%; }
+/* 碎片 with pictures (2026-11-01) */
+.shard-art { width: 44px; flex: none; }
+.shard-art svg { width: 100%; height: auto; display: block; }
+.shard-sub { margin-top: 14px; }
+.tile-shards { margin-top: 2px; padding: 0 8px; font-size: 10.5px; font-weight: 900; background: #e0d5f0; border: 1.5px solid var(--ink); border-radius: 999px; }
+.tile-ready { position: absolute; top: 4px; right: 6px; width: 20px; height: 20px; display: grid; place-items: center; font-size: 10px; font-weight: 900; color: #fff; background: #e08a3c; border: 2px solid var(--ink); border-radius: 50%; }
+/* Readability pass (2026-11-01) */
+.mat-grid { list-style: none; margin: 8px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.mat-cell { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 8px 4px; text-align: center; background: #fff; border: 2px solid var(--ink); border-radius: 14px; min-width: 0; }
+.mat-cell.mat-empty { background: #f1ebe3; border-style: dashed; }
+.mat-cell.mat-empty .mat-icon { filter: grayscale(1); opacity: 0.5; }
+.mat-cell .mat-name { font-size: 13px; justify-content: center; }
+.mat-cell .mat-desc { font-size: 10.5px; line-height: 1.3; }
+.mat-cell .mat-count { font-size: 16px; }
+.rates-line { display: flex; flex-wrap: wrap; gap: 12px; margin: 10px 0 4px; font-weight: 900; }
+.rates-box { margin: 4px 0 6px; }
+.rates-box summary { padding: 6px 0; font-weight: 800; color: #4672b3; cursor: pointer; }
+.rates th { white-space: nowrap; }
+.story-tabs { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.mission-row { align-items: flex-start; }
+.mission-row .mission-count { padding-top: 2px; font-size: 15px; }

@@ -142,7 +142,8 @@
                 h("span", { class: "tile-sprite", html: sprites.character(c.id, inTeam ? "happy" : "idle") }),
                 h("span", { class: "tile-name" }, c.name),
                 h("span", { class: "tile-spec" }, topicName(c.specialty)),
-                h("span", { class: "tile-state" }, label)
+                h("span", { class: "tile-state" }, label),
+                (profile.shards || {})[c.id] ? h("span", { class: "tile-shards" }, `碎片 ×${profile.shards[c.id]}`) : null
               );
             })
           )

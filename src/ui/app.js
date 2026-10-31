@@ -340,6 +340,10 @@
     );
   }
 
+  const WORLD_SHORT = { A: "資訊處理", B: "電腦系統", C: "互聯網", D: "程式編寫", E: "社會影響" };
+  // Which DSE world tab is open ("A".."E" or "mix"); kept while the app runs.
+  let stageTab = "A";
+
   function showStages() {
     const Dg = root.ITE.dungeons;
     const limited = Dg.limitedStage(gameData, Date.now());
@@ -351,30 +355,36 @@
         { class: "screen stages" },
         h("header", { class: "topbar" }, h("button", { class: "btn-back", onclick: showHome, "aria-label": "返回" }, "‹"), h("h1", {}, "DSE 題庫挑戰")),
         profileBar(),
+        // 操練區 and the two UR modes as one row of tiles (2026-11-01: worlds in tabs below).
         h(
-          "button",
-          { class: "drill-entry", onclick: () => root.ITE.drillUi.show() },
-          h("span", { class: "drill-entry-title" }, "操練區"),
-          h("span", { class: "drill-entry-sub" }, "不扣體力・不設獎勵・隨機出題，隨時離開")
+          "div",
+          { class: "mode-row" },
+          h("button", { class: "mode-tile drill-tile", onclick: () => root.ITE.drillUi.show() }, h("span", { class: "mode-icon" }, "📝"), h("span", { class: "mode-name" }, "操練區"), h("span", { class: "mode-sub" }, "不扣體力")),
+          root.ITE.trialUi
+            ? h("button", { class: "mode-tile trial-entry", onclick: () => root.ITE.trialUi.show() }, h("span", { class: "mode-icon" }, "👑"), h("span", { class: "mode-name" }, "帝王試煉"), h("span", { class: "mode-sub" }, "UR IT帝"))
+            : null,
+          root.ITE.trialUi
+            ? h("button", { class: "mode-tile demon-entry", onclick: () => root.ITE.trialUi.show("demon") }, h("span", { class: "mode-icon" }, "⏱"), h("span", { class: "mode-name" }, "魔王限時"), h("span", { class: "mode-sub" }, "UR Bug 魔王"))
+            : null
         ),
-        root.ITE.trialUi
-          ? h(
-              "button",
-              { class: "drill-entry trial-entry", onclick: () => root.ITE.trialUi.show() },
-              h("span", { class: "drill-entry-title" }, "👑 帝王試煉"),
-              h("span", { class: "drill-entry-sub" }, "每週一次・收集碎片合成 UR「IT帝」")
-            )
-          : null,
-        root.ITE.trialUi
-          ? h(
-              "button",
-              { class: "drill-entry demon-entry", onclick: () => root.ITE.trialUi.show("demon") },
-              h("span", { class: "drill-entry-title" }, "⏱ 魔王限時"),
-              h("span", { class: "drill-entry-sub" }, "每秒扣血・快答取勝・收集碎片合成 UR「Bug 魔王」")
-            )
-          : null,
         limited ? stageCard(limited) : null,
-        Dg.WORLDS.map((w) =>
+        h(
+          "div",
+          { class: "world-tabs", role: "tablist", "aria-label": "DSE 世界" },
+          Dg.WORLDS.map((w) => [w.id, w.id, WORLD_SHORT[w.id] || w.name])
+            .concat([["mix", "★", "混合"]])
+            .map(([key, big, small]) =>
+              h(
+                "button",
+                { class: stageTab === key ? "world-tab active" : "world-tab", role: "tab", "aria-selected": stageTab === key ? "true" : "false", "aria-label": key === "mix" ? "混合練習" : `${key} ${Dg.WORLDS.find((w) => w.id === key).name}`, onclick: () => ((stageTab = key), sfx("tap"), showStages()) },
+                h("span", { class: "world-tab-big" }, big),
+                h("span", { class: "world-tab-small" }, small)
+              )
+            )
+        ),
+        stageTab === "mix"
+          ? h("section", { class: "panel" }, h("h2", {}, "混合練習"), h("p", { class: "hint" }, "所有課題隨機出題，不用體力，只得經驗。"), (root.ITE.stages || []).map(stageCard))
+          : Dg.WORLDS.filter((w) => w.id === stageTab).map((w) =>
           h(
             "section",
             { class: "panel world-panel" },
@@ -397,14 +407,13 @@
                     "button",
                     { class: `diff-btn diff-${st.difficulty}${rec && rec.cleared ? " cleared" : ""}`, onclick: () => startBattle(st), "aria-label": `${st.name}，${d.questionCount} 題，${stageStatus(st.id)}` },
                     h("span", { class: "diff-name" }, d.name, rec && rec.cleared ? " ★" : ""),
-                    h("span", { class: "diff-meta" }, `${d.questionCount} 題｜體力 ${root.ITE.stamina.stageCost(st)}｜素材 ×${d.drops}${d.rare ? "＋傳說核心" : ""}`)
+                    h("span", { class: "diff-meta" }, `${d.questionCount} 題｜體力 ${root.ITE.stamina.stageCost(st)}`),
+                    h("span", { class: "diff-meta" }, `素材 ×${d.drops}${d.rare ? "＋傳說核心" : ""}`)
                   );
                 })
             )
           )
-        ),
-        h("h2", { class: "section-title" }, "混合練習"),
-        (root.ITE.stages || []).map(stageCard)
+        )
       )
     );
   }
@@ -718,26 +727,12 @@
   }
 
   // ---------- Profile & rewards ----------
+  // Sub-pages show the same compact two-row bar as home (2026-11-01: the old
+  // one-line bar wrapped untidily on phones).
   function profileBar() {
-    const p = save.profile;
-    return h(
-      "p",
-      { class: "profile-bar" },
-      p.name ? h("span", { class: "player-name" }, p.name) : null,
-      h("span", { class: "lv" }, `Lv ${p.level}`),
-      h("span", {}, `經驗 ${p.exp} / ${P.PROFILE_RULES.expToNext(p.level)}`),
-      h("span", {}, `金幣 ${p.coins}`),
-      h("span", {}, `寶石 ${p.gems || 0}`),
-      (() => {
-        const c = staminaNow();
-        return h("span", { class: "stamina" }, `體力 ${c.value} / ${c.max}`);
-      })(),
-      (() => {
-        const t = Mi.equippedTitle(save.progress, gameData.titles, titleContext());
-        return t ? h("span", { class: "title-badge" }, t.name) : null;
-      })()
-    );
+    return statusBar();
   }
+
 
   // Every answered question in any mode counts towards missions and titles.
   // Every mode (DSE, story, guild) reports answers here, so this is also where

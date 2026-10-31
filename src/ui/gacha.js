@@ -184,26 +184,32 @@
           h("h2", {}, "角色盲盒"),
           untilPity !== null ? h("p", { class: "hint" }, `再抽 ${untilPity} 次內必定獲得 SSR 角色（保底）`) : null,
           h("button", { class: "btn btn-primary", onclick: () => doDraw("character"), ...(canDraw ? {} : { disabled: "" }) }, `抽盲盒（${G.GACHA_RULES.cost} 寶石）`),
-          h("h3", { class: "rates-title" }, "公開機率"),
+          // Rates stay visible in one line; the full table folds away (2026-11-01).
+          h("p", { class: "rates-line" }, rates.map((r) => h("span", {}, h("span", { class: `rarity rarity-${r.rarity}` }, r.rarity), ` ${r.pct}%`))),
           h(
-            "table",
-            { class: "rates" },
-            h("thead", {}, h("tr", {}, h("th", {}, "稀有度"), h("th", {}, "機率"), h("th", {}, "角色（同稀有度內機率相同）"))),
+            "details",
+            { class: "rates-box" },
+            h("summary", {}, "查看公開機率"),
             h(
-              "tbody",
-              {},
-              rates.map((r) =>
-                h(
-                  "tr",
-                  {},
-                  h("td", {}, h("span", { class: `rarity rarity-${r.rarity}` }, r.rarity)),
-                  h("td", {}, `${r.pct}%`),
-                  h("td", {}, r.characters.map((c) => c.name).join("、"))
+              "table",
+              { class: "rates" },
+              h("thead", {}, h("tr", {}, h("th", {}, "稀有度"), h("th", {}, "機率"), h("th", {}, "角色（同稀有度內機率相同）"))),
+              h(
+                "tbody",
+                {},
+                rates.map((r) =>
+                  h(
+                    "tr",
+                    {},
+                    h("td", {}, h("span", { class: `rarity rarity-${r.rarity}` }, r.rarity)),
+                    h("td", {}, `${r.pct}%`),
+                    h("td", {}, r.characters.map((c) => c.name).join("、"))
+                  )
                 )
               )
             )
           ),
-          h("p", { class: "hint" }, `每次出現 ${G.BOX_COUNT} 個盲盒，每個都按上表機率獨立決定內容，揀哪一個機率都一樣；保底時全部都是 SSR。`),
+          h("p", { class: "hint" }, `每次出現 ${G.BOX_COUNT} 個盲盒，每個都按公開機率獨立決定內容，揀哪一個機率都一樣；保底時全部都是 SSR。`),
           h("p", { class: "hint" }, `重複角色換成該角色的碎片 ×${G.GACHA_RULES.duplicateShards}，用於第三階段進化。`)
         ),
         stage ? null : h(
@@ -211,8 +217,7 @@
           { class: "panel" },
           h("h2", {}, "裝備盲盒"),
           h("button", { class: "btn btn-primary", onclick: () => doDraw("equipment"), ...(canDraw ? {} : { disabled: "" }) }, `抽盲盒（${G.GACHA_RULES.cost} 寶石）`),
-          h("h3", { class: "rates-title" }, "公開機率"),
-          h("p", { class: "hint" }, `${equipList.map((e) => e.name).join("、")}：每件 ${Math.round((100 / equipList.length) * 10) / 10}%`),
+          h("p", { class: "hint" }, `公開機率：${equipList.map((e) => e.name).join("、")}：每件 ${Math.round((100 / equipList.length) * 10) / 10}%`),
           h("p", { class: "hint" }, `裝備暫未設稀有度，所以每件機率相同。重複裝備換成該裝備的碎片 ×${G.GACHA_RULES.duplicateShards}，用於第三階進化。`)
         ),
         stage ? null : h(

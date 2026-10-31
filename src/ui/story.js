@@ -32,6 +32,8 @@
   const lockIcon = `<svg width="14" height="16" viewBox="0 0 14 16" aria-hidden="true"><rect x="1.5" y="7" width="11" height="8" rx="2" fill="currentColor"/><path d="M4 7 V4.8 a3 3 0 0 1 6 0 V7" stroke="currentColor" stroke-width="2" fill="none"/></svg>`;
 
   // ---------- Map ----------
+  let mapWorld = null; // the world tab the player picked
+
   function showMap() {
     if (!bank) return app.showHome();
     const all = levels();
@@ -42,6 +44,9 @@
       if (!w) worlds.push((w = { id: l.world_id, name: l.world.name, levels: [] }));
       w.levels.push(l);
     }
+    // Default tab: the world of the next level to play.
+    const next = all.find((l) => l.playable && St.isUnlocked(all, prog, l.id) && !St.levelProgress(prog, l.id).cleared);
+    const openWorld = worlds.some((w) => w.id === mapWorld) ? mapWorld : (next || all[0] || {}).world_id;
     const totalStars = all.reduce((s, l) => s + St.levelProgress(prog, l.id).stars, 0);
     const allCleared = all.every((l) => St.levelProgress(prog, l.id).cleared);
 
@@ -54,7 +59,21 @@
         allCleared
           ? h("p", { class: "all-clear" }, `全部 ${all.length} 關完成！星數 ${totalStars} / ${all.length * 3}`)
           : null,
-        worlds.map((w) =>
+        // One world at a time behind A–E tabs (2026-11-01: 43 levels scrolled a long way).
+        h(
+          "div",
+          { class: "world-tabs story-tabs", role: "tablist", "aria-label": "故事世界" },
+          worlds.map((w) => {
+            const done = w.levels.filter((l) => St.levelProgress(prog, l.id).cleared).length;
+            return h(
+              "button",
+              { class: w.id === openWorld ? "world-tab active" : "world-tab", role: "tab", "aria-selected": w.id === openWorld ? "true" : "false", "aria-label": `世界 ${w.id} ${w.name}，完成 ${done} / ${w.levels.length}`, onclick: () => ((mapWorld = w.id), app.sfx("tap"), showMap()) },
+              h("span", { class: "world-tab-big" }, w.id),
+              h("span", { class: "world-tab-small" }, `${done}/${w.levels.length}`)
+            );
+          })
+        ),
+        worlds.filter((w) => w.id === openWorld).map((w) =>
           h(
             "section",
             { class: "panel world" },

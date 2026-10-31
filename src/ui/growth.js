@@ -117,6 +117,9 @@
     );
   }
 
+  let pickedChar = null;
+  let pickedEquip = null;
+
   function show(error, success) {
     const profile = app.getSave().profile;
     const owned = (id) => profile.owned.characters.includes(id);
@@ -144,15 +147,64 @@
         ),
         error ? h("p", { class: "form-error", role: "alert" }, error) : null,
         success ? h("p", { class: "note success", "aria-live": "polite" }, success) : null,
+        // One selected item in detail, the rest as a picker grid (2026-11-01:
+        // the old page listed every card and scrolled a long way).
         tab === "characters"
-          ? [
-              h("p", { class: "hint" }, "升級用金幣。進化要先到等級上限，並用專長課題的素材（DSE 題庫挑戰）；二階起要傳說核心；三階要該角色的碎片（抽蛋重複所得）。"),
-              groups.flatMap((g) => [h("h3", { class: "family-title" }, g.name), g.characters.map((c) => characterCard(profile, c))]),
-            ]
-          : [
-              h("p", { class: "hint" }, "裝備有 3 階效果。第 2 階要傳說核心；第 3 階另要該裝備的碎片。"),
-              equipment.map((e) => equipmentCard(profile, e)),
-            ]
+          ? (() => {
+              const list = groups.flatMap((g) => g.characters);
+              const cur = list.find((c) => c.id === pickedChar) || list.find((c) => c.id === profile.team[0]) || list[0];
+              return [
+                cur ? characterCard(profile, cur) : null,
+                h("p", { class: "hint" }, "升級用金幣。進化要先到等級上限，並用專長課題的素材；二階起要傳說核心；三階要該角色的碎片。"),
+                h("h3", { class: "family-title" }, "揀角色", h("span", { class: "family-count" }, `${list.length} 個`)),
+                pickerGrid(
+                  list.map((c) => {
+                    const g = Gr.charGrowth(profile, c.id);
+                    return { id: c.id, art: sprites.character(c.id, c.id === cur.id ? "happy" : "idle"), name: c.name, rarity: c.rarity, sub: `Lv ${g.level}・${Gr.EVO_NAMES[g.evo]}`, ready: canGrow(profile, c) };
+                  }),
+                  cur && cur.id,
+                  (id) => ((pickedChar = id), show())
+                ),
+              ];
+            })()
+          : (() => {
+              const cur = equipment.find((e) => e.id === pickedEquip) || equipment[0];
+              return [
+                cur ? equipmentCard(profile, cur) : h("p", { class: "hint" }, "未有裝備。可以在「抽蛋」取得。"),
+                h("p", { class: "hint" }, "裝備有 3 階效果。第 2 階要傳說核心；第 3 階另要該裝備的碎片。"),
+                pickerGrid(
+                  equipment.map((e) => ({ id: e.id, art: root.ITE.gear.icon(e.id, Gr.equipmentTier(profile, e.id)), name: e.name, sub: `第 ${Gr.equipmentTier(profile, e.id)} 階` })),
+                  cur && cur.id,
+                  (id) => ((pickedEquip = id), show())
+                ),
+              ];
+            })()
+      )
+    );
+  }
+
+  // Can this character level up or evolve right now? (a dot on its tile)
+  function canGrow(profile, c) {
+    const g = Gr.charGrowth(profile, c.id);
+    if (g.level < Gr.GROWTH_RULES.levelCaps[g.evo]) return profile.coins >= Gr.GROWTH_RULES.levelCoins(g.level);
+    const cost = Gr.evolutionCost(profile, c, data);
+    return !!cost && cost.every((x) => x.have >= x.need);
+  }
+
+  function pickerGrid(items, currentId, pick) {
+    return h(
+      "div",
+      { class: "char-grid" },
+      items.map((it) =>
+        h(
+          "button",
+          { class: it.id === currentId ? "char-tile in-team" : "char-tile", "aria-pressed": it.id === currentId ? "true" : "false", onclick: () => (app.sfx("tap"), pick(it.id)) },
+          it.rarity ? h("span", { class: `rarity rarity-${it.rarity} tile-rarity` }, it.rarity) : null,
+          it.ready ? h("span", { class: "tile-ready", title: "可以升級或進化" }, "▲") : null,
+          h("span", { class: "tile-sprite", html: it.art }),
+          h("span", { class: "tile-name" }, it.name),
+          h("span", { class: "tile-state" }, it.sub)
+        )
       )
     );
   }

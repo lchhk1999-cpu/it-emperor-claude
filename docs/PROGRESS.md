@@ -479,3 +479,8 @@
 - **修正：** 盲盒改動時誤刪裝備蛋圖示，抽裝備盲盒會出錯——已修正並實測
 - **Verification (actual):** `./scripts/test.sh` 全部通過（JS 192、Python OK、正式版／版本／網頁版檢查）；瀏覽器 375×812 實測裝備格、主頁及戰鬥中裝備徽章、裝備盲盒、帝王試煉勝出得碎片→合成、魔王限時扣血及眼鏡免扣、看解說暫停、勝出得 Bug 魔王碎片
 - **Pending user:** 兩個 UR 造型核准；數值為原型（需試玩）
+
+## Run 47 — 2026-11-01：1.0 可讀性、碎片顯示、世界分頁、題庫核實
+- **Branch:** `feat/name-splash-blindbox`
+- **What changed:** 見 `docs/05_DECISIONS.md`「1.0 可讀性整理」；`src/ui/app.js`（狀態列、DSE 分頁）、`story.js`、`growth.js`、`inventory.js`、`gacha.js`、`team.js`
+- **Verification (actual):** jsc 腳本核實題庫（開發 1107／正式 511，0 被拒）；`./scripts/test.sh` 全部通過；瀏覽器 375×812 逐頁截圖檢查：DSE、故事、培養、背包、抽蛋、任務、設定、操練區
