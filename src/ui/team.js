@@ -124,7 +124,11 @@
                   { class: "char-info" },
                   h("span", { class: "char-name" }, c.name, h("span", { class: `rarity rarity-${c.rarity}` }, c.rarity)),
                   h("span", { class: "char-spec" }, `專長：${topicName(c.specialty)}　+${Math.round(c.bonus * 100)}%`),
-                  h("span", { class: "char-stats" }, `攻擊 ${c.attack}｜HP ${c.hp}`),
+                  (() => {
+                    const g = root.ITE.growth.charGrowth(profile, c.id);
+                    const st = root.ITE.growth.stats(c, g);
+                    return h("span", { class: "char-stats" }, `Lv ${g.level}${g.evo ? `・${root.ITE.growth.EVO_NAMES[g.evo]}` : ""}｜攻擊 ${st.attack}｜HP ${st.hp}`);
+                  })(),
                   h(
                     "span",
                     { class: "char-action" },

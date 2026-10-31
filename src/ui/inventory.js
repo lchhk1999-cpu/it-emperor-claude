@@ -1,5 +1,5 @@
-// 背包 screen (P5-01): evolution materials and owned equipment.
-// Materials are used by evolution (P5-04, not built yet).
+// 背包 screen (P5-01): evolution materials, shards and owned equipment.
+// Materials and shards are used in 培養 (P5-04).
 (function (root) {
   const I = root.ITE.inventory;
   const app = root.ITE.app;
@@ -16,6 +16,8 @@
     const list = I.materialList(profile, data);
     const owned = list.filter((m) => m.count > 0);
     const equipment = (data.equipment || []).filter((e) => profile.owned.equipment.includes(e.id));
+    const shards = Object.entries(profile.shards || {});
+    const nameOf = (id) => ((data.characters || []).concat(data.equipment || []).find((x) => x.id === id) || { name: id }).name;
 
     app.render(
       h(
@@ -32,7 +34,7 @@
           "section",
           { class: "panel" },
           h("h2", {}, "進化素材"),
-          h("p", { class: "hint" }, `已擁有 ${owned.length} / ${list.length} 種。勝出「DSE 題庫挑戰」可取得素材；進化功能即將開放。`),
+          h("p", { class: "hint" }, `已擁有 ${owned.length} / ${list.length} 種。勝出「DSE 題庫挑戰」可取得素材，用於「培養」進化。`),
           h(
             "ul",
             { class: "mat-list" },
@@ -51,6 +53,14 @@
               )
             )
           )
+        ),
+        h(
+          "section",
+          { class: "panel" },
+          h("h2", {}, "碎片"),
+          shards.length
+            ? h("ul", { class: "mat-list" }, shards.map(([id, n]) => h("li", { class: "mat-item" }, h("span", { class: "mat-info" }, h("span", { class: "mat-name" }, nameOf(id)), h("span", { class: "mat-desc" }, "第三階段進化用")), h("span", { class: "mat-count" }, `×${n}`))))
+            : h("p", { class: "hint" }, "未有碎片。抽蛋抽到重複的角色或裝備會換成碎片。")
         ),
         h(
           "section",

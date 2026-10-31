@@ -5,15 +5,15 @@
 // - Character pool rates and SSR pity come from the workbook Pools sheet.
 // - The Equipment sheet has no rarity column yet, so every usable item has the
 //   same chance; the screen says so.
-// - Duplicates turn into coins (R 30 / SR 80 / SSR 200; equipment 50).
+// - Duplicates turn into 1 shard (碎片) of that character or item (user
+//   decision 2026-10-31, replacing coins); shards pay for the third evolution.
 // - Characters come from draws only; new players start with IT狗 + AI 模型.
 (function (root) {
   const ITE = (root.ITE = root.ITE || {});
 
   const GACHA_RULES = {
     cost: 10,
-    duplicateCoins: { R: 30, SR: 80, SSR: 200 },
-    equipmentDuplicateCoins: 50,
+    duplicateShards: 1,
     logSize: 20,
   };
 
@@ -74,13 +74,13 @@
       const c = pickOne(rates.find((r) => r.rarity === rarity).characters, rng);
       const duplicate = owned.characters.includes(c.id);
       pity.character = rarity === "SSR" ? 0 : count;
-      result = { type, id: c.id, name: c.name, rarity, duplicate, coins: duplicate ? GACHA_RULES.duplicateCoins[rarity] : 0, pity: forced };
+      result = { type, id: c.id, name: c.name, rarity, duplicate, shards: duplicate ? GACHA_RULES.duplicateShards : 0, pity: forced };
     } else if (type === "equipment") {
       const list = equipmentCandidates(gameData);
       if (!list.length) return { profile, error: "pool_empty" };
       const e = pickOne(list, rng);
       const duplicate = owned.equipment.includes(e.id);
-      result = { type, id: e.id, name: e.name, rarity: null, duplicate, coins: duplicate ? GACHA_RULES.equipmentDuplicateCoins : 0, pity: false };
+      result = { type, id: e.id, name: e.name, rarity: null, duplicate, shards: duplicate ? GACHA_RULES.duplicateShards : 0, pity: false };
     } else {
       return { profile, error: "unknown_pool" };
     }
@@ -94,10 +94,10 @@
       profile: {
         ...profile,
         gems: profile.gems - GACHA_RULES.cost,
-        coins: profile.coins + result.coins,
         owned: nextOwned,
+        shards: result.shards ? { ...(profile.shards || {}), [result.id]: ((profile.shards || {})[result.id] || 0) + result.shards } : profile.shards || {},
         pity,
-        gachaLog: appendLog(profile, { type, id: result.id, rarity: result.rarity, duplicate: result.duplicate, coins: result.coins }),
+        gachaLog: appendLog(profile, { type, id: result.id, rarity: result.rarity, duplicate: result.duplicate, shards: result.shards }),
       },
       result,
     };

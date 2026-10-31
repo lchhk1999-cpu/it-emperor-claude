@@ -446,3 +446,20 @@ button { font: inherit; color: inherit; }
 .diff-name { font-weight: 900; }
 .diff-meta { font-size: 0.8rem; color: #5e534d; }
 .section-title { margin: 18px 4px 8px; font-size: 1.1rem; }
+
+/* 培養 */
+.tabs { display: flex; gap: 8px; margin: 8px 0; }
+.tab { flex: 1; padding: 10px; font: inherit; font-weight: 800; color: var(--ink); background: #f1ebe3; border: 2.5px solid var(--ink); border-radius: 14px; cursor: pointer; }
+.tab.active { background: var(--yellow); box-shadow: 0 3px 0 var(--ink); }
+.tab:focus-visible { outline: 3px solid #6aa0d8; outline-offset: 2px; }
+.grow-card { display: flex; flex-direction: column; gap: 8px; }
+.grow-head { display: flex; gap: 10px; align-items: center; }
+.grow-info { display: flex; flex-direction: column; gap: 2px; }
+.evo-box { padding: 10px; background: #fbf6ee; border: 2px dashed var(--ink); border-radius: 14px; display: flex; flex-direction: column; gap: 6px; }
+.evo-title { margin: 0; font-weight: 800; }
+.evo-tier { margin-left: 8px; padding: 0 6px; font-size: 0.8rem; border: 2px solid var(--ink); border-radius: 6px; background: #efe6fa; }
+.cost-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.cost-list li { padding: 2px 8px; font-size: 0.85rem; font-weight: 700; border-radius: 8px; }
+.cost-ok { background: #e6f5ec; color: #2f7a52; }
+.cost-short { background: #fde8e1; color: #b23a26; }
+.note.success { color: #2f7a52; font-weight: 800; text-align: center; }

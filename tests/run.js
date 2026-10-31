@@ -12,8 +12,13 @@ globalThis.assert = {
     if (!value) throw new Error(msg || "expected truthy value");
   },
   deepEqual(actual, expected, msg) {
-    const a = JSON.stringify(actual);
-    const b = JSON.stringify(expected);
+    // Key order does not matter (arrays keep their order).
+    const stable = (v) =>
+      Array.isArray(v) ? `[${v.map(stable).join(",")}]`
+        : v && typeof v === "object" ? `{${Object.keys(v).filter((k) => v[k] !== undefined).sort().map((k) => `${JSON.stringify(k)}:${stable(v[k])}`).join(",")}}`
+        : JSON.stringify(v);
+    const a = stable(actual);
+    const b = stable(expected);
     if (a !== b) throw new Error(`${msg || "deepEqual"}: expected ${b}, got ${a}`);
   },
   throws(fn, msg) {
@@ -26,8 +31,8 @@ globalThis.assert = {
   },
 };
 
-["src/core/rng.js", "src/core/questions.js", "src/core/battle.js", "src/core/save.js", "src/core/guildRaid.js", "src/core/story.js", "src/core/profile.js", "src/core/missions.js", "src/core/equipment.js", "src/core/gacha.js", "src/core/inventory.js", "src/core/dungeons.js", "src/core/stamina.js", "src/data/game_data.js", "src/data/demo_guilds.js", "src/data/story_bank.js", "src/data/stages.js", "src/data/dev_sample_questions.js", "src/data/question_bank.js", "src/ui/sprites.js", "src/ui/characters.js"].forEach((f) => load(f));
-["tests/questions.test.js", "tests/battle.test.js", "tests/save.test.js", "tests/guildRaid.test.js", "tests/bank.test.js", "tests/story.test.js", "tests/profile.test.js", "tests/sprites.test.js", "tests/missions.test.js", "tests/equipment.test.js", "tests/gacha.test.js", "tests/inventory.test.js", "tests/dungeons.test.js", "tests/stamina.test.js"].forEach((f) => load(f));
+["src/core/rng.js", "src/core/questions.js", "src/core/battle.js", "src/core/save.js", "src/core/guildRaid.js", "src/core/story.js", "src/core/profile.js", "src/core/missions.js", "src/core/equipment.js", "src/core/gacha.js", "src/core/inventory.js", "src/core/dungeons.js", "src/core/stamina.js", "src/core/growth.js", "src/data/game_data.js", "src/data/demo_guilds.js", "src/data/story_bank.js", "src/data/stages.js", "src/data/dev_sample_questions.js", "src/data/question_bank.js", "src/ui/sprites.js", "src/ui/characters.js"].forEach((f) => load(f));
+["tests/questions.test.js", "tests/battle.test.js", "tests/save.test.js", "tests/guildRaid.test.js", "tests/bank.test.js", "tests/story.test.js", "tests/profile.test.js", "tests/sprites.test.js", "tests/missions.test.js", "tests/equipment.test.js", "tests/gacha.test.js", "tests/inventory.test.js", "tests/dungeons.test.js", "tests/stamina.test.js", "tests/growth.test.js"].forEach((f) => load(f));
 
 let failed = 0;
 for (const t of tests) {

@@ -52,7 +52,7 @@
       else if (k === "html") el.innerHTML = v; // only for trusted, bundled SVG
       else el.setAttribute(k, v);
     }
-    for (const c of children.flat()) {
+    for (const c of children.flat(Infinity)) {
       if (c === null || c === undefined || c === false) continue;
       el.append(c instanceof Node ? c : document.createTextNode(String(c)));
     }
@@ -109,6 +109,7 @@
           h("button", { class: "btn", onclick: () => root.ITE.teamUi.show() }, "角色隊伍"),
           h("button", { class: "btn", onclick: () => root.ITE.gachaUi.show() }, "抽蛋"),
           h("button", { class: "btn", onclick: () => root.ITE.inventoryUi.show() }, "背包"),
+          h("button", { class: "btn", onclick: () => root.ITE.growthUi.show() }, "培養（升級／進化）"),
           (() => {
             const n = Mi.claimableCount(save.progress, gameData.missions, Date.now());
             return h(
