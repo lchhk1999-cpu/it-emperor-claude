@@ -500,3 +500,8 @@
 - **Branch:** `feat/teacher-demo`（PR #39 已合併，本機 main 已同步）
 - **What changed:** `src/core/demo.js`；`app.js`（示範存檔、橫額）、`story.js`（全部開放）、`settings.js`（重設）；`build.js`／`build.sh demo`、`build-web.sh demo`；sw.js 快取分開；`tests/demo.test.js`；test.sh 第 6 項
 - **Verification (actual):** `./scripts/test.sh` 全部通過（JS 194、Python OK、正式版／版本／網頁版／示範版檢查）；瀏覽器開 `dist/web-demo`：Lv 30、99999 金幣、33 角色、UR 領隊、故事 A–E 全部開放、重設可用，同機正式版存檔不受影響
+
+## Run 51 — 2026-11-01：新手教學擴充、遊戲指南
+- **Branch:** `feat/teacher-demo`
+- **What changed:** `src/ui/tutorial.js`（12 張）、`src/ui/guide.js`（新）、主頁「指南」、設定頁連結
+- **Verification (actual):** `./scripts/test.sh` 全部通過；瀏覽器 375×667（單機版）逐張檢查 12 張教學卡均無需捲動；指南 11 章節、裝備策略內容正確顯示；主頁三個側按鈕都在場景內
