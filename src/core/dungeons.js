@@ -122,6 +122,8 @@
       out[id] = (out[id] || 0) + 1;
     }
     for (const [id, n] of Object.entries(spec.extra || {})) if (known.has(id)) out[id] = (out[id] || 0) + n;
+    // chance: { material_id: probability } of one more (e.g. 傳說核心 on hard stages).
+    for (const [id, p] of Object.entries(spec.chance || {})) if (known.has(id) && rng() < p) out[id] = (out[id] || 0) + 1;
     return out;
   }
 

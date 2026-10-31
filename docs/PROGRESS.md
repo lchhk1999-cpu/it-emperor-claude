@@ -371,3 +371,10 @@
 - `app.arena()`：DSE 及故事共用的戰場與動畫（衝刺、飛彈、衝擊、閃白、KO、COMBO、畫面震動、呼吸）。選關畫面及主頁限定橫額顯示世界怪物。公會副本受擊改用新動畫。
 - 測試：`./scripts/test.sh` → JS 162 passed（新增 monsters 測試 4 項）；Python OK；release 及版本檢查通過。
 - 試玩（本機，手機闊度）：A–E 五個世界各見不同怪物及背景；答對時見飛彈、衝擊、傷害數字及怪物交叉眼；故事 A-01 見史萊姆及數據王國背景。設計畫布加入「世界怪物及戰鬥背景」預覽。
+
+## Run 33 — 2026-10-31：數值平衡模擬
+- 分支：`feat/balance`（由 `feat/monsters-backgrounds` 開出）。
+- 新增 `src/core/balance.js`（現時規則及建議 TUNING；遊戲尚未使用 TUNING）、`tools/balance_sim.js`（三類學生 × 36 週 × 9 次模擬）、`docs/BALANCE_REPORT.md`。`dungeons.materialDrops` 支援按機率掉落（現時關卡未使用）。
+- 主要發現：傳說核心只在究極／星期日掉落，輕度及一般學生一年都做不到二階進化；金幣不分難度；開局 0 寶石；保底 80 抽太遠。
+- 測試：`./scripts/test.sh` → JS 166 passed（新增 balance 測試 4 項）；Python OK；release 及版本檢查通過。
+- 等用戶決定是否套用建議數值（保底 50 需同步 Excel Pools 表）。
