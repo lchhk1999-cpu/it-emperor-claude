@@ -1,15 +1,15 @@
 # 題庫匯入報告（自動產生）
 
 - 來源檔案：`IT_Emperor_DseMcQs.xlsx + IT_Emperor_Extra_McQs.xlsx`
-- SHA-256：`e51c1864d303b4546e8eea702e6d228f141c2a3b3c5bf79aad61516f8d6e356e`
-- 匯入時間：2026-10-31T09:45:13Z
+- SHA-256：`f50eab4ec1846c0c2d20b9c453d2f4dfbe20e9af49552ce23c178d8056d9406a`
+- 匯入時間：2026-10-31T10:06:45Z
 - 匯入工作表：`Questions`（Topic_* 分頁只供人手檢閱，不匯入）
 
 ## 來源檔案
 
 | 檔案 | 匯入 | 拒絕 | SHA-256 |
 |---|---|---|---|
-| `IT_Emperor_DseMcQs.xlsx` | 511 | 0 | `e51c1864d303b454…` |
+| `IT_Emperor_DseMcQs.xlsx` | 511 | 0 | `f50eab4ec1846c0c…` |
 | `IT_Emperor_Extra_McQs.xlsx` | 596 | 0 | `ead4da4ffd0652c2…` |
 
 ## 世界 × 難度（全部已匯入題目）

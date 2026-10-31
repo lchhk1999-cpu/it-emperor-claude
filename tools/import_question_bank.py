@@ -276,6 +276,11 @@ def sha256_of(path):
 
 # ---------------------------------------------------------------- outputs
 
+# Internal fields kept out of release builds: where a question came from
+# (source notes can hold links to reference papers) is for reviewers only.
+RELEASE_DROP = ("source_note", "source_bank", "held")
+
+
 def bank_js(meta, topics, questions, label):
     payload = {"meta": meta, "topics": topics, "questions": questions}
     body = json.dumps(payload, ensure_ascii=False, indent=1, sort_keys=False)
@@ -447,7 +452,7 @@ def run(xlsx, out_dir=".", now=None, extra=(), hold_path=None):
         "rejected": len(rejected),
         "by_status": dict(by_status),
     }
-    approved = [q for q in accepted if q["review_status"] == "approved"]
+    approved = [{k: v for k, v in q.items() if k not in RELEASE_DROP} for q in accepted if q["review_status"] == "approved"]
     release_meta = dict(meta, accepted=len(approved), note="release build: approved questions only")
     paths = {
         "dev": os.path.join(out_dir, "src", "data", "question_bank.js"),

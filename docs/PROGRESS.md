@@ -436,3 +436,12 @@
 - 分支：`docs/release-checklist`（只有文件）。
 - 新增 `docs/RELEASE_CHECKLIST.md`：6 個待用戶決定事項（帳戶名義、支援裝置、美術、私隱政策網址、App 名稱、備份碼）、內容／技術／帳戶費用／App Store 資料／測試／提交發佈各項及負責人、建議次序。查閱 Apple 年齡分級新制、截圖尺寸、4.2 網頁包裝風險（2026-10-31）。
 - 現況：本機沒有 Xcode（只有 Command Line Tools）及 Node.js；故事 129 題仍未審核（正式版故事模式空白）——兩者都是上架阻礙。
+
+## Run 42 — 2026-10-31：上架準備（不需用戶決定的項目）
+- 用戶外出，要求先完成不需決策的項目。分支：`release/prep`（由 `docs/release-checklist` 開出）。
+- 新增 `docs/release/`：01 安裝 Xcode 及 Node.js 步驟；02 App Store 頁面文字草稿（名稱、副標題、宣傳文字、描述、關鍵字、類別、截圖計劃）；03 私隱政策及支援頁草稿（中英）；04 年齡分級問卷建議答案（預計 9+）及 TestFlight 內測計劃。
+- 發現並修正：正式版題庫夾帶內部 `source_note`（包括外部試卷網站連結）。匯入器正式版輸出不再包含 source_note／source_bank／held；新增 Python 測試；`scripts/test.sh` 檢查正式版不含來源備註及「原型」標題。
+- 遊戲：網頁標題「IT帝 原型」→「IT帝」；設定頁顯示「版本 1.0.0」。
+- 設計畫布新增「App 圖示候選稿」A（IT狗笑臉＋皇冠）／B（IT帝字標）／C（機械老虎狗）。
+- 測試：`./scripts/test.sh` → JS 177 passed；Python OK；release 511 題、無來源備註；版本檢查通過。iPhone SE 尺寸（375×667）主頁及戰鬥頁沒有左右溢出。
+- 未做（需用戶決定或工具）：Capacitor 包裝（需 Xcode、Node）、存檔改 Preferences、備份碼（D6）、移除 PLACEHOLDER 字樣（D3）、截圖（需模擬器）。

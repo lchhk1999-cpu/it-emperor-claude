@@ -77,7 +77,7 @@
           "section",
           { class: "panel" },
           h("h2", {}, "版本"),
-          h("p", { class: "hint" }, `${app.online ? "連線版" : "單機版"}｜${app.buildMode === "release" ? "正式版" : "開發測試版"}`),
+          h("p", { class: "hint" }, `版本 ${app.version}｜${app.online ? "連線版" : "單機版"}｜${app.buildMode === "release" ? "正式版" : "開發測試版"}`),
           h("p", { class: "hint" }, "進度只儲存在這部裝置。")
         )
       )

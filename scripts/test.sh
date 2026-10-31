@@ -27,7 +27,13 @@ approved=$(grep -o '"review_status": "approved"' dist/it-emperor-release.html | 
 if [ "$total" != "$approved" ]; then
   echo "✗ release bundle: $approved of $total questions are approved"; exit 1
 fi
-echo "✓ release bundle: no dev samples; all $approved questions are approved"
+if grep -q "<title>[^<]*原型" dist/it-emperor-release.html; then
+  echo "✗ release bundle is still titled as a prototype"; exit 1
+fi
+if grep -q '"source_note"' dist/it-emperor-release.html; then
+  echo "✗ release bundle contains internal question source notes"; exit 1
+fi
+echo "✓ release bundle: no dev samples, no source notes; all $approved questions are approved"
 # 4. Editions: 單機版 (offline) has no guild screen or demo guilds; online keeps them.
 ./scripts/build.sh release online > /dev/null
 ./scripts/build.sh dev offline > /dev/null

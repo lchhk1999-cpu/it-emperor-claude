@@ -7,6 +7,8 @@
   // "release": set by `./scripts/build.sh release`, which also leaves the dev
   // samples out of the bundle; only approved questions can appear.
   const BUILD_MODE = root.ITE.BUILD_MODE === "release" ? "release" : "dev";
+  // App version shown in 設定 (App Store version for the first release: 1.0.0).
+  const APP_VERSION = "1.0.0";
   // 單機版 (offline) has no guild; online features come back in the online edition.
   const ONLINE = root.ITE.EDITION !== "offline";
   // The imported bank (tools/import_question_bank.py) replaces the dev samples
@@ -787,6 +789,7 @@
     bar,
     questionPool,
     buildMode: BUILD_MODE,
+    version: APP_VERSION,
     arena,
     sfx,
     showStages,
