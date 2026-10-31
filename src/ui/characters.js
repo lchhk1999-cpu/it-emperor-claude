@@ -47,15 +47,26 @@
     // IT狗: fur, ear shape, markings, accessories.
     dog: (expr, v) => {
       const ears =
-        v.ears === "point"
+        v.ears === "rose"
+          ? `<path d="M34 28 Q20 8 14 30 Q22 34 30 38Z" fill="${v.ear}" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/><path d="M98 28 Q112 8 118 30 Q110 34 102 38Z" fill="${v.ear}" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>`
+          : v.ears === "point"
           ? `<path d="M30 46 L22 6 L54 28Z" fill="${v.ear}" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/><path d="M102 46 L110 6 L78 28Z" fill="${v.ear}" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>`
           : `<ellipse cx="22" cy="58" rx="12" ry="24" fill="${v.ear}" stroke="${INK}" stroke-width="3" transform="rotate(14 22 58)"/><ellipse cx="110" cy="58" rx="12" ry="24" fill="${v.ear}" stroke="${INK}" stroke-width="3" transform="rotate(-14 110 58)"/>`;
       const mask = v.mask ? `<path d="M40 78 Q42 56 58 52 L66 66 L74 52 Q90 56 92 78 Q66 104 40 78Z" fill="#ffffff"/>` : "";
-      // 機械老虎狗 (user request 2026-10-31): tiger stripes, a 王 mark on the
-      // forehead, striped tail, armour plates and a glowing chest core.
-      const stripes = v.tiger
-        ? `<g stroke="${INK}" stroke-width="3.5" stroke-linecap="round" fill="none"><path d="M56 30 H76 M58 37 H74 M66 28 V40"/><path d="M28 54 L40 58 M27 64 L39 66 M104 54 L92 58 M105 64 L93 66"/><path d="M46 26 L50 34 M86 26 L82 34"/></g>`
+      // 機械老虎狗 = a mecha bulldog (user, 2026-10-31: "老虎狗是類似八哥的嗰款"):
+      // wide flat face, forehead wrinkles, droopy jowls with an underbite.
+      const head = v.bulldog
+        ? `<ellipse cx="66" cy="60" rx="47" ry="40" fill="${v.fur}" stroke="${INK}" stroke-width="3"/>`
+        : `<circle cx="66" cy="58" r="42" fill="${v.fur}" stroke="${INK}" stroke-width="3"/>`;
+      const wrinkles = v.bulldog
+        ? `<g stroke="${INK}" stroke-width="2.5" stroke-linecap="round" fill="none"><path d="M54 36 Q66 31 78 36"/><path d="M58 43 Q66 39 74 43"/></g>`
         : "";
+      const muzzle = v.bulldog
+        ? `<path d="M30 74 Q24 114 54 110 Q66 104 78 110 Q108 114 102 74 Q84 90 66 84 Q48 90 30 74Z" fill="${v.jowl}" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/>
+           <path d="M56 100 L58 90 L61 100 M71 100 L74 90 L76 100" fill="#ffffff" stroke="${INK}" stroke-width="1.8" stroke-linejoin="round"/>
+           <ellipse cx="66" cy="76" rx="10" ry="6" fill="${INK}"/><ellipse cx="63" cy="74" rx="3" ry="1.6" fill="#ffffff" opacity="0.7"/>`
+        : `<ellipse cx="66" cy="82" rx="18" ry="13" fill="#fbf0e2" stroke="${INK}" stroke-width="2.5"/>
+      <ellipse cx="66" cy="76" rx="6" ry="4.5" fill="${INK}"/>`;
       const armour = v.armor
         ? `<path d="M36 100 Q42 90 56 98 L52 112 Q40 112 36 100Z" fill="#c9ced8" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/><path d="M96 100 Q90 90 76 98 L80 112 Q92 112 96 100Z" fill="#c9ced8" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/><circle cx="66" cy="118" r="8" fill="#8fc3e8" stroke="${INK}" stroke-width="2.5"/><circle cx="66" cy="118" r="3.5" fill="#ffffff"/>`
         : "";
@@ -64,22 +75,22 @@
         : "";
       return `
       ${shadow(66)}
-      <path d="M86 128 C 110 128, 104 104, 122 100 C 132 98, 134 108, 128 112" fill="none" stroke="${INK}" stroke-width="10" stroke-linecap="round"/>
+      ${v.bulldog
+        ? `<path d="M88 126 Q100 124 98 114" fill="none" stroke="${INK}" stroke-width="10" stroke-linecap="round"/><path d="M88 126 Q100 124 98 114" fill="none" stroke="${v.tail}" stroke-width="6" stroke-linecap="round"/>`
+        : `<path d="M86 128 C 110 128, 104 104, 122 100 C 132 98, 134 108, 128 112" fill="none" stroke="${INK}" stroke-width="10" stroke-linecap="round"/>
       <path d="M86 128 C 110 128, 104 104, 122 100 C 132 98, 134 108, 128 112" fill="none" stroke="${v.tail}" stroke-width="6" stroke-linecap="round"/>
-      ${v.tiger ? `<path d="M86 128 C 110 128, 104 104, 122 100 C 132 98, 134 108, 128 112" fill="none" stroke="${INK}" stroke-width="6" stroke-dasharray="3 7"/>` : ""}
-      <circle cx="127" cy="104" r="1.6" fill="${INK}"/>
+      <circle cx="127" cy="104" r="1.6" fill="${INK}"/>`}
       <rect x="42" y="98" width="48" height="44" rx="18" fill="${v.hoodie}" stroke="${INK}" stroke-width="3"/>
       <rect x="48" y="138" width="13" height="20" rx="6" fill="${v.fur}" stroke="${INK}" stroke-width="3"/>
       <rect x="71" y="138" width="13" height="20" rx="6" fill="${v.fur}" stroke="${INK}" stroke-width="3"/>
       ${ears}
-      <circle cx="66" cy="58" r="42" fill="${v.fur}" stroke="${INK}" stroke-width="3"/>
+      ${head}
       ${mask}
-      ${stripes}
+      ${wrinkles}
       <path d="M30 40 Q66 0 102 40" fill="none" stroke="${INK}" stroke-width="5" stroke-linecap="round"/>
       <rect x="18" y="38" width="16" height="24" rx="7" fill="${v.phones}" stroke="${INK}" stroke-width="3"/>
       <rect x="98" y="38" width="16" height="24" rx="7" fill="${v.phones}" stroke="${INK}" stroke-width="3"/>
-      <ellipse cx="66" cy="82" rx="18" ry="13" fill="#fbf0e2" stroke="${INK}" stroke-width="2.5"/>
-      <ellipse cx="66" cy="76" rx="6" ry="4.5" fill="${INK}"/>
+      ${muzzle}
       ${face(expr, { lx: 50, rx: 82, ey: 60, mx: 66, my: 88, sx: 100, sy: 70, gx: 46, gy: 22, eye: v.eye })}
       ${v.glasses ? glasses(50, 82, 60) : ""}
       ${armour}
@@ -279,8 +290,8 @@
     "CH-ITDOG-CORGI": ["dog", { fur: "#e8a86a", ear: "#c47a3e", ears: "point", hoodie: "#9fd4b4", phones: "#f2b4b0", tail: "#9fd4b4" }],
     "CH-ITDOG-HUSKY": ["dog", { fur: "#a9adbb", ear: "#7d8394", ears: "point", mask: true, eye: "#4a8cc4", hoodie: "#8fc3e8", phones: "#ffffff", tail: "#9fd4b4" }],
     "CH-ITDOG-GOLDEN": ["dog", { fur: "#e8c27a", ear: "#c99a45", glasses: true, hoodie: "#ee8b7a", phones: "#f4d36b", tail: "#9fd4b4" }],
-    // SSR 機械老虎狗 (redesigned 2026-10-31; was a silver robot dog).
-    "CH-ITDOG-MECHA": ["dog", { fur: "#f2a541", ear: "#d9822b", ears: "point", tiger: true, mecha: true, armor: true, eye: "#d2553f", hoodie: "#3d4a66", phones: "#c9ced8", tail: "#f2a541", heroic: { aura: "#f2a541" } }],
+    // SSR 機械老虎狗: a mecha bulldog (redesigned 2026-10-31; was a silver robot dog).
+    "CH-ITDOG-MECHA": ["dog", { fur: "#e3b27a", ear: "#a8743f", ears: "rose", bulldog: true, jowl: "#fbf0e2", mecha: true, armor: true, eye: "#d2553f", hoodie: "#3d4a66", phones: "#c9ced8", tail: "#e3b27a", heroic: { aura: "#f2a541" } }],
     // 數據庫師
     "CH-DB-JR": ["db", { coat: "#ffffff", hair: INK, beret: "#9fd4b4", db: "#c9e2f4", dbTop: "#e6eff8" }],
     "CH-DB": ["db", { coat: "#ffffff", hair: INK, beret: "#8fc3e8", db: "#8fc3e8", dbTop: "#c9e2f4" }],

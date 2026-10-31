@@ -395,3 +395,4 @@
 - `docs/proposals/character_variants.csv` 更新名稱為「機械老虎狗」，供 ChatGPT 更新 Excel。
 - 測試：`./scripts/test.sh` → JS 167 passed（新增 SSR 形象測試）；Python OK；release 及版本檢查通過。
 - 設計畫布新增「SSR 新形象」前後對比圖，並更新品種總覽。
+- 用戶澄清「老虎狗是類似八哥的嗰款」：改為鬥牛犬型（扁面、皺紋、腮肉、下排牙、摺耳、短尾），取消虎紋及王字。
