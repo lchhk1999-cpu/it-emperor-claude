@@ -36,6 +36,7 @@
       const r = Mi.claimMission(app.getSave().progress, m, Date.now());
       if (r.error) return show(ERRORS[r.error]);
       app.setSave({ ...app.getSave(), progress: r.progress });
+      app.sfx("reward");
       const g = app.grantReward(r.reward);
       show(`已領取：${rewardText(m)}${g.levelsGained ? `，升級到 Lv ${g.level}！` : ""}`);
     };

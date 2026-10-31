@@ -213,6 +213,7 @@
 
   // ---------- Clear ----------
   function finishLevel() {
+    app.sfx("win");
     const sum = St.summary(run);
     const save = app.getSave();
     const firstClear = !St.levelProgress(save.story, sum.levelId).cleared;
