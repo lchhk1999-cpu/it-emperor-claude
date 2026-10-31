@@ -67,8 +67,35 @@
            <ellipse cx="66" cy="76" rx="10" ry="6" fill="${INK}"/><ellipse cx="63" cy="74" rx="3" ry="1.6" fill="#ffffff" opacity="0.7"/>`
         : `<ellipse cx="66" cy="82" rx="18" ry="13" fill="#fbf0e2" stroke="${INK}" stroke-width="2.5"/>
       <ellipse cx="66" cy="76" rx="6" ry="4.5" fill="${INK}"/>`;
-      const armour = v.armor
-        ? `<path d="M36 100 Q42 90 56 98 L52 112 Q40 112 36 100Z" fill="#c9ced8" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/><path d="M96 100 Q90 90 76 98 L80 112 Q92 112 96 100Z" fill="#c9ced8" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/><circle cx="66" cy="118" r="8" fill="#8fc3e8" stroke="${INK}" stroke-width="2.5"/><circle cx="66" cy="118" r="3.5" fill="#ffffff"/>`
+      // Mecha bulldog body (user, 2026-10-31: clothes hid the bulldog and it did not
+      // look mechanical enough): bare stocky body with a white chest, bolted collar,
+      // a chest core set into the fur, a flank plate, one robot leg and jet thrusters.
+      const METAL = "#c9ced8";
+      const bodyArt = v.bulldog
+        ? `<g stroke="${INK}" stroke-width="2.5">
+             <rect x="24" y="104" width="12" height="22" rx="4" fill="${METAL}"/><rect x="96" y="104" width="12" height="22" rx="4" fill="${METAL}"/>
+             <path d="M26 126 L30 140 L34 126Z M98 126 L102 140 L106 126Z" fill="#8fc3e8" class="thrust"/>
+           </g>
+           <ellipse cx="66" cy="122" rx="32" ry="24" fill="${v.fur}" stroke="${INK}" stroke-width="3"/>
+           <path d="M54 102 Q66 100 78 102 Q80 128 66 140 Q52 128 54 102Z" fill="#fbf0e2"/>
+           <rect x="36" y="112" width="14" height="18" rx="3" fill="${METAL}" stroke="${INK}" stroke-width="2"/>
+           <g fill="${INK}"><circle cx="40" cy="116" r="1.5"/><circle cx="46" cy="116" r="1.5"/><circle cx="40" cy="126" r="1.5"/><circle cx="46" cy="126" r="1.5"/></g>
+           <circle cx="66" cy="120" r="8" fill="#8fc3e8" stroke="${INK}" stroke-width="2.5"/><circle cx="66" cy="120" r="3.5" fill="#ffffff"/>
+           <path d="M66 112 V108 M66 128 V132 M58 120 H54 M74 120 H78" stroke="#8fc3e8" stroke-width="2" stroke-linecap="round"/>
+           <rect x="46" y="138" width="15" height="20" rx="6" fill="${v.fur}" stroke="${INK}" stroke-width="3"/>
+           <rect x="71" y="138" width="15" height="20" rx="4" fill="${METAL}" stroke="${INK}" stroke-width="3"/>
+           <circle cx="78.5" cy="144" r="3" fill="${INK}"/><line x1="71" y1="151" x2="86" y2="151" stroke="${INK}" stroke-width="2"/>`
+        : `<rect x="42" y="98" width="48" height="44" rx="18" fill="${v.hoodie}" stroke="${INK}" stroke-width="3"/>
+      <rect x="48" y="138" width="13" height="20" rx="6" fill="${v.fur}" stroke="${INK}" stroke-width="3"/>
+      <rect x="71" y="138" width="13" height="20" rx="6" fill="${v.fur}" stroke="${INK}" stroke-width="3"/>`;
+      // Bolted collar and a cyber eye over the right eye (drawn over the face).
+      const collar = v.bulldog
+        ? `<rect x="38" y="94" width="56" height="11" rx="5" fill="${METAL}" stroke="${INK}" stroke-width="2.5"/><g fill="#f4d36b" stroke="${INK}" stroke-width="1.5"><circle cx="48" cy="99.5" r="2.5"/><circle cx="66" cy="99.5" r="2.5"/><circle cx="84" cy="99.5" r="2.5"/></g>`
+        : "";
+      const cyberEye = v.bulldog
+        ? `<path d="M70 48 Q84 42 100 50 L100 70 Q86 74 72 70Z" fill="${METAL}" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/>
+           <circle cx="84" cy="60" r="8" fill="#d2553f" stroke="${INK}" stroke-width="2.5" class="cyber-eye"/><circle cx="82" cy="58" r="2.5" fill="#ffffff"/>
+           <g fill="${INK}"><circle cx="74" cy="52" r="1.3"/><circle cx="96" cy="53" r="1.3"/><circle cx="96" cy="67" r="1.3"/></g>`
         : "";
       const mecha = v.mecha
         ? `<circle cx="34" cy="40" r="3" fill="${INK}"/><circle cx="98" cy="40" r="3" fill="${INK}"/><line x1="66" y1="16" x2="66" y2="4" stroke="${INK}" stroke-width="3"/><circle cx="66" cy="4" r="5" fill="#8fc3e8" stroke="${INK}" stroke-width="2.5"/><circle cx="66" cy="118" r="6" fill="#8fc3e8" stroke="${INK}" stroke-width="2.5"/>`
@@ -80,9 +107,7 @@
         : `<path d="M86 128 C 110 128, 104 104, 122 100 C 132 98, 134 108, 128 112" fill="none" stroke="${INK}" stroke-width="10" stroke-linecap="round"/>
       <path d="M86 128 C 110 128, 104 104, 122 100 C 132 98, 134 108, 128 112" fill="none" stroke="${v.tail}" stroke-width="6" stroke-linecap="round"/>
       <circle cx="127" cy="104" r="1.6" fill="${INK}"/>`}
-      <rect x="42" y="98" width="48" height="44" rx="18" fill="${v.hoodie}" stroke="${INK}" stroke-width="3"/>
-      <rect x="48" y="138" width="13" height="20" rx="6" fill="${v.fur}" stroke="${INK}" stroke-width="3"/>
-      <rect x="71" y="138" width="13" height="20" rx="6" fill="${v.fur}" stroke="${INK}" stroke-width="3"/>
+      ${bodyArt}
       ${ears}
       ${head}
       ${mask}
@@ -93,7 +118,8 @@
       ${muzzle}
       ${face(expr, { lx: 50, rx: 82, ey: 60, mx: 66, my: 88, sx: 100, sy: 70, gx: 46, gy: 22, eye: v.eye })}
       ${v.glasses ? glasses(50, 82, 60) : ""}
-      ${armour}
+      ${cyberEye}
+      ${collar}
       ${mecha}`;
     },
 
@@ -291,7 +317,7 @@
     "CH-ITDOG-HUSKY": ["dog", { fur: "#a9adbb", ear: "#7d8394", ears: "point", mask: true, eye: "#4a8cc4", hoodie: "#8fc3e8", phones: "#ffffff", tail: "#9fd4b4" }],
     "CH-ITDOG-GOLDEN": ["dog", { fur: "#e8c27a", ear: "#c99a45", glasses: true, hoodie: "#ee8b7a", phones: "#f4d36b", tail: "#9fd4b4" }],
     // SSR 機械老虎狗: a mecha bulldog (redesigned 2026-10-31; was a silver robot dog).
-    "CH-ITDOG-MECHA": ["dog", { fur: "#e3b27a", ear: "#a8743f", ears: "rose", bulldog: true, jowl: "#fbf0e2", mecha: true, armor: true, eye: "#d2553f", hoodie: "#3d4a66", phones: "#c9ced8", tail: "#e3b27a", heroic: { aura: "#f2a541" } }],
+    "CH-ITDOG-MECHA": ["dog", { fur: "#e3b27a", ear: "#a8743f", ears: "rose", bulldog: true, jowl: "#fbf0e2", mecha: true, eye: "#d2553f", phones: "#c9ced8", tail: "#e3b27a", heroic: { aura: "#f2a541" } }],
     // 數據庫師
     "CH-DB-JR": ["db", { coat: "#ffffff", hair: INK, beret: "#9fd4b4", db: "#c9e2f4", dbTop: "#e6eff8" }],
     "CH-DB": ["db", { coat: "#ffffff", hair: INK, beret: "#8fc3e8", db: "#8fc3e8", dbTop: "#c9e2f4" }],

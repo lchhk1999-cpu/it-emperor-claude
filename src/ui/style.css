@@ -679,3 +679,7 @@ body[data-screen="guild"] { --page-bg: linear-gradient(180deg, #ebe2f8 0%, #fbf6
 .home-scene-bg .wave { animation: floaty 2s ease-in-out infinite; }
 .chip-label { padding: 0 6px; background: rgba(255, 255, 255, 0.9); border-radius: 8px; }
 .home .hero-stage { margin-top: 10px; }
+/* 機械老虎狗: flickering thrusters and a glowing cyber eye */
+.sprite .thrust { animation: thrust 0.35s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: 50% 0; }
+@keyframes thrust { from { transform: scaleY(0.7); opacity: 0.7; } to { transform: scaleY(1.15); opacity: 1; } }
+.sprite .cyber-eye { animation: twinkle 1.4s ease-in-out infinite; }
