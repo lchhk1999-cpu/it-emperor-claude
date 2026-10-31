@@ -31,6 +31,9 @@
 
   const lockIcon = `<svg width="14" height="16" viewBox="0 0 14 16" aria-hidden="true"><rect x="1.5" y="7" width="11" height="8" rx="2" fill="currentColor"/><path d="M4 7 V4.8 a3 3 0 0 1 6 0 V7" stroke="currentColor" stroke-width="2" fill="none"/></svg>`;
 
+  // 老師示範版 opens every level (src/core/demo.js).
+  const isOpen = (all, prog, id) => (root.ITE.demo && root.ITE.demo.enabled()) || St.isUnlocked(all, prog, id);
+
   // ---------- Map ----------
   let mapWorld = null; // the world tab the player picked
 
@@ -45,7 +48,7 @@
       w.levels.push(l);
     }
     // Default tab: the world of the next level to play.
-    const next = all.find((l) => l.playable && St.isUnlocked(all, prog, l.id) && !St.levelProgress(prog, l.id).cleared);
+    const next = all.find((l) => l.playable && isOpen(all, prog, l.id) && !St.levelProgress(prog, l.id).cleared);
     const openWorld = worlds.some((w) => w.id === mapWorld) ? mapWorld : (next || all[0] || {}).world_id;
     const totalStars = all.reduce((s, l) => s + St.levelProgress(prog, l.id).stars, 0);
     const allCleared = all.every((l) => St.levelProgress(prog, l.id).cleared);
@@ -83,7 +86,7 @@
               { class: "level-grid" },
               w.levels.map((l) => {
                 const p = St.levelProgress(prog, l.id);
-                const unlocked = St.isUnlocked(all, prog, l.id);
+                const unlocked = isOpen(all, prog, l.id);
                 const canPlay = l.playable && unlocked;
                 let sub;
                 if (!l.enabled) sub = "即將開放";
@@ -242,7 +245,7 @@
     const gained = app.grantReward(root.ITE.profile.storyRewards(firstClear));
     const all = levels();
     const nxt = St.nextLevel(all, sum.levelId);
-    const canNext = nxt && nxt.playable && St.isUnlocked(all, progress(), nxt.id);
+    const canNext = nxt && nxt.playable && isOpen(all, progress(), nxt.id);
     // As the student last saw them (shuffled letters), not the bank's order.
     const wrongQs = sum.wrongQuestionIds.map((id) => run.shown[id]).filter(Boolean);
     const finished = runLevel;
@@ -306,7 +309,7 @@
     if (!bank) return null;
     const all = levels();
     const prog = progress();
-    return all.find((l) => l.playable && St.isUnlocked(all, prog, l.id) && !St.levelProgress(prog, l.id).cleared) || null;
+    return all.find((l) => l.playable && isOpen(all, prog, l.id) && !St.levelProgress(prog, l.id).cleared) || null;
   }
 
   function anyPlayable() {

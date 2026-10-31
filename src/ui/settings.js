@@ -78,6 +78,18 @@
     );
   }
 
+  // 老師示範版: drop the demo save and start again from the rich profile.
+  let confirmReset = false;
+  function resetDemo(e) {
+    if (!confirmReset) {
+      confirmReset = true;
+      e.target.textContent = "再按一次確定重設";
+      return;
+    }
+    app.storage.removeItem(root.ITE.save.SAVE_KEY);
+    root.location.reload();
+  }
+
   function onOff(label, value, set) {
     return h(
       "div",
@@ -129,6 +141,15 @@
           h("h2", {}, "新手教學"),
           h("button", { class: "btn", onclick: () => (app.showHome(), root.ITE.tutorialUi.show(0)) }, "再看一次新手教學")
         ),
+        app.demo
+          ? h(
+              "section",
+              { class: "panel" },
+              h("h2", {}, "老師示範版"),
+              h("p", { class: "hint" }, "示範資料與正式版分開儲存。重設後回到資源全開的起點。"),
+              h("button", { class: "btn", onclick: resetDemo }, "重設示範資料")
+            )
+          : null,
         backupPanel(),
         root.ITE.installUi ? root.ITE.installUi.settingsPanel(show) : null,
         h(

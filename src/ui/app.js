@@ -18,13 +18,17 @@
   const bankCheck = Q.validateBank(bank ? bank.questions : root.ITE.devSampleQuestions || []);
   if (bankCheck.report.rejected) console.warn("question bank rows rejected in game:", bankCheck.rejected);
   const questionPool = Q.filterForMode(bankCheck.accepted, BUILD_MODE);
+  const DEMO = !!(root.ITE.demo && root.ITE.demo.enabled());
   const storage = (() => {
+    let base;
     try {
       root.localStorage.setItem("it-emperor.probe", "1");
-      return root.localStorage;
+      base = root.localStorage;
     } catch (e) {
-      return S.createMemoryStorage();
+      base = S.createMemoryStorage();
     }
+    // 老師示範版 keeps its own save next to a real one.
+    return DEMO ? root.ITE.demo.prefixedStorage(base) : base;
   })();
 
   const loaded = S.load(storage);
@@ -35,7 +39,8 @@
   const P = root.ITE.profile;
   const gameData = root.ITE.gameData;
   {
-    const base = P.ensureOwned(save.profile || P.defaultProfile(gameData), gameData);
+    const fresh = DEMO ? root.ITE.demo.seedProfile(gameData) : P.defaultProfile(gameData);
+    const base = P.ensureOwned(save.profile || fresh, gameData);
     const team = P.cleanTeam(base.team, base.level, gameData, base.owned);
     const equipment = root.ITE.equipment.cleanEquipment(base.equipment || {}, team, gameData, base.owned, base);
     save = { ...save, profile: { ...base, team, equipment } };
@@ -67,6 +72,7 @@
   }
 
   function devBanner() {
+    if (DEMO) return h("div", { class: "dev-banner demo-banner", role: "note" }, "老師示範版｜資源全開・所有關卡已開放・進度與正式版分開");
     return BUILD_MODE === "dev"
       ? h(
           "div",
@@ -964,6 +970,7 @@
     showStages,
     startBattle,
     online: ONLINE,
+    demo: DEMO,
     storage,
     grantReward,
     rewardPanel,
