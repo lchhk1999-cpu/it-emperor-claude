@@ -45,8 +45,8 @@
       assert.equal(svg.includes('class="ssr-aura"'), c.rarity === "SSR", `${c.id}: only SSR have the energy aura`);
     }
     const tiger = ITE.sprites.character("CH-ITDOG-MECHA", "idle");
-    assert.ok(tiger.includes("M54 36 Q66 31 78 36") && tiger.includes("M36 78 Q34 100"), "bulldog wrinkles and jowls");
+    assert.ok(tiger.includes("M54 36 Q66 31 78 36") && tiger.includes("M30 74 Q24 114"), "bulldog wrinkles and jowls");
     // R and SR dogs keep their approved look (no tiger stripes).
-    for (const id of ["CH-ITDOG", "CH-ITDOG-CORGI", "CH-ITDOG-HUSKY", "CH-ITDOG-GOLDEN"]) assert.ok(!ITE.sprites.character(id, "idle").includes("M36 78 Q34 100"), id);
+    for (const id of ["CH-ITDOG", "CH-ITDOG-CORGI", "CH-ITDOG-HUSKY", "CH-ITDOG-GOLDEN"]) assert.ok(!ITE.sprites.character(id, "idle").includes("M30 74 Q24 114"), id);
   });
 })();
