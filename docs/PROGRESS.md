@@ -423,3 +423,11 @@
 - 用戶要求：體力隨時間逐點回復，並在每日 12 點重置。分支：`feat/stamina-daily-reset`（由 `feat/drill-and-bank-guide` 開出）。
 - `stamina.current`：上次改動後若已過香港時間 00:00，即回滿；時鐘倒退不會回滿。體力不足畫面提示「每晚 12 時及升級時會回滿體力」。
 - 測試：`./scripts/test.sh` → JS 171 passed（新增午夜回滿測試）；Python OK；release 511 題 approved；版本檢查通過。
+
+## Run 39 — 2026-10-31：每日簽到及更多稱號
+- 用戶核准兩項。分支：`feat/stamina-daily-reset`（同分支繼續）。
+- 新模組 `src/core/checkin.js`、畫面 `src/ui/checkin.js`：每日一次、7 天循環、缺席不重設；存檔 profile.checkin 有修復。主頁在教學完成後、每個香港日首次進入時彈出。
+- 稱號：`missions.js` 新增 streak、bestStreak、ultimateClears、drillAnswered 計數及 9 種條件；條件需要的存檔資料以 `app.titleContext()` 傳入；操練區答題標記 drill；DSE 勝出記錄難度。匯入器支援新條件（world_correct 以 title_id 後綴 A–E 指定世界）。
+- `docs/proposals/titles.csv`（18 個稱號）及 `docs/QUESTION_BANK_WORK_GUIDE.md` Prompt 3。以實際 Excel 加上 CSV 模擬匯入：22 個稱號、0 拒絕。
+- 測試：`./scripts/test.sh` → JS 177 passed（新增 checkin 4 項、稱號 2 項）；Python OK（新增 1 項）；release 511 題；版本檢查通過。
+- 試玩（本機，手機闊度）：清除簽到後進入主頁彈出簽到卡（第 1 天 100 金幣），領取後金幣 50 → 150，同日再回主頁不再彈出。

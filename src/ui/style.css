@@ -695,3 +695,11 @@ body[data-screen="guild"] { --page-bg: linear-gradient(180deg, #ebe2f8 0%, #fbf6
 .drill-group { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 12px; }
 .drill-group .seg-btn { flex: 1 1 auto; min-width: 72px; padding: 0 10px; }
 .drill-stats { display: flex; justify-content: space-between; gap: 8px; margin: 4px 2px 0; font-size: 14px; font-weight: 800; }
+
+/* 每日簽到 */
+.checkin-days { list-style: none; margin: 4px 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; width: 100%; }
+.checkin-day { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 8px 4px; background: #fff; border: 2px solid var(--line); border-radius: 12px; font-size: 12px; }
+.checkin-day.past { background: #f1ebe3; color: var(--muted); }
+.checkin-day.today { background: var(--yellow); border-color: var(--ink); font-weight: 900; box-shadow: 0 3px 0 var(--ink); }
+.checkin-num { font-weight: 800; }
+.checkin-reward { text-align: center; line-height: 1.3; }

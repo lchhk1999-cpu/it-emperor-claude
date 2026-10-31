@@ -122,3 +122,15 @@ E 世界 SOCIAL（全部難度）> B 世界困難 > C 世界困難 > D 世界簡
 - **DSE 挑戰（世界關、限定關）**：每次開戰都由該世界、該難度的題目中**隨機抽題**，選項次序亦會隨機打亂；同一場不會重複。題目不足時才由同一世界其他難度補上。
 - 額外題庫匯入後，會與 DSE 題目合併成同一題目池，按課題代碼及難度一樣隨機抽出。
 - **操練區（新）**：不扣體力、不給經驗／金幣／素材，隨意揀世界及難度，一題接一題隨機出，答錯即看解說，可隨時離開。
+
+## 七、Prompt 3：新增 18 個稱號（2026-10-31 用戶核准）
+
+把 `IT_Emperor_DseMcQs.xlsx` 及 `docs/proposals/titles.csv` 一併上載給 ChatGPT：
+
+```text
+我上載了《IT帝》Excel（IT_Emperor_DseMcQs.xlsx）及 titles.csv。請只修改「Titles」工作表：
+1. 把 titles.csv 的 18 行加到 Titles 表現有資料下方。欄位：title_id, title_name, condition_type, target_count, course_id, description, active，照抄 CSV 內容，不要改 title_id 及 condition_type（遊戲靠它們計算）。
+2. 現有 4 個稱號（T-NEW、T-EXCEL、T-SQL、T-PVP）不要改動。
+3. 其他工作表一律不要改動，檔名保持不變。
+完成後請回報 Titles 表共有多少個稱號，並確認其他工作表沒有改動。
+```
