@@ -36,6 +36,11 @@ CONFIG_SPEC = {
     "pvp_stats_normalized": (int, 0, 1),
     "gacha_paid_enabled": (int, 0, 1),
 }
+# Optional GameConfig keys: (type, min, max, default when the row is missing).
+OPTIONAL_CONFIG_SPEC = {
+    "starter_stamina": (int, 1, 999, 40),
+    "level_up_stamina": (int, 0, 50, 2),
+}
 
 
 def _rows(sheets, name, required):
@@ -329,8 +334,16 @@ def import_stages_and_events(sheets, topics, material_ids):
         if errors:
             rejected.append({"row": row, "id": d["stage_id"], "errors": errors})
             continue
+        try:
+            stamina = _num(d.get("stamina_cost") or "0", int)
+            if not 0 <= stamina <= 999:
+                raise ValueError
+        except ValueError:
+            rejected.append({"row": row, "id": d["stage_id"], "errors": [f"stamina_cost must be 0-999, got '{d.get('stamina_cost')}'"]})
+            continue
         stages[d["stage_id"]] = {"id": d["stage_id"], "title": d["title"], "world": d.get("world", ""), "topic": d["topic_id"],
-                                 "difficulty": d["difficulty"], "questionCount": count, "material": d["material_id"]}
+                                 "difficulty": d["difficulty"], "questionCount": count, "material": d["material_id"],
+                                 "stamina": stamina}
     used, days = set(), set()
     for row, d in _rows(sheets, "Events", ["event_id", "weekday_iso", "event_name", "stage_id", "active"]):
         if d["active"].lower() == "no":
@@ -362,6 +375,19 @@ def import_config(sheets):
     for key, (kind, lo, hi) in CONFIG_SPEC.items():
         if key not in raw:
             problems.append(f"GameConfig is missing '{key}'")
+            continue
+        try:
+            value = _num(raw[key], kind)
+        except ValueError:
+            problems.append(f"GameConfig '{key}' must be a number, got '{raw[key]}'")
+            continue
+        if not lo <= value <= hi:
+            problems.append(f"GameConfig '{key}' must be {lo}-{hi}, got {value}")
+            continue
+        config[key] = value
+    for key, (kind, lo, hi, default) in OPTIONAL_CONFIG_SPEC.items():
+        if key not in raw:
+            config[key] = default
             continue
         try:
             value = _num(raw[key], kind)
@@ -451,7 +477,7 @@ def run(xlsx, out_dir=".", now=None):
     for e in events:
         st = stage_by_id[e["stage"]]
         lines.append(f"| {weekday_name[e['weekday'] - 1]} | {e['name']} | {st['title']} | {st['topic']} | {st['difficulty']} | {st['questionCount']} | {st['material']} |")
-    lines += ["", "註：`Stages` 表的 boss_hp、reward_coins、reward_exp、stamina_cost 暫未使用（Boss 血量按遊戲傷害公式計算；體力在 P5-03 處理）。"]
+    lines += ["", "註：`Stages` 表的 boss_hp、reward_coins、reward_exp 暫未使用（Boss 血量按遊戲傷害公式計算）。stamina_cost 為 0 的限定關，體力按題數計算。"]
     lines += ["", "## 拒絕的資料", ""]
     if rejected:
         lines += ["| 列 | ID | 原因 |", "|---|---|---|"] + [f"| {r['row']} | {r['id']} | {'；'.join(r['errors'])} |" for r in rejected]

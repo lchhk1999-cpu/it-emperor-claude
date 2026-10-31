@@ -2,6 +2,7 @@
 // - Five worlds follow the DSE ICT compulsory parts A–E; each has four
 //   difficulties (簡單／中等／困難／究極). Clearing one drops that world's
 //   evolution materials; harder stages drop more.
+// - Mixed practice (src/data/stages.js) stays free and drops nothing.
 // - One limited stage a day, from the workbook Events/Stages sheets (a weekly
 //   rotation); it drops many of its material.
 // PROTOTYPE numbers: question counts, boss HP/attack and drop amounts are
@@ -72,6 +73,7 @@
       questionCount: st.questionCount,
       topicIds: st.topic === "ALL" ? null : [st.topic],
       questionDifficulties: d.questions,
+      staminaCost: st.stamina || 0,
       boss: { name: "Bug 王", maxHp: bossHp(st.questionCount, d.hpFactor), attack: d.attack },
       drops: { pick: [], count: 0, extra: { [material.id]: LIMITED_DROPS[material.rarity] } },
     };
@@ -99,16 +101,12 @@
     return preferred.concat(others.slice(0, stage.questionCount - preferred.length));
   }
 
-  // Materials for a finished battle: { material_id: count }. Losing drops nothing.
-  // Stages without a drops entry give one random topic material (mixed practice).
+  // Materials for a finished battle: { material_id: count }. Losing drops
+  // nothing; neither does mixed practice (it costs no stamina, P5-03).
   function materialDrops(stage, summary, gameData, rng) {
-    if (summary.outcome !== "won") return {};
+    if (summary.outcome !== "won" || !stage || !stage.drops) return {};
     const known = new Set((gameData.materials || []).map((m) => m.id));
-    const spec = (stage && stage.drops) || {
-      pick: (gameData.materials || []).filter((m) => m.topic !== "ALL").map((m) => m.id),
-      count: 1,
-      extra: {},
-    };
+    const spec = stage.drops;
     const pick = spec.pick.filter((id) => known.has(id));
     const out = {};
     for (let i = 0; i < spec.count && pick.length; i++) {

@@ -299,3 +299,12 @@
 - 測試：`./scripts/test.sh` → JS 137 passed, 0 failed；release 檢查通過。Python 30 tests OK。
 - 試玩（本機 dev bundle，星期六）：今日限定為「金幣寶庫・金幣之門」；A 世界中等 8 題全為 medium、課題屬 A；全對勝出得「資料碎片 ×1、函數晶片 ×1」；再挑戰回到同一關。
 - 下一步：P5-03 體力系統（待用戶答：故事模式是否扣體力）。
+
+## Run 24 — 2026-10-31：P5-03 體力系統
+- 分支：`feat/stamina`（由 `feat/dse-world-stages` 開出，需先合併該 PR）。
+- 用戶決定：故事模式不扣體力。
+- GameConfig 新增可選鍵 starter_stamina（40）、level_up_stamina（2）；`Stages.stamina_cost` 匯入限定關。
+- 新模組 `src/core/stamina.js`（maxStamina、current 含回復及時鐘倒退保護、nextPointIn、spend、refill、stageCost）；存檔修復壞的體力資料。選關及狀態列顯示體力；體力不足畫面可選練習模式（只得經驗）；升級回滿體力。混合練習改為不扣體力、只得經驗、沒有素材及金幣。
+- 測試：`./scripts/test.sh` → JS 144 passed, 0 failed；release 檢查通過。Python 31 tests OK。
+- 試玩（本機 dev bundle）：體力 3 時開「困難」→ 出現體力不足畫面；練習模式全對 → 只得經驗、沒有素材、體力不變，升級後回滿至 42；之後開「簡單」→ 體力 42→37，勝出得函數晶片 ×1、金幣 30。
+- 下一步：P5-04 角色／裝備升級及三階段進化（待用戶答：重複角色換碎片規則）。

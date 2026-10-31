@@ -6,7 +6,7 @@
  "meta": {
   "source_file": "IT_Emperor_DseMcQs.xlsx",
   "source_sha256": "f3597057436409958589fb5f9171cccfb76019e8c9018b54ca9668c3b7fab345",
-  "imported_at": "2026-10-31T04:57:20Z",
+  "imported_at": "2026-10-31T05:02:48Z",
   "characters": 31,
   "missions": 5,
   "titles": 4,
@@ -20,7 +20,9 @@
   "initial_team_slots": 1,
   "specialist_bonus": 0.2,
   "pvp_stats_normalized": 1,
-  "gacha_paid_enabled": 0
+  "gacha_paid_enabled": 0,
+  "starter_stamina": 40,
+  "level_up_stamina": 2
  },
  "characters": [
   {
@@ -678,7 +680,8 @@
    "topic": "EXCEL",
    "difficulty": "easy",
    "questionCount": 5,
-   "material": "MAT-EXCEL"
+   "material": "MAT-EXCEL",
+   "stamina": 0
   },
   {
    "id": "ST-SQL-01",
@@ -687,7 +690,8 @@
    "topic": "SQL",
    "difficulty": "medium",
    "questionCount": 6,
-   "material": "MAT-SQL"
+   "material": "MAT-SQL",
+   "stamina": 0
   },
   {
    "id": "ST-HW-01",
@@ -696,7 +700,8 @@
    "topic": "HARDWARE",
    "difficulty": "easy",
    "questionCount": 5,
-   "material": "MAT-HW"
+   "material": "MAT-HW",
+   "stamina": 0
   },
   {
    "id": "ST-NET-01",
@@ -705,7 +710,8 @@
    "topic": "NET_DEVICE",
    "difficulty": "medium",
    "questionCount": 6,
-   "material": "MAT-NET"
+   "material": "MAT-NET",
+   "stamina": 0
   },
   {
    "id": "ST-PY-01",
@@ -714,7 +720,8 @@
    "topic": "PY_BASIC",
    "difficulty": "easy",
    "questionCount": 5,
-   "material": "MAT-PY"
+   "material": "MAT-PY",
+   "stamina": 0
   },
   {
    "id": "EV-COIN",
@@ -723,7 +730,8 @@
    "topic": "ALL",
    "difficulty": "medium",
    "questionCount": 10,
-   "material": "MAT-COIN"
+   "material": "MAT-COIN",
+   "stamina": 15
   },
   {
    "id": "EV-MIX",
@@ -732,7 +740,8 @@
    "topic": "ALL",
    "difficulty": "ultimate",
    "questionCount": 15,
-   "material": "MAT-RARE"
+   "material": "MAT-RARE",
+   "stamina": 30
   }
  ],
  "events": [

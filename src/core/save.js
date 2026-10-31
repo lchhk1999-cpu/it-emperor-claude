@@ -105,6 +105,13 @@
         for (const [k, v] of Object.entries(raw.materials)) if (isText(k) && Number.isInteger(v) && v > 0) out.materials[k] = Math.min(v, 9999);
       }
     }
+    // 體力 { value, updatedAt }; a damaged entry is dropped (the game then starts full).
+    if (raw.stamina !== undefined) {
+      const st = raw.stamina;
+      if (st && Number.isInteger(st.value) && st.value >= 0 && isNum(st.updatedAt) && st.updatedAt >= 0) {
+        out.stamina = { value: Math.min(st.value, 999), updatedAt: st.updatedAt };
+      }
+    }
     if (raw.pity !== undefined) out.pity = { character: int(raw.pity && raw.pity.character, 0) };
     if (raw.gachaLog !== undefined) {
       out.gachaLog = (Array.isArray(raw.gachaLog) ? raw.gachaLog : [])
