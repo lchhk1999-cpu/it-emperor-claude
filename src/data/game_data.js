@@ -5,8 +5,8 @@
   ITE.gameData = {
  "meta": {
   "source_file": "IT_Emperor_DseMcQs.xlsx",
-  "source_sha256": "f3597057436409958589fb5f9171cccfb76019e8c9018b54ca9668c3b7fab345",
-  "imported_at": "2026-10-31T05:02:48Z",
+  "source_sha256": "e51c1864d303b4546e8eea702e6d228f141c2a3b3c5bf79aad61516f8d6e356e",
+  "imported_at": "2026-10-31T09:43:35Z",
   "characters": 31,
   "missions": 5,
   "titles": 4,
@@ -137,7 +137,7 @@
   },
   {
    "id": "CH-ITDOG-MECHA",
-   "name": "機械 IT狗",
+   "name": "機械老虎狗",
    "specialty": "PY_BASIC",
    "rarity": "SSR",
    "attack": 105,
@@ -582,7 +582,7 @@
     {
      "rarity": "SSR",
      "pct": 3.0,
-     "pity": 80
+     "pity": 50
     }
    ]
   },

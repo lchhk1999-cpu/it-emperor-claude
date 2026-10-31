@@ -1,8 +1,8 @@
 # 遊戲資料匯入報告（自動產生）
 
 - 來源檔案：`IT_Emperor_DseMcQs.xlsx`
-- SHA-256：`f3597057436409958589fb5f9171cccfb76019e8c9018b54ca9668c3b7fab345`
-- 匯入時間：2026-10-31T05:02:48Z
+- SHA-256：`e51c1864d303b4546e8eea702e6d228f141c2a3b3c5bf79aad61516f8d6e356e`
+- 匯入時間：2026-10-31T09:43:35Z
 - 工作表：`Characters`、`GameConfig`、`Missions`、`Titles`、`Equipment`、`Pools`、`Materials`、`Stages`、`Events`（Topics 用作檢查課題）
 
 ## 角色
@@ -19,7 +19,7 @@
 | CH-ITDOG-CORGI | 柯基 IT狗 | PY_BASIC | R | 95 | 105 | 20% |
 | CH-ITDOG-HUSKY | 哈士奇 IT狗 | PY_BASIC | SR | 100 | 110 | 20% |
 | CH-ITDOG-GOLDEN | 黃金獵犬 IT狗 | PY_BASIC | SR | 100 | 110 | 20% |
-| CH-ITDOG-MECHA | 機械 IT狗 | PY_BASIC | SSR | 105 | 116 | 20% |
+| CH-ITDOG-MECHA | 機械老虎狗 | PY_BASIC | SSR | 105 | 116 | 20% |
 | CH-DB-JR | 見習數據庫師 | SQL | R | 95 | 90 | 20% |
 | CH-DB-INDEX | 索引大師 | SQL | SR | 100 | 95 | 20% |
 | CH-DB-CHIEF | 首席數據庫師 | SQL | SSR | 105 | 100 | 20% |
@@ -90,7 +90,7 @@
 |---|---|---|---|---|
 | CHAR-STD | character | R | 77.0% | — |
 | CHAR-STD | character | SR | 20.0% | — |
-| CHAR-STD | character | SSR | 3.0% | 80 |
+| CHAR-STD | character | SSR | 3.0% | 50 |
 | EQUIP-STD | equipment | R | 75.0% | — |
 | EQUIP-STD | equipment | SR | 22.0% | — |
 | EQUIP-STD | equipment | SSR | 3.0% | 80 |

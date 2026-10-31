@@ -8,7 +8,7 @@
     const bHard = D.pool(pool, "B", "hard");
     assert.ok(bHard.length > 0);
     assert.ok(bHard.every((q) => q.difficulty === "hard" && ["HARDWARE", "IO", "OS"].includes(q.topic_id)));
-    assert.equal(D.start(pool, "E", "hard", rng(1)), null, "no questions -> no session");
+    assert.equal(D.start(pool.filter((q) => q.topic_id !== "SOCIAL"), "E", null, rng(1)), null, "no questions -> no session");
   });
 
   test("drill: random order, no repeats until the pool is used up, then a new round", () => {

@@ -300,6 +300,30 @@ def report_md(meta, topics, accepted, rejected, duplicates, formula_cells):
     add(f"- 匯入時間：{meta['imported_at']}")
     add(f"- 匯入工作表：`{QUESTIONS_SHEET}`（Topic_* 分頁只供人手檢閱，不匯入）")
     add("")
+    if len(meta.get("sources", [])) > 1 or meta.get("held"):
+        add("## 來源檔案")
+        add("")
+        add("| 檔案 | 匯入 | 拒絕 | SHA-256 |")
+        add("|---|---|---|---|")
+        for src in meta["sources"]:
+            add(f"| `{src['file']}` | {src['accepted']} | {src['rejected']} | `{src['sha256'][:16]}…` |")
+        add("")
+        if meta.get("held"):
+            add(f"⚠ **暫緩發佈 {meta['held']} 題**：Excel 標為 approved，但屬今次新增或改動、未經教師確認（`data/question_bank/hold_for_review.txt`）。這些題目只在開發版出現（標示 review），教師確認後從清單刪除即可進入正式版。")
+            add("")
+        add("## 世界 × 難度（全部已匯入題目）")
+        add("")
+        worlds = [("A", {"INFO_PROCESS", "DATA_REP", "EXCEL", "EXCEL_CHART", "DATABASE", "SQL", "MULTIMEDIA"}), ("B", {"HARDWARE", "IO", "OS"}),
+                  ("C", {"NET_DEVICE", "NET_CONCEPT", "SECURITY", "WEB"}), ("D", {"PY_BASIC", "PY_ADV"}), ("E", {"SOCIAL"})]
+        add("| 世界 | 簡單（approved／全部） | 中等（approved／全部） | 困難（approved／全部） |")
+        add("|---|---|---|---|")
+        for wid, tset in worlds:
+            cells = []
+            for d in ("easy", "medium", "hard"):
+                qs = [q for q in accepted if q.get("topic_id") in tset and q.get("difficulty") == d]
+                cells.append(f"{sum(1 for q in qs if q['review_status'] == 'approved')}／{len(qs)}")
+            add(f"| {wid} | " + " | ".join(cells) + " |")
+        add("")
     add("## 摘要")
     add("")
     add("| 項目 | 數量 |")
@@ -365,13 +389,57 @@ def report_md(meta, topics, accepted, rejected, duplicates, formula_cells):
     return "\n".join(lines)
 
 
-def run(xlsx, out_dir=".", now=None):
+def read_hold_list(path):
+    """IDs (one per line, # comments) that must stay out of release builds until a
+    teacher confirms them, whatever status the workbook gives them."""
+    if not path or not os.path.exists(path):
+        return set()
+    with open(path, encoding="utf-8") as f:
+        return {line.split("#")[0].strip() for line in f if line.split("#")[0].strip()}
+
+
+def run(xlsx, out_dir=".", now=None, extra=(), hold_path=None):
+    """Imports the main workbook plus optional extra workbooks (same Questions
+    columns; e.g. IT_Emperor_Extra_McQs.xlsx). Topics come from the main workbook.
+    Question IDs must be unique across all files. Each question records its
+    source workbook in `source_bank`."""
     sheets = read_workbook(xlsx)
     topics = load_topics(sheets)
     accepted, rejected, duplicates, formula_cells = import_questions(sheets, topics)
+    for q in accepted:
+        q["source_bank"] = os.path.basename(xlsx)
+    sources = [{"file": os.path.basename(xlsx), "sha256": sha256_of(xlsx), "accepted": len(accepted), "rejected": len(rejected)}]
+    seen = {q["question_id"] for q in accepted}
+    for path in extra:
+        e_acc, e_rej, e_dup, e_formula = import_questions(read_workbook(path), topics)
+        name = os.path.basename(path)
+        for r in e_rej:
+            r["row"] = f"{name}:{r['row']}"
+        kept = []
+        for q in e_acc:
+            if q["question_id"] in seen:
+                duplicates += 1
+                e_rej.append({"row": name, "question_id": q["question_id"], "errors": ["duplicate question_id (already in another workbook)"]})
+                continue
+            seen.add(q["question_id"])
+            q["source_bank"] = name
+            kept.append(q)
+        accepted += kept
+        rejected += e_rej
+        duplicates += e_dup
+        formula_cells += [(f"{name}:{row}", ref, field, formula, value) for row, ref, field, formula, value in e_formula]
+        sources.append({"file": name, "sha256": sha256_of(path), "accepted": len(kept), "rejected": len(e_rej)})
+    # Held questions: keep them in dev builds but never treat them as approved.
+    held = read_hold_list(hold_path)
+    for q in accepted:
+        if q["question_id"] in held and q.get("review_status") == "approved":
+            q["review_status"] = "review"
+            q["held"] = True
     by_status = collections.Counter(q["review_status"] for q in accepted)
     meta = {
-        "source_file": os.path.basename(xlsx),
+        "source_file": " + ".join(src["file"] for src in sources),
+        "sources": sources,
+        "held": sum(1 for q in accepted if q.get("held")),
         "source_sha256": sha256_of(xlsx),
         "imported_at": (now or datetime.datetime.now(datetime.timezone.utc)).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "total": len(accepted) + len(rejected),
@@ -400,14 +468,16 @@ def run(xlsx, out_dir=".", now=None):
 def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     p.add_argument("xlsx")
+    p.add_argument("--extra", action="append", default=[], help="another workbook with the same Questions columns")
+    p.add_argument("--hold", default=None, help="file of question IDs kept out of release until a teacher confirms them")
     p.add_argument("--out-dir", default=".")
     args = p.parse_args(argv)
     try:
-        meta, rejected, paths = run(args.xlsx, args.out_dir)
+        meta, rejected, paths = run(args.xlsx, args.out_dir, extra=args.extra, hold_path=args.hold)
     except ImportError_ as e:
         print(f"IMPORT FAILED: {e}", file=sys.stderr)
         return 2
-    print(f"total {meta['total']}, accepted {meta['accepted']}, rejected {meta['rejected']}, by status {meta['by_status']}")
+    print(f"total {meta['total']}, accepted {meta['accepted']}, rejected {meta['rejected']}, held {meta['held']}, by status {meta['by_status']}")
     for k, v in paths.items():
         print(f"wrote {k}: {v}")
     return 0

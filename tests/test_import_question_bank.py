@@ -102,6 +102,40 @@ class ImporterTest(unittest.TestCase):
             report = f.read()
         return meta, rejected, dev, release, report
 
+    def test_extra_workbook_merges_and_ids_stay_unique_across_files(self):
+        main = os.path.join(self.dir, "main.xlsx")
+        extra = os.path.join(self.dir, "extra.xlsx")
+        make_xlsx(main, {"Questions": [HEADER, row("Q1"), row("Q2")], "Topics": TOPICS})
+        make_xlsx(extra, {"Questions": [HEADER, row("X1", status="review"), row("Q1", stem_zh="同 ID"), row("X2", correct="Z")], "Topics": TOPICS})
+        meta, rejected, paths = imp.run(main, self.dir, extra=[extra])
+        with open(paths["dev"], encoding="utf-8") as f:
+            dev = f.read()
+        with open(paths["release"], encoding="utf-8") as f:
+            release = f.read()
+        self.assertEqual(meta["accepted"], 3)
+        self.assertIn('"X1"', dev)
+        self.assertNotIn('"X1"', release, "extra questions in review stay out of release")
+        self.assertIn('"source_bank": "extra.xlsx"', dev)
+        self.assertEqual(sorted(r["question_id"] for r in rejected), ["Q1", "X2"])
+        self.assertEqual([s["file"] for s in meta["sources"]], ["main.xlsx", "extra.xlsx"])
+
+    def test_hold_list_keeps_approved_questions_out_of_release(self):
+        main = os.path.join(self.dir, "main.xlsx")
+        hold = os.path.join(self.dir, "hold.txt")
+        make_xlsx(main, {"Questions": [HEADER, row("Q1"), row("Q2"), row("Q3", status="review")], "Topics": TOPICS})
+        with open(hold, "w", encoding="utf-8") as f:
+            f.write("# comment\nQ2  # waiting for a teacher\nQ3\n")
+        meta, rejected, paths = imp.run(main, self.dir, hold_path=hold)
+        with open(paths["release"], encoding="utf-8") as f:
+            release = f.read()
+        with open(paths["report"], encoding="utf-8") as f:
+            report = f.read()
+        self.assertIn('"Q1"', release)
+        self.assertNotIn('"Q2"', release)
+        self.assertEqual(meta["held"], 1, "only approved questions count as held")
+        self.assertEqual(meta["by_status"], {"approved": 1, "review": 2})
+        self.assertIn("暫緩發佈 1 題", report)
+
     def test_valid_rows_import_and_release_gets_only_approved(self):
         meta, rejected, dev, release, report = self.run_import([row("Q1"), row("Q2", status="review"), row("Q3", status="draft")])
         self.assertEqual((meta["accepted"], meta["rejected"]), (3, 0))
