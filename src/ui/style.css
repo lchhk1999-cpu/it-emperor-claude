@@ -985,3 +985,28 @@ body[data-screen="guild"] { --page-bg: linear-gradient(180deg, #ebe2f8 0%, #fbf6
 .guide-table th, .guide-table td { padding: 6px 4px; text-align: left; vertical-align: top; border-bottom: 1.5px solid var(--line); }
 .guide-table th { white-space: nowrap; }
 .guide-table td:first-child { font-weight: 800; white-space: nowrap; }
+/* 開場: faint IT帝 vs Bug 魔王 battle behind the hero (2026-11-01) */
+.splash-stage { position: relative; display: flex; justify-content: center; width: 100%; }
+.splash-stage .splash-hero { position: relative; z-index: 1; }
+.splash-battle {
+  position: absolute; z-index: 0; left: 50%; top: 50%; width: min(400px, 112vw); transform: translate(-50%, -54%);
+  opacity: 0; filter: saturate(0.85); pointer-events: none;
+  animation: sb-fade-in 1s 1.5s ease-out forwards, sb-glimmer 5s 2.5s ease-in-out infinite;
+}
+.splash-battle svg { width: 100%; height: auto; display: block; overflow: visible; }
+.sb-left { animation: sb-lunge-left 2.4s ease-in-out infinite; }
+.sb-right { animation: sb-lunge-right 2.4s ease-in-out infinite; }
+.sb-attack-left, .sb-attack-right { animation: sb-attack 2.4s ease-in-out infinite; }
+.sb-clash { transform-origin: 180px 98px; animation: sb-clash 2.4s ease-in-out infinite; }
+.sb-sparks { animation: sb-sparks 2.4s ease-in-out infinite; }
+@keyframes sb-fade-in { to { opacity: 0.32; } }
+@keyframes sb-glimmer { 0%, 100% { opacity: 0.32; } 50% { opacity: 0.14; } }
+@keyframes sb-lunge-left { 0%, 100% { transform: translateX(-6px); } 45%, 55% { transform: translateX(10px); } }
+@keyframes sb-lunge-right { 0%, 100% { transform: translateX(6px); } 45%, 55% { transform: translateX(-10px); } }
+@keyframes sb-attack { 0%, 30%, 75%, 100% { opacity: 0; } 42%, 60% { opacity: 1; } }
+@keyframes sb-clash { 0%, 38%, 75%, 100% { transform: scale(0.2); opacity: 0; } 50% { transform: scale(1.25) rotate(12deg); opacity: 1; } 62% { transform: scale(0.9); opacity: 0.8; } }
+@keyframes sb-sparks { 0%, 45%, 72%, 100% { opacity: 0; } 52%, 64% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .splash-battle { opacity: 0.25; }
+  .sb-attack-left, .sb-attack-right, .sb-clash, .sb-sparks { opacity: 1; }
+}
