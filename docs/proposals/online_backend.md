@@ -59,15 +59,45 @@
 2. 排行榜（每週／每月，按學校及全港）。
 3. 好友（加好友碼、借用好友隊長）＋校際公會連線。
 
+## 5A. 坊間做法（2026-10-31 補充，用戶要求參考）
+
+| 產品／機構 | 學生點樣登入 | 排行榜／社交 |
+|---|---|---|
+| Kahoot、Blooket、Gimkit（課堂問答遊戲） | 老師派「加入碼」，學生自訂暱稱，**不用帳戶、不用電郵**；13 歲以下開個人帳戶要家長同意 | 排行榜只限該場遊戲／該班 |
+| Prodigy（數學 RPG，最接近《IT帝》） | 老師開班，派「班級碼」連結學生帳戶；亦可用 Google Classroom 同步 | 聲明遊戲中其他玩家看不到個人資料或不當言語 |
+| 香港學校 | 多數用 Google Workspace 或 Microsoft 365 學校帳戶；香港教育城 EdConnect 提供單一登入，由學校決定授權哪些服務取用學生資料 | — |
+| 私隱專員公署 | 建議不收香港身份證號碼、公開學生資料前要考慮目的及必要性、事先通知／徵求家長同意 | — |
+
+對《IT帝》的啟示：
+1. **帳戶**：跟 Prodigy／Blooket 一樣用「老師派碼＋暱稱」，不收電郵、真名。日後與學校合作，可加 Google／Microsoft 學校帳戶或 EdConnect 登入。
+2. **排行榜**：坊間把學生排名留在班／校內。建議**個人排行榜只限同校**；跨校只比較**學校（公會）總分**，正好配合已確認的校際公會對戰，又避免全港公開未成年學生的個人排名。
+3. **好友**：只可加**同校**同學，不設自由聊天（只用預設貼圖／讚好），避免陌生人接觸學生。
+4. **先試點**：先與一間學校、一位老師試行，由學校發同意書，再擴展。
+
+結論：後端仍建議 **方案 A（Cloudflare）**；帳戶、排行榜、好友按以上坊間做法收窄範圍。
+
 ## 6. 需要你決定
 
 1. 揀哪一個方案（A／B／C／D）。
 2. 是否接受「暱稱＋學校邀請碼、不收真實姓名」的帳戶方式。
-3. 排行榜範圍：只限同校、全港，還是兩者都要。
+3. 排行榜範圍：建議「個人只限同校＋跨校比學校總分」，是否同意。
+4. 好友只限同校、不設自由聊天，是否同意。
+5. 有沒有可以合作試點的學校／老師。
 
 揀定之後，**開帳戶要由你自己做**（我不可以代你建立帳戶或輸入密碼），我會一步一步教你。
 
 ## 7. 資料來源（2026-10-31 查閱，價錢及額度可能會變，開帳戶前再核實）
+
+坊間做法（部分為第三方整理，僅作參考）：
+- Blooket 家長指南：https://screenwiseapp.com/guides/parents-guide-to-blooket
+- Kahoot（學區資源）：https://sites.google.com/rrps.net/educationtechnology/digital-resource-catalog-drc/kahoot
+- Prodigy 私隱評估（加拿大學區）：https://www.sd68.bc.ca/wp-content/uploads/Prodigy-Math-PPIA.pdf
+- Prodigy 學區頁面：https://www.rockford.k12.mn.us/district/departments/technology/digital-tools/prodigy
+- 香港教育城 EdConnect 單一登入：https://www.edcity.hk/home/en/eddata_edconnect/
+- HKIS 數碼學習手冊（Google 帳戶作單一登入）：https://handbook.hkis.edu.hk/digital-learning
+- 私隱專員公署兒童私隱資料：https://pcpd.org.hk/misc/newsletters/newsletter_32/issue32/files/assets/basic-html/page-4.html 、https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/free-quality-kg-edu/pcpd_ppt_20190608_for%20upload.pdf
+
+後端收費：
 
 - Cloudflare Workers 收費：https://developers.cloudflare.com/workers/platform/pricing/
 - Cloudflare 方案：https://www.cloudflare.com/plans.md
