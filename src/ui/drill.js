@@ -60,7 +60,7 @@
   function onAnswer(letter) {
     const before = session;
     session = D.answer(session, letter);
-    if (session !== before) app.recordAnswer(session.current, session.last.correct);
+    if (session !== before) app.recordAnswer(session.current, session.last.correct, true, { drill: true });
     showQuestion();
   }
 

@@ -189,7 +189,7 @@
         h("span", { class: "meter-track" }, h("span", { class: `meter-fill ${cls}`, style: `width: ${Math.min(100, Math.round((value / max) * 100))}%` })),
         h("span", { class: "meter-num" }, `${value} / ${max}`)
       );
-    const title = Mi.equippedTitle(save.progress, gameData.titles);
+    const title = Mi.equippedTitle(save.progress, gameData.titles, titleContext());
     return h(
       "header",
       { class: "status-bar" },
@@ -292,8 +292,10 @@
         h("p", { class: "placeholder-note" }, "PLACEHOLDER 美術｜非正式設計")
       )
     );
-    // First visit: the new-player tutorial (設定 can replay it).
+    // First visit: the new-player tutorial (設定 can replay it); after that, the
+    // daily check-in once per Hong Kong day.
     if (!save.settings.tutorialDone && root.ITE.tutorialUi) root.ITE.tutorialUi.show(0);
+    else if (root.ITE.checkinUi && root.ITE.checkin.canCheckIn(save.profile, Date.now())) root.ITE.checkinUi.show();
   }
 
   // ---------- Stage select ----------
@@ -470,7 +472,7 @@
     if (battleState.phase === "won" || battleState.phase === "lost") {
       const sum = B.summary(battleState);
       save = S.recordStageResult(save, battleState.stageId, sum);
-      if (sum.outcome === "won") recordStageClear();
+      if (sum.outcome === "won") recordStageClear({ difficulty: (findStage(battleState.stageId) || {}).difficulty });
       const base = root.ITE.dungeons.rewards(findStage(battleState.stageId), sum);
       lastReward = battleState.practice
         ? grantReward({ exp: base.exp, coins: 0 })
@@ -628,7 +630,7 @@
         return h("span", { class: "stamina" }, `體力 ${c.value} / ${c.max}`);
       })(),
       (() => {
-        const t = Mi.equippedTitle(save.progress, gameData.titles);
+        const t = Mi.equippedTitle(save.progress, gameData.titles, titleContext());
         return t ? h("span", { class: "title-badge" }, t.name) : null;
       })()
     );
@@ -637,14 +639,19 @@
   // Every answered question in any mode counts towards missions and titles.
   // Every mode (DSE, story, guild) reports answers here, so this is also where
   // the correct / wrong sound plays.
-  function recordAnswer(q, correct, doPersist = true) {
+  // What title conditions need beyond answer counts.
+  function titleContext() {
+    return { profile: save.profile, story: save.story, stages: save.stages };
+  }
+
+  function recordAnswer(q, correct, doPersist = true, opts) {
     sfx(correct ? "correct" : "wrong");
-    save = { ...save, progress: Mi.recordAnswer(save.progress, q, correct, Date.now()) };
+    save = { ...save, progress: Mi.recordAnswer(save.progress, q, correct, Date.now(), opts) };
     if (doPersist) persist();
   }
 
-  function recordStageClear() {
-    save = { ...save, progress: Mi.recordStageClear(save.progress, Date.now()) };
+  function recordStageClear(info) {
+    save = { ...save, progress: Mi.recordStageClear(save.progress, Date.now(), info) };
     persist();
   }
 
@@ -790,6 +797,7 @@
     profileBar,
     recordAnswer,
     recordStageClear,
+    titleContext,
     getSave: () => save,
     setSave: (next) => {
       save = next;

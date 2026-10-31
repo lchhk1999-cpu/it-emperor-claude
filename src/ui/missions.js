@@ -42,13 +42,13 @@
     };
 
     const equip = (t) => {
-      const r = Mi.equipTitle(app.getSave().progress, t);
+      const r = Mi.equipTitle(app.getSave().progress, t, app.titleContext());
       if (r.error) return show("未取得這個稱號。");
       app.setSave({ ...app.getSave(), progress: r.progress });
       show(t ? `已佩戴稱號「${t.name}」` : "已取下稱號");
     };
 
-    const equipped = Mi.equippedTitle(progress, data.titles);
+    const equipped = Mi.equippedTitle(progress, data.titles, app.titleContext());
 
     app.render(
       h(
@@ -98,7 +98,7 @@
           h("h2", {}, "稱號"),
           h("p", { class: "hint" }, equipped ? `目前佩戴：${equipped.name}` : "取得稱號後可以佩戴，會顯示在主畫面。"),
           data.titles.map((t) => {
-            const st = Mi.titleStatus(progress, t);
+            const st = Mi.titleStatus(progress, t, app.titleContext());
             const isOn = equipped && equipped.id === t.id;
             let action;
             if (!st.supported) action = h("span", { class: "chip" }, "即將開放");

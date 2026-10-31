@@ -1,0 +1,19 @@
+title_id,title_name,condition_type,target_count,course_id,description,active
+T-WORLD-A,資訊處理達人,world_correct,30,ICT,A 資訊處理累計答對 30 題,yes
+T-WORLD-B,硬件工匠,world_correct,30,ICT,B 電腦系統基礎累計答對 30 題,yes
+T-WORLD-C,網絡守護者,world_correct,30,ICT,C 互聯網及其應用累計答對 30 題,yes
+T-WORLD-D,程式魔法師,world_correct,30,ICT,D 計算思維及程式編寫累計答對 30 題,yes
+T-WORLD-E,社會觀察家,world_correct,30,ICT,E 資訊科技的社會影響累計答對 30 題,yes
+T-STREAK10,穩打穩紮,best_streak,10,ICT,連續答對 10 題,yes
+T-STREAK20,無錯神手,best_streak,20,ICT,連續答對 20 題,yes
+T-CORRECT200,勤學小兵,total_correct,200,ICT,累計答對 200 題,yes
+T-CORRECT500,ICT 學霸,total_correct,500,ICT,累計答對 500 題,yes
+T-CORRECT1000,IT 帝王,total_correct,1000,ICT,累計答對 1000 題,yes
+T-ULTIMATE,究極挑戰者,ultimate_clear,1,ICT,首次通關任何一個究極關卡,yes
+T-ALLSTAGES,全制霸,all_world_stages,20,ICT,通關 A–E 全部 20 個世界關卡,yes
+T-STORY,故事完結者,story_complete,43,ICT,完成故事模式全部 43 關,yes
+T-CHECKIN7,每日報到,checkin_days,7,ICT,累積簽到 7 天,yes
+T-CHECKIN30,全勤之星,checkin_days,30,ICT,累積簽到 30 天,yes
+T-EVOLVE,進化大師,evolve_max,1,ICT,完成第一次角色三階進化,yes
+T-COLLECT,收藏家,own_characters,20,ICT,擁有 20 個角色,yes
+T-DRILL,操練狂人,drill_answers,100,ICT,在操練區答 100 題,yes

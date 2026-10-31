@@ -115,7 +115,10 @@ def import_characters(sheets, topics):
 
 # Conditions the game can count today (src/core/missions.js).
 MISSION_CONDITIONS = {"answer_questions", "answer_correct", "clear_stage"}
-TITLE_CONDITIONS = {"total_correct", "topic_correct", "sql_join_correct"}
+# Keep in step with ITE.missions.TITLE_CONDITIONS (src/core/missions.js).
+TITLE_CONDITIONS = {"total_correct", "topic_correct", "sql_join_correct", "world_correct", "best_streak", "ultimate_clear",
+                    "all_world_stages", "story_complete", "checkin_days", "evolve_max", "own_characters", "drill_answers"}
+WORLD_IDS = ("A", "B", "C", "D", "E")
 CYCLES = ("daily", "weekly", "once")
 
 
@@ -173,6 +176,13 @@ def import_titles(sheets, topics):
                 topic = suffix
             else:
                 errors.append(f"topic_correct needs a topic: '{suffix}' (from title_id) is not in the Topics sheet")
+        if d["condition_type"] == "world_correct":
+            # Like topic_correct, the id suffix names the world (T-WORLD-A -> A).
+            suffix = d["title_id"].rsplit("-", 1)[-1]
+            if suffix in WORLD_IDS:
+                topic = suffix
+            else:
+                errors.append(f"world_correct needs a world A-E as the title_id suffix, got '{suffix}'")
         if d["title_id"] in seen:
             errors.append("duplicate title_id")
         seen.add(d["title_id"])

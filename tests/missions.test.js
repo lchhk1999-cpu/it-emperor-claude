@@ -113,4 +113,50 @@
     assert.deepEqual([r.profile.gems, r.profile.coins], [3, 50]);
     assert.equal(data.config.gacha_paid_enabled, 0);
   });
+  test("missions: new title conditions (approved 2026-10-31) count the right things", () => {
+    const M = ITE.missions;
+    const now = Date.UTC(2026, 10, 2, 4, 0);
+    const t = (condition, target, topic) => ({ id: "T", name: "t", condition, target, topic: topic || null, supported: true });
+    const q = (topic) => ({ question_id: "x", topic_id: topic });
+    let p = M.defaultProgress(now);
+    // Streak: 3 right, 1 wrong, 2 right -> best 3.
+    for (const ok of [true, true, true, false, true, true]) p = M.recordAnswer(p, q("HARDWARE"), ok, now);
+    assert.equal(M.titleStatus(p, t("best_streak", 3)).earned, true);
+    assert.equal(M.titleStatus(p, t("best_streak", 4)).earned, false);
+    // World B = HARDWARE + IO + OS correct answers.
+    p = M.recordAnswer(p, q("OS"), true, now);
+    assert.equal(M.titleStatus(p, t("world_correct", 10, "B")).value, 6);
+    assert.equal(M.titleStatus(p, t("world_correct", 10, "A")).value, 0);
+    // Drill answers and ultimate clears.
+    p = M.recordAnswer(p, q("SQL"), false, now, { drill: true });
+    assert.equal(M.titleStatus(p, t("drill_answers", 1)).earned, true);
+    p = M.recordStageClear(p, now, { difficulty: "hard" });
+    assert.equal(M.titleStatus(p, t("ultimate_clear", 1)).earned, false);
+    p = M.recordStageClear(p, now, { difficulty: "ultimate" });
+    assert.equal(M.titleStatus(p, t("ultimate_clear", 1)).earned, true);
+    // Conditions read from the save: stages, story, check-ins, evolution, collection.
+    const ctx = {
+      stages: { "dse-A-easy": { cleared: true }, "dse-A-medium": { cleared: false }, "stage-1": { cleared: true } },
+      story: { levels: { "A-01": { cleared: true }, "A-02": { cleared: true } } },
+      profile: { checkin: { days: 7, lastDay: "2026-11-02" }, growth: { characters: { a: { level: 40, evo: 3 }, b: { level: 5, evo: 1 } } }, owned: { characters: ["a", "b", "c"] } },
+    };
+    assert.equal(M.titleStatus(p, t("all_world_stages", 20), ctx).value, 1, "only DSE world stages count");
+    assert.equal(M.titleStatus(p, t("story_complete", 43), ctx).value, 2);
+    assert.equal(M.titleStatus(p, t("checkin_days", 7), ctx).earned, true);
+    assert.equal(M.titleStatus(p, t("evolve_max", 1), ctx).earned, true);
+    assert.equal(M.titleStatus(p, t("own_characters", 20), ctx).value, 3);
+    assert.equal(M.titleStatus(p, t("checkin_days", 7)).earned, false, "no context, no value");
+  });
+
+  test("missions: streak, ultimate and drill counters survive save/load", () => {
+    const M = ITE.missions;
+    const S = ITE.save;
+    const now = Date.UTC(2026, 10, 2, 4, 0);
+    let p = M.recordAnswer(M.defaultProgress(now), { question_id: "x", topic_id: "SQL" }, true, now, { drill: true });
+    p = M.recordStageClear(p, now, { difficulty: "ultimate" });
+    const store = S.createMemoryStorage();
+    S.persist(store, { ...S.defaultSave(), progress: p });
+    const back = S.load(store).save.progress.lifetime;
+    assert.deepEqual([back.streak, back.bestStreak, back.ultimateClears, back.drillAnswered], [1, 1, 1, 1]);
+  });
 })();

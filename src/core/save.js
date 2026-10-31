@@ -137,6 +137,13 @@
       return o;
     };
     if (raw.shards !== undefined) out.shards = counts(raw.shards);
+    // 每日簽到 { days, lastDay }; a damaged entry is dropped (starts again from 0).
+    if (raw.checkin !== undefined) {
+      const ci = raw.checkin;
+      if (ci && Number.isInteger(ci.days) && ci.days >= 0 && (ci.lastDay === null || (isText(ci.lastDay) && /^\d{4}-\d{2}-\d{2}$/.test(ci.lastDay)))) {
+        out.checkin = { days: Math.min(ci.days, 99999), lastDay: ci.lastDay };
+      }
+    }
     if (raw.growth !== undefined) {
       const g = raw.growth && typeof raw.growth === "object" ? raw.growth : {};
       const characters = {};
@@ -181,6 +188,10 @@
       stageClears: int(c.stageClears),
       byTopic,
       sqlJoinCorrect: int(c.sqlJoinCorrect),
+      streak: int(c.streak),
+      bestStreak: int(c.bestStreak),
+      ultimateClears: int(c.ultimateClears),
+      drillAnswered: int(c.drillAnswered),
     };
   }
 

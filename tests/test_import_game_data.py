@@ -106,6 +106,18 @@ class GameDataImporterTest(unittest.TestCase):
                                                  "difficulty": "medium", "questionCount": 6, "material": "M1", "stamina": 0}])
         self.assertEqual(sorted(r["id"] for r in rejected), ["E2", "E3", "E4", "S2", "S3"])
 
+    def test_new_title_conditions_are_supported(self):
+        titles = [["title_id", "title_name", "condition_type", "target_count", "course_id", "description", "active"],
+                  ["T-WORLD-B", "硬件工匠", "world_correct", "30", "ICT", "", "yes"],
+                  ["T-WORLD-Z", "壞世界", "world_correct", "30", "ICT", "", "yes"],
+                  ["T-STREAK10", "穩打穩紮", "best_streak", "10", "ICT", "", "yes"],
+                  ["T-CHECKIN7", "每日報到", "checkin_days", "7", "ICT", "", "yes"]]
+        _, rejected, data = self.run_import([ch("C1")], extra={"Titles": titles})
+        by_id = {t["id"]: t for t in data["titles"]}
+        self.assertEqual((by_id["T-WORLD-B"]["topic"], by_id["T-WORLD-B"]["supported"]), ("B", True))
+        self.assertTrue(by_id["T-STREAK10"]["supported"] and by_id["T-CHECKIN7"]["supported"])
+        self.assertEqual([r["id"] for r in rejected], ["T-WORLD-Z"])
+
     def test_inactive_characters_are_skipped(self):
         _, rejected, data = self.run_import([ch("C1"), ch("C2", active="no")])
         self.assertEqual([c["id"] for c in data["characters"]], ["C1"])
