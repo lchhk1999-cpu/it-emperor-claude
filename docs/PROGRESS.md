@@ -281,3 +281,11 @@
 - 測試：`./scripts/test.sh` → JS 126 passed, 0 failed；release 檢查通過（382 題全部 approved）。Python 28 tests OK。
 - 試玩（本機 http 伺服器，dev bundle）：角色隊伍 31 張卡、7 個系列標題、全部角色都有自己的造型；抽蛋機率表列出 R 11／SR 12／SSR 8。
 - 用戶提出新系統清單，已加入 backlog P5-01 至 P5-07（等用戶確認次序）。
+
+## Run 22 — 2026-10-31：P5-01 背包＋進化素材
+- 分支：`feat/inventory-materials`（由 `feat/character-variants` 開出，需先合併該 PR）。
+- 匯入器讀可選的 `Materials` 表（9 種，0 個被拒），驗證稀有度 common/rare/legendary、課題及重複 ID。
+- 新模組 `src/core/inventory.js`（addMaterials、materialList、dseMaterialDrops）；存檔 profile.materials 修復壞資料；新畫面 `src/ui/inventory.js`（背包：素材及裝備），主畫面加「背包」按鈕；結算畫面顯示獲得素材。
+- 測試：`./scripts/test.sh` → JS 131 passed, 0 failed；release 檢查通過。Python 29 tests OK。
+- 試玩（本機 dev bundle）：全對打贏 DSE 挑戰 → 「獲得素材：資料碎片 ×1」；背包顯示 9 種素材（1 種已擁有）及 AI 模型裝備。
+- 下一步：P5-02 DSE 挑戰分課題／難度＋每週限定素材關。

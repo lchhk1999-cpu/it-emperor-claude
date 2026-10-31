@@ -416,3 +416,19 @@ button { font: inherit; color: inherit; }
 /* 角色品種：系列標題 */
 .family-title { display: flex; justify-content: space-between; align-items: baseline; margin: 14px 2px 6px; font-size: 1rem; }
 .family-count { font-size: 0.85rem; font-weight: 700; color: #7a6e66; }
+
+/* 背包 */
+.mat-list { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.mat-item { display: flex; align-items: center; gap: 10px; padding: 8px 10px; background: #fff; border: 2px solid #3b3330; border-radius: 14px; }
+.mat-item.mat-empty { background: #f1ebe3; border-style: dashed; }
+.mat-item.mat-empty .mat-icon { filter: grayscale(1); opacity: 0.5; }
+.mat-icon { flex: none; display: flex; }
+.mat-info { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.mat-name { font-weight: 800; display: flex; align-items: center; gap: 6px; }
+.mat-desc { font-size: 0.85rem; color: #5e534d; }
+.mat-count { font-weight: 900; font-size: 1.1rem; }
+.mat-rarity { padding: 0 6px; font-size: 0.72rem; font-weight: 900; border: 2px solid #3b3330; border-radius: 6px; }
+.mat-common { background: #bfe3d0; }
+.mat-rare { background: #8fc3e8; }
+.mat-legendary { background: #f4d36b; }
+.reward-material { color: #2f7a52; }

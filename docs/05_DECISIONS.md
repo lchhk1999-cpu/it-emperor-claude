@@ -33,3 +33,5 @@
 | 抽蛋設計 | CONFIRMED 2026-10-30（用戶批准） | 只用免費寶石（學習任務取得），不設現金購買；每次 10 寶石、只設單抽；角色池按 Excel 77/20/3% 及第 80 抽 SSR 保底；機率在遊戲內公開；重複換金幣 R30／SR80／SSR200、裝備 50；裝備池因 Excel 無稀有度暫為平均機率並註明；不影響校際公會 |
 | 角色品種 | CONFIRMED 2026-10-30（用戶核准） | 7 個系列、共 31 個品種（R 11／SR 12／SSR 8）；同系列專長相同；SR +5%、SSR +10%；原有 7 個角色不變；名單及數值見 `docs/proposals/character_variants.csv`，由 ChatGPT 加入 Excel `Characters` 表（新增 family_id／family_name 欄）|
 | 寶石經濟節奏 | OPEN_DECISION | SSR 增至 8 個後，第 80 抽保底約需 20 週；可考慮增加寶石收入或縮短保底 |
+| 新系統次序 | CONFIRMED 2026-10-31（用戶：「可以，按次序做」） | 背包＋素材 → DSE 分課題／難度＋限定素材關 → 體力 → 升級／三階段進化 → 主頁改版 → 好友／排行榜（需線上後端，另行批准） |
+| 背包／素材 | PROTOTYPE 2026-10-31 | 素材來自 Excel `Materials`（9 種）；存於 profile.materials；每種上限 9999；暫定 DSE 挑戰勝出掉 1 個課題素材（不含傳說核心、金幣寶箱、經驗芯片），P5-02 改由 `Stages.material_id` 決定 |

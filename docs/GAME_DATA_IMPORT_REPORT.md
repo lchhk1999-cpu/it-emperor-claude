@@ -2,8 +2,8 @@
 
 - 來源檔案：`IT_Emperor_DseMcQs.xlsx`
 - SHA-256：`f3597057436409958589fb5f9171cccfb76019e8c9018b54ca9668c3b7fab345`
-- 匯入時間：2026-10-30T16:09:18Z
-- 工作表：`Characters`、`GameConfig`、`Missions`、`Titles`（Topics 用作檢查課題）
+- 匯入時間：2026-10-30T16:17:12Z
+- 工作表：`Characters`、`GameConfig`、`Missions`、`Titles`、`Equipment`、`Pools`、`Materials`（Topics 用作檢查課題）
 
 ## 角色
 
@@ -94,6 +94,20 @@
 | EQUIP-STD | equipment | SSR | 3.0% | 80 |
 
 註：`Equipment` 表沒有稀有度欄，裝備池的稀有度機率暫時無法套用；遊戲內每件可用裝備機率相同，並清楚註明。建議在 Excel 加入 rarity 欄。
+
+## 素材（背包）
+
+| ID | 名稱 | 課題 | 稀有度 | 說明 |
+|---|---|---|---|---|
+| MAT-EXCEL | 函數晶片 | EXCEL | 普通 | Excel 角色進化用途 |
+| MAT-SQL | 資料碎片 | SQL | 普通 | SQL 角色進化用途 |
+| MAT-HW | 矽晶礦石 | HARDWARE | 普通 | 硬件角色進化用途 |
+| MAT-NET | 光纖能量 | NET_DEVICE | 普通 | 網絡角色進化用途 |
+| MAT-SEC | 防火牆核心 | SECURITY | 稀有 | 安全類角色進化用途 |
+| MAT-PY | 程式碼殘片 | PY_BASIC | 普通 | Python 角色進化用途 |
+| MAT-RARE | 傳說核心 | ALL | 傳說 | 高階角色及裝備進化用途 |
+| MAT-COIN | 金幣寶箱 | ALL | 普通 | 額外金幣 |
+| MAT-EXP | 經驗芯片 | ALL | 普通 | 額外經驗 |
 
 ## 拒絕的資料
 

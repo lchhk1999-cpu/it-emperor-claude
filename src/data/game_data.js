@@ -6,11 +6,12 @@
  "meta": {
   "source_file": "IT_Emperor_DseMcQs.xlsx",
   "source_sha256": "f3597057436409958589fb5f9171cccfb76019e8c9018b54ca9668c3b7fab345",
-  "imported_at": "2026-10-30T16:09:18Z",
+  "imported_at": "2026-10-30T16:17:12Z",
   "characters": 31,
   "missions": 5,
   "titles": 4,
   "equipment": 5,
+  "materials": 9,
   "rejected": 0
  },
  "config": {
@@ -602,6 +603,71 @@
     }
    ]
   }
- }
+ },
+ "materials": [
+  {
+   "id": "MAT-EXCEL",
+   "name": "函數晶片",
+   "topic": "EXCEL",
+   "rarity": "common",
+   "description": "Excel 角色進化用途"
+  },
+  {
+   "id": "MAT-SQL",
+   "name": "資料碎片",
+   "topic": "SQL",
+   "rarity": "common",
+   "description": "SQL 角色進化用途"
+  },
+  {
+   "id": "MAT-HW",
+   "name": "矽晶礦石",
+   "topic": "HARDWARE",
+   "rarity": "common",
+   "description": "硬件角色進化用途"
+  },
+  {
+   "id": "MAT-NET",
+   "name": "光纖能量",
+   "topic": "NET_DEVICE",
+   "rarity": "common",
+   "description": "網絡角色進化用途"
+  },
+  {
+   "id": "MAT-SEC",
+   "name": "防火牆核心",
+   "topic": "SECURITY",
+   "rarity": "rare",
+   "description": "安全類角色進化用途"
+  },
+  {
+   "id": "MAT-PY",
+   "name": "程式碼殘片",
+   "topic": "PY_BASIC",
+   "rarity": "common",
+   "description": "Python 角色進化用途"
+  },
+  {
+   "id": "MAT-RARE",
+   "name": "傳說核心",
+   "topic": "ALL",
+   "rarity": "legendary",
+   "description": "高階角色及裝備進化用途"
+  },
+  {
+   "id": "MAT-COIN",
+   "name": "金幣寶箱",
+   "topic": "ALL",
+   "rarity": "common",
+   "description": "額外金幣"
+  },
+  {
+   "id": "MAT-EXP",
+   "name": "經驗芯片",
+   "topic": "ALL",
+   "rarity": "common",
+   "description": "額外經驗"
+  }
+ ]
 };
 })(globalThis);
