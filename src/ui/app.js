@@ -7,6 +7,8 @@
   // "release": set by `./scripts/build.sh release`, which also leaves the dev
   // samples out of the bundle; only approved questions can appear.
   const BUILD_MODE = root.ITE.BUILD_MODE === "release" ? "release" : "dev";
+  // 單機版 (offline) has no guild; online features come back in the online edition.
+  const ONLINE = root.ITE.EDITION !== "offline";
   // The imported bank (tools/import_question_bank.py) replaces the dev samples
   // when present. Its topics join Q.TOPICS so every screen can name them.
   const bank = root.ITE.questionBank || null;
@@ -74,12 +76,13 @@
   }
 
   // Screens marked with data-tab get the bottom tab bar (主頁 A, user choice 2026-10-31).
+  // The 單機版 swaps 公會 for 任務.
   const TABS = [
     ["home", "主頁", () => showHome()],
     ["team", "隊伍", () => root.ITE.teamUi.show()],
     ["growth", "培養", () => root.ITE.growthUi.show()],
     ["gacha", "抽蛋", () => root.ITE.gachaUi.show()],
-    ["guild", "公會", () => root.ITE.guildUi.show()],
+    ONLINE ? ["guild", "公會", () => root.ITE.guildUi.show()] : ["missions", "任務", () => root.ITE.missionsUi.show()],
   ];
 
   function tabBar(active) {
@@ -89,8 +92,14 @@
       TABS.map(([id, label, go]) =>
         h(
           "button",
-          { class: id === active ? "tab-btn active" : "tab-btn", onclick: go, ...(id === active ? { "aria-current": "page" } : {}) },
+          {
+            class: id === active ? "tab-btn active" : "tab-btn",
+            onclick: go,
+            ...(id === active ? { "aria-current": "page" } : {}),
+            ...(id === "missions" && claimableNow() ? { "aria-label": `${label}，${claimableNow()} 個獎勵可領取` } : {}),
+          },
           h("span", { class: "tab-icon", html: icons[id] }),
+          id === "missions" && claimableNow() ? h("span", { class: "badge" }, String(claimableNow())) : null,
           h("span", { class: "tab-label" }, label)
         )
       )
@@ -100,7 +109,8 @@
   function render(screen) {
     const tab = screen.getAttribute && screen.getAttribute("data-tab");
     app.classList.toggle("with-tabbar", !!tab);
-    app.replaceChildren(devBanner(), screen, ...(tab ? [tabBar(tab)] : []));
+    // devBanner() is null in release builds; replaceChildren would print it as "null".
+    app.replaceChildren(...[devBanner(), screen, tab ? tabBar(tab) : null].filter(Boolean));
     root.scrollTo(0, 0);
   }
 
@@ -123,6 +133,7 @@
     gacha: '<ellipse cx="12" cy="13" rx="7" ry="8.5"/><path d="M5.5 12 L9 10 L12 13 L15 10 L18.5 12"/>',
     guild: '<path d="M4 20 V9 L12 4 L20 9 V20 Z"/><path d="M9.5 20 V14 H14.5 V20"/><path d="M12 4 V1.5 H16"/>',
     bag: '<rect x="4" y="8" width="16" height="12" rx="3"/><path d="M8.5 8 V6 C8.5 3.5 15.5 3.5 15.5 6 V8"/><path d="M4 13 H20"/>',
+    missions: '<rect x="5" y="3.5" width="14" height="17" rx="2.5"/><path d="M8.5 9 L10.5 11 L15.5 6.5"/><path d="M8.5 15 H15.5"/>',
     mission: '<rect x="5" y="3.5" width="14" height="17" rx="2.5"/><path d="M8.5 9 L10.5 11 L15.5 6.5"/><path d="M8.5 15 H15.5"/>',
     book: '<path d="M3.5 5 C7 4 10 4.5 12 6.5 C14 4.5 17 4 20.5 5 V19 C17 18 14 18.5 12 20 C10 18.5 7 18 3.5 19 Z"/><path d="M12 6.5 V20"/>',
     sword: '<path d="M5 19 L15.5 8.5"/><path d="M13 4 L20 4 L20 11"/><path d="M4 16 L8 20"/><path d="M15 4.5 L19.5 9"/>',
@@ -167,6 +178,10 @@
     );
   }
 
+  function claimableNow() {
+    return Mi.claimableCount(save.progress, gameData.missions, Date.now());
+  }
+
   function sideChip(iconName, label, onclick, badge) {
     return h(
       "button",
@@ -182,7 +197,7 @@
     const leader = save.profile.team[0];
     const next = root.ITE.storyUi && root.ITE.storyUi.nextLevel();
     const limited = root.ITE.dungeons.limitedStage(gameData, Date.now());
-    const claimable = Mi.claimableCount(save.progress, gameData.missions, Date.now());
+    const claimable = claimableNow();
     render(
       h(
         "main",
@@ -194,7 +209,7 @@
           h(
             "div",
             { class: "side-chips" },
-            sideChip("mission", "任務", () => root.ITE.missionsUi.show(), claimable),
+            ONLINE ? sideChip("mission", "任務", () => root.ITE.missionsUi.show(), claimable) : null,
             sideChip("bag", "背包", () => root.ITE.inventoryUi.show())
           ),
           next
@@ -676,6 +691,7 @@
     bar,
     questionPool,
     buildMode: BUILD_MODE,
+    online: ONLINE,
     storage,
     grantReward,
     rewardPanel,
