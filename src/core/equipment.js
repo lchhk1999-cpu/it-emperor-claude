@@ -52,14 +52,15 @@
     return { profile: { ...profile, equipment: cleanEquipment(map, profile.team, gameData, profile.owned) }, error: null };
   }
 
-  // Snapshot for battle state: [{ id, name, type, holder, ...level-1 effect }].
+  // Snapshot for battle state: [{ id, name, type, holder, tier, ...effect of the item's tier }].
   function battleLoadout(profile, gameData) {
     const map = cleanEquipment(profile.equipment || {}, profile.team, gameData, profile.owned);
     return Object.entries(map).map(([holder, eid]) => {
       const item = itemById(gameData, eid);
-      const effect = { ...item.levels[0] };
+      const tier = Math.min(item.levels.length, ITE.growth ? ITE.growth.equipmentTier(profile, eid) : 1);
+      const effect = { ...item.levels[tier - 1] };
       delete effect.text;
-      return { id: item.id, name: item.name, type: item.type, holder, ...effect };
+      return { id: item.id, name: item.name, type: item.type, holder, tier, ...effect };
     });
   }
 

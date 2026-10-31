@@ -22,6 +22,11 @@
   }
 
   const isNum = (v) => typeof v === "number" && Number.isFinite(v);
+  // Key-order-independent JSON, so a save is only "repaired" when a value changed.
+  const stable = (v) =>
+    Array.isArray(v) ? `[${v.map(stable).join(",")}]`
+      : v && typeof v === "object" ? `{${Object.keys(v).filter((k) => v[k] !== undefined).sort().map((k) => `${JSON.stringify(k)}:${stable(v[k])}`).join(",")}}`
+      : JSON.stringify(v);
 
   // A saved in-progress battle must be fully resumable, otherwise it is dropped.
   function isValidBattle(b) {
@@ -112,12 +117,37 @@
         out.stamina = { value: Math.min(st.value, 999), updatedAt: st.updatedAt };
       }
     }
+    // 碎片 { character_or_equipment_id: count } and 培養 growth (P5-04).
+    const counts = (v) => {
+      const o = {};
+      if (v && typeof v === "object" && !Array.isArray(v)) for (const [k, n] of Object.entries(v)) if (isText(k) && Number.isInteger(n) && n > 0) o[k] = Math.min(n, 9999);
+      return o;
+    };
+    if (raw.shards !== undefined) out.shards = counts(raw.shards);
+    if (raw.growth !== undefined) {
+      const g = raw.growth && typeof raw.growth === "object" ? raw.growth : {};
+      const characters = {};
+      if (g.characters && typeof g.characters === "object" && !Array.isArray(g.characters)) {
+        for (const [k, v] of Object.entries(g.characters)) {
+          if (isText(k) && v && Number.isInteger(v.level) && v.level >= 1 && Number.isInteger(v.evo) && v.evo >= 0 && v.evo <= 3) characters[k] = { level: Math.min(v.level, 99), evo: v.evo };
+        }
+      }
+      const equipment = {};
+      if (g.equipment && typeof g.equipment === "object" && !Array.isArray(g.equipment)) {
+        for (const [k, v] of Object.entries(g.equipment)) if (isText(k) && Number.isInteger(v) && v >= 1 && v <= 3) equipment[k] = v;
+      }
+      out.growth = { characters, equipment };
+    }
     if (raw.pity !== undefined) out.pity = { character: int(raw.pity && raw.pity.character, 0) };
     if (raw.gachaLog !== undefined) {
       out.gachaLog = (Array.isArray(raw.gachaLog) ? raw.gachaLog : [])
         .filter((e) => e && isText(e.id) && (e.type === "character" || e.type === "equipment"))
         .slice(0, 20)
-        .map((e) => ({ type: e.type, id: e.id, rarity: isText(e.rarity) ? e.rarity : null, duplicate: e.duplicate === true, coins: int(e.coins, 0) }));
+        .map((e) => {
+          const entry = { type: e.type, id: e.id, rarity: isText(e.rarity) ? e.rarity : null, duplicate: e.duplicate === true, shards: int(e.shards, 0) };
+          if (e.coins !== undefined) entry.coins = int(e.coins, 0); // entries from before shards
+          return entry;
+        });
     }
     return out;
   }
@@ -174,10 +204,10 @@
     const repaired =
       activeBattle !== data.activeBattle ||
       guild !== rawGuild ||
-      JSON.stringify(stages) !== JSON.stringify(data.stages) ||
-      JSON.stringify(story) !== JSON.stringify(rawStory) ||
-      JSON.stringify(profile) !== JSON.stringify(rawProfile) ||
-      JSON.stringify(progress) !== JSON.stringify(rawProgress);
+      stable(stages) !== stable(data.stages) ||
+      stable(story) !== stable(rawStory) ||
+      stable(profile) !== stable(rawProfile) ||
+      stable(progress) !== stable(rawProgress);
     return { save: { version: SAVE_VERSION, stages, activeBattle, guild, story, profile, progress }, repaired };
   }
 

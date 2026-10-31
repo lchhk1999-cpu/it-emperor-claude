@@ -44,12 +44,16 @@
     assert.equal(ssr.profile.pity.character, 0, "SSR resets the pity counter");
   });
 
-  test("gacha: duplicates turn into coins by rarity and are not added twice", () => {
-    const dupe = G.draw(withGems(10, { coins: 5 }), "character", data, fixedRng([0.0, 0.0])); // R, first R = IT狗 (owned)
-    assert.deepEqual([dupe.result.id, dupe.result.duplicate, dupe.result.coins], ["CH-ITDOG", true, 30]);
-    assert.equal(dupe.profile.coins, 35);
+  test("gacha: duplicates turn into 1 shard of that character (user decision) and are not added twice", () => {
+    const dupe = G.draw(withGems(20, { coins: 5 }), "character", data, fixedRng([0.0, 0.0])); // R, first R = IT狗 (owned)
+    assert.deepEqual([dupe.result.id, dupe.result.duplicate, dupe.result.shards], ["CH-ITDOG", true, 1]);
+    assert.equal(dupe.profile.coins, 5, "no coins any more");
+    assert.deepEqual(dupe.profile.shards, { "CH-ITDOG": 1 });
     assert.equal(dupe.profile.owned.characters.filter((id) => id === "CH-ITDOG").length, 1);
-    assert.deepEqual(G.GACHA_RULES.duplicateCoins, { R: 30, SR: 80, SSR: 200 });
+    const again = G.draw(dupe.profile, "character", data, fixedRng([0.0, 0.0]));
+    assert.deepEqual(again.profile.shards, { "CH-ITDOG": 2 });
+    const fresh = G.draw(withGems(10), "character", data, fixedRng([0.9, 0.0]));
+    assert.equal(fresh.result.shards, 0);
   });
 
   test("gacha: the 80th draw without an SSR is a guaranteed SSR", () => {
@@ -81,11 +85,12 @@
     assert.ok(counts.SSR / 4000 > 0.02 && counts.SSR / 4000 < 0.06, "SSR about 3% plus pity: " + JSON.stringify(counts));
   });
 
-  test("gacha: equipment draws give usable items with equal chance; duplicates 50 coins", () => {
+  test("gacha: equipment draws give usable items with equal chance; duplicates give 1 shard", () => {
     const list = G.equipmentCandidates(data);
     assert.deepEqual(list.map((e) => e.id), ["EQ-AI", "EQ-EYEDROP", "EQ-COMPUTER", "EQ-ANTIVIRUS"], "glasses not in the pool until usable");
     const dupe = G.draw(withGems(10), "equipment", data, fixedRng([0.0]));
-    assert.deepEqual([dupe.result.id, dupe.result.duplicate, dupe.result.coins], ["EQ-AI", true, 50]);
+    assert.deepEqual([dupe.result.id, dupe.result.duplicate, dupe.result.shards], ["EQ-AI", true, 1]);
+    assert.deepEqual(dupe.profile.shards, { "EQ-AI": 1 });
     const fresh = G.draw(withGems(10), "equipment", data, fixedRng([0.99]));
     assert.equal(fresh.result.id, "EQ-ANTIVIRUS");
     assert.ok(fresh.profile.owned.equipment.includes("EQ-ANTIVIRUS"));
@@ -117,6 +122,6 @@
     const bad = S.load(store).save.profile;
     assert.deepEqual(bad.owned, { characters: ["CH-ITDOG"], equipment: [] });
     assert.deepEqual(bad.pity, { character: 0 });
-    assert.deepEqual(bad.gachaLog, [{ type: "character", id: "CH-DB", rarity: null, duplicate: false, coins: 0 }]);
+    assert.deepEqual(bad.gachaLog, [{ type: "character", id: "CH-DB", rarity: null, duplicate: false, shards: 0 }]);
   });
 })();

@@ -48,7 +48,7 @@
         res.rarity ? h("span", { class: `rarity rarity-${res.rarity}` }, res.rarity) : null
       ),
       isChar ? h("p", { class: "hint" }, ch.familyName ? `${ch.familyName}｜專長：${topicName(ch.specialty)}` : `專長：${topicName(ch.specialty)}`) : h("p", { class: "hint" }, eq.levels[0].text),
-      res.duplicate ? h("p", { class: "note" }, `重複：換成金幣 ${res.coins}`) : h("p", { class: "note" }, isChar ? "可以到「角色隊伍」加入隊伍" : "可以到「角色隊伍」為隊員裝備")
+      res.duplicate ? h("p", { class: "note" }, `重複：換成碎片 ×${res.shards}（第三階段進化用）`) : h("p", { class: "note" }, isChar ? "可以到「角色隊伍」加入隊伍" : "可以到「角色隊伍」為隊員裝備")
     );
   }
 
@@ -103,7 +103,7 @@
               )
             )
           ),
-          h("p", { class: "hint" }, `重複角色換成金幣：R ${G.GACHA_RULES.duplicateCoins.R}、SR ${G.GACHA_RULES.duplicateCoins.SR}、SSR ${G.GACHA_RULES.duplicateCoins.SSR}`)
+          h("p", { class: "hint" }, `重複角色換成該角色的碎片 ×${G.GACHA_RULES.duplicateShards}，用於第三階段進化。`)
         ),
         h(
           "section",
@@ -112,7 +112,7 @@
           h("button", { class: "btn btn-primary", onclick: () => doDraw("equipment"), ...(canDraw ? {} : { disabled: "" }) }, `抽 1 次（${G.GACHA_RULES.cost} 寶石）`),
           h("h3", { class: "rates-title" }, "公開機率"),
           h("p", { class: "hint" }, `${equipList.map((e) => e.name).join("、")}：每件 ${Math.round((100 / equipList.length) * 10) / 10}%`),
-          h("p", { class: "hint" }, `裝備暫未設稀有度，所以每件機率相同。重複裝備換成金幣 ${G.GACHA_RULES.equipmentDuplicateCoins}。`)
+          h("p", { class: "hint" }, `裝備暫未設稀有度，所以每件機率相同。重複裝備換成該裝備的碎片 ×${G.GACHA_RULES.duplicateShards}，用於第三階進化。`)
         ),
         h(
           "section",
@@ -123,7 +123,7 @@
                 "ol",
                 { class: "gacha-log" },
                 profile.gachaLog.map((e) =>
-                  h("li", {}, nameOf(e), e.rarity ? h("span", { class: `rarity rarity-${e.rarity}` }, e.rarity) : null, e.duplicate ? `　重複 → 金幣 ${e.coins}` : "　新獲得")
+                  h("li", {}, nameOf(e), e.rarity ? h("span", { class: `rarity rarity-${e.rarity}` }, e.rarity) : null, e.duplicate ? (e.shards ? `　重複 → 碎片 ×${e.shards}` : `　重複 → 金幣 ${e.coins || 0}`) : "　新獲得")
                 )
               )
             : h("p", { class: "hint" }, "未有紀錄。")

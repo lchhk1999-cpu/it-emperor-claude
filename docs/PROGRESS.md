@@ -308,3 +308,14 @@
 - 測試：`./scripts/test.sh` → JS 144 passed, 0 failed；release 檢查通過。Python 31 tests OK。
 - 試玩（本機 dev bundle）：體力 3 時開「困難」→ 出現體力不足畫面；練習模式全對 → 只得經驗、沒有素材、體力不變，升級後回滿至 42；之後開「簡單」→ 體力 42→37，勝出得函數晶片 ×1、金幣 30。
 - 下一步：P5-04 角色／裝備升級及三階段進化（待用戶答：重複角色換碎片規則）。
+
+## Run 25 — 2026-10-31：P5-04 升級及三階段進化
+- PR #20、#21 已合併；本機 main 同步，測試 144 passed。分支：`feat/evolution`。
+- 用戶決定：重複抽蛋結果全部換碎片。`gacha.js` 改為碎片（profile.shards）；抽蛋畫面及紀錄更新。
+- 新模組 `src/core/growth.js`（levelUp、evolve、evolutionCost、equipmentCost、evolveEquipment、stats）；戰鬥隊伍使用升級／進化後數值（`profile.teamSnapshot`），裝備按階段效果（`equipment.battleLoadout`）。
+- 新畫面 `src/ui/growth.js`「培養」（角色／裝備分頁，顯示需要及擁有數量）；背包新增碎片；角色隊伍顯示等級及進化。
+- 存檔：碎片及培養資料有修復；存檔「已修復」判斷改為不受欄位次序影響（之前次序不同會誤報）；測試 deepEqual 同樣不受欄位次序影響。`h()` 改為完全攤平子元素。
+- 測試：`./scripts/test.sh` → JS 151 passed, 0 failed；release 檢查通過。Python 31 tests OK。
+- 試玩（本機 dev bundle）：IT狗 Lv 9 → 升級（90 金幣）→ Lv 10 → 一階進化（程式碼殘片 ×3＋200 金幣）→ Lv 10/20、攻擊 123；AI 模型用傳說核心進化到第 2 階；角色隊伍顯示「Lv 10・一階進化」。故事、公會、隊伍、抽蛋、背包、任務、DSE 畫面全部正常。
+- 未做：進化解鎖第 2、3 個裝備格（Excel equipment_slots_max 3）。
+- 下一步：P5-05 主頁改版（先在設計畫布出候選稿）。

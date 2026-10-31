@@ -125,8 +125,12 @@
   }
 
   // Snapshot stored in battle state (plain JSON, survives save/resume).
+  // Battle copies of the team, with levels and evolutions applied (P5-04).
   function teamSnapshot(profile, gameData) {
-    return profile.team.map((id) => characterById(gameData, id)).filter(Boolean).map((c) => ({ ...c }));
+    return profile.team
+      .map((id) => characterById(gameData, id))
+      .filter(Boolean)
+      .map((c) => (ITE.growth ? { ...c, ...ITE.growth.stats(c, ITE.growth.charGrowth(profile, c.id)) } : { ...c }));
   }
 
   // Team attack/HP are the members' averages, so a bigger team does not hit
