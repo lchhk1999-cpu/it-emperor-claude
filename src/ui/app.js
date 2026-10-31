@@ -133,32 +133,69 @@
   }
 
   // ---------- Stage select ----------
+  // DSE stages: today's limited stage, worlds A–E x four difficulties, mixed practice.
+  function findStage(id) {
+    return root.ITE.dungeons.allStages(gameData, Date.now()).find((st) => st.id === id) || null;
+  }
+
+  function stageStatus(id) {
+    const rec = save.stages[id];
+    return rec ? `${rec.cleared ? "★ 已通關" : "未通關"}｜最佳 ${rec.bestAccuracy}%` : "未挑戰";
+  }
+
+  function stageCard(stage) {
+    return h(
+      "button",
+      { class: `stage-card${stage.kind === "limited" ? " stage-limited" : ""}`, onclick: () => startBattle(stage) },
+      h("div", { class: "stage-boss", html: sprites.bugKing("smug") }),
+      h(
+        "div",
+        { class: "stage-info" },
+        h("div", { class: "stage-chapter" }, stage.chapter),
+        h("div", { class: "stage-name" }, stage.name),
+        h("div", { class: "stage-desc" }, stage.description),
+        h("div", { class: "stage-meta" }, stageStatus(stage.id))
+      )
+    );
+  }
+
   function showStages() {
+    const Dg = root.ITE.dungeons;
+    const limited = Dg.limitedStage(gameData, Date.now());
+    const all = Dg.worldStages();
+    const matName = (id) => (root.ITE.inventory.materialById(gameData, id) || { name: id }).name;
     render(
       h(
         "main",
-        { class: "screen" },
-        h("header", { class: "topbar" }, h("button", { class: "btn-back", onclick: showHome, "aria-label": "返回" }, "‹"), h("h1", {}, "選擇關卡")),
-        ...root.ITE.stages.map((stage) => {
-          const rec = save.stages[stage.id];
-          return h(
-            "button",
-            { class: "stage-card", onclick: () => startBattle(stage) },
-            h("div", { class: "stage-boss", html: sprites.bugKing("smug") }),
+        { class: "screen stages" },
+        h("header", { class: "topbar" }, h("button", { class: "btn-back", onclick: showHome, "aria-label": "返回" }, "‹"), h("h1", {}, "DSE 題庫挑戰")),
+        limited ? stageCard(limited) : null,
+        Dg.WORLDS.map((w) =>
+          h(
+            "section",
+            { class: "panel world-panel" },
+            h("h2", {}, `${w.id}｜${w.name}`),
+            h("p", { class: "hint" }, `素材：${w.materials.map(matName).join("、")}`),
             h(
               "div",
-              { class: "stage-info" },
-              h("div", { class: "stage-chapter" }, stage.chapter),
-              h("div", { class: "stage-name" }, stage.name),
-              h("div", { class: "stage-desc" }, stage.description),
-              h(
-                "div",
-                { class: "stage-meta" },
-                rec ? `${rec.cleared ? "★ 已通關" : "未通關"}｜最佳正確率 ${rec.bestAccuracy}%` : "未挑戰"
-              )
+              { class: "diff-grid" },
+              all
+                .filter((st) => st.world === w.id)
+                .map((st) => {
+                  const rec = save.stages[st.id];
+                  const d = Dg.DIFFICULTIES[st.difficulty];
+                  return h(
+                    "button",
+                    { class: `diff-btn diff-${st.difficulty}${rec && rec.cleared ? " cleared" : ""}`, onclick: () => startBattle(st), "aria-label": `${st.name}，${d.questionCount} 題，${stageStatus(st.id)}` },
+                    h("span", { class: "diff-name" }, d.name, rec && rec.cleared ? " ★" : ""),
+                    h("span", { class: "diff-meta" }, `${d.questionCount} 題｜素材 ×${d.drops}${d.rare ? "＋傳說核心" : ""}`)
+                  );
+                })
             )
-          );
-        })
+          )
+        ),
+        h("h2", { class: "section-title" }, "混合練習"),
+        (root.ITE.stages || []).map(stageCard)
       )
     );
   }
@@ -168,7 +205,8 @@
     try {
       const team = P.teamSnapshot(save.profile, gameData);
       const loadout = root.ITE.equipment.battleLoadout(save.profile, gameData);
-      battleState = B.createBattle(stage, questionPool, root.ITE.rng.createRng(Date.now()), team, loadout);
+      const rng = root.ITE.rng.createRng(Date.now());
+      battleState = B.createBattle(stage, root.ITE.dungeons.stagePool(stage, questionPool, rng), rng, team, loadout);
     } catch (e) {
       showMessage("暫時未有可用題目", BUILD_MODE === "release" ? "正式版只會顯示已核准（approved）的題目。" : String(e.message));
       return;
@@ -215,7 +253,7 @@
       const sum = B.summary(battleState);
       save = S.recordStageResult(save, battleState.stageId, sum);
       if (sum.outcome === "won") recordStageClear();
-      const drops = root.ITE.inventory.dseMaterialDrops(sum, gameData, root.ITE.rng.createRng(Date.now() ^ Math.floor(Math.random() * 2 ** 31)));
+      const drops = root.ITE.dungeons.materialDrops(findStage(battleState.stageId), sum, gameData, root.ITE.rng.createRng(Date.now() ^ Math.floor(Math.random() * 2 ** 31)));
       lastReward = grantReward({ ...P.dseRewards(sum), materials: drops });
       showResult();
       return;
@@ -455,7 +493,7 @@
         h(
           "div",
           { class: "menu" },
-          h("button", { class: "btn btn-primary", onclick: () => startBattle(root.ITE.stages.find((st) => st.id === s.stageId)) }, "再挑戰"),
+          h("button", { class: "btn btn-primary", onclick: () => (findStage(s.stageId) ? startBattle(findStage(s.stageId)) : showStages()) }, "再挑戰"),
           h("button", { class: "btn", onclick: showHome }, "返回主畫面")
         )
       )

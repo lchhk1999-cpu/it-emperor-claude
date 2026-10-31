@@ -289,3 +289,13 @@
 - 測試：`./scripts/test.sh` → JS 131 passed, 0 failed；release 檢查通過。Python 29 tests OK。
 - 試玩（本機 dev bundle）：全對打贏 DSE 挑戰 → 「獲得素材：資料碎片 ×1」；背包顯示 9 種素材（1 種已擁有）及 AI 模型裝備。
 - 下一步：P5-02 DSE 挑戰分課題／難度＋每週限定素材關。
+
+## Run 23 — 2026-10-31：P5-02 DSE 挑戰分 A–E 世界及難度＋每日限定素材關
+- PR #18（角色品種）、#19（背包）已由用戶合併；本機 main 已同步，測試 131 passed。
+- 分支：`feat/dse-world-stages`。
+- 匯入器讀可選的 `Stages`＋`Events` 表（7 個每日活動，0 個被拒）；驗證難度、素材、星期及關卡引用。
+- 新模組 `src/core/dungeons.js`：5 個世界 × 4 個難度 = 20 關、每日限定關（HKT 星期）、題目池（優先指定難度，不足時同世界補題）、按關卡掉落素材。`inventory.dseMaterialDrops` 由 `dungeons.materialDrops` 取代。選關畫面改為今日限定＋世界 A–E 難度按鈕＋混合練習。
+- 題目數量（approved）：A 易30／中79／難25；B 22／40／4；C 32／57／4；D 5／43／23；E 3／15／0。B、C 困難及 E 全部難度題目偏少，會由其他難度補上（建議 ChatGPT 補充）。
+- 測試：`./scripts/test.sh` → JS 137 passed, 0 failed；release 檢查通過。Python 30 tests OK。
+- 試玩（本機 dev bundle，星期六）：今日限定為「金幣寶庫・金幣之門」；A 世界中等 8 題全為 medium、課題屬 A；全對勝出得「資料碎片 ×1、函數晶片 ×1」；再挑戰回到同一關。
+- 下一步：P5-03 體力系統（待用戶答：故事模式是否扣體力）。

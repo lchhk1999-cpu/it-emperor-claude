@@ -6,12 +6,13 @@
  "meta": {
   "source_file": "IT_Emperor_DseMcQs.xlsx",
   "source_sha256": "f3597057436409958589fb5f9171cccfb76019e8c9018b54ca9668c3b7fab345",
-  "imported_at": "2026-10-30T16:17:12Z",
+  "imported_at": "2026-10-31T04:57:20Z",
   "characters": 31,
   "missions": 5,
   "titles": 4,
   "equipment": 5,
   "materials": 9,
+  "events": 7,
   "rejected": 0
  },
  "config": {
@@ -667,6 +668,115 @@
    "topic": "ALL",
    "rarity": "common",
    "description": "額外經驗"
+  }
+ ],
+ "eventStages": [
+  {
+   "id": "ST-EX-01",
+   "title": "IF 函數試煉",
+   "world": "Excel 王國",
+   "topic": "EXCEL",
+   "difficulty": "easy",
+   "questionCount": 5,
+   "material": "MAT-EXCEL"
+  },
+  {
+   "id": "ST-SQL-01",
+   "title": "尋找遺失的記錄",
+   "world": "SQL 地下城",
+   "topic": "SQL",
+   "difficulty": "medium",
+   "questionCount": 6,
+   "material": "MAT-SQL"
+  },
+  {
+   "id": "ST-HW-01",
+   "title": "RAM 守衛戰",
+   "world": "硬件機械城",
+   "topic": "HARDWARE",
+   "difficulty": "easy",
+   "questionCount": 5,
+   "material": "MAT-HW"
+  },
+  {
+   "id": "ST-NET-01",
+   "title": "交換器迷宮",
+   "world": "網絡設備島",
+   "topic": "NET_DEVICE",
+   "difficulty": "medium",
+   "questionCount": 6,
+   "material": "MAT-NET"
+  },
+  {
+   "id": "ST-PY-01",
+   "title": "迴圈冒險",
+   "world": "Python 程式塔",
+   "topic": "PY_BASIC",
+   "difficulty": "easy",
+   "questionCount": 5,
+   "material": "MAT-PY"
+  },
+  {
+   "id": "EV-COIN",
+   "title": "金幣之門",
+   "world": "活動中心",
+   "topic": "ALL",
+   "difficulty": "medium",
+   "questionCount": 10,
+   "material": "MAT-COIN"
+  },
+  {
+   "id": "EV-MIX",
+   "title": "究極混合副本",
+   "world": "活動中心",
+   "topic": "ALL",
+   "difficulty": "ultimate",
+   "questionCount": 15,
+   "material": "MAT-RARE"
+  }
+ ],
+ "events": [
+  {
+   "id": "MON-MAT",
+   "weekday": 1,
+   "name": "Python 進化素材日",
+   "stage": "ST-PY-01"
+  },
+  {
+   "id": "TUE-MAT",
+   "weekday": 2,
+   "name": "Excel 進化素材日",
+   "stage": "ST-EX-01"
+  },
+  {
+   "id": "WED-MAT",
+   "weekday": 3,
+   "name": "SQL 進化素材日",
+   "stage": "ST-SQL-01"
+  },
+  {
+   "id": "THU-MAT",
+   "weekday": 4,
+   "name": "硬件進化素材日",
+   "stage": "ST-HW-01"
+  },
+  {
+   "id": "FRI-MAT",
+   "weekday": 5,
+   "name": "網絡進化素材日",
+   "stage": "ST-NET-01"
+  },
+  {
+   "id": "SAT-COIN",
+   "weekday": 6,
+   "name": "金幣寶庫",
+   "stage": "EV-COIN"
+  },
+  {
+   "id": "SUN-MIX",
+   "weekday": 7,
+   "name": "究極混合地下城",
+   "stage": "EV-MIX"
   }
  ]
 };

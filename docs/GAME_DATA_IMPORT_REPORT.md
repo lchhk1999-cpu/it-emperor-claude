@@ -2,8 +2,8 @@
 
 - 來源檔案：`IT_Emperor_DseMcQs.xlsx`
 - SHA-256：`f3597057436409958589fb5f9171cccfb76019e8c9018b54ca9668c3b7fab345`
-- 匯入時間：2026-10-30T16:17:12Z
-- 工作表：`Characters`、`GameConfig`、`Missions`、`Titles`、`Equipment`、`Pools`、`Materials`（Topics 用作檢查課題）
+- 匯入時間：2026-10-31T04:57:20Z
+- 工作表：`Characters`、`GameConfig`、`Missions`、`Titles`、`Equipment`、`Pools`、`Materials`、`Stages`、`Events`（Topics 用作檢查課題）
 
 ## 角色
 
@@ -108,6 +108,20 @@
 | MAT-RARE | 傳說核心 | ALL | 傳說 | 高階角色及裝備進化用途 |
 | MAT-COIN | 金幣寶箱 | ALL | 普通 | 額外金幣 |
 | MAT-EXP | 經驗芯片 | ALL | 普通 | 額外經驗 |
+
+## 每日限定素材關（每週輪換）
+
+| 星期 | 活動 | 關卡 | 課題 | 難度 | 題數 | 素材 |
+|---|---|---|---|---|---|---|
+| 一 | Python 進化素材日 | 迴圈冒險 | PY_BASIC | easy | 5 | MAT-PY |
+| 二 | Excel 進化素材日 | IF 函數試煉 | EXCEL | easy | 5 | MAT-EXCEL |
+| 三 | SQL 進化素材日 | 尋找遺失的記錄 | SQL | medium | 6 | MAT-SQL |
+| 四 | 硬件進化素材日 | RAM 守衛戰 | HARDWARE | easy | 5 | MAT-HW |
+| 五 | 網絡進化素材日 | 交換器迷宮 | NET_DEVICE | medium | 6 | MAT-NET |
+| 六 | 金幣寶庫 | 金幣之門 | ALL | medium | 10 | MAT-COIN |
+| 日 | 究極混合地下城 | 究極混合副本 | ALL | ultimate | 15 | MAT-RARE |
+
+註：`Stages` 表的 boss_hp、reward_coins、reward_exp、stamina_cost 暫未使用（Boss 血量按遊戲傷害公式計算；體力在 P5-03 處理）。
 
 ## 拒絕的資料
 
