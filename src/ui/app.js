@@ -289,6 +289,7 @@
               )
             )
           : null,
+        root.ITE.installUi ? root.ITE.installUi.homeCard() : null,
         BUILD_MODE === "dev" && root.ITE.reviewUi
           ? h("button", { class: "btn btn-review", onclick: () => root.ITE.reviewUi.show() }, "教師審核（開發版）")
           : null,

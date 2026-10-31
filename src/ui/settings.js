@@ -130,6 +130,7 @@
           h("button", { class: "btn", onclick: () => (app.showHome(), root.ITE.tutorialUi.show(0)) }, "再看一次新手教學")
         ),
         backupPanel(),
+        root.ITE.installUi ? root.ITE.installUi.settingsPanel(show) : null,
         h(
           "section",
           { class: "panel" },

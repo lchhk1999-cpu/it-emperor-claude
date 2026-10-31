@@ -460,3 +460,9 @@
 - **What changed:** `src/ui/name.js`（暱稱）、`src/ui/splash.js`（開場）、`ITE.gacha.rollBoxes/openBox`（盲盒）、盲盒畫面及音效 boxTap／boxOpen；新測試：每個頁面腳本都能編譯（曾因 app.js 變數重名令頁面空白，此測試可攔截）
 - **Verification (actual):** `./scripts/test.sh` 全部通過（JS 183）；瀏覽器 375×812 實測開場→暱稱（空白提示、🎲、Enter）→新手教學由第 1 步開始→盲盒點擊、開啟、揭曉→主頁暱稱＋稱號
 - **Next:** 裝備欄及造型＋數值（#4、#12）→ UR 副本（#2）→ 魔王限時模式（#11）
+
+## Run 45 — 2026-11-01：主頁壓窄、開場角色、加到主畫面
+- **Branch:** `feat/name-splash-blindbox`
+- **What changed:** 主頁狀態列改兩行、場景縮小（iPhone SE 可見故事／DSE 按鈕及今日限定）；開場改用 SSR 機械老虎狗；`src/ui/install.js` 加到主畫面教學（主頁卡＋設定）；`scripts/build-web.sh`、`assets/web/`（manifest、圖示、sw.js）
+- **Verification (actual):** `./scripts/test.sh` 全部通過（新增網頁版檢查）；瀏覽器 375×667／375×812 實測主頁；網頁版本機伺服器實測 service worker 註冊、manifest、教學卡；停止伺服器後重新載入仍可開啟（離線）
+- **Pending approval:** 網頁版寄存方式（未放上網）

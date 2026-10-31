@@ -810,3 +810,9 @@ body[data-screen="guild"] { --page-bg: linear-gradient(180deg, #ebe2f8 0%, #fbf6
   .chip-icon svg { width: 22px; height: 22px; }
   .chip-label { bottom: -18px; font-size: 11px; }
 }
+/* 加到手機主畫面 (2026-11-01) */
+.install-card { position: relative; }
+.install-card h2 { margin: 0 0 4px; font-size: 17px; }
+.install-close { position: absolute; top: 6px; right: 8px; width: 34px; height: 34px; padding: 0; font-size: 22px; line-height: 1; color: var(--ink); background: none; border: none; cursor: pointer; }
+.install-guide .seg { margin-top: 8px; }
+.install-steps { margin: 10px 0 0; padding-left: 22px; font-size: 14px; line-height: 1.9; font-weight: 700; }
