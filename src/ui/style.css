@@ -859,3 +859,27 @@ body[data-screen="guild"] { --page-bg: linear-gradient(180deg, #ebe2f8 0%, #fbf6
 .drain-info.grace { color: var(--ink); background: #c9e2f4; animation: none; }
 .demon-entry { background: linear-gradient(100deg, #f6c6c0, #e0d5f0); }
 @media (prefers-reduced-motion: reduce) { .drain-info { animation: none; } }
+/* 角色隊伍 sub-tabs and grid (2026-11-01) */
+.team-strip h2 { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-bottom: 6px; }
+.team-stats { font-size: 13px; font-weight: 800; color: var(--muted); }
+.team-tabs { margin: 10px 0; }
+.filter-chips { display: flex; gap: 6px; overflow-x: auto; padding: 2px 2px 8px; margin: -4px 0 6px; scrollbar-width: none; }
+.filter-chips::-webkit-scrollbar { display: none; }
+.chip-btn { flex: none; padding: 5px 12px; font: inherit; font-size: 13px; font-weight: 800; color: var(--ink); background: #fff; border: 2px solid var(--ink); border-radius: 999px; cursor: pointer; white-space: nowrap; }
+.chip-btn.active { background: var(--yellow); }
+.char-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.char-tile {
+  position: relative; display: flex; flex-direction: column; align-items: center; gap: 1px; padding: 6px 4px 8px; min-width: 0;
+  font: inherit; color: var(--ink); background: var(--card); border: 2.5px solid var(--ink); border-radius: 16px; box-shadow: 0 3px 0 var(--ink); cursor: pointer;
+}
+.char-tile.in-team { background: #fff1c9; }
+.char-tile.not-owned { background: #f1ebe3; border-style: dashed; box-shadow: none; }
+.char-tile.not-owned .tile-sprite { filter: grayscale(1); opacity: 0.5; }
+.char-tile:focus-visible { outline: 3px solid #6aa0d8; outline-offset: 2px; }
+.tile-sprite { width: 70%; }
+.tile-sprite svg { width: 100%; height: auto; display: block; }
+.tile-name { max-width: 100%; font-size: 13px; font-weight: 900; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tile-spec { max-width: 100%; font-size: 10.5px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tile-state { font-size: 11px; font-weight: 800; }
+.tile-rarity { position: absolute; top: 5px; left: 5px; font-size: 10px; }
+.tile-check { position: absolute; top: 4px; right: 6px; width: 20px; height: 20px; display: grid; place-items: center; font-size: 12px; font-weight: 900; background: #9fd4b4; border: 2px solid var(--ink); border-radius: 50%; }

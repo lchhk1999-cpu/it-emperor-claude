@@ -1,4 +1,4 @@
-// 角色隊伍 screen: team slots (opened by player level) and the character list.
+// 角色隊伍 screen: team slots (opened by player level), then 角色 / 裝備 sub-tabs.
 // Tap a character to add or remove it. Team effects apply to the DSE 題庫挑戰
 // only (see src/core/profile.js). Ownership rules wait for the gacha feature,
 // so every character is available for now (PROTOTYPE).
@@ -19,6 +19,10 @@
   function topicName(id) {
     return id === "ALL" ? "全部課題" : Q.TOPICS[id] || id;
   }
+
+  // Sub-tab ("chars" | "gear") and character filter, kept while on this screen.
+  let view = "chars";
+  let filter = "owned";
 
   function show(message) {
     const save = app.getSave();
@@ -56,10 +60,12 @@
           h("h1", {}, "角色隊伍")
         ),
         app.profileBar(),
+        // Compact team strip; below it 角色 / 裝備 sub-tabs, so the page no
+        // longer scrolls through every section (user 2026-11-01).
         h(
           "section",
-          { class: "panel" },
-          h("h2", {}, `我的隊伍（${team.length} / ${slots}）`),
+          { class: "panel team-strip" },
+          h("h2", {}, `我的隊伍 ${team.length} / ${slots}`, h("span", { class: "team-stats" }, `攻擊 ${stats.attack}｜HP ${stats.hp}`)),
           h(
             "div",
             { class: "team-slots" },
@@ -82,68 +88,66 @@
               );
             })
           ),
-          h("p", { class: "hint" }, `隊伍攻擊 ${stats.attack}｜HP ${stats.hp}（成員平均）`),
-          h("p", { class: "hint" }, "答對隊員專長課題的題目可加傷害。隊伍課題越多元，越多題目有加成。"),
-          h("p", { class: "hint" }, "隊伍只用於「DSE 題庫挑戰」；故事模式及校際公會不受影響。")
+          h("p", { class: "hint" }, "按角色加入或移出。答對隊員專長課題可加傷害；只用於「DSE 題庫挑戰」。")
         ),
         message ? h("p", { class: "form-error", role: "alert" }, message) : null,
-        equipmentPanel(profile, team, equip),
         h(
-          "section",
-          { class: "panel" },
-          h("h2", {}, "角色"),
-          P.familyGroups(data.characters).map((g) => [
-            g.characters.length > 1 || g.characters[0].family
-              ? h("h3", { class: "family-title" }, g.name, h("span", { class: "family-count" }, `${g.characters.filter((c) => P.owns(profile, c.id)).length} / ${g.characters.length}`))
-              : null,
-            h(
+          "div",
+          { class: "seg team-tabs", role: "tablist" },
+          [["chars", `角色 ${profile.owned.characters.length}/${data.characters.length}`], ["gear", "裝備"]].map(([key, label]) =>
+            h("button", { class: view === key ? "seg-btn active" : "seg-btn", role: "tab", "aria-selected": view === key ? "true" : "false", onclick: () => ((view = key), app.sfx("tap"), show()) }, label)
+          )
+        ),
+        view === "gear" ? equipmentPanel(profile, team, equip) : charactersPanel(profile, toggle, slots, covered)
+      )
+    );
+  }
+
+  // 角色 grid: filter chips (已擁有 / 全部 / each family), three cards per row.
+  function charactersPanel(profile, toggle, slots, covered) {
+    const groups = P.familyGroups(data.characters);
+    const filters = [["owned", "已擁有"], ["all", "全部"]].concat(groups.map((g) => [g.id, g.name]));
+    const list = data.characters.filter((c) =>
+      filter === "owned" ? P.owns(profile, c.id) : filter === "all" ? true : (groups.find((g) => g.id === filter) || { characters: [] }).characters.includes(c)
+    );
+    const rank = { UR: 0, SSR: 1, SR: 2, R: 3 };
+    list.sort((a, b) => (profile.team.includes(b.id) - profile.team.includes(a.id)) || (P.owns(profile, b.id) - P.owns(profile, a.id)) || (rank[a.rarity] - rank[b.rarity]));
+    return h(
+      "section",
+      { class: "panel" },
+      h(
+        "div",
+        { class: "filter-chips", role: "tablist", "aria-label": "篩選角色" },
+        filters.map(([key, label]) => h("button", { class: filter === key ? "chip-btn active" : "chip-btn", role: "tab", "aria-selected": filter === key ? "true" : "false", onclick: () => ((filter = key), show()) }, label))
+      ),
+      list.length
+        ? h(
             "div",
-            { class: "char-list" },
-            g.characters.map((c) => {
+            { class: "char-grid" },
+            list.map((c) => {
+              const owned = P.owns(profile, c.id);
               const inTeam = profile.team.includes(c.id);
-              if (!P.owns(profile, c.id)) {
-                return h(
-                  "button",
-                  { class: "char-card not-owned", onclick: () => show(ERRORS.not_owned), "aria-label": `${c.name}（未擁有）` },
-                  h("span", { class: "char-sprite", html: sprites.character(c.id, "idle") }),
-                  h(
-                    "span",
-                    { class: "char-info" },
-                    h("span", { class: "char-name" }, c.name, h("span", { class: `rarity rarity-${c.rarity}` }, c.rarity)),
-                    h("span", { class: "char-spec" }, `專長：${topicName(c.specialty)}`),
-                    h("span", { class: "char-action" }, "未擁有（抽蛋取得）")
-                  )
-                );
-              }
+              const g = root.ITE.growth.charGrowth(profile, c.id);
+              const label = !owned ? "未擁有" : inTeam ? (slots === 1 ? "出戰中" : "隊伍中") : covered.has(c.specialty) ? "專長重複" : `Lv ${g.level}${g.evo ? `・${root.ITE.growth.EVO_NAMES[g.evo]}` : ""}`;
               return h(
                 "button",
-                { class: inTeam ? "char-card in-team" : "char-card", onclick: () => toggle(c.id), "aria-pressed": inTeam ? "true" : "false" },
-                h("span", { class: "char-sprite", html: sprites.character(c.id, inTeam ? "happy" : "idle") }),
-                h(
-                  "span",
-                  { class: "char-info" },
-                  h("span", { class: "char-name" }, c.name, h("span", { class: `rarity rarity-${c.rarity}` }, c.rarity)),
-                  h("span", { class: "char-spec" }, `專長：${topicName(c.specialty)}　+${Math.round(c.bonus * 100)}%`),
-                  (() => {
-                    const g = root.ITE.growth.charGrowth(profile, c.id);
-                    const st = root.ITE.growth.stats(c, g);
-                    return h("span", { class: "char-stats" }, `Lv ${g.level}${g.evo ? `・${root.ITE.growth.EVO_NAMES[g.evo]}` : ""}｜攻擊 ${st.attack}｜HP ${st.hp}`);
-                  })(),
-                  h(
-                    "span",
-                    { class: "char-action" },
-                    inTeam
-                      ? slots === 1 ? "目前出戰" : "已在隊伍（按一下移出）"
-                      : slots === 1 ? "按一下換上" : covered.has(c.specialty) ? "加入隊伍（專長重複）" : "加入隊伍"
-                  )
-                )
+                {
+                  class: `char-tile${inTeam ? " in-team" : ""}${owned ? "" : " not-owned"}`,
+                  onclick: () => (owned ? toggle(c.id) : show(ERRORS.not_owned)),
+                  "aria-pressed": inTeam ? "true" : "false",
+                  "aria-label": `${c.name} ${c.rarity}，專長 ${topicName(c.specialty)}，${label}`,
+                },
+                inTeam ? h("span", { class: "tile-check", "aria-hidden": "true" }, "✓") : null,
+                h("span", { class: `rarity rarity-${c.rarity} tile-rarity` }, c.rarity),
+                h("span", { class: "tile-sprite", html: sprites.character(c.id, inTeam ? "happy" : "idle") }),
+                h("span", { class: "tile-name" }, c.name),
+                h("span", { class: "tile-spec" }, topicName(c.specialty)),
+                h("span", { class: "tile-state" }, label)
               );
             })
-          ),
-          ]).flat(),
-          h("p", { class: "hint" }, `已擁有 ${profile.owned.characters.length} / ${data.characters.length} 個角色。新角色只可在「抽蛋」取得。`)
-        )
-      )
+          )
+        : h("p", { class: "hint" }, "沒有角色。"),
+      h("p", { class: "hint" }, "新角色只可在「抽蛋」取得；UR 角色由帝王試煉／魔王限時的碎片合成。")
     );
   }
 
@@ -226,5 +230,5 @@
     );
   }
 
-  root.ITE.teamUi = { show: () => ((picking = null), show()) };
+  root.ITE.teamUi = { show: () => ((picking = null), (view = "chars"), show()) };
 })(globalThis);
