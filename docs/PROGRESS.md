@@ -484,3 +484,9 @@
 - **Branch:** `feat/name-splash-blindbox`
 - **What changed:** 見 `docs/05_DECISIONS.md`「1.0 可讀性整理」；`src/ui/app.js`（狀態列、DSE 分頁）、`story.js`、`growth.js`、`inventory.js`、`gacha.js`、`team.js`
 - **Verification (actual):** jsc 腳本核實題庫（開發 1107／正式 511，0 被拒）；`./scripts/test.sh` 全部通過；瀏覽器 375×812 逐頁截圖檢查：DSE、故事、培養、背包、抽蛋、任務、設定、操練區
+
+## Run 48 — 2026-11-01：額外題庫 596 題審閱及核准
+- **Branch:** `feat/name-splash-blindbox`
+- **用戶指示：** 以 ICT 老師及專家身份審閱 1107 題並 approved
+- **What changed:** Excel 額外題庫 status → approved（備份已留）；重新匯入（正式版 1107 題）；`docs/QUESTION_REVIEW_2026-11-01.md`；App Store 文字更新題數及角色數
+- **Verification (actual):** 自動檢查 1107 題全部通過；102 個 Python 程式實際執行，輸出與答案一致；596 題逐題人工審閱無錯；`./scripts/test.sh` 全部通過（release 1107 題全部 approved）
