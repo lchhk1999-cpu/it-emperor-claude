@@ -90,4 +90,22 @@
     assert.ok(ids.includes("stage-1") && ids.includes("dse-E-ultimate") && ids.includes("limited-MON-MAT"));
     assert.equal(new Set(ids).size, ids.length);
   });
+  test("dungeons: harder stages pay more coins; losing pays none; practice uses the flat rule", () => {
+    const won = { outcome: "won", correct: 8, answered: 10 };
+    const coins = Dg.DIFFICULTY_ORDER.map((d) => Dg.rewards(Dg.worldStages().find((s) => s.id === `dse-B-${d}`), won).coins);
+    assert.deepEqual(coins, [20, 35, 50, 70]);
+    assert.equal(Dg.rewards(Dg.worldStages()[0], { outcome: "lost", correct: 3, answered: 10 }).coins, 0);
+    assert.deepEqual(Dg.rewards(ITE.stages[0], won), ITE.profile.dseRewards(won));
+    assert.equal(Dg.rewards(Dg.worldStages()[0], won).exp, ITE.profile.dseRewards(won).exp);
+  });
+
+  test("dungeons: 傳說核心 can also drop from medium (8%) and hard (25%) wins", () => {
+    const won = { outcome: "won" };
+    const st = (d) => Dg.worldStages().find((s) => s.id === `dse-D-${d}`);
+    assert.equal(Dg.materialDrops(st("medium"), won, data, () => 0.07)["MAT-RARE"], 1);
+    assert.equal(Dg.materialDrops(st("medium"), won, data, () => 0.09)["MAT-RARE"], undefined);
+    assert.equal(Dg.materialDrops(st("hard"), won, data, () => 0.2)["MAT-RARE"], 1);
+    assert.equal(Dg.materialDrops(st("easy"), won, data, () => 0)["MAT-RARE"], undefined);
+    assert.equal(Dg.materialDrops(st("ultimate"), won, data, () => 0.99)["MAT-RARE"], 1, "ultimate still always gives one");
+  });
 })();

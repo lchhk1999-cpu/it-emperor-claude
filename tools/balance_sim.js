@@ -4,21 +4,25 @@
 // accuracy is a dice roll. Students play today's limited stage first.
 //
 // Run from the repo root:
-//   ./scripts/jsc.sh tools/balance_sim.js            -> current rules
-//   ./scripts/jsc.sh tools/balance_sim.js -- tuned   -> current rules + BALANCE_TUNING
+//   ./scripts/jsc.sh tools/balance_sim.js            -> the game's rules now
+//   ./scripts/jsc.sh tools/balance_sim.js -- before  -> the rules before the 2026-10-31 balance
 // Output is Markdown (pasted into docs/BALANCE_REPORT.md).
 const args = typeof scriptArgs !== "undefined" ? scriptArgs : typeof arguments !== "undefined" ? arguments : [];
 const variant = args[0] || "current";
 
 ["src/core/rng.js", "src/core/questions.js", "src/core/battle.js", "src/core/save.js", "src/core/guildRaid.js",
   "src/core/profile.js", "src/core/missions.js", "src/core/equipment.js", "src/core/gacha.js", "src/core/inventory.js",
-  "src/core/dungeons.js", "src/core/stamina.js", "src/core/growth.js", "src/core/balance.js", "src/data/game_data.js"].forEach((f) => load(f));
+  "src/core/dungeons.js", "src/core/stamina.js", "src/core/growth.js", "src/data/game_data.js"].forEach((f) => load(f));
 
 const P = ITE.profile, B = ITE.battle, G = ITE.gacha, Gr = ITE.growth, St = ITE.stamina, Dg = ITE.dungeons, I = ITE.inventory;
-const Bal = ITE.balance;
-const tuned = variant === "tuned";
-const rules = Bal.rules(tuned ? Bal.TUNING : null);
-const data = tuned ? Bal.applyToGameData(ITE.gameData, Bal.TUNING) : ITE.gameData;
+const before = variant === "before";
+const data = ITE.gameData;
+// "before": flat 30 coins per win, no starter or level-up gems, pity 80, 傳說核心
+// only from ultimate / Sunday.
+const profileRules = before ? { ...P.PROFILE_RULES, starterGems: 0, levelUpGems: 0 } : P.PROFILE_RULES;
+if (before) G.GACHA_RULES.ssrPity = 80;
+const winRewards = (stage, sum) => (before ? P.dseRewards(sum) : Dg.rewards(stage, sum));
+const noChance = (stage) => (before && stage.drops ? { ...stage, drops: { ...stage.drops, chance: {} } } : stage);
 
 const MIN = 60 * 1000, DAY = 24 * 60 * MIN;
 const START = Date.UTC(2026, 8, 7, 0, 0); // a Monday, 08:00 HKT
@@ -59,7 +63,7 @@ function playBattle(profile, stage, accuracy, rng) {
 
 function simulate(player, seed) {
   const rng = ITE.rng.createRng(seed);
-  let p = { ...P.defaultProfile(data), stamina: undefined, gems: rules.starterGems };
+  let p = { ...P.defaultProfile(data), stamina: undefined, gems: profileRules.starterGems };
   const firsts = {};
   const mark = (key, day) => (firsts[key] === undefined ? (firsts[key] = day) : null);
   let wins = 0, losses = 0, practice = 0, coinsEarned = 0, gemsEarned = 0;
@@ -80,7 +84,7 @@ function simulate(player, seed) {
         const world = Dg.WORLDS[(day + b) % Dg.WORLDS.length];
         const stage = b === 0 && hour === player.sessions[0] && limited
           ? { ...limited, world: limited.world || world.id, topicIds: limited.world ? limited.topicIds : null }
-          : Bal.withRareChance(Dg.worldStages().find((s) => s.world === world.id && s.difficulty === player.pick[tierIndex]), rules);
+          : noChance(Dg.worldStages().find((s) => s.world === world.id && s.difficulty === player.pick[tierIndex]));
         const cost = St.stageCost(stage);
         const paid = St.spend(p, cost, data.config, t);
         const isPractice = !!paid.error;
@@ -88,18 +92,17 @@ function simulate(player, seed) {
         const sum = playBattle(p, stage, player.accuracy, rng);
         answered += sum.answered;
         correctToday += sum.correct;
-        const base = Bal.dseRewards(sum, stage, rules);
+        const base = winRewards(stage, sum);
         const reward = isPractice ? { exp: base.exp, coins: 0 } : { ...base, materials: Dg.materialDrops(stage, sum, data, rng) };
         if (sum.outcome === "won") {
           wins++;
           cleared++;
         } else losses++;
         if (isPractice) practice++;
-        const r = P.addReward(p, reward, data);
+        const r = P.addReward(p, reward, data, profileRules);
         p = reward.materials ? I.addMaterials(r.profile, reward.materials, data) : r.profile;
         if (r.levelsGained) p = St.refill(p, data.config, t);
-        p = { ...p, gems: (p.gems || 0) + (r.levelsGained ? rules.levelUpGems * r.levelsGained : 0) };
-        gemsEarned += r.levelsGained ? rules.levelUpGems * r.levelsGained : 0;
+        gemsEarned += r.levelsGained * profileRules.levelUpGems;
         coinsEarned += reward.coins || 0;
       }
     }
@@ -109,7 +112,7 @@ function simulate(player, seed) {
     // Weekly mission: 50 correct -> 10 gems + 100 coins (counted on the last play day).
     if (weekday === player.days - 1) (p.gems += 10), (p.coins += 100), (gemsEarned += 10), (coinsEarned += 100);
     // Spend: gacha first (characters), then level and evolve the team.
-    while (p.gems >= rules.gachaCost) {
+    while (p.gems >= G.GACHA_RULES.cost) {
       const d = G.draw(p, "character", data, rng);
       if (d.error) break;
       p = d.profile;
@@ -144,7 +147,7 @@ function weeks(day) {
   return day === undefined ? "未達到" : `第 ${Math.floor(day / 7) + 1} 週`;
 }
 
-const lines = [`### ${tuned ? "建議調整後" : "現時數值"}`, "", "| 指標 | " + PLAYERS.map((p) => p.name).join(" | ") + " |", "|---|" + PLAYERS.map(() => "---").join("|") + "|"];
+const lines = [`### ${before ? "調整前（2026-10-31 之前）" : "現時數值（已套用調整）"}`, "", "| 指標 | " + PLAYERS.map((p) => p.name).join(" | ") + " |", "|---|" + PLAYERS.map(() => "---").join("|") + "|"];
 // Nine runs per student; every number below is the median of the nine.
 const median = (xs) => {
   const v = xs.slice().sort((a, b) => (a === undefined ? 1 : b === undefined ? -1 : a - b));

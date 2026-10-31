@@ -378,3 +378,6 @@
 - 主要發現：傳說核心只在究極／星期日掉落，輕度及一般學生一年都做不到二階進化；金幣不分難度；開局 0 寶石；保底 80 抽太遠。
 - 測試：`./scripts/test.sh` → JS 166 passed（新增 balance 測試 4 項）；Python OK；release 及版本檢查通過。
 - 等用戶決定是否套用建議數值（保底 50 需同步 Excel Pools 表）。
+- 用戶決定套用建議數值。改動：`PROFILE_RULES.starterGems 30`、`levelUpGems 5`（`addReward` 內計算）；`dungeons.DIFFICULTIES` 加 `winCoins`、`rareChance`，新增 `dungeons.rewards()`；`GACHA_RULES.ssrPity 50`（Excel Pools 仍為 80，待同步）。移除提案用的 `src/core/balance.js`；模擬工具改為預設跑遊戲現行規則，`-- before` 重現調整前。升級訊息顯示「+5 寶石」。
+- 測試：`./scripts/test.sh` → JS 165 passed；Python OK；release 及版本檢查通過。模擬器現行結果與建議表完全相同；`-- before` 與調整前表相同。
+- 試玩（本機）：新存檔 30 寶石；困難關勝出 +50 金幣、升級 +5 寶石；抽蛋畫面「再抽 50 次內必定獲得 SSR」。

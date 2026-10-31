@@ -452,7 +452,7 @@
       const sum = B.summary(battleState);
       save = S.recordStageResult(save, battleState.stageId, sum);
       if (sum.outcome === "won") recordStageClear();
-      const base = P.dseRewards(sum);
+      const base = root.ITE.dungeons.rewards(findStage(battleState.stageId), sum);
       lastReward = battleState.practice
         ? grantReward({ exp: base.exp, coins: 0 })
         : grantReward({ ...base, materials: root.ITE.dungeons.materialDrops(findStage(battleState.stageId), sum, gameData, root.ITE.rng.createRng(Date.now() ^ Math.floor(Math.random() * 2 ** 31))) });
@@ -701,7 +701,7 @@
         return m ? h("p", { class: "reward-line reward-material" }, `獲得素材：${m.name} ×${n}`) : null;
       }),
       g.practice ? h("p", { class: "hint" }, "練習模式：只獲得經驗（不扣體力，沒有素材及金幣）") : null,
-      g.levelsGained ? h("p", { class: "reward-level" }, `升級！現在是 Lv ${g.level}，體力已回滿`) : null,
+      g.levelsGained ? h("p", { class: "reward-level" }, `升級！現在是 Lv ${g.level}，體力已回滿，+${g.levelsGained * P.PROFILE_RULES.levelUpGems} 寶石`) : null,
       g.slotsUnlocked ? h("p", { class: "reward-level" }, `解鎖新隊伍位置！到「角色隊伍」加入新成員`) : null
     );
   }

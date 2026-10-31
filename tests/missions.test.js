@@ -109,7 +109,7 @@
   });
 
   test("missions: mission gems are added to the profile (free currency only)", () => {
-    const r = ITE.profile.addReward(ITE.profile.defaultProfile(data), { gems: 3, coins: 50 }, data);
+    const r = ITE.profile.addReward({ ...ITE.profile.defaultProfile(data), gems: 0 }, { gems: 3, coins: 50 }, data);
     assert.deepEqual([r.profile.gems, r.profile.coins], [3, 50]);
     assert.equal(data.config.gacha_paid_enabled, 0);
   });

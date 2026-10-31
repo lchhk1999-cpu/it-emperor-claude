@@ -14,6 +14,9 @@
   const GACHA_RULES = {
     cost: 10,
     duplicateShards: 1,
+    // SSR pity lowered from the workbook's 80 to 50 (balance approved 2026-10-31).
+    // TODO(ChatGPT): set Pools CHAR-STD SSR pity_threshold to 50 in the workbook too.
+    ssrPity: 50,
     logSize: 20,
   };
 
@@ -36,7 +39,8 @@
 
   function pityThreshold(gameData) {
     const ssr = (characterPool(gameData) || { rates: [] }).rates.find((r) => r.rarity === "SSR");
-    return ssr ? ssr.pity : 0;
+    if (!ssr) return 0;
+    return ssr.pity ? Math.min(ssr.pity, GACHA_RULES.ssrPity) : 0;
   }
 
   // Picks a rarity by the pool rates (only rarities that have characters).

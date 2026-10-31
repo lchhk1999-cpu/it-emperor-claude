@@ -14,6 +14,10 @@
     expToNext: (level) => 50 * level,
     dse: { winCoins: 30, winExp: 25, expPerCorrect: 5 }, // workbook Stages: easy story 30 coins / 25 exp
     story: { firstClearCoins: 30, firstClearExp: 25, replayExp: 5 },
+    // Balance approved 2026-10-31 (docs/BALANCE_REPORT.md): new players start
+    // with 3 draws' worth of gems, and every player level gained gives gems.
+    starterGems: 30,
+    levelUpGems: 5,
   };
 
   // New players start with IT狗 + AI 模型 (user decision 2026-10-30); more
@@ -32,7 +36,7 @@
       level: 1,
       exp: 0,
       coins: 0,
-      gems: 0,
+      gems: PROFILE_RULES.starterGems,
       team: [s.character],
       equipment: {},
       owned: { characters: [s.character], equipment: s.equipment ? [s.equipment] : [] },
@@ -108,13 +112,14 @@
     const r = rules || PROFILE_RULES;
     let { level, exp } = profile;
     const coins = profile.coins + (reward.coins || 0);
-    const gems = (profile.gems || 0) + (reward.gems || 0);
+    let gems = (profile.gems || 0) + (reward.gems || 0);
     exp += reward.exp || 0;
     const startLevel = level;
     while (exp >= r.expToNext(level)) {
       exp -= r.expToNext(level);
       level += 1;
     }
+    gems += (level - startLevel) * (r.levelUpGems || 0);
     const slotsBefore = teamSlots(startLevel, gameData.config, r);
     const slotsAfter = teamSlots(level, gameData.config, r);
     return {
