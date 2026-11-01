@@ -78,6 +78,7 @@
 |---|---|---|
 | iOS 模擬器：iPhone SE、iPhone 標準、Pro Max 及 iPad 尺寸 | ⬜ | Claude |
 | 真機測試（你的 iPhone） | ⬜ | 你＋Claude |
+| 網頁試玩版（2026-11-01 上載）：https://itdi-trial-k7q2.netlify.app/ 學生版、/demo/ 老師示範版 | ✅ | 你分享連結，Claude 整理意見 |
 | TestFlight 內測：5–10 位老師及學生，1–2 星期 | ⬜ 計劃已寫 | 你邀請，Claude 整理意見；見 `docs/release/04_AGE_RATING_AND_TESTFLIGHT.md` |
 | 重點：存檔不遺失、離線可玩、聲音開關、簽到跨日、體力午夜回滿 | ⬜ | Claude |
 
