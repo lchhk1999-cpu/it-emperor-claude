@@ -1047,8 +1047,19 @@
     },
   };
   // Wait for every script (guild, story, review screens) before the first render.
-  // The opening animation (splash.js) shows first and then opens the home screen.
-  const start = () => (root.ITE.splashUi ? root.ITE.splashUi.show(showHome) : showHome());
+  // The 驗證碼 screen (gate.js, trial site only) comes first, then the opening
+  // animation (splash.js), then the home screen.
+  const opening = () => (root.ITE.splashUi ? root.ITE.splashUi.show(showHome) : showHome());
+  const start = () => {
+    // Ask the browser to keep this site's save even when the phone runs low on
+    // space (Safari: granted for home-screen apps). Harmless if refused.
+    try {
+      if (root.navigator && root.navigator.storage && root.navigator.storage.persist) root.navigator.storage.persist().catch(() => {});
+    } catch (e) {
+      // ignore
+    }
+    root.ITE.gateUi ? root.ITE.gateUi.show(opening) : opening();
+  };
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);
   else start();
 })(globalThis);

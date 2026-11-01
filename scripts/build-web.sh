@@ -26,6 +26,16 @@ HEAD='<link rel="manifest" href="manifest.webmanifest" />\
   <meta name="robots" content="noindex" />\
   <script>if ("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("sw.js"));</script>\
 </head>'
+# 驗證碼 (src/core/gate.js): if secrets/access-code.txt exists (gitignored),
+# the page asks for that code once per device. Only a salted hash goes in.
+CODEFILE=secrets/access-code.txt
+if [ -f "$CODEFILE" ]; then
+  CODE=$(tr -cd '0-9A-Za-z' < "$CODEFILE" | tr 'a-z' 'A-Z')
+  [ -n "$CODE" ] || { echo "✗ $CODEFILE has no letters or digits" >&2; exit 1; }
+  ACCESS=$(printf '%s' "it-emperor-access-v1:$CODE" | shasum -a 256 | cut -d' ' -f1)
+  HEAD='<script>window.ITE_ACCESS = "'"$ACCESS"'";</script>\
+  '"$HEAD"
+fi
 sed "s#</head>#$HEAD#" "$SRC" > "$OUT/index.html"
 sed -e "s#\"name\": \"IT帝：ICT 學習冒險\"#\"name\": \"$FULLNAME\"#" -e "s#\"short_name\": \"IT帝\"#\"short_name\": \"$APPNAME\"#" assets/web/manifest.webmanifest > "$OUT/manifest.webmanifest"
 cp assets/web/icon-192.png assets/web/icon-512.png "$OUT/"
