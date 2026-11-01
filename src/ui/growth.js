@@ -209,5 +209,6 @@
     );
   }
 
-  root.ITE.growthUi = { show: () => show() };
+  // id (optional): open on this character (from the team page's detail card).
+  root.ITE.growthUi = { show: (id) => ((pickedChar = id || pickedChar), (tab = id ? "characters" : tab), show()) };
 })(globalThis);

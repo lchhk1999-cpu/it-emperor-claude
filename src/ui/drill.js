@@ -94,6 +94,7 @@
           "section",
           { class: "question-card" },
           h("div", { class: "q-meta" }, h("span", { class: "chip" }, Q.TOPICS[q.topic_id] || q.topic_id), q.review_status !== "approved" ? h("span", { class: "chip chip-warn" }, `狀態：${q.review_status}`) : null),
+          app.prevQuestionBox(q),
           h("p", { class: "stem" }, q.stem),
           h("div", { class: "options" }, options)
         ),

@@ -136,6 +136,7 @@
     const c = screen.classList;
     if (!c) return "home";
     if (c.contains("result")) return "result";
+    if (c.contains("rush-run")) return "rush"; // 答題衝刺: dark computer theme
     if (c.contains("battle") || c.contains("raid")) return "battle";
     if (c.contains("drill")) return "stages";
     return PAGE_THEMES.find((t) => c.contains(t)) || "home";
@@ -340,15 +341,16 @@
         limited
           ? h(
               "button",
-              { class: "limited-banner", onclick: () => startBattle(limited) },
-              h("span", { class: "limited-boss", html: sprites.monster(root.ITE.scenes.forWorld(limited.world).monster, "smug", { tier: limited.difficulty }) }),
+              { class: "limited-banner themed", style: `--theme:${limited.theme.color}`, onclick: () => startBattle(limited) },
+              h("span", { class: "limited-icon" }, limited.theme.icon),
               h(
                 "span",
                 { class: "limited-info" },
                 h("span", { class: "limited-tag" }, "今日限定"),
-                h("span", { class: "limited-name" }, limited.chapter.replace("今日限定｜", "")),
-                h("span", { class: "limited-sub" }, limited.description)
-              )
+                h("span", { class: "limited-name" }, limited.theme.name),
+                h("span", { class: "limited-reward" }, `🎁 ${limited.description.split("勝出可得 ")[1] || ""}`)
+              ),
+              h("span", { class: "limited-go" }, "出戰 ›")
             )
           : null,
         root.ITE.installUi ? root.ITE.installUi.homeCard() : null,
@@ -402,6 +404,7 @@
   }
 
   const WORLD_SHORT = { A: "資訊處理", B: "電腦系統", C: "互聯網", D: "程式編寫", E: "社會影響" };
+  let weekPick = null; // 今日限定 calendar: the day whose reward is shown
   // Which DSE world tab is open ("A".."E" or "mix"); kept while the app runs.
   let stageTab = "A";
 
@@ -417,18 +420,65 @@
         h("header", { class: "topbar" }, h("button", { class: "btn-back", onclick: showHome, "aria-label": "返回" }, "‹"), h("h1", {}, "DSE 題庫挑戰")),
         profileBar(),
         // 操練區 and the two UR modes as one row of tiles (2026-11-01: worlds in tabs below).
+        // Three sections (2026-11-01: 「排版開始亂」): 特別玩法 as one row of
+        // uniform icon tiles, 今日限定 as the home page's slim banner, then the
+        // DSE worlds.
+        h("h2", { class: "section-title" }, "特別玩法"),
         h(
           "div",
-          { class: "mode-row" },
-          h("button", { class: "mode-tile drill-tile", onclick: () => root.ITE.drillUi.show() }, h("span", { class: "mode-icon" }, "📝"), h("span", { class: "mode-name" }, "操練區"), h("span", { class: "mode-sub" }, "不扣體力")),
-          root.ITE.trialUi
-            ? h("button", { class: "mode-tile trial-entry", onclick: () => root.ITE.trialUi.show() }, h("span", { class: "mode-icon" }, "👑"), h("span", { class: "mode-name" }, "帝王試煉"), h("span", { class: "mode-sub" }, "UR IT帝"))
-            : null,
-          root.ITE.trialUi
-            ? h("button", { class: "mode-tile demon-entry", onclick: () => root.ITE.trialUi.show("demon") }, h("span", { class: "mode-icon" }, "⏱"), h("span", { class: "mode-name" }, "魔王限時"), h("span", { class: "mode-sub" }, "UR Bug 魔王"))
-            : null
+          { class: "mode-row4" },
+          [
+            ["📝", "操練區", "不扣體力", "c-mint", () => root.ITE.drillUi.show()],
+            root.ITE.trialUi ? ["👑", "帝王試煉", "UR IT帝", "c-gold", () => root.ITE.trialUi.show()] : null,
+            root.ITE.trialUi ? ["⏱", "魔王限時", "UR 魔王", "c-red", () => root.ITE.trialUi.show("demon")] : null,
+            root.ITE.rushUi ? ["🏃", "答題衝刺", "UR 鍵盤", "c-blue", () => root.ITE.rushUi.show()] : null,
+          ]
+            .filter(Boolean)
+            .map(([icon, name, sub, color, go]) =>
+              h("button", { class: "mode4", onclick: go }, h("span", { class: `mode4-icon ${color}` }, icon), h("span", { class: "mode4-name" }, name), h("span", { class: "mode4-sub" }, sub))
+            )
         ),
-        limited ? stageCard(limited) : null,
+        limited
+          ? [
+              h("h2", { class: "section-title" }, "今日限定"),
+              h(
+                "button",
+                { class: "limited-banner themed", style: `--theme:${limited.theme.color}`, onclick: () => startBattle(limited) },
+                h("span", { class: "limited-icon" }, limited.theme.icon),
+                h(
+                  "span",
+                  { class: "limited-info" },
+                  h("span", { class: "limited-name" }, limited.theme.name),
+                  h("span", { class: "limited-reward" }, `🎁 ${limited.description.split("勝出可得 ")[1] || ""}`),
+                  h("span", { class: "limited-sub" }, `${limited.name}｜${limited.questionCount} 題｜體力 ${root.ITE.stamina.stageCost(limited)}｜${stageStatus(limited.id)}`)
+                ),
+                h("span", { class: "limited-go" }, "出戰 ›")
+              ),
+              // 7-day plan: what each day gives, so players can plan ahead.
+              (() => {
+                const plan = root.ITE.dungeons.weekPlan(gameData, Date.now());
+                const pick = plan.find((p) => p.weekday === weekPick) || plan.find((p) => p.today);
+                return h(
+                  "div",
+                  { class: "week-plan" },
+                  h(
+                    "div",
+                    { class: "week-strip", role: "tablist", "aria-label": "一週限定獎勵" },
+                    plan.map((p) =>
+                      h(
+                        "button",
+                        { class: `week-day${p.today ? " today" : ""}${p === pick ? " picked" : ""}`, style: `--theme:${p.color}`, role: "tab", "aria-selected": p === pick ? "true" : "false", onclick: () => ((weekPick = p.weekday), showStages()) },
+                        h("span", { class: "week-day-name" }, p.today ? "今日" : `星期${p.day}`),
+                        h("span", { class: "week-day-icon" }, p.icon)
+                      )
+                    )
+                  ),
+                  h("p", { class: "week-note" }, `${pick.today ? "今日" : `星期${pick.day}`}・${pick.name}：${pick.reward}${pick.today ? "" : "（當日才可挑戰）"}`)
+                );
+              })(),
+            ]
+          : null,
+        h("h2", { class: "section-title" }, "DSE 世界"),
         h(
           "div",
           { class: "world-tabs", role: "tablist", "aria-label": "DSE 世界" },
@@ -724,6 +774,7 @@
             h("span", { class: "chip" }, Q.TOPICS[q.topic_id]),
             q.review_status !== "approved" ? h("span", { class: "chip chip-warn" }, `狀態：${q.review_status}`) : null
           ),
+          prevQuestionBox(q),
           h("p", { class: "stem" }, q.stem),
           skillBar(s),
           h("div", { class: "options" }, options)
@@ -734,7 +785,7 @@
               { class: `explain ${r.correct ? "explain-ok" : "explain-ng"}`, "aria-live": "polite" },
               h("div", { class: "explain-title" }, r.correct ? `答對！造成 ${r.damage} 傷害` : `答錯了… 正確答案是 ${q.answer}`),
               r.correct && r.bonus ? h("p", { class: "bonus-tip" }, `${r.bonus.name} 專長加成 +${Math.round(r.bonus.bonus * 100)}%`) : null,
-              r.equipBonus ? h("p", { class: "bonus-tip" }, `電腦額外傷害 +${r.equipBonus}`) : null,
+              r.equipBonus ? h("p", { class: "bonus-tip" }, `裝備額外傷害 +${r.equipBonus}`) : null,
               h("p", {}, q.explanation),
               !r.correct && q.wrong_tip ? h("p", { class: "wrong-tip" }, `提示：${q.wrong_tip}`) : null,
               h("button", { class: "btn btn-primary", onclick: onNext }, s.outcome ? "查看結果" : "下一題")
@@ -750,6 +801,12 @@
     else stopDrain();
   }
 
+  // A 承上題 shows the question it follows, so it can be read on its own.
+  function prevQuestionBox(q) {
+    const prev = Q.previousOf(q, questionPool);
+    return prev ? h("details", { class: "prev-q", open: "" }, h("summary", {}, "上一題內容"), h("p", {}, prev.stem)) : null;
+  }
+
   // ---------- Equipment skills (DSE battle only) ----------
   const SKILL_LABELS = { hint: "AI 提示", healing: "眼藥水", damage: "電腦攻擊" };
   const SKILL_REASONS = { used: "已用", full_hp: "HP 已滿", armed: "已準備", used_here: "已用", wait: "" };
@@ -763,6 +820,7 @@
       { class: "skill-bar" },
       items.map((item) => {
         if (item.type === "defense") return h("span", { class: "chip skill-passive" }, `${item.name}：受傷 -${item.reduce_pct}%`);
+        if (item.type === "combo") return h("span", { class: "chip skill-passive" }, `${item.name}：每連擊 +${item.per_combo} 傷害`);
         if (item.type === "time") return h("span", { class: "chip skill-passive" }, s.timed ? `${item.name}：每題首 ${item.seconds} 秒不扣血` : `${item.name}：魔王限時才生效`);
         const st = EQ.skillStatus(s, item);
         const label = SKILL_LABELS[item.type] || item.name;
@@ -965,6 +1023,7 @@
     render,
     bar,
     questionPool,
+    prevQuestionBox,
     buildMode: BUILD_MODE,
     version: APP_VERSION,
     arena,

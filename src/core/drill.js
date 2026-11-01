@@ -15,14 +15,14 @@
   function start(questions, worldId, difficulty, rng) {
     const list = pool(questions, worldId, difficulty);
     if (!list.length) return null;
-    return { worldId, difficulty, order: ITE.rng.shuffle(list, rng), index: 0, answered: 0, correct: 0, streak: 0, best: 0, current: null, last: null };
+    return { worldId, difficulty, order: ITE.questions.shuffleLinked(list, rng), index: 0, answered: 0, correct: 0, streak: 0, best: 0, current: null, last: null };
   }
 
   // The next question (options shuffled); a new round starts after the last one.
   function next(session, rng) {
     let { order, index } = session;
     if (index >= order.length) {
-      order = ITE.rng.shuffle(order, rng);
+      order = ITE.questions.shuffleLinked(order, rng);
       index = 0;
     }
     const current = ITE.questions.shuffleOptions(order[index], rng);

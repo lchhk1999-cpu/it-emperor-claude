@@ -92,11 +92,14 @@
     assert.equal(P.specialtyBonus(P.teamSnapshot({ team: ["CH-DB"] }, data), "OS"), null);
   });
 
-  test("profile: team stats are averages, so team size alone does not add damage", () => {
+  test("profile: team stats are the members' average plus +10% attack and +15% HP per extra member", () => {
     const one = P.teamStats(P.teamSnapshot({ team: ["CH-HACK"] }, data));
     const two = P.teamStats(P.teamSnapshot({ team: ["CH-HACK", "CH-ITDOG"] }, data));
-    assert.deepEqual(one, { attack: 110, hp: 90 });
-    assert.deepEqual(two, { attack: 103, hp: 98 });
+    assert.deepEqual(one, { attack: 110, hp: 90, bonusPct: { attack: 0, hp: 0 } });
+    // averages 102.5 / 97.5, raised by 10% / 15% for the second member
+    assert.deepEqual(two, { attack: 113, hp: 112, bonusPct: { attack: 10, hp: 15 } });
+    const five = P.teamStats(P.teamSnapshot({ team: ["CH-HACK", "CH-ITDOG", "CH-DB", "CH-GOLD", "CH-OFFICE"] }, data));
+    assert.deepEqual(five.bonusPct, { attack: 40, hp: 60 });
   });
 
   test("profile: DSE battle damage uses team attack and specialty bonus", () => {

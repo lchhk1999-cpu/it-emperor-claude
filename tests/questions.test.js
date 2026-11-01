@@ -122,4 +122,22 @@
     assert.throws(() => Q.applyOptionOrder(q, ["A", "A", "B", "C"]));
     assert.ok(!Q.isOptionOrder(["A", "B", "C"]));
   });
+
+  test("questions: a 承上題 always comes straight after the question it follows", () => {
+    const Q = ITE.questions;
+    const mk = (id, stem) => ({ question_id: id, stem });
+    const pool = [mk("X-01", "a"), mk("X-02", "b"), mk("X-03", "承上題，c"), mk("X-04", "d"), mk("Y-1", "e")];
+    assert.equal(Q.predecessorId(pool[2]), "X-02");
+    assert.equal(Q.predecessorId(pool[1]), null);
+    assert.equal(Q.previousOf(pool[2], pool).stem, "b");
+    for (let seed = 1; seed <= 30; seed++) {
+      const out = Q.shuffleLinked(pool, ITE.rng.createRng(seed));
+      assert.equal(out.length, pool.length);
+      const i = out.findIndex((q) => q.question_id === "X-03");
+      assert.equal(out[i - 1].question_id, "X-02", `seed ${seed}`);
+    }
+    const real = ITE.questionBank.questions;
+    const follower = real.find((q) => q.question_id === "ICT-2025-IA-35");
+    if (follower) assert.equal(Q.previousOf(follower, real).question_id, "ICT-2025-IA-34");
+  });
 })();

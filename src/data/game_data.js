@@ -5,12 +5,12 @@
   ITE.gameData = {
  "meta": {
   "source_file": "IT_Emperor_DseMcQs.xlsx",
-  "source_sha256": "81bcf43f52db06711e890f3c54c28e54fbed75f110bffbebf0ceded002e245fe",
-  "imported_at": "2026-10-31T16:51:03Z",
+  "source_sha256": "57c8a4ea25b74221674b6061cac29c82821de432f660c795d56df387362da7e3",
+  "imported_at": "2026-11-01T05:05:29Z",
   "characters": 33,
   "missions": 5,
   "titles": 22,
-  "equipment": 5,
+  "equipment": 16,
   "materials": 9,
   "events": 7,
   "rejected": 0
@@ -663,7 +663,8 @@
      "text": "刪去 2 個；冷卻 4 題"
     }
    ],
-   "supported": true
+   "supported": true,
+   "rarity": "SR"
   },
   {
    "id": "EQ-EYEDROP",
@@ -683,7 +684,8 @@
      "text": "回復 36 HP"
     }
    ],
-   "supported": true
+   "supported": true,
+   "rarity": "SR"
   },
   {
    "id": "EQ-COMPUTER",
@@ -706,7 +708,8 @@
      "text": "冷卻 4 題：額外傷害 80"
     }
    ],
-   "supported": true
+   "supported": true,
+   "rarity": "SR"
   },
   {
    "id": "EQ-ANTIVIRUS",
@@ -726,7 +729,8 @@
      "text": "受傷害 -30%"
     }
    ],
-   "supported": true
+   "supported": true,
+   "rarity": "SR"
   },
   {
    "id": "EQ-GLASSES",
@@ -746,7 +750,251 @@
      "text": "每題 +7 秒"
     }
    ],
-   "supported": true
+   "supported": true,
+   "rarity": "SR"
+  },
+  {
+   "id": "EQ-SEARCH",
+   "name": "搜尋小幫手",
+   "type": "hint",
+   "levels": [
+    {
+     "remove": 1,
+     "cooldown": 8,
+     "text": "刪去 1 個錯誤選項；冷卻 8 題"
+    },
+    {
+     "remove": 1,
+     "cooldown": 6,
+     "text": "刪去 1 個；冷卻 6 題"
+    },
+    {
+     "remove": 1,
+     "cooldown": 5,
+     "text": "刪去 1 個；冷卻 5 題"
+    }
+   ],
+   "supported": true,
+   "rarity": "R"
+  },
+  {
+   "id": "EQ-QAI",
+   "name": "量子 AI 核心",
+   "type": "hint",
+   "levels": [
+    {
+     "remove": 2,
+     "cooldown": 5,
+     "text": "刪去 2 個錯誤選項；冷卻 5 題"
+    },
+    {
+     "remove": 2,
+     "cooldown": 4,
+     "text": "刪去 2 個；冷卻 4 題"
+    },
+    {
+     "remove": 2,
+     "cooldown": 3,
+     "text": "刪去 2 個；冷卻 3 題"
+    }
+   ],
+   "supported": true,
+   "rarity": "SSR"
+  },
+  {
+   "id": "EQ-DRINK",
+   "name": "能量飲品",
+   "type": "healing",
+   "levels": [
+    {
+     "heal": 12,
+     "text": "回復 12 HP"
+    },
+    {
+     "heal": 18,
+     "text": "回復 18 HP"
+    },
+    {
+     "heal": 24,
+     "text": "回復 24 HP"
+    }
+   ],
+   "supported": true,
+   "rarity": "R"
+  },
+  {
+   "id": "EQ-MEDKIT",
+   "name": "急救工具箱",
+   "type": "healing",
+   "levels": [
+    {
+     "heal": 40,
+     "text": "回復 40 HP"
+    },
+    {
+     "heal": 50,
+     "text": "回復 50 HP"
+    },
+    {
+     "heal": 60,
+     "text": "回復 60 HP"
+    }
+   ],
+   "supported": true,
+   "rarity": "SSR"
+  },
+  {
+   "id": "EQ-KEYBOARD",
+   "name": "機械鍵盤",
+   "type": "damage",
+   "levels": [
+    {
+     "cooldown": 6,
+     "bonus": 25,
+     "text": "冷卻 6 題：額外傷害 25"
+    },
+    {
+     "cooldown": 5,
+     "bonus": 35,
+     "text": "冷卻 5 題：額外傷害 35"
+    },
+    {
+     "cooldown": 4,
+     "bonus": 45,
+     "text": "冷卻 4 題：額外傷害 45"
+    }
+   ],
+   "supported": true,
+   "rarity": "R"
+  },
+  {
+   "id": "EQ-SERVER",
+   "name": "伺服器機櫃",
+   "type": "damage",
+   "levels": [
+    {
+     "cooldown": 5,
+     "bonus": 70,
+     "text": "冷卻 5 題：額外傷害 70"
+    },
+    {
+     "cooldown": 4,
+     "bonus": 95,
+     "text": "冷卻 4 題：額外傷害 95"
+    },
+    {
+     "cooldown": 3,
+     "bonus": 120,
+     "text": "冷卻 3 題：額外傷害 120"
+    }
+   ],
+   "supported": true,
+   "rarity": "SSR"
+  },
+  {
+   "id": "EQ-GUARD",
+   "name": "螢幕保護貼",
+   "type": "defense",
+   "levels": [
+    {
+     "reduce_pct": 8,
+     "text": "受傷害 -8%"
+    },
+    {
+     "reduce_pct": 12,
+     "text": "受傷害 -12%"
+    },
+    {
+     "reduce_pct": 16,
+     "text": "受傷害 -16%"
+    }
+   ],
+   "supported": true,
+   "rarity": "R"
+  },
+  {
+   "id": "EQ-FIREWALL",
+   "name": "防火牆",
+   "type": "defense",
+   "levels": [
+    {
+     "reduce_pct": 25,
+     "text": "受傷害 -25%"
+    },
+    {
+     "reduce_pct": 32,
+     "text": "受傷害 -32%"
+    },
+    {
+     "reduce_pct": 40,
+     "text": "受傷害 -40%"
+    }
+   ],
+   "supported": true,
+   "rarity": "SSR"
+  },
+  {
+   "id": "EQ-TIMER",
+   "name": "計時器",
+   "type": "time",
+   "levels": [
+    {
+     "seconds": 2,
+     "text": "每題 +2 秒"
+    },
+    {
+     "seconds": 3,
+     "text": "每題 +3 秒"
+    },
+    {
+     "seconds": 4,
+     "text": "每題 +4 秒"
+    }
+   ],
+   "supported": true,
+   "rarity": "R"
+  },
+  {
+   "id": "EQ-HOURGLASS",
+   "name": "時光沙漏",
+   "type": "time",
+   "levels": [
+    {
+     "seconds": 6,
+     "text": "每題 +6 秒"
+    },
+    {
+     "seconds": 8,
+     "text": "每題 +8 秒"
+    },
+    {
+     "seconds": 10,
+     "text": "每題 +10 秒"
+    }
+   ],
+   "supported": true,
+   "rarity": "SSR"
+  },
+  {
+   "id": "EQ-THUNDERKEY",
+   "name": "雷神鍵盤",
+   "type": "combo",
+   "levels": [
+    {
+     "per_combo": 10,
+     "text": "連擊每題額外傷害 +10"
+    },
+    {
+     "per_combo": 15,
+     "text": "連擊每題額外傷害 +15"
+    },
+    {
+     "per_combo": 20,
+     "text": "連擊每題額外傷害 +20"
+    }
+   ],
+   "supported": true,
+   "rarity": "UR"
   }
  ],
  "pools": {

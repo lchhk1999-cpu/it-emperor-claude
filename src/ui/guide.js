@@ -11,19 +11,23 @@
   const G = root.ITE.gacha;
 
   // When each item is worth it (strategy, not numbers).
+  // When each kind of item is worth it (strategy, not numbers). R / SR / SSR
+  // items of a kind work the same way; higher rarity is stronger.
   const GEAR_TIPS = {
-    "EQ-AI": { when: "遇到沒有把握的難題時才按。", note: "只會刪去錯誤選項，永遠不會刪正確答案；用後要冷卻幾題。" },
-    "EQ-COMPUTER": { when: "有把握答對、或 Combo 連勝時先按，再答題。", note: "下一題答對才有額外傷害；答錯就浪費了，冷卻後才可再用。" },
-    "EQ-EYEDROP": { when: "HP 跌到一半以下時用。", note: "每場只可用一次，HP 滿時不能用。" },
-    "EQ-ANTIVIRUS": { when: "長關卡、究極、帝王試煉最難一級。", note: "不用按，被動減少答錯時受到的傷害；隊伍內只計最高一件。" },
-    "EQ-GLASSES": { when: "魔王限時必備。", note: "每題開頭有幾秒不扣血，讓你看清題目；其他模式沒有作用。" },
+    hint: { when: "遇到沒有把握的難題時才按。", note: "只會刪去錯誤選項，永遠不會刪正確答案；用後要冷卻幾題。" },
+    damage: { when: "有把握答對、或 Combo 連勝時先按，再答題。", note: "下一題答對才有額外傷害；答錯就浪費了，冷卻後才可再用。" },
+    healing: { when: "HP 跌到一半以下時用。", note: "每件每場只可用一次，HP 滿時不能用。" },
+    defense: { when: "長關卡、究極、帝王試煉最難一級。", note: "不用按，被動減少答錯時受到的傷害；隊伍內只計最高一件。" },
+    time: { when: "魔王限時必備。", note: "每題開頭有幾秒不扣血，讓你看清題目；其他模式沒有作用。" },
   };
 
+
   const BUILDS = [
-    ["新手穩陣", "AI 模型＋眼藥水", "容錯高，先求過關。"],
-    ["高難度長戰", "防毒軟件＋眼藥水", "究極、30 題以上關卡，靠減傷和回血撐到最後。"],
-    ["速攻爆發", "電腦＋AI 模型", "熟悉的世界，用 AI 確保答對，再用電腦加大傷害。"],
-    ["魔王限時", "眼鏡＋眼藥水", "眼鏡減少扣血時間，眼藥水補血；有第 3 格可加防毒軟件。"],
+    ["新手穩陣", "提示類＋回血類（例如 AI 模型＋眼藥水）", "容錯高，先求過關。"],
+    ["高難度長戰", "減傷類＋回血類（例如防火牆＋急救工具箱）", "究極、30 題以上關卡，靠減傷和回血撐到最後。"],
+    ["速攻爆發", "傷害類＋提示類（例如伺服器機櫃＋量子 AI 核心）", "熟悉的世界，用提示確保答對，再加大傷害。"],
+    ["魔王限時", "時間類＋回血類（例如時光沙漏＋眼藥水）", "減少扣血時間並補血；有第 3 格可加減傷類。"],
+    ["分散配置", "5 位隊員各帶不同類別", "同一類別的減傷只計最高一件，分給不同隊員更有效。"],
   ];
 
   function section(title, open, ...body) {
@@ -34,13 +38,15 @@
   const li = (items) => h("ul", { class: "guide-list" }, items.map((t) => h("li", {}, t)));
 
   function gearSection() {
-    const items = (data.equipment || []).filter((e) => e.supported);
+    const rank = { UR: 0, SSR: 1, SR: 2, R: 3 };
+    const order = ["hint", "damage", "healing", "defense", "time"];
+    const items = (data.equipment || []).filter((e) => e.supported).sort((a, b) => order.indexOf(a.type) - order.indexOf(b.type) || (rank[a.rarity] ?? 9) - (rank[b.rarity] ?? 9));
     return section(
       "⚔ 裝備策略",
       true,
-      p("每位隊員有 2 個裝備格，角色第三階進化後開第 3 格。每件裝備同一時間只可由一位隊員使用。裝備用於 DSE 挑戰、帝王試煉及魔王限時；故事模式不受影響。"),
+      p("每位隊員有 2 個裝備格，角色第三階進化後開第 3 格。每件裝備同一時間只可由一位隊員使用。裝備分 R、SR、SSR（盲盒取得）及 UR（答題衝刺取得），同類裝備功能一樣，稀有度越高越強。裝備用於 DSE 挑戰及 UR 副本；故事模式不受影響。"),
       items.map((e) => {
-        const tip = GEAR_TIPS[e.id] || { when: "", note: "" };
+        const tip = GEAR_TIPS[e.type] || { when: "", note: "" };
         return h(
           "div",
           { class: "guide-gear" },
@@ -48,7 +54,7 @@
           h(
             "div",
             {},
-            h("b", {}, e.name),
+            h("b", {}, e.name, e.rarity ? h("span", { class: `rarity rarity-${e.rarity}` }, e.rarity) : null),
             h("p", { class: "hint" }, e.levels.map((lv, i) => `第 ${i + 1} 階：${lv.text}`).join("｜")),
             tip.when ? h("p", { class: "guide-when" }, `何時用：${tip.when}`) : null,
             tip.note ? h("p", { class: "hint" }, tip.note) : null
@@ -84,7 +90,7 @@
             `五個世界（${Dg.WORLDS.map((w) => `${w.id} ${w.name}`).join("、")}），各有${Dg.DIFFICULTY_ORDER.map((k) => Dg.DIFFICULTIES[k].name).join("、")}四個難度。`,
             `題數：${Dg.DIFFICULTY_ORDER.map((k) => `${Dg.DIFFICULTIES[k].name} ${Dg.DIFFICULTIES[k].questionCount} 題`).join("、")}；扣同等體力。`,
             `勝出得金幣（${Dg.DIFFICULTY_ORDER.map((k) => Dg.DIFFICULTIES[k].winCoins).join("／")}）及該世界的進化素材；中等和困難有機會額外得傳說核心，究極必得。`,
-            "「今日限定」每日不同主題，勝出可得大量指定素材。",
+            `「今日限定」每日不同主題（香港時間）：${Dg.weekPlan(data).map((d) => `${d.day}${d.icon}${d.name.replace(/^週[六日]/, "")}`).join("、")}。週一至五刷素材、週六刷金幣、週日刷經驗。`,
             "「混合練習」不用體力，只得經驗。",
           ])),
         section("⚡ 體力與操練區", false, li([
@@ -95,7 +101,7 @@
         section("👥 隊伍與專長", false, li([
           `隊伍最多 5 人，位置在 Lv ${slots.join("、")} 解鎖。`,
           "每個角色有專長課題，答對該課題的題目傷害提升；加成幅度在角色卡上顯示。",
-          "隊伍攻擊和 HP 取成員平均；課題越多元，越多題目有加成。",
+          "隊伍攻擊和 HP 是成員平均值，再按人數加成：每多一位隊員攻擊 +10%、HP +15%（5 人共 +40%／+60%）。課題越多元，越多題目有專長加成。",
           "隊伍和裝備只影響 DSE 挑戰及 UR 副本；故事模式人人公平。",
         ])),
         gearSection(),
@@ -116,6 +122,7 @@
           `魔王限時：${tierText(T.DEMON_RULES)}。答題時每秒扣隊伍 HP，看解說時暫停；集齊 ${T.DEMON_RULES.unlockShards} 碎片合成 UR「Bug 魔王」。`,
           "每個難度每星期（星期一 00:00 重置）可領一次碎片；輸了可以再挑戰，不扣體力。",
           "UR 角色不會在盲盒出現。",
+          "答題衝刺：角色向前跑，每題三道門，開始有 60 秒，走對門 +6 秒、走錯門 −4 秒，時間用完結束；通過 5／10／15／20／30 道門得 1–5 個碎片，每日 3 次領獎。集齊 40 個合成 UR 裝備「雷神鍵盤」（每連擊一題額外傷害 +10／15／20）。",
         ])),
         section("📅 每日目標", false, li([
           "每日首次打開會彈出簽到，7 日一循環，累積計算，缺席不會重新開始。",

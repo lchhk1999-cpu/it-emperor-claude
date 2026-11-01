@@ -66,6 +66,9 @@
           "section",
           { class: "panel team-strip" },
           h("h2", {}, `我的隊伍 ${team.length} / ${slots}`, h("span", { class: "team-stats" }, `攻擊 ${stats.attack}｜HP ${stats.hp}`)),
+          stats.bonusPct.attack
+            ? h("p", { class: "team-bonus" }, `👥 ${team.length} 人隊伍加成：攻擊 +${stats.bonusPct.attack}%、HP +${stats.bonusPct.hp}%`)
+            : h("p", { class: "team-bonus" }, "👥 每多一位隊員：攻擊 +10%、HP +15%"),
           h(
             "div",
             { class: "team-slots" },
@@ -88,7 +91,7 @@
               );
             })
           ),
-          h("p", { class: "hint" }, "按角色加入或移出。答對隊員專長課題可加傷害；只用於「DSE 題庫挑戰」。")
+          h("p", { class: "hint" }, "按角色查看能力及加入或移出。答對隊員專長課題可加傷害；只用於 DSE 挑戰及 UR 副本。")
         ),
         message ? h("p", { class: "form-error", role: "alert" }, message) : null,
         h(
@@ -101,6 +104,67 @@
         view === "gear" ? equipmentPanel(profile, team, equip) : charactersPanel(profile, toggle, slots, covered)
       )
     );
+  }
+
+  // 角色詳情 (user report 2026-11-01: stats could not be viewed). A card over
+  // the screen with the character's numbers and what it needs next.
+  let detailOverlay = null;
+  function closeDetail() {
+    if (detailOverlay) detailOverlay.remove();
+    detailOverlay = null;
+  }
+
+  function detail(id, toggle) {
+    closeDetail();
+    const Gr = root.ITE.growth;
+    const profile = app.getSave().profile;
+    const c = data.characters.find((x) => x.id === id);
+    const owned = P.owns(profile, id);
+    const inTeam = profile.team.includes(id);
+    const g = Gr.charGrowth(profile, id);
+    const st = Gr.stats(c, g);
+    const cap = Gr.GROWTH_RULES.levelCaps[g.evo];
+    const maxCap = Gr.GROWTH_RULES.levelCaps[Gr.GROWTH_RULES.levelCaps.length - 1];
+    const gear = E.itemsOf((profile.equipment || {})[id]).map((eid) => data.equipment.find((e) => e.id === eid)).filter(Boolean);
+    const shards = (profile.shards || {})[id] || 0;
+    const ur = c.rarity === "UR";
+    const row = (k, v) => h("div", { class: "cd-row" }, h("span", { class: "cd-k" }, k), h("span", { class: "cd-v" }, v));
+    const sprite = owned ? root.ITE.gear.dressed(sprites.character(id, "happy"), gear.map((e) => ({ id: e.id, tier: tierOf(profile, e.id) }))) : sprites.character(id, "idle");
+    detailOverlay = h(
+      "div",
+      { class: "tutorial-backdrop", onclick: (e) => e.target === detailOverlay && closeDetail() },
+      h(
+        "section",
+        { class: "tutorial-card char-detail", role: "dialog", "aria-modal": "true", "aria-label": `${c.name} 詳情` },
+        h("button", { class: "install-close", "aria-label": "關閉", onclick: closeDetail }, "×"),
+        h("div", { class: owned ? "cd-sprite" : "cd-sprite not-owned", html: sprite }),
+        h("h2", {}, c.name, h("span", { class: `rarity rarity-${c.rarity}` }, c.rarity)),
+        c.familyName ? h("p", { class: "hint" }, c.familyName) : null,
+        h(
+          "div",
+          { class: "cd-grid" },
+          row("攻擊", String(st.attack)),
+          row("HP", String(st.hp)),
+          row("專長", topicName(c.specialty)),
+          row("專長加成", `+${Math.round(c.bonus * 100)}%`),
+          row("等級", owned ? `Lv ${g.level} / ${cap}` : "—"),
+          row("進化", owned ? Gr.EVO_NAMES[g.evo] : "—"),
+          row("裝備格", `${E.slotsFor(profile, id)} 格`),
+          row("碎片", `×${shards}`)
+        ),
+        h("p", { class: "hint" }, `基本能力：攻擊 ${c.attack}、HP ${c.hp}。每升 1 級 +2%，每階進化 +10%；等級上限隨進化 10／20／30／${maxCap}。`),
+        owned && gear.length ? h("p", { class: "hint" }, `裝備：${gear.map((e) => e.name).join("、")}`) : null,
+        owned
+          ? h(
+              "div",
+              { class: "tutorial-actions" },
+              h("button", { class: inTeam ? "btn" : "btn btn-primary", onclick: () => (closeDetail(), toggle(id)) }, inTeam ? "移出隊伍" : "加入隊伍"),
+              h("button", { class: "btn", onclick: () => (closeDetail(), root.ITE.growthUi.show(id)) }, "去培養")
+            )
+          : h("p", { class: "note" }, ur ? "UR 角色：在帝王試煉／魔王限時收集碎片合成。" : "未擁有：可在「盲盒」取得。")
+      )
+    );
+    root.document.body.append(detailOverlay);
   }
 
   // 角色 grid: filter chips (已擁有 / 全部 / each family), three cards per row.
@@ -133,7 +197,7 @@
                 "button",
                 {
                   class: `char-tile${inTeam ? " in-team" : ""}${owned ? "" : " not-owned"}`,
-                  onclick: () => (owned ? toggle(c.id) : show(ERRORS.not_owned)),
+                  onclick: () => (app.sfx("tap"), detail(c.id, toggle)),
                   "aria-pressed": inTeam ? "true" : "false",
                   "aria-label": `${c.name} ${c.rarity}，專長 ${topicName(c.specialty)}，${label}`,
                 },
@@ -179,7 +243,7 @@
                 "button",
                 { class: here ? "gear-option current" : "gear-option", role: "option", "aria-selected": here ? "true" : "false", onclick: () => ((picking = null), here ? rerender() : equip(c.id, e.id, slot)) },
                 h("span", { class: "gear-option-icon", html: root.ITE.gear.icon(e.id, tierOf(profile, e.id)) }),
-                h("span", { class: "gear-option-text" }, h("b", {}, e.name), h("span", { class: "hint" }, effectText(profile, e))),
+                h("span", { class: "gear-option-text" }, h("b", {}, e.name, e.rarity ? h("span", { class: `rarity rarity-${e.rarity}` }, e.rarity) : null), h("span", { class: "hint" }, effectText(profile, e))),
                 h("span", { class: "gear-option-tag" }, here ? "使用中" : holder ? `${holder.name} 使用中` : "")
               );
             })
@@ -231,5 +295,5 @@
     );
   }
 
-  root.ITE.teamUi = { show: () => ((picking = null), (view = "chars"), show()) };
+  root.ITE.teamUi = { show: () => (closeDetail(), (picking = null), (view = "chars"), show()) };
 })(globalThis);

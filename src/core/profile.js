@@ -18,6 +18,9 @@
     // with 3 draws' worth of gems, and every player level gained gives gems.
     starterGems: 30,
     levelUpGems: 5,
+    // Each member after the first adds to the team's average (user report
+    // 2026-11-01: a bigger team did not raise attack or HP): 5 members = +40% / +60%.
+    teamBonusPerMember: { attack: 0.1, hp: 0.15 },
   };
 
   // New players start with IT狗 + AI 模型 (user decision 2026-10-30); more
@@ -140,11 +143,15 @@
 
   // Team attack/HP are the members' averages, so a bigger team does not hit
   // harder by itself; it covers more specialty topics instead.
+  // Average of the members, raised for every extra member (PROFILE_RULES.teamBonusPerMember).
   function teamStats(team) {
     const n = team.length || 1;
+    const extra = Math.max(0, team.length - 1);
+    const b = PROFILE_RULES.teamBonusPerMember;
     return {
-      attack: Math.round(team.reduce((s, c) => s + c.attack, 0) / n),
-      hp: Math.round(team.reduce((s, c) => s + c.hp, 0) / n),
+      attack: Math.round((team.reduce((s, c) => s + c.attack, 0) / n) * (1 + b.attack * extra)),
+      hp: Math.round((team.reduce((s, c) => s + c.hp, 0) / n) * (1 + b.hp * extra)),
+      bonusPct: { attack: Math.round(b.attack * extra * 100), hp: Math.round(b.hp * extra * 100) },
     };
   }
 

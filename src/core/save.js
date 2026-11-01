@@ -164,6 +164,13 @@
       }
     }
     // 帝王試煉 { week, cleared: [tier] }; a damaged entry is dropped (no tier cleared).
+    // 答題衝刺 { day, plays, best }; a damaged entry is dropped (no runs used today).
+    if (raw.rush !== undefined) {
+      const r = raw.rush;
+      if (r && isText(r.day) && /^\d{4}-\d{2}-\d{2}$/.test(r.day) && Number.isInteger(r.plays) && r.plays >= 0) {
+        out.rush = { day: r.day, plays: Math.min(r.plays, 99), best: Number.isInteger(r.best) && r.best >= 0 ? Math.min(r.best, 9999) : 0 };
+      }
+    }
     if (raw.trials !== undefined) {
       const t = raw.trials;
       if (t && isText(t.week) && /^\d{4}-\d{2}-\d{2}$/.test(t.week) && Array.isArray(t.cleared)) {

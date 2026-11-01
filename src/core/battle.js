@@ -69,7 +69,9 @@
       damage = Math.round((damage * ITE.profile.teamStats(team).attack) / 100 * (1 + (bonus ? bonus.bonus : 0)));
     }
     // 電腦 bonus is consumed by this answer and lands only if it is correct.
-    const equipBonus = correct ? state.armedBonus || 0 : 0;
+    // 雷神鍵盤 (UR combo item): more damage the longer the Combo.
+    const comboGear = correct ? (state.loadout || []).filter((x) => x.type === "combo").reduce((s, x) => s + (x.per_combo || 0), 0) * combo : 0;
+    const equipBonus = (correct ? state.armedBonus || 0 : 0) + comboGear;
     damage += equipBonus;
     const taken = correct ? 0 : ITE.equipment ? ITE.equipment.damageTaken(state, state.boss.attack) : state.boss.attack;
     const boss = { ...state.boss, hp: Math.max(0, state.boss.hp - damage) };

@@ -204,8 +204,10 @@ EQUIPMENT_PATTERNS = {
     "damage": (r"冷卻\s*(\d+)\s*題\s*[：:]\s*額外傷害\s*(\d+)", ("cooldown", "bonus")),
     "defense": (r"受傷害\s*-\s*(\d+)\s*%", ("reduce_pct",)),
     "time": (r"每題\s*\+\s*(\d+)\s*秒", ("seconds",)),
+    # 雷神鍵盤 (UR, 2026-11-01): every correct answer adds this much damage per Combo step.
+    "combo": (r"連擊每題額外傷害\s*\+\s*(\d+)", ("per_combo",)),
 }
-EQUIPMENT_SUPPORTED = {"hint", "healing", "damage", "defense", "time"}  # "time": 眼鏡, used in 魔王限時 (2026-11-01)
+EQUIPMENT_SUPPORTED = {"hint", "healing", "damage", "defense", "time", "combo"}  # "time": 眼鏡, used in 魔王限時 (2026-11-01)
 
 
 def parse_effect(kind, text):
@@ -246,8 +248,17 @@ def import_equipment(sheets):
         if errors:
             rejected.append({"row": row, "id": d["equipment_id"], "errors": errors})
             continue
-        out.append({"id": d["equipment_id"], "name": d["equipment_name"], "type": d["type"], "levels": levels,
-                    "supported": d["type"] in EQUIPMENT_SUPPORTED})
+        item = {"id": d["equipment_id"], "name": d["equipment_name"], "type": d["type"], "levels": levels,
+                "supported": d["type"] in EQUIPMENT_SUPPORTED}
+        # Optional rarity column (2026-11-01): R / SR / SSR use the equipment pool
+        # rates; UR items are never drawn (earned in game modes).
+        rarity = (d.get("rarity") or "").strip()
+        if rarity:
+            if rarity not in CHAR_RARITIES:
+                rejected.append({"row": row, "id": d["equipment_id"], "errors": [f"rarity must be R/SR/SSR/UR, got '{rarity}'"]})
+                continue
+            item["rarity"] = rarity
+        out.append(item)
     return out, rejected
 
 
