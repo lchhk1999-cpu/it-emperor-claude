@@ -5,12 +5,12 @@
   ITE.gameData = {
  "meta": {
   "source_file": "IT_Emperor_DseMcQs.xlsx",
-  "source_sha256": "f61cff899ef1d4516bfea497658e23f82b6a539f9f9647bd39e4873b2d414907",
-  "imported_at": "2026-11-01T04:52:30Z",
+  "source_sha256": "57c8a4ea25b74221674b6061cac29c82821de432f660c795d56df387362da7e3",
+  "imported_at": "2026-11-01T05:05:29Z",
   "characters": 33,
   "missions": 5,
   "titles": 22,
-  "equipment": 15,
+  "equipment": 16,
   "materials": 9,
   "events": 7,
   "rejected": 0
@@ -974,6 +974,27 @@
    ],
    "supported": true,
    "rarity": "SSR"
+  },
+  {
+   "id": "EQ-THUNDERKEY",
+   "name": "雷神鍵盤",
+   "type": "combo",
+   "levels": [
+    {
+     "per_combo": 10,
+     "text": "連擊每題額外傷害 +10"
+    },
+    {
+     "per_combo": 15,
+     "text": "連擊每題額外傷害 +15"
+    },
+    {
+     "per_combo": 20,
+     "text": "連擊每題額外傷害 +20"
+    }
+   ],
+   "supported": true,
+   "rarity": "UR"
   }
  ],
  "pools": {

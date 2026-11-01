@@ -426,6 +426,9 @@
             : null,
           root.ITE.trialUi
             ? h("button", { class: "mode-tile demon-entry", onclick: () => root.ITE.trialUi.show("demon") }, h("span", { class: "mode-icon" }, "⏱"), h("span", { class: "mode-name" }, "魔王限時"), h("span", { class: "mode-sub" }, "UR Bug 魔王"))
+            : null,
+          root.ITE.rushUi
+            ? h("button", { class: "mode-tile rush-entry", onclick: () => root.ITE.rushUi.show() }, h("span", { class: "mode-icon" }, "🏃"), h("span", { class: "mode-name" }, "答題衝刺"), h("span", { class: "mode-sub" }, "UR 雷神鍵盤"))
             : null
         ),
         limited ? stageCard(limited) : null,
@@ -735,7 +738,7 @@
               { class: `explain ${r.correct ? "explain-ok" : "explain-ng"}`, "aria-live": "polite" },
               h("div", { class: "explain-title" }, r.correct ? `答對！造成 ${r.damage} 傷害` : `答錯了… 正確答案是 ${q.answer}`),
               r.correct && r.bonus ? h("p", { class: "bonus-tip" }, `${r.bonus.name} 專長加成 +${Math.round(r.bonus.bonus * 100)}%`) : null,
-              r.equipBonus ? h("p", { class: "bonus-tip" }, `電腦額外傷害 +${r.equipBonus}`) : null,
+              r.equipBonus ? h("p", { class: "bonus-tip" }, `裝備額外傷害 +${r.equipBonus}`) : null,
               h("p", {}, q.explanation),
               !r.correct && q.wrong_tip ? h("p", { class: "wrong-tip" }, `提示：${q.wrong_tip}`) : null,
               h("button", { class: "btn btn-primary", onclick: onNext }, s.outcome ? "查看結果" : "下一題")
@@ -770,6 +773,7 @@
       { class: "skill-bar" },
       items.map((item) => {
         if (item.type === "defense") return h("span", { class: "chip skill-passive" }, `${item.name}：受傷 -${item.reduce_pct}%`);
+        if (item.type === "combo") return h("span", { class: "chip skill-passive" }, `${item.name}：每連擊 +${item.per_combo} 傷害`);
         if (item.type === "time") return h("span", { class: "chip skill-passive" }, s.timed ? `${item.name}：每題首 ${item.seconds} 秒不扣血` : `${item.name}：魔王限時才生效`);
         const st = EQ.skillStatus(s, item);
         const label = SKILL_LABELS[item.type] || item.name;

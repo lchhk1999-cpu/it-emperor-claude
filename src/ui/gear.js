@@ -75,6 +75,12 @@
     "EQ-HOURGLASS": `<path d="M22 10 h36 M22 70 h36" stroke="${INK}" stroke-width="5" stroke-linecap="round"/>
       <path d="M26 12 C26 32 40 34 40 40 C40 46 26 48 26 68 H54 C54 48 40 46 40 40 C40 34 54 32 54 12Z" fill="#e8f4fb" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/>
       <path d="M31 22 H49 C47 30 42 34 40 37 C38 34 33 30 31 22Z M30 66 C32 56 38 54 40 52 C42 54 48 56 50 66Z" fill="#f4d36b"/>`,
+    // 雷神鍵盤 (UR, 答題衝刺): a golden keyboard struck by lightning.
+    "EQ-THUNDERKEY": `<circle cx="40" cy="40" r="36" fill="#fff6d8" opacity="0.8"/>
+      <rect x="8" y="38" width="64" height="28" rx="6" fill="#f4d36b" stroke="${INK}" stroke-width="4"/>
+      <g fill="#fff6d8" stroke="${INK}" stroke-width="2"><rect x="14" y="44" width="9" height="7" rx="2"/><rect x="26" y="44" width="9" height="7" rx="2"/><rect x="38" y="44" width="9" height="7" rx="2"/><rect x="50" y="44" width="15" height="7" rx="2"/><rect x="20" y="55" width="40" height="6" rx="2"/></g>
+      <path d="M46 4 L30 26 H40 L32 42 L54 18 H43 L50 4Z" fill="#8fc7f0" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M14 20 l4 6 M66 20 l-4 6 M10 32 h6 M64 32 h6" stroke="#f2a541" stroke-width="3" stroke-linecap="round"/>`,
   };
 
   // A generic box for items added to the workbook later without their own art.

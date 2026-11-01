@@ -1038,3 +1038,44 @@ body[data-screen="guild"] { --page-bg: linear-gradient(180deg, #ebe2f8 0%, #fbf6
 .cd-row { display: flex; justify-content: space-between; align-items: baseline; gap: 6px; padding: 6px 10px; background: #fff; border: 2px solid var(--ink); border-radius: 12px; }
 .cd-k { font-size: 12px; font-weight: 800; color: var(--muted); }
 .cd-v { font-size: 15px; font-weight: 900; text-align: right; }
+/* 答題衝刺 (2026-11-01) */
+.mode-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.rush-entry { background: linear-gradient(100deg, #fff1c9, #c9e2f4); }
+.rush-item { width: 110px; }
+.rush-hud { display: flex; align-items: center; gap: 8px; }
+.rush-time { position: relative; flex: 1; height: 26px; background: #fff; border: 2.5px solid var(--ink); border-radius: 999px; overflow: hidden; }
+.rush-time-fill { position: absolute; inset: 0 auto 0 0; background: linear-gradient(90deg, #9fd4b4, #f4d36b); transition: width 0.1s linear; }
+.rush-time-fill.low { background: #f08a9c; animation: tap-pulse 0.6s ease-in-out infinite; }
+.rush-time-num { position: relative; display: block; text-align: center; font-weight: 900; line-height: 21px; }
+.rush-count { font-size: 18px; font-weight: 900; white-space: nowrap; }
+.rush-scene { position: relative; height: 150px; margin-top: 8px; overflow: hidden; border: 2.5px solid var(--ink); border-radius: 18px; background: linear-gradient(180deg, #c9e2f4 0%, #e8f4fb 45%, #a7d8a0 45%, #8cc68a 100%); }
+.rush-road { position: absolute; left: 50%; bottom: 0; width: 70%; height: 55%; transform: translateX(-50%); background: #e3d4bd; clip-path: polygon(38% 0, 62% 0, 100% 100%, 0 100%); }
+.rush-road span { position: absolute; left: 50%; width: 6px; height: 18px; margin-left: -3px; background: #fff; border-radius: 3px; animation: rush-stripe 0.6s linear infinite; }
+.rush-road span:nth-child(2) { animation-delay: -0.2s; }
+.rush-road span:nth-child(3) { animation-delay: -0.4s; }
+.rush-runner { position: absolute; left: 50%; bottom: 4px; width: 84px; margin-left: -42px; animation: rush-run 0.35s ease-in-out infinite alternate; }
+.rush-runner svg { width: 100%; height: auto; display: block; }
+.rush-speed { position: absolute; top: 6px; right: 10px; font-size: 12px; font-weight: 900; color: var(--ink); background: rgba(255,255,255,0.75); padding: 1px 8px; border-radius: 999px; }
+.rush-flash { position: absolute; top: 18px; left: 50%; transform: translateX(-50%); font-size: 26px; font-weight: 900; color: #fff; -webkit-text-stroke: 4px var(--ink); paint-order: stroke fill; animation: rush-pop 0.8s ease-out both; }
+.rush-flash.ng { color: #f08a9c; }
+.rush-flash.ok { color: #9fd4b4; }
+.rush-answer { margin: 6px 0 0; padding: 6px 10px; font-size: 13px; font-weight: 800; background: #fde8e1; border: 2px solid #d2553f; border-radius: 12px; }
+.rush-q { margin-top: 8px; }
+.rush-doors { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 10px; }
+.rush-door {
+  display: flex; align-items: center; justify-content: center; min-height: 120px; padding: 18px 6px 10px; font: inherit; font-size: 14px; font-weight: 800; line-height: 1.35; color: var(--ink);
+  border: 3px solid var(--ink); border-radius: 60px 60px 10px 10px; box-shadow: 0 4px 0 var(--ink); cursor: pointer; animation: rush-door-in 0.35s ease-out both; word-break: break-word;
+}
+.rush-door:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--ink); }
+.rush-door.door-0 { background: #f8c9d6; }
+.rush-door.door-1 { background: #c3e1f7; animation-delay: 0.05s; }
+.rush-door.door-2 { background: #d0ecca; animation-delay: 0.1s; }
+.rush-door-text { display: block; }
+@keyframes rush-stripe { from { top: -20px; opacity: 0.4; } to { top: 100%; opacity: 1; } }
+@keyframes rush-run { from { transform: translateY(0) rotate(-3deg); } to { transform: translateY(-6px) rotate(3deg); } }
+@keyframes rush-pop { from { transform: translate(-50%, 10px) scale(0.6); opacity: 0; } 30% { opacity: 1; transform: translate(-50%, 0) scale(1.2); } to { transform: translate(-50%, -20px) scale(1); opacity: 0; } }
+@keyframes rush-door-in { from { transform: scale(0.7) translateY(-20px); opacity: 0; } to { transform: none; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .rush-road span, .rush-runner, .rush-door, .rush-flash, .rush-time-fill.low { animation: none !important; } }
+.mode-tile.trial-entry { background: linear-gradient(100deg, #fff1c9, #f4d5f0 60%, #d8e8fa); }
+.mode-tile.demon-entry { background: linear-gradient(100deg, #f6c6c0, #e0d5f0); }
+.mode-tile.rush-entry { background: linear-gradient(100deg, #fff1c9, #c9e2f4); }

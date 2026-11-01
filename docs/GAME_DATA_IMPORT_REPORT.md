@@ -1,8 +1,8 @@
 # 遊戲資料匯入報告（自動產生）
 
 - 來源檔案：`IT_Emperor_DseMcQs.xlsx`
-- SHA-256：`f61cff899ef1d4516bfea497658e23f82b6a539f9f9647bd39e4873b2d414907`
-- 匯入時間：2026-11-01T04:52:30Z
+- SHA-256：`57c8a4ea25b74221674b6061cac29c82821de432f660c795d56df387362da7e3`
+- 匯入時間：2026-11-01T05:05:29Z
 - 工作表：`Characters`、`GameConfig`、`Missions`、`Titles`、`Equipment`、`Pools`、`Materials`、`Stages`、`Events`（Topics 用作檢查課題）
 
 ## 角色
@@ -113,6 +113,7 @@
 | EQ-FIREWALL | 防火牆 | defense | 受傷害 -25% | reduce_pct=25 | ✅ |
 | EQ-TIMER | 計時器 | time | 每題 +2 秒 | seconds=2 | ✅ |
 | EQ-HOURGLASS | 時光沙漏 | time | 每題 +6 秒 | seconds=6 | ✅ |
+| EQ-THUNDERKEY | 雷神鍵盤 | combo | 連擊每題額外傷害 +10 | per_combo=10 | ✅ |
 
 ## 抽蛋池（只用免費寶石）
 

@@ -14,10 +14,11 @@
   const right = (s) => B.answer(s, B.currentQuestion(s).answer);
   const wrong = (s) => B.answer(s, ITE.questions.ANSWERS.find((l) => l !== B.currentQuestion(s).answer));
 
-  test("equipment: 15 workbook items (R/SR/SSR of 5 kinds) with parsed effects; glasses usable (魔王限時)", () => {
+  test("equipment: 15 box items (R/SR/SSR of 5 kinds) + the UR 雷神鍵盤, with parsed effects", () => {
     const byId = (id) => E.itemById(data, id);
     assert.deepEqual(data.equipment.slice(0, 5).map((e) => e.id), ["EQ-AI", "EQ-EYEDROP", "EQ-COMPUTER", "EQ-ANTIVIRUS", "EQ-GLASSES"]);
-    assert.equal(data.equipment.length, 15);
+    assert.equal(data.equipment.length, 16);
+    assert.equal(data.equipment.filter((e) => e.rarity === "UR").map((e) => e.id).join(), "EQ-THUNDERKEY");
     for (const kind of ["hint", "healing", "damage", "defense", "time"]) {
       assert.deepEqual(data.equipment.filter((e) => e.type === kind).map((e) => e.rarity).sort(), ["R", "SR", "SSR"], kind);
     }
