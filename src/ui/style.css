@@ -1180,3 +1180,97 @@ body[data-screen="rush"] { --page-bg: radial-gradient(circle at 50% 0%, #1d3157 
 .gate-text { margin: 0 0 12px; font-size: 15px; line-height: 1.5; color: var(--muted); }
 .gate-input { width: 100%; text-align: center; font-size: 22px; font-weight: 800; letter-spacing: 3px; }
 .gate-go { width: 100%; margin-top: 10px; }
+/* 知識修練館 (2026-11-01) */
+.rv-home { display: flex; align-items: center; gap: 10px; width: 100%; margin-top: 12px; padding: 10px 12px; text-align: left; background: linear-gradient(110deg, #e9f6ee 0%, #fff6e3 80%); border: 2.5px solid var(--ink); border-radius: 18px; box-shadow: 0 3px 0 var(--ink); cursor: pointer; }
+.rv-home:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--ink); }
+.rv-home:focus-visible { outline: 3px solid #6aa0d8; outline-offset: 3px; }
+.rv-home-icon { flex: none; width: 46px; height: 46px; display: grid; place-items: center; font-size: 26px; background: #fff; border: 2.5px solid var(--ink); border-radius: 50%; }
+.rv-home-info { display: flex; flex-direction: column; min-width: 0; }
+.rv-home-title { font-size: 17px; font-weight: 900; }
+.rv-home-sub { font-size: 13.5px; font-weight: 700; color: var(--muted); }
+.rv-home-go { flex: none; margin-left: auto; padding: 4px 10px; font-size: 13px; font-weight: 900; background: var(--mint); border: 2px solid var(--ink); border-radius: 999px; }
+
+.revision { --rv-size: 16px; }
+.rv-font-1 { --rv-size: 18px; }
+.rv-font-2 { --rv-size: 20.5px; }
+.rv-font-btn { margin-left: auto; min-width: 44px; font-weight: 900; }
+.rv-entries { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 10px 0; }
+.rv-entry { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 10px 4px; min-width: 0; text-align: center; background: #fff; border: 2.5px solid var(--ink); border-radius: 16px; box-shadow: 0 3px 0 var(--ink); cursor: pointer; }
+.rv-entry-icon { font-size: 24px; }
+.rv-entry-title { font-size: 14.5px; font-weight: 900; }
+.rv-entry-sub { font-size: 12px; font-weight: 700; color: var(--muted); overflow-wrap: anywhere; }
+.rv-search { width: 100%; margin-bottom: 10px; }
+.rv-chapter { display: flex; align-items: center; gap: 10px; width: 100%; margin-top: 8px; padding: 9px 10px; text-align: left; background: #fff; border: 2px solid var(--line); border-radius: 14px; cursor: pointer; }
+.rv-chapter:focus-visible { outline: 3px solid #6aa0d8; }
+.rv-elective { cursor: default; background: #f7f3ee; }
+.rv-chapter-id { flex: none; min-width: 44px; padding: 3px 6px; font-weight: 900; text-align: center; background: var(--yellow); border: 2px solid var(--ink); border-radius: 10px; }
+.rv-chapter-main { display: flex; flex-direction: column; min-width: 0; flex: 1; }
+.rv-chapter-title { font-size: 15.5px; font-weight: 800; }
+.rv-chapter-keys { font-size: 12.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rv-chapter-progress { flex: none; display: flex; flex-direction: column; align-items: flex-end; font-size: 13px; font-weight: 800; color: var(--muted); }
+.rv-due-dot { color: #b0471f; }
+.rv-badge { display: inline-block; margin-left: 6px; padding: 1px 7px; font-size: 11.5px; font-weight: 800; vertical-align: 2px; background: var(--peach); border: 1.5px solid var(--ink); border-radius: 999px; }
+.rv-badge-lab { background: var(--mint); }
+.rv-tagline { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; margin: 4px 0 8px; font-size: 13.5px; font-weight: 800; color: var(--muted); }
+.rv-chip { padding: 1px 8px; font-size: 12.5px; color: var(--ink); background: #fff; border: 1.5px solid var(--line); border-radius: 999px; }
+.rv-cardtabs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; margin-bottom: 8px; }
+.rv-cardtab { flex: none; padding: 6px 11px; font-size: 14px; font-weight: 800; background: #fff; border: 2px solid var(--line); border-radius: 999px; cursor: pointer; }
+.rv-cardtab.active { background: var(--yellow); border-color: var(--ink); }
+.rv-cardtab-mark { margin-right: 4px; }
+.rv-card { font-size: var(--rv-size); line-height: 1.65; }
+.rv-card h2 { margin: 6px 0 6px; font-size: calc(var(--rv-size) + 2px); }
+.rv-card-mistake .rv-section h2 { color: #b0471f; }
+.rv-section + .rv-section { margin-top: 14px; }
+.rv-p { margin: 6px 0; }
+.rv-table-wrap { overflow-x: auto; margin: 8px 0; }
+.rv-table { width: 100%; border-collapse: collapse; font-size: calc(var(--rv-size) - 1.5px); }
+.rv-table th, .rv-table td { padding: 6px 8px; text-align: left; vertical-align: top; border: 1.5px solid var(--line); }
+.rv-table thead th { background: var(--sky); }
+.rv-table tr.hl td, .rv-table tr.hl th { background: #fff4c7; }
+.rv-table tr.changed td { background: #e3f5ea; font-weight: 800; }
+.rv-sheet th[scope="row"] { width: 28px; color: var(--muted); text-align: center; }
+.rv-code-box { margin: 8px 0; }
+.rv-code { margin: 0; padding: 8px 0; overflow-x: auto; font: 14.5px/1.55 ui-monospace, "SF Mono", Menlo, monospace; color: #e8eef7; background: #1f2b3d; border-radius: 12px; }
+.rv-line { display: block; padding: 0 10px 0 0; white-space: pre; }
+.rv-line.current { background: #3d5a80; box-shadow: inset 4px 0 0 var(--yellow); }
+.rv-ln { display: inline-block; width: 30px; margin-right: 10px; text-align: right; color: #8a9bb3; user-select: none; }
+.rv-trace-btn { margin-top: 6px; }
+.rv-tracer { display: flex; flex-direction: column; gap: 6px; }
+.rv-trace-note { margin: 0; font-weight: 800; min-height: 1.6em; }
+.rv-vars { max-width: 320px; }
+.rv-output { display: flex; gap: 8px; align-items: flex-start; }
+.rv-output-label { flex: none; padding: 2px 8px; font-size: 13px; font-weight: 800; background: var(--sky); border-radius: 8px; }
+.rv-output pre { margin: 0; font: 15px/1.5 ui-monospace, Menlo, monospace; white-space: pre-wrap; }
+.rv-trace-controls, .rv-actions, .rv-judge, .rv-backlinks { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.rv-q { padding: 10px 0; border-top: 1.5px dashed var(--line); }
+.rv-q-text { margin: 4px 0 8px; font-weight: 800; }
+.rv-answer-input { width: 100%; margin-bottom: 8px; font-size: var(--rv-size); }
+.rv-answer { margin: 6px 0; padding: 8px 10px; background: #f1f8f4; border-left: 4px solid var(--mint); border-radius: 8px; }
+.rv-ok { margin: 6px 0; font-weight: 900; color: #23704a; }
+.rv-ng { margin: 6px 0; font-weight: 900; color: #b0471f; }
+.rv-reward { margin: 6px 0; font-weight: 900; color: #8a5a00; }
+.rv-step { margin: 0; font-size: 13.5px; font-weight: 800; color: var(--muted); }
+.rv-options { display: grid; gap: 8px; margin: 10px 0; }
+.rv-option { text-align: left; font-size: var(--rv-size); }
+.rv-option-right { background: #dff3e7; border-color: #23704a; }
+.rv-option-right::before { content: "✓ "; }
+.rv-option-wrong { background: #fde3dc; border-color: #b0471f; }
+.rv-option-wrong::before { content: "✕ "; }
+.rv-feedback { min-height: 1px; }
+.rv-next { margin-top: 12px; width: 100%; }
+.rv-steppers { display: flex; flex-wrap: wrap; gap: 12px; margin: 8px 0; }
+.rv-stepper { display: flex; align-items: center; gap: 6px; font-weight: 800; }
+.rv-stepper-value { min-width: 34px; text-align: center; font-size: 20px; }
+.btn-small { min-width: 40px; min-height: 40px; padding: 4px 10px; }
+.rv-formula { margin: 6px 0; padding: 6px 10px; overflow-x: auto; font: 14.5px ui-monospace, Menlo, monospace; white-space: nowrap; background: #fff; border: 1.5px solid var(--line); border-radius: 8px; }
+.rv-fx { margin-right: 8px; font-style: italic; font-weight: 900; color: var(--muted); }
+.rv-breakdown { margin: 6px 0; padding-left: 20px; }
+.rv-breakdown code { font: 14.5px ui-monospace, Menlo, monospace; }
+.rv-true { color: #23704a; }
+.rv-false { color: #b0471f; }
+.rv-result { margin: 8px 0; font-size: calc(var(--rv-size) + 2px); }
+@media (prefers-reduced-motion: reduce) { .rv-home:active, .rv-entry:active { transform: none; } }
+.rv-font-btn, .rv-trace-controls .btn, .rv-judge .btn, .rv-backlinks .btn, .rv-actions .btn, .rv-stepper .btn, .rv-trace-btn { display: inline-flex; align-items: center; justify-content: center; width: auto; min-height: 44px; padding: 6px 14px; }
+.rv-font-btn { flex: none; width: 48px; padding: 0; }
+.rv-trace-controls .btn { flex: 1; }
+.rv-stepper .btn { min-width: 44px; padding: 0; }

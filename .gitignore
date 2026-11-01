@@ -30,3 +30,6 @@ assets/style_references/*
 
 # Local preview config (session-specific paths)
 .claude/launch.json
+
+# Revision notes source (ChatGPT track) is delivered separately like the question bank
+data/revision_notes/*.docx
