@@ -41,8 +41,8 @@ Claude 會用瀏覽器打開兩個版本檢查是否正常。
 - 進度只存在各自手機；換手機可用「設定 → 備份進度」。
 - 收集意見：可用 `04_AGE_RATING_AND_TESTFLIGHT.md` 的回饋問題做 Google Form。
 
-## 隱藏「Powered by Netlify」徽章
-Netlify 會在新網站右下角加一個徽章，會遮住遊戲底部分頁的一部分。關閉方法：Netlify 網站頁面 →「Project configuration」→「General」→「Powered by Netlify badge」→ 關閉。（2026 年 8 月起逐步推出，如未見此設定可稍後再看。）
+## 「Powered by Netlify」徽章
+Netlify 會在網站右下角加一個徽章，遮住遊戲底部分頁右邊少許（分頁仍可點）。免費帳戶要付費升級才可關掉。2026-11-01 用戶決定：試玩期間（主要給本校學生溫習）先保留 Netlify 及徽章，不付費；上架 App Store 時才處理（App 版本不會有此徽章）。如日後想換免費且無徽章的網頁寄存，可改用 Cloudflare Pages（Workers & Pages → Create application → Pages → Upload assets，拖入同一個 `dist/site` 資料夾）。
 
 ## 收回或暫停
 Netlify 網站頁面 → 「Site configuration」→ 最底「Delete this site」，連結即時失效。
