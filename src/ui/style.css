@@ -1274,3 +1274,10 @@ body[data-screen="rush"] { --page-bg: radial-gradient(circle at 50% 0%, #1d3157 
 .rv-font-btn { flex: none; width: 48px; padding: 0; }
 .rv-trace-controls .btn { flex: 1; }
 .rv-stepper .btn { min-width: 44px; padding: 0; }
+/* 稱號級別 (2026-11-01) */
+.title-tier { border: 1.5px solid var(--ink); font-weight: 900; }
+.title-tier.tier-1 { background: #e7b98c; }
+.title-tier.tier-2 { background: #dfe3ea; }
+.title-tier.tier-3 { background: #f4d36b; }
+.title-tier.tier-4 { background: #cfeff2; }
+.title-tier.tier-5 { background: linear-gradient(120deg, #d9f3ff, #f3dcff); }

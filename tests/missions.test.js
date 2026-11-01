@@ -66,7 +66,7 @@
     assert.equal(M.titleStatus(p, title("T-NEW")).earned, true);
     p = answerN(p, 99, true, "EXCEL");
     p = answerN(p, 5, false, "EXCEL");
-    assert.deepEqual(M.titleStatus(p, title("T-EXCEL")), { value: 99, target: 100, earned: false, supported: true });
+    assert.deepEqual(M.titleStatus(p, title("T-EXCEL")), { value: 99, target: 100, earned: false, supported: true, tier: 0, tiers: 5, tierName: null, maxed: false });
     p = answerN(p, 1, true, "EXCEL");
     assert.ok(M.titleStatus(p, title("T-EXCEL")).earned);
     p = answerN(p, 100, true, "SQL", "WHERE;SELECT");
@@ -74,6 +74,30 @@
     p = answerN(p, 100, true, "SQL", "JOIN;LEFT JOIN");
     assert.ok(M.titleStatus(p, title("T-SQL")).earned);
     assert.equal(M.titleStatus(p, title("T-PVP")).supported, false);
+  });
+
+  test("missions: titles climb 銅→銀→金→白金→鑽石 as counts grow; titles with a natural end keep one tier", () => {
+    let p = M.defaultProgress(WED);
+    assert.deepEqual(M.titleTiers(title("T-EXCEL")), [100, 200, 500, 1000, 2000]);
+    assert.deepEqual(M.titleTiers(title("T-STREAK10")), [10, 15, 20, 30, 50]);
+    assert.deepEqual(M.titleTiers(title("T-ULTIMATE")), [1, 5, 20, 50, 100]);
+    assert.deepEqual(M.titleTiers(title("T-ALLSTAGES")), [20]);
+    assert.deepEqual(M.titleTiers(title("T-STORY")), [43]);
+    assert.deepEqual(M.titleTiers(title("T-COLLECT")), [20, 25, 30, data.characters.length], "stops at every character");
+    assert.ok(M.titleTiers(title("T-EVOLVE")).every((t) => t <= data.characters.length));
+    p = answerN(p, 50, true, "OS");
+    let st = M.titleStatus(p, title("T-NEW"));
+    assert.deepEqual([st.tier, st.tierName, st.value, st.target], [1, "銅", 50, 100], "next target is 銀");
+    assert.equal(M.titleLabel(p, title("T-NEW")), "IT 新人王・銅");
+    p = answerN(p, 200, true, "OS");
+    st = M.titleStatus(p, title("T-NEW"));
+    assert.deepEqual([st.tier, st.tierName, st.target], [3, "金", 500]);
+    p = answerN(p, 800, true, "OS");
+    st = M.titleStatus(p, title("T-NEW"));
+    assert.deepEqual([st.tier, st.tierName, st.maxed, st.value, st.target], [5, "鑽石", true, 1000, 1000]);
+    // Single-tier titles show the plain name.
+    const one = M.titleStatus(p, title("T-STORY"), { story: { levels: Object.fromEntries(Array.from({ length: 43 }, (_, i) => [`L${i}`, { cleared: true }])) } });
+    assert.deepEqual([one.earned, one.tierName, one.maxed], [true, null, true]);
   });
 
   test("missions: only earned titles can be equipped and shown", () => {

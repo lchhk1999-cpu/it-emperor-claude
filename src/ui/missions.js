@@ -45,7 +45,7 @@
       const r = Mi.equipTitle(app.getSave().progress, t, app.titleContext());
       if (r.error) return show("未取得這個稱號。");
       app.setSave({ ...app.getSave(), progress: r.progress });
-      show(t ? `已佩戴稱號「${t.name}」` : "已取下稱號");
+      show(t ? `已佩戴稱號「${Mi.titleLabel(app.getSave().progress, t, app.titleContext())}」` : "已取下稱號");
     };
 
     const equipped = Mi.equippedTitle(progress, data.titles, app.titleContext());
@@ -96,7 +96,8 @@
           "section",
           { class: "panel" },
           h("h2", {}, "稱號"),
-          h("p", { class: "hint" }, equipped ? `目前佩戴：${equipped.name}` : "取得稱號後可以佩戴，會顯示在主畫面。"),
+          h("p", { class: "hint" }, equipped ? `目前佩戴：${Mi.titleLabel(progress, equipped, app.titleContext())}` : "取得稱號後可以佩戴，會顯示在主畫面。"),
+          h("p", { class: "hint" }, `稱號分 ${Mi.TITLE_TIER_NAMES.join("、")} 五級，繼續累積可以升級；佩戴中的稱號會自動顯示最新級別。`),
           data.titles.map((t) => {
             const st = Mi.titleStatus(progress, t, app.titleContext());
             const isOn = equipped && equipped.id === t.id;
@@ -105,15 +106,25 @@
             else if (isOn) action = h("button", { class: "btn btn-small", onclick: () => equip(null) }, "取下");
             else if (st.earned) action = h("button", { class: "btn btn-small btn-primary", onclick: () => equip(t) }, "佩戴");
             else action = h("span", { class: "mission-count" }, `${st.value} / ${st.target}`);
+            const tiers = st.supported ? Mi.titleTiers(t, app.titleContext()) : [];
+            const next = st.earned && !st.maxed ? `下一級「${Mi.TITLE_TIER_NAMES[st.tier]}」：${st.value} / ${st.target}` : null;
             return h(
               "div",
               { class: st.supported ? "mission-row" : "mission-row unsupported" },
               h(
                 "div",
                 { class: "mission-info" },
-                h("span", { class: "mission-name" }, t.name, st.earned ? h("span", { class: "chip chip-ok" }, "已取得") : null),
-                h("span", { class: "hint" }, t.description),
-                st.supported && !st.earned ? progressBar(st.value, st.target) : null
+                h(
+                  "span",
+                  { class: "mission-name" },
+                  t.name,
+                  st.tierName ? h("span", { class: `chip title-tier tier-${st.tier}` }, st.tierName) : st.earned ? h("span", { class: "chip chip-ok" }, "已取得") : null,
+                  st.maxed && tiers.length > 1 ? h("span", { class: "chip chip-ok" }, "最高級") : null
+                ),
+                h("span", { class: "hint" }, t.description, tiers.length > 1 ? `（各級：${tiers.join("／")}）` : ""),
+                st.supported && !st.earned ? progressBar(st.value, st.target) : null,
+                next ? h("span", { class: "hint" }, next) : null,
+                next ? progressBar(st.value, st.target) : null
               ),
               action
             );

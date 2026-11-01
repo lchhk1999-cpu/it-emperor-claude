@@ -36,7 +36,7 @@
 
   function begin() {
     const pool = app.questionPool;
-    state = R.start(pool, rng());
+    state = R.start(pool, rng(), app.getSave().profile.seen);
     if (!state) return;
     flash = null;
     busy = false;

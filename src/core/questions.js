@@ -111,7 +111,24 @@
     return [].concat(...ITE.rng.shuffle(units, rng));
   }
 
-  function drawQuestions(questions, count, rng, topicIds) {
+  // seen (optional): { question_id: times answered on this device }. With it,
+  // the least-seen questions come first (random among equals), so a stage goes
+  // through its whole pool before repeating (user 2026-11-02: questions seemed
+  // to repeat). A 承上題 pair counts as seen as much as its most-seen part.
+  function preferUnseen(ordered, seen) {
+    if (!seen) return ordered;
+    const units = [];
+    for (const q of ordered) {
+      const id = predecessorId(q);
+      const last = units[units.length - 1];
+      if (id && last && last.some((x) => x.question_id === id)) last.push(q);
+      else units.push([q]);
+    }
+    const times = (u) => Math.max(...u.map((q) => seen[q.question_id] || 0));
+    return [].concat(...units.map((u, i) => ({ u, i, t: times(u) })).sort((a, b) => a.t - b.t || a.i - b.i).map((x) => x.u));
+  }
+
+  function drawQuestions(questions, count, rng, topicIds, seen) {
     const pool = topicIds ? questions.filter((q) => topicIds.includes(q.topic_id)) : questions;
     const unique = [];
     const ids = new Set();
@@ -121,7 +138,9 @@
         unique.push(q);
       }
     }
-    return shuffleLinked(unique, rng).slice(0, count);
+    const picked = preferUnseen(shuffleLinked(unique, rng), seen).slice(0, count);
+    // Least-seen first decides which questions; the order shown is random again.
+    return seen ? shuffleLinked(picked, rng) : picked;
   }
 
   function optionsOf(q) {
@@ -160,6 +179,7 @@
     validateBank,
     filterForMode,
     drawQuestions,
+    preferUnseen,
     predecessorId,
     previousOf,
     shuffleLinked,

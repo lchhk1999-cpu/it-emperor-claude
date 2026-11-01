@@ -125,6 +125,22 @@
     };
   }
 
+  // 今日限定 reward limit (user 2026-11-01): three rewarded wins per Hong Kong
+  // day; after that the stage is free play — no stamina, no rewards.
+  const LIMITED_RULES = { dailyRewards: 3 };
+
+  function limitedWinsToday(profile, now) {
+    const l = profile.limited;
+    return l && l.day === ITE.guildRaid.hktDayKey(now) ? l.wins : 0;
+  }
+
+  const limitedRewardsLeft = (profile, now) => Math.max(0, LIMITED_RULES.dailyRewards - limitedWinsToday(profile, now));
+
+  // Counts one rewarded win today.
+  function claimLimited(profile, now) {
+    return { ...profile, limited: { day: ITE.guildRaid.hktDayKey(now), wins: limitedWinsToday(profile, now) + 1 } };
+  }
+
   // The world a question topic belongs to, or null (e.g. "ALL").
   function worldOfTopic(topic) {
     return WORLDS.find((w) => w.topics.includes(topic)) || null;
@@ -180,5 +196,5 @@
     return out;
   }
 
-  ITE.dungeons = { LIMITED_THEMES, weekPlan, WORLDS, DIFFICULTIES, DIFFICULTY_ORDER, LIMITED_DROPS, worldOfTopic, worldStages, limitedStage, allStages, stagePool, rewards, materialDrops };
+  ITE.dungeons = { LIMITED_RULES, limitedWinsToday, limitedRewardsLeft, claimLimited, LIMITED_THEMES, weekPlan, WORLDS, DIFFICULTIES, DIFFICULTY_ORDER, LIMITED_DROPS, worldOfTopic, worldStages, limitedStage, allStages, stagePool, rewards, materialDrops };
 })(globalThis);

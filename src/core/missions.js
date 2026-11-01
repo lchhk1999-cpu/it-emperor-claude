@@ -148,11 +148,51 @@
     }
   }
 
-  // Titles are earned automatically once the count reaches the target.
+  // 稱號級別 (user 2026-11-01: titles were all earned too soon). Each title has
+  // up to five tiers; tier Ⅰ is the workbook target, later tiers multiply it.
+  // Titles with a natural end (all stages, all story levels) keep one tier;
+  // collection titles stop at what the game holds. PROTOTYPE numbers.
+  // TODO(ChatGPT): move tier targets into the workbook Titles sheet if wanted.
+  const TITLE_TIER_NAMES = ["銅", "銀", "金", "白金", "鑽石"];
+  const TIER_STEPS = {
+    default: [1, 2, 5, 10, 20],
+    best_streak: [1, 1.5, 2, 3, 5],
+    ultimate_clear: [1, 5, 20, 50, 100],
+    evolve_max: [1, 3, 5, 10, 20],
+  };
+  const SINGLE_TIER = ["all_world_stages", "story_complete", "season_rank"];
+
+  function titleTiers(title, ctx) {
+    const base = title.target;
+    if (SINGLE_TIER.includes(title.condition)) return [base];
+    const characters = ((ctx && ctx.characterCount) || (ITE.gameData && ITE.gameData.characters && ITE.gameData.characters.length)) || 0;
+    if (title.condition === "own_characters") {
+      const out = [];
+      for (let t = base; t < characters && out.length < 4; t += 5) out.push(t);
+      return characters > base ? out.concat([characters]) : [base];
+    }
+    const steps = TIER_STEPS[title.condition] || TIER_STEPS.default;
+    const out = steps.map((m) => Math.round(base * m)).filter((t, i, a) => a.indexOf(t) === i);
+    return title.condition === "evolve_max" && characters ? out.filter((t) => t <= characters) : out;
+  }
+
+  // Titles are earned automatically once the count reaches tier Ⅰ, and climb
+  // tiers as the count grows. target/value refer to the next tier (or the
+  // last one when maxed), so progress bars keep moving.
   function titleStatus(progress, title, ctx) {
-    if (!title.supported) return { value: 0, target: title.target, earned: false, supported: false };
-    const value = titleValue(progress, title, ctx);
-    return { value: Math.min(value, title.target), target: title.target, earned: value >= title.target, supported: true };
+    if (!title.supported) return { value: 0, target: title.target, earned: false, supported: false, tier: 0, tiers: 1, tierName: null, maxed: false };
+    const raw = titleValue(progress, title, ctx);
+    const tiers = titleTiers(title, ctx);
+    const tier = tiers.filter((t) => raw >= t).length;
+    const maxed = tier === tiers.length;
+    const target = maxed ? tiers[tiers.length - 1] : tiers[tier];
+    return { value: Math.min(raw, target), target, earned: tier >= 1, supported: true, tier, tiers: tiers.length, tierName: tier ? (tiers.length > 1 ? TITLE_TIER_NAMES[tier - 1] : null) : null, maxed };
+  }
+
+  // 「公式達人・金」 for tiered titles, the plain name otherwise.
+  function titleLabel(progress, title, ctx) {
+    const st = titleStatus(progress, title, ctx);
+    return st.tierName ? `${title.name}・${st.tierName}` : title.name;
   }
 
   function equipTitle(progress, title, ctx) {
@@ -176,6 +216,9 @@
     claimMission,
     claimableCount,
     titleStatus,
+    titleTiers,
+    titleLabel,
+    TITLE_TIER_NAMES,
     equipTitle,
     equippedTitle,
     isSqlJoin,

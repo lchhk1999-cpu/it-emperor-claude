@@ -99,7 +99,7 @@
             `五個世界（${Dg.WORLDS.map((w) => `${w.id} ${w.name}`).join("、")}），各有${Dg.DIFFICULTY_ORDER.map((k) => Dg.DIFFICULTIES[k].name).join("、")}四個難度。`,
             `題數：${Dg.DIFFICULTY_ORDER.map((k) => `${Dg.DIFFICULTIES[k].name} ${Dg.DIFFICULTIES[k].questionCount} 題`).join("、")}；扣同等體力。`,
             `勝出得金幣（${Dg.DIFFICULTY_ORDER.map((k) => Dg.DIFFICULTIES[k].winCoins).join("／")}）及該世界的進化素材；中等、困難及究極有機會額外得傳說核心（究極 50%）。`,
-            `「今日限定」每日不同主題（香港時間）：${Dg.weekPlan(data).map((d) => `${d.day}${d.icon}${d.name.replace(/^週[六日]/, "")}`).join("、")}。週一至五刷素材、週六刷金幣、週日刷經驗。`,
+            `「今日限定」每日不同主題（香港時間）：${Dg.weekPlan(data).map((d) => `${d.day}${d.icon}${d.name.replace(/^週[六日]/, "")}`).join("、")}。週一至五刷素材、週六刷金幣、週日刷經驗。每日最多 ${Dg.LIMITED_RULES.dailyRewards} 次勝出有獎勵；之後可免費練習，不扣體力，但沒有獎勵。`,
             "「混合練習」不用體力，只得經驗。",
           ])),
         section("⚡ 體力與操練區", false, li([
@@ -137,7 +137,7 @@
         section("📅 每日目標", false, li([
           "每日首次打開會彈出簽到，7 日一循環，累積計算，缺席不會重新開始。",
           "每日／每週任務完成後到「任務」領寶石和金幣。",
-          "達成條件會自動取得稱號，可佩戴一個顯示在名字旁。",
+          `達成條件會自動取得稱號，可佩戴一個顯示在名字旁。稱號分 ${root.ITE.missions.TITLE_TIER_NAMES.join("、")} 五級，繼續累積會自動升級。`,
           "背包可查看進化素材、角色碎片和裝備。",
         ])),
         section("⚙ 設定與存檔", false, li([
