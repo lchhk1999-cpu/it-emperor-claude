@@ -122,3 +122,31 @@
     assert.equal(Dg.materialDrops(st("ultimate"), won, data, () => 0.4)["MAT-RARE"], 1);
   });
 })();
+// 今日限定 reward limit (2026-11-01): three rewarded wins per Hong Kong day.
+(function () {
+  const Dg = ITE.dungeons;
+  const p0 = ITE.profile.defaultProfile(ITE.gameData);
+  const T = Date.UTC(2026, 10, 2, 2); // 10:00 HKT
+  test("dungeons: 今日限定 gives rewards three times a Hong Kong day, then free play", () => {
+    assert.equal(Dg.LIMITED_RULES.dailyRewards, 3);
+    let p = p0;
+    assert.equal(Dg.limitedRewardsLeft(p, T), 3);
+    for (let i = 0; i < 3; i++) p = Dg.claimLimited(p, T + i);
+    assert.equal(Dg.limitedRewardsLeft(p, T), 0);
+    assert.equal(Dg.limitedWinsToday(p, T), 3);
+    // 00:00 HKT next day: three again.
+    assert.equal(Dg.limitedRewardsLeft(p, Date.UTC(2026, 10, 2, 16)), 3);
+    assert.equal(Dg.limitedRewardsLeft(p, Date.UTC(2026, 10, 2, 15, 59)), 0);
+  });
+  test("dungeons: 今日限定 wins survive save/load; a damaged entry is dropped", () => {
+    const S = ITE.save;
+    const store = S.createMemoryStorage();
+    const p = Dg.claimLimited(p0, T);
+    S.persist(store, { ...S.defaultSave(), profile: p });
+    const back = S.load(store);
+    assert.equal(back.status, "ok");
+    assert.deepEqual(back.save.profile.limited, p.limited);
+    store.setItem(S.SAVE_KEY, JSON.stringify({ ...S.defaultSave(), profile: { ...p, limited: { day: "x", wins: -1 } } }));
+    assert.equal(S.load(store).save.profile.limited, undefined);
+  });
+})();

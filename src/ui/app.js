@@ -216,7 +216,7 @@
           "span",
           { class: "status-who" },
           p.name ? h("span", { class: "player-name" }, p.name) : null,
-          title ? h("span", { class: "title-badge" }, title.name) : null
+          title ? h("span", { class: "title-badge" }, Mi.titleLabel(save.progress, title, titleContext())) : null
         ),
         h("span", { class: "currency", "aria-label": `金幣 ${p.coins}` }, h("span", { class: "cur-icon", html: icons.coin }), String(p.coins)),
         h("span", { class: "currency", "aria-label": `寶石 ${p.gems || 0}` }, h("span", { class: "cur-icon", html: icons.gem }), String(p.gems || 0))
@@ -275,6 +275,14 @@
       badge ? h("span", { class: "badge" }, String(badge)) : null,
       h("span", { class: "chip-label" }, label)
     );
+  }
+
+  // 今日限定 reward line: what a win gives and how many rewarded wins are left today.
+  function limitedRewardLine(limited) {
+    const D = root.ITE.dungeons;
+    const left = D.limitedRewardsLeft(save.profile, Date.now());
+    if (!left) return h("span", { class: "limited-reward" }, `今日 ${D.LIMITED_RULES.dailyRewards}/${D.LIMITED_RULES.dailyRewards} 已領・可免費練習（沒有獎勵）`);
+    return h("span", { class: "limited-reward" }, `🎁 ${limited.description.split("勝出可得 ")[1] || ""}（今日餘 ${left}/${D.LIMITED_RULES.dailyRewards} 次）`);
   }
 
   function showHome() {
@@ -350,9 +358,9 @@
                 { class: "limited-info" },
                 h("span", { class: "limited-tag" }, "今日限定"),
                 h("span", { class: "limited-name" }, limited.theme.name),
-                h("span", { class: "limited-reward" }, `🎁 ${limited.description.split("勝出可得 ")[1] || ""}`)
+                limitedRewardLine(limited)
               ),
-              h("span", { class: "limited-go" }, "出戰 ›")
+              h("span", { class: "limited-go" }, root.ITE.dungeons.limitedRewardsLeft(save.profile, Date.now()) ? "出戰 ›" : "練習 ›")
             )
           : null,
         root.ITE.installUi ? root.ITE.installUi.homeCard() : null,
@@ -451,10 +459,10 @@
                   "span",
                   { class: "limited-info" },
                   h("span", { class: "limited-name" }, limited.theme.name),
-                  h("span", { class: "limited-reward" }, `🎁 ${limited.description.split("勝出可得 ")[1] || ""}`),
-                  h("span", { class: "limited-sub" }, `${limited.name}｜${limited.questionCount} 題｜體力 ${root.ITE.stamina.stageCost(limited)}｜${stageStatus(limited.id)}`)
+                  limitedRewardLine(limited),
+                  h("span", { class: "limited-sub" }, `${limited.name}｜${limited.questionCount} 題｜${root.ITE.dungeons.limitedRewardsLeft(save.profile, Date.now()) ? `體力 ${root.ITE.stamina.stageCost(limited)}` : "不扣體力"}｜${stageStatus(limited.id)}`)
                 ),
-                h("span", { class: "limited-go" }, "出戰 ›")
+                h("span", { class: "limited-go" }, root.ITE.dungeons.limitedRewardsLeft(save.profile, Date.now()) ? "出戰 ›" : "練習 ›")
               ),
               // 7-day plan: what each day gives, so players can plan ahead.
               (() => {
@@ -565,11 +573,13 @@
   // Stages that cost stamina give materials and coins; mixed practice, or
   // playing without enough stamina, gives experience only (practice).
   function startBattle(stage, opts) {
-    const cost = root.ITE.stamina.stageCost(stage);
+    // 今日限定 after today's three rewarded wins: free play, no stamina, no rewards.
+    const free = stage.kind === "limited" && root.ITE.dungeons.limitedRewardsLeft(save.profile, Date.now()) === 0;
+    const cost = free ? 0 : root.ITE.stamina.stageCost(stage);
     // 帝王試煉 costs no stamina but is not practice: it gives rewards.
-    const practice = (cost === 0 && stage.kind !== "trial") || !!(opts && opts.practice);
+    const practice = !free && ((cost === 0 && stage.kind !== "trial") || !!(opts && opts.practice));
     let paid = null;
-    if (!practice) {
+    if (!practice && !free) {
       const r = root.ITE.stamina.spend(save.profile, cost, gameData.config, Date.now());
       if (r.error) return showStaminaPrompt(stage, cost);
       paid = r.profile;
@@ -578,7 +588,7 @@
       const team = P.teamSnapshot(save.profile, gameData);
       const loadout = root.ITE.equipment.battleLoadout(save.profile, gameData);
       const rng = root.ITE.rng.createRng(Date.now());
-      battleState = { ...B.createBattle(stage, root.ITE.dungeons.stagePool(stage, questionPool, rng), rng, team, loadout), practice };
+      battleState = { ...B.createBattle(stage, root.ITE.dungeons.stagePool(stage, questionPool, rng), rng, team, loadout), practice, ...(free ? { free: true } : {}) };
     } catch (e) {
       showMessage("暫時未有可用題目", BUILD_MODE === "release" ? "正式版只會顯示已核准（approved）的題目。" : String(e.message));
       return;
@@ -634,12 +644,20 @@
     {
       const sum = B.summary(battleState);
       save = S.recordStageResult(save, battleState.stageId, sum);
-      if (sum.outcome === "won") recordStageClear({ difficulty: (findStage(battleState.stageId) || {}).difficulty });
+      if (sum.outcome === "won" && !battleState.free) recordStageClear({ difficulty: (findStage(battleState.stageId) || {}).difficulty });
       const base = root.ITE.dungeons.rewards(findStage(battleState.stageId), sum);
-      lastReward = battleState.practice
-        ? grantReward({ exp: base.exp, coins: 0 })
-        : grantReward({ ...base, materials: root.ITE.dungeons.materialDrops(findStage(battleState.stageId), sum, gameData, root.ITE.rng.createRng(Date.now() ^ Math.floor(Math.random() * 2 ** 31))) });
+      if (battleState.free) lastReward = { reward: { exp: 0, coins: 0 }, free: true };
+      else
+        lastReward = battleState.practice
+          ? grantReward({ exp: base.exp, coins: 0 })
+          : grantReward({ ...base, materials: root.ITE.dungeons.materialDrops(findStage(battleState.stageId), sum, gameData, root.ITE.rng.createRng(Date.now() ^ Math.floor(Math.random() * 2 ** 31))) });
       lastReward.practice = !!battleState.practice;
+      // A rewarded 今日限定 win uses one of today's three.
+      if (sum.outcome === "won" && !battleState.free && !battleState.practice && (findStage(battleState.stageId) || {}).kind === "limited") {
+        save = { ...save, profile: root.ITE.dungeons.claimLimited(save.profile, Date.now()) };
+        lastReward.limitedLeft = root.ITE.dungeons.limitedRewardsLeft(save.profile, Date.now());
+        persist();
+      }
       const stageNow = findStage(battleState.stageId);
       if (stageNow && stageNow.kind === "trial") {
         const t = root.ITE.trial.claim(save.profile, stageNow.trial, sum.outcome, Date.now(), Math.random, sum.accuracy);
@@ -958,7 +976,8 @@
     return h(
       "section",
       { class: "reward", "aria-live": "polite" },
-      h("p", { class: "reward-line" }, `+${g.reward.exp} 經驗`, g.reward.coins ? `　+${g.reward.coins} 金幣` : ""),
+      g.free ? h("p", { class: "note" }, `今日限定的 ${root.ITE.dungeons.LIMITED_RULES.dailyRewards} 次獎勵已用完：這場不扣體力，亦沒有獎勵。明天再來！`) : h("p", { class: "reward-line" }, `+${g.reward.exp} 經驗`, g.reward.coins ? `　+${g.reward.coins} 金幣` : ""),
+      g.limitedLeft !== undefined ? h("p", { class: "hint" }, g.limitedLeft ? `今日限定今日還可領獎 ${g.limitedLeft} 次。` : "今日限定今日的獎勵已全部領取，之後可免費練習（沒有獎勵）。") : null,
       Object.entries(g.reward.materials || {}).map(([id, n]) => {
         const m = root.ITE.inventory.materialById(gameData, id);
         return m ? h("p", { class: "reward-line reward-material" }, `獲得素材：${m.name} ×${n}`) : null;

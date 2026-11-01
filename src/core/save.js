@@ -176,6 +176,11 @@
       const rv = root.ITE.revision.sanitize(raw.revision);
       if (rv) out.revision = rv;
     }
+    // 今日限定 { day, wins }: rewarded wins today; a damaged entry is dropped.
+    if (raw.limited !== undefined) {
+      const l = raw.limited;
+      if (l && isText(l.day) && /^\d{4}-\d{2}-\d{2}$/.test(l.day) && Number.isInteger(l.wins) && l.wins >= 0) out.limited = { day: l.day, wins: Math.min(l.wins, 99) };
+    }
     if (raw.trials !== undefined) {
       const t = raw.trials;
       if (t && isText(t.week) && /^\d{4}-\d{2}-\d{2}$/.test(t.week) && Array.isArray(t.cleared)) {
