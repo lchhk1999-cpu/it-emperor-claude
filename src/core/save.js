@@ -191,7 +191,7 @@
       }
       out.growth = { characters, equipment };
     }
-    if (raw.pity !== undefined) out.pity = { character: int(raw.pity && raw.pity.character, 0) };
+    if (raw.pity !== undefined) out.pity = { character: int(raw.pity && raw.pity.character, 0), ...(raw.pity && raw.pity.equipment !== undefined ? { equipment: int(raw.pity.equipment, 0) } : {}) };
     if (raw.gachaLog !== undefined) {
       out.gachaLog = (Array.isArray(raw.gachaLog) ? raw.gachaLog : [])
         .filter((e) => e && isText(e.id) && (e.type === "character" || e.type === "equipment"))

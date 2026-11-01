@@ -89,7 +89,7 @@
           li([
             `五個世界（${Dg.WORLDS.map((w) => `${w.id} ${w.name}`).join("、")}），各有${Dg.DIFFICULTY_ORDER.map((k) => Dg.DIFFICULTIES[k].name).join("、")}四個難度。`,
             `題數：${Dg.DIFFICULTY_ORDER.map((k) => `${Dg.DIFFICULTIES[k].name} ${Dg.DIFFICULTIES[k].questionCount} 題`).join("、")}；扣同等體力。`,
-            `勝出得金幣（${Dg.DIFFICULTY_ORDER.map((k) => Dg.DIFFICULTIES[k].winCoins).join("／")}）及該世界的進化素材；中等和困難有機會額外得傳說核心，究極必得。`,
+            `勝出得金幣（${Dg.DIFFICULTY_ORDER.map((k) => Dg.DIFFICULTIES[k].winCoins).join("／")}）及該世界的進化素材；中等、困難及究極有機會額外得傳說核心（究極 50%）。`,
             `「今日限定」每日不同主題（香港時間）：${Dg.weekPlan(data).map((d) => `${d.day}${d.icon}${d.name.replace(/^週[六日]/, "")}`).join("、")}。週一至五刷素材、週六刷金幣、週日刷經驗。`,
             "「混合練習」不用體力，只得經驗。",
           ])),
@@ -103,6 +103,7 @@
           "每個角色有專長課題，答對該課題的題目傷害提升；加成幅度在角色卡上顯示。",
           "隊伍攻擊和 HP 是成員平均值，再按人數加成：每多一位隊員攻擊 +10%、HP +15%（5 人共 +40%／+60%）。課題越多元，越多題目有專長加成。",
           "隊伍和裝備只影響 DSE 挑戰及 UR 副本；故事模式人人公平。",
+          "DSE 挑戰、今日限定及 UR 副本的 Boss 會隨隊伍實力變強，隊伍再強也要答得好才會贏。",
         ])),
         gearSection(),
         section("🌱 培養", false, li([
@@ -114,15 +115,15 @@
         section("🎁 盲盒", false, li([
           `寶石只可靠學習取得（任務、簽到、升級），不設購買。每次 ${G.GACHA_RULES.cost} 寶石。`,
           `每次 ${G.BOX_COUNT} 個盲盒揀 1 個，每個都按公開機率獨立決定：${rates}。`,
-          `${G.GACHA_RULES.ssrPity} 次內必定有 SSR（保底時 6 個都是 SSR）。`,
+          `角色盲盒 ${G.GACHA_RULES.ssrPity} 次、裝備盲盒 ${G.GACHA_RULES.equipmentSsrPity} 次內必定有 SSR（保底時 6 個都是 SSR）。`,
           "重複的角色或裝備會變成碎片，用於第三階進化。",
         ])),
         section("👑 UR 副本", false, li([
-          `帝王試煉：${tierText(T.TRIAL_RULES)}。集齊 ${T.TRIAL_RULES.unlockShards} 碎片合成 UR「IT帝」。`,
+          `帝王試煉：${tierText(T.TRIAL_RULES)}。要勝出並達到答對率（${T.TRIAL_RULES.order.map((k) => `${T.TRIAL_RULES.tiers[k].name} ${T.TRIAL_RULES.tiers[k].minAccuracy}%`).join("、")}）才有碎片。集齊 ${T.TRIAL_RULES.unlockShards} 碎片合成 UR「IT帝」。`,
           `魔王限時：${tierText(T.DEMON_RULES)}。答題時每秒扣隊伍 HP，看解說時暫停；集齊 ${T.DEMON_RULES.unlockShards} 碎片合成 UR「Bug 魔王」。`,
-          "每個難度每星期（星期一 00:00 重置）可領一次碎片；輸了可以再挑戰，不扣體力。",
+          "每個難度每星期（星期一 00:00 重置）可領一次碎片；輸了或答對率不足可以再挑戰，不扣體力。",
           "UR 角色不會在盲盒出現。",
-          "答題衝刺：角色向前跑，每題三道門，開始有 60 秒，走對門 +6 秒、走錯門 −4 秒，時間用完結束；通過 5／10／15／20／30 道門得 1–5 個碎片，每日 3 次領獎。集齊 40 個合成 UR 裝備「雷神鍵盤」（每連擊一題額外傷害 +10／15／20）。",
+          `答題衝刺：角色向前跑，每題三道門，開始有 60 秒，走對門 +6 秒、走錯門 −4 秒，時間用完結束；通過 5／10／15／20／30 道門得 1–5 個碎片，每日 3 次領獎。集齊 ${root.ITE.rush.RUSH_RULES.unlockShards} 個合成 UR 裝備「雷神鍵盤」（每連擊一題額外傷害 +10／15／20）。`,
         ])),
         section("📅 每日目標", false, li([
           "每日首次打開會彈出簽到，7 日一循環，累積計算，缺席不會重新開始。",

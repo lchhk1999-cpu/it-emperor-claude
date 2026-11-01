@@ -640,9 +640,9 @@
       lastReward.practice = !!battleState.practice;
       const stageNow = findStage(battleState.stageId);
       if (stageNow && stageNow.kind === "trial") {
-        const t = root.ITE.trial.claim(save.profile, stageNow.trial, sum.outcome, Date.now(), Math.random);
+        const t = root.ITE.trial.claim(save.profile, stageNow.trial, sum.outcome, Date.now(), Math.random, sum.accuracy);
         save = { ...save, profile: t.profile };
-        lastReward.trial = { won: sum.outcome === "won", shards: t.shards, rules: root.ITE.trial.rulesOf(stageNow.trial) };
+        lastReward.trial = { won: sum.outcome === "won", shards: t.shards, belowAccuracy: t.belowAccuracy, accuracy: sum.accuracy, rules: root.ITE.trial.rulesOf(stageNow.trial) };
         persist();
       }
       sfx(sum.outcome === "won" ? "win" : "lose");
@@ -963,7 +963,8 @@
       }),
       g.practice ? h("p", { class: "hint" }, "練習模式：只獲得經驗（不扣體力，沒有素材及金幣）") : null,
       g.trial && g.trial.shards ? h("p", { class: "reward-line reward-material" }, `獲得 ${g.trial.rules.shardName} ×${g.trial.shards}（共 ${root.ITE.trial.shardsOf(save.profile, g.trial.rules)} / ${g.trial.rules.unlockShards}）`) : null,
-      g.trial && g.trial.won && !g.trial.shards ? h("p", { class: "hint" }, "這個難度本週已領取碎片，下星期一再來！") : null,
+      g.trial && g.trial.won && !g.trial.shards && g.trial.belowAccuracy ? h("p", { class: "note" }, `今次答對率 ${g.trial.accuracy}%，要 ${g.trial.belowAccuracy}% 或以上才有碎片。本週仍可再挑戰！`) : null,
+      g.trial && g.trial.won && !g.trial.shards && !g.trial.belowAccuracy ? h("p", { class: "hint" }, "這個難度本週已領取碎片，下星期一再來！") : null,
       g.levelsGained ? h("p", { class: "reward-level" }, `升級！現在是 Lv ${g.level}，體力已回滿，+${g.levelsGained * P.PROFILE_RULES.levelUpGems} 寶石`) : null,
       g.slotsUnlocked ? h("p", { class: "reward-level" }, `解鎖新隊伍位置！到「角色隊伍」加入新成員`) : null
     );

@@ -12,7 +12,21 @@
     comboBonusPerHit: 10, // extra damage per consecutive correct answer after the first
     comboBonusCap: 30,
     partyMaxHp: 100,
+    // Balance 2026-11-01 (user 「套用建議數值」): in DSE, limited and 帝王/魔王
+    // stages the boss grows with the team, (team stat / 100) ^ 0.7, so a strong
+    // team still has to answer well. Story and practice stages stay fixed.
+    bossScaleExp: 0.7,
+    bossScaleKinds: ["world", "limited", "trial"],
   };
+
+  // Boss HP and attack for this team: never weaker than the stage's numbers.
+  function scaledBoss(stage, team) {
+    const b = stage.boss;
+    if (!team || !team.length || !BALANCE.bossScaleKinds.includes(stage.kind)) return { hp: b.maxHp, attack: b.attack };
+    const t = ITE.profile.teamStats(team);
+    const f = (v) => Math.max(1, Math.pow(v / 100, BALANCE.bossScaleExp));
+    return { hp: Math.round((b.maxHp * f(t.attack)) / 10) * 10, attack: Math.round(b.attack * f(t.hp)) };
+  }
 
   // team (optional): character snapshots from ITE.profile.teamSnapshot. With a
   // team, party HP is the members' average HP and damage scales with their
@@ -27,7 +41,10 @@
     return {
       stageId: stage.id,
       phase: "question",
-      boss: { name: stage.boss.name, hp: stage.boss.maxHp, maxHp: stage.boss.maxHp, attack: stage.boss.attack },
+      boss: (() => {
+        const b = scaledBoss(stage, team);
+        return { name: stage.boss.name, hp: b.hp, maxHp: b.hp, attack: b.attack };
+      })(),
       party: (() => {
         const hp = team && team.length ? ITE.profile.teamStats(team).hp : BALANCE.partyMaxHp;
         return { hp, maxHp: hp };

@@ -17,6 +17,10 @@
     // SSR pity lowered from the workbook's 80 to 50 (balance approved 2026-10-31).
     // TODO(ChatGPT): set Pools CHAR-STD SSR pity_threshold to 50 in the workbook too.
     ssrPity: 50,
+    // Equipment pity (balance 2026-11-01, user 「套用建議數值」): the workbook's 80
+    // was never enforced; now SSR equipment within 50 draws, like characters.
+    // TODO(ChatGPT): set Pools EQUIP-STD SSR pity_threshold to 50 in the workbook too.
+    equipmentSsrPity: 50,
     logSize: 20,
   };
 
@@ -48,7 +52,14 @@
     return pool.rates.map((r) => ({ ...r, items: items.filter((e) => e.rarity === r.rarity) })).filter((r) => r.items.length);
   }
 
-  function pityThreshold(gameData) {
+  // Draws until a guaranteed SSR for a pool type ("character" or "equipment"); 0 = none.
+  function pityThreshold(gameData, type) {
+    if (type === "equipment") {
+      const pool = gameData.pools && gameData.pools.equipment;
+      const ssr = pool && pool.rates.find((r) => r.rarity === "SSR");
+      if (!ssr || !equipmentRates(gameData).some((r) => r.rarity === "SSR")) return 0;
+      return ssr.pity ? Math.min(ssr.pity, GACHA_RULES.equipmentSsrPity) : 0;
+    }
     const ssr = (characterPool(gameData) || { rates: [] }).rates.find((r) => r.rarity === "SSR");
     if (!ssr) return 0;
     return ssr.pity ? Math.min(ssr.pity, GACHA_RULES.ssrPity) : 0;
@@ -87,7 +98,7 @@
       return { type, id: c.id, name: c.name, rarity };
     }
     const rates = equipmentRates(gameData);
-    const rarity = rates.length > 1 ? rollRarity(rates, rng) : rates[0].rarity;
+    const rarity = forced ? "SSR" : rates.length > 1 ? rollRarity(rates, rng) : rates[0].rarity;
     const e = pickOne(rates.find((r) => r.rarity === rarity).items, rng);
     return { type, id: e.id, name: e.name, rarity: e.rarity || null };
   }
@@ -98,9 +109,9 @@
     if (type === "character" && !characterRates(gameData).length) return { error: "pool_empty" };
     if (type === "equipment" && !equipmentCandidates(gameData).length) return { error: "pool_empty" };
     if (type !== "character" && type !== "equipment") return { error: "unknown_pool" };
-    const threshold = pityThreshold(gameData);
-    const count = ((profile.pity && profile.pity.character) || 0) + 1;
-    const forced = type === "character" && threshold > 0 && count >= threshold && characterRates(gameData).some((r) => r.rarity === "SSR");
+    const threshold = pityThreshold(gameData, type);
+    const count = ((profile.pity && profile.pity[type]) || 0) + 1;
+    const forced = threshold > 0 && count >= threshold && (type === "character" ? characterRates(gameData) : equipmentRates(gameData)).some((r) => r.rarity === "SSR");
     const boxes = [];
     for (let i = 0; i < BOX_COUNT; i++) boxes.push(rollOne(type, gameData, rng, forced));
     return { boxes, pity: forced };
@@ -113,8 +124,8 @@
     if (!box) return { profile, error: "unknown_box" };
     const { type } = box;
     const owned = profile.owned;
-    const pity = { ...(profile.pity || { character: 0 }) };
-    if (type === "character") pity.character = box.rarity === "SSR" ? 0 : (pity.character || 0) + 1;
+    const pity = { character: 0, equipment: 0, ...(profile.pity || {}) };
+    pity[type] = box.rarity === "SSR" ? 0 : (pity[type] || 0) + 1;
     const duplicate = (type === "character" ? owned.characters : owned.equipment).includes(box.id);
     const result = { ...box, duplicate, shards: duplicate ? GACHA_RULES.duplicateShards : 0, pity: rolled.pity };
     const nextOwned = result.duplicate
@@ -144,10 +155,11 @@
     return openBox(profile, rolled, 0, gameData);
   }
 
-  // Draws left before the guaranteed SSR character.
-  function drawsUntilPity(profile, gameData) {
-    const threshold = pityThreshold(gameData);
-    return threshold ? threshold - ((profile.pity && profile.pity.character) || 0) : null;
+  // Draws left before the guaranteed SSR of a pool type (default: characters).
+  function drawsUntilPity(profile, gameData, type) {
+    const t = type || "character";
+    const threshold = pityThreshold(gameData, t);
+    return threshold ? threshold - ((profile.pity && profile.pity[t]) || 0) : null;
   }
 
   ITE.gacha = { GACHA_RULES, BOX_COUNT, characterRates, equipmentCandidates, equipmentRates, pityThreshold, rollRarity, rollBoxes, openBox, draw, drawsUntilPity };

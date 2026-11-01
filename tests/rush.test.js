@@ -48,8 +48,10 @@
     assert.equal(R.playsToday(p, DAY + 24 * 3600 * 1000), 0, "new day");
   });
 
-  test("rush: 40 shards make the UR 雷神鍵盤, never drawn from the box, and it adds damage per Combo", () => {
-    const p = { ...fresh(), shards: { "EQ-THUNDERKEY": 41 } };
+  test("rush: 80 shards make the UR 雷神鍵盤, never drawn from the box, and it adds damage per Combo", () => {
+    assert.equal(R.RUSH_RULES.unlockShards, 80);
+    assert.equal(R.unlock({ ...fresh(), shards: { "EQ-THUNDERKEY": 79 } }, data).error, "not_enough_shards");
+    const p = { ...fresh(), shards: { "EQ-THUNDERKEY": 81 } };
     const r = R.unlock(p, data);
     assert.ok(r.profile.owned.equipment.includes("EQ-THUNDERKEY"));
     assert.equal(R.shardsOf(r.profile), 1);

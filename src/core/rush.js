@@ -2,7 +2,7 @@
 // question comes with three doors (the answer and two wrong options). The
 // right door adds time, a wrong one takes time away, and the run ends when the
 // clock reaches zero. The further the run, the more shards of the UR item
-// 「雷神鍵盤」; 40 shards make the item. Three rewarded runs per Hong Kong day
+// 「雷神鍵盤」 (RUSH_RULES.unlockShards make the item). Three rewarded runs per Hong Kong day
 // (more runs are practice), no stamina.
 // PROTOTYPE numbers until playtested.
 (function (root) {
@@ -23,7 +23,8 @@
     // [doors passed, shards]: the best line reached counts.
     shardSteps: [[5, 1], [10, 2], [15, 3], [20, 4], [30, 5]],
     itemId: "EQ-THUNDERKEY",
-    unlockShards: 40,
+    // 80 since balance 2026-11-01 (40 took a strong student 4 days).
+    unlockShards: 80,
   };
 
   const dayKey = (now) => ITE.guildRaid.hktDayKey(now);
@@ -116,7 +117,7 @@
     return !profile.owned.equipment.includes(RUSH_RULES.itemId) && shardsOf(profile) >= RUSH_RULES.unlockShards;
   }
 
-  // 40 shards make the UR item 雷神鍵盤.
+  // RUSH_RULES.unlockShards shards make the UR item 雷神鍵盤.
   function unlock(profile, gameData) {
     const id = RUSH_RULES.itemId;
     if (!(gameData.equipment || []).some((e) => e.id === id)) return { profile, error: "unknown_item" };

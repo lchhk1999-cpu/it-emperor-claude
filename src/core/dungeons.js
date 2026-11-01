@@ -29,7 +29,8 @@
     easy: { name: "簡單", questionCount: 5, questions: ["easy"], hpFactor: 0.6, attack: 15, drops: 1, rare: 0, rareChance: 0, winCoins: 20 },
     medium: { name: "中等", questionCount: 8, questions: ["medium"], hpFactor: 0.7, attack: 20, drops: 2, rare: 0, rareChance: 0.08, winCoins: 35 },
     hard: { name: "困難", questionCount: 10, questions: ["hard"], hpFactor: 0.8, attack: 25, drops: 3, rare: 0, rareChance: 0.25, winCoins: 50 },
-    ultimate: { name: "究極", questionCount: 15, questions: ["hard", "medium"], hpFactor: 0.85, attack: 30, drops: 4, rare: 1, rareChance: 0, winCoins: 70 },
+    // 究極 傳說核心: was always 1; 50% since balance 2026-11-01 (hoarding).
+    ultimate: { name: "究極", questionCount: 15, questions: ["hard", "medium"], hpFactor: 0.85, attack: 30, drops: 4, rare: 0, rareChance: 0.5, winCoins: 70 },
   };
   const DIFFICULTY_ORDER = ["easy", "medium", "hard", "ultimate"];
   // Limited stages drop many of one material (fewer when it is rarer).
