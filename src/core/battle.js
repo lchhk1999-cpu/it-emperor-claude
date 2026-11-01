@@ -32,10 +32,12 @@
   // team, party HP is the members' average HP and damage scales with their
   // average attack plus the best specialty bonus for the question's topic.
   // loadout (optional): equipment from ITE.equipment.battleLoadout.
-  function createBattle(stage, questions, rng, team, loadout) {
+  // seen (optional): times each question was answered on this device; the
+  // least-seen questions are drawn first (ITE.questions.drawQuestions).
+  function createBattle(stage, questions, rng, team, loadout, seen) {
     if (!questions.length) throw new Error("no questions available for this stage");
     const deck = ITE.questions
-      .drawQuestions(questions, stage.questionCount, rng, stage.topicIds)
+      .drawQuestions(questions, stage.questionCount, rng, stage.topicIds, seen)
       .map((q) => ITE.questions.shuffleOptions(q, rng));
     if (!deck.length) throw new Error("no questions match this stage's topics");
     return {

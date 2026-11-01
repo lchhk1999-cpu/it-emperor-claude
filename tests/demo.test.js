@@ -32,3 +32,24 @@
     assert.equal(D.enabled(), false);
   });
 })();
+(function () {
+  const D = ITE.demo;
+  const data = ITE.gameData;
+  const now = Date.UTC(2026, 10, 2, 4);
+  test("demo: a new demo save shows titles on several tiers and 知識修練館 progress with reviews due", () => {
+    const s = D.seedSave(data, now);
+    const M = ITE.missions;
+    const title = (id) => data.titles.find((t) => t.id === id);
+    const tiers = ["T-NEW", "T-EXCEL", "T-CORRECT500", "T-STREAK20", "T-DRILL"].map((id) => M.titleStatus(s.progress, title(id), { profile: s.profile }).tierName);
+    assert.deepEqual(tiers, ["白金", "銀", "銅", "銅", "銀"]);
+    assert.equal(M.equippedTitle(s.progress, data.titles, { profile: s.profile }).id, "T-EXCEL");
+    const R = ITE.revision;
+    assert.equal(R.lastCard(s.profile).id, "A11-05");
+    const due = R.dueCards(s.profile, now).map((c) => c.id);
+    assert.ok(due.includes("A11-05") && due.includes("A11-01"), due.join());
+    // The seeded save passes the normal save checks unchanged.
+    const store = ITE.save.createMemoryStorage();
+    ITE.save.persist(store, { ...ITE.save.defaultSave(), profile: s.profile, progress: s.progress });
+    assert.equal(ITE.save.load(store).status, "ok");
+  });
+})();

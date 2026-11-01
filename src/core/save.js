@@ -5,6 +5,8 @@
 
   const SAVE_KEY = "it-emperor.save";
   const SAVE_VERSION = 1;
+  // Question IDs kept in the "seen" counts (the bank has about 1,250).
+  const SEEN_LIMIT = 5000;
 
   // Player settings: sound effects and background music on/off, and whether the
   // new-player tutorial was seen.
@@ -177,6 +179,14 @@
       if (rv) out.revision = rv;
     }
     // 今日限定 { day, wins }: rewarded wins today; a damaged entry is dropped.
+    // Times each question was answered here { question_id: n } (least-seen draw).
+    if (raw.seen !== undefined) {
+      const seen = {};
+      if (raw.seen && typeof raw.seen === "object" && !Array.isArray(raw.seen)) {
+        for (const [id, n] of Object.entries(raw.seen).slice(0, SEEN_LIMIT)) if (/^[\w.-]{1,40}$/.test(id) && Number.isInteger(n) && n > 0) seen[id] = Math.min(n, 9999);
+      }
+      out.seen = seen;
+    }
     if (raw.limited !== undefined) {
       const l = raw.limited;
       if (l && isText(l.day) && /^\d{4}-\d{2}-\d{2}$/.test(l.day) && Number.isInteger(l.wins) && l.wins >= 0) out.limited = { day: l.day, wins: Math.min(l.wins, 99) };

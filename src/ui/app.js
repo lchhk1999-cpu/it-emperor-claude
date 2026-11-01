@@ -38,15 +38,17 @@
   if (root.ITE.music) root.ITE.music.setEnabled(save.settings.music);
   const P = root.ITE.profile;
   const gameData = root.ITE.gameData;
+  // A new 老師示範版 save starts with sample progress too (titles, 知識修練館).
+  const demoSeed = DEMO && !save.profile ? root.ITE.demo.seedSave(gameData, Date.now()) : null;
   {
-    const fresh = DEMO ? root.ITE.demo.seedProfile(gameData) : P.defaultProfile(gameData);
+    const fresh = demoSeed ? demoSeed.profile : P.defaultProfile(gameData);
     const base = P.ensureOwned(save.profile || fresh, gameData);
     const team = P.cleanTeam(base.team, base.level, gameData, base.owned);
     const equipment = root.ITE.equipment.cleanEquipment(base.equipment || {}, team, gameData, base.owned, base);
     save = { ...save, profile: { ...base, team, equipment } };
   }
   const Mi = root.ITE.missions;
-  save = { ...save, progress: Mi.rollover(save.progress || Mi.defaultProgress(Date.now()), Date.now()) };
+  save = { ...save, progress: Mi.rollover(save.progress || (demoSeed && demoSeed.progress) || Mi.defaultProgress(Date.now()), Date.now()) };
   let lastReward = null; // shown on the DSE result screen
   // Drop a saved battle whose questions this build no longer allows.
   if (save.activeBattle && !B.rebindDeck(save.activeBattle, questionPool)) {
@@ -588,7 +590,7 @@
       const team = P.teamSnapshot(save.profile, gameData);
       const loadout = root.ITE.equipment.battleLoadout(save.profile, gameData);
       const rng = root.ITE.rng.createRng(Date.now());
-      battleState = { ...B.createBattle(stage, root.ITE.dungeons.stagePool(stage, questionPool, rng), rng, team, loadout), practice, ...(free ? { free: true } : {}) };
+      battleState = { ...B.createBattle(stage, root.ITE.dungeons.stagePool(stage, questionPool, rng), rng, team, loadout, save.profile.seen), practice, ...(free ? { free: true } : {}) };
     } catch (e) {
       showMessage("暫時未有可用題目", BUILD_MODE === "release" ? "正式版只會顯示已核准（approved）的題目。" : String(e.message));
       return;
@@ -883,7 +885,9 @@
 
   function recordAnswer(q, correct, doPersist = true, opts) {
     sfx(correct ? "correct" : "wrong");
-    save = { ...save, progress: Mi.recordAnswer(save.progress, q, correct, Date.now(), opts) };
+    // Times each question was answered here, so battles draw the least-seen first.
+    const seen = q && q.question_id ? { ...(save.profile.seen || {}), [q.question_id]: ((save.profile.seen || {})[q.question_id] || 0) + 1 } : save.profile.seen;
+    save = { ...save, profile: { ...save.profile, ...(seen ? { seen } : {}) }, progress: Mi.recordAnswer(save.progress, q, correct, Date.now(), opts) };
     if (doPersist) persist();
   }
 

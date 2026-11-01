@@ -141,3 +141,45 @@
     if (follower) assert.equal(Q.previousOf(follower, real).question_id, "ICT-2025-IA-34");
   });
 })();
+// Least-seen draw (2026-11-02: questions seemed to repeat).
+(function () {
+  const Q = ITE.questions;
+  const mk = (i, extra) => ({ question_id: `S-${i}`, topic_id: "OS", difficulty: "easy", stem: `Q${i}`, option_a: "a", option_b: "b", option_c: "c", option_d: "d", answer: "A", explanation: "e", review_status: "approved", ...extra });
+  test("questions: with a seen record, a stage goes through its whole pool before any repeat", () => {
+    const pool = Array.from({ length: 51 }, (_, i) => mk(i));
+    const seen = {};
+    const shown = [];
+    for (let play = 0; play < 10; play++) {
+      const deck = Q.drawQuestions(pool, 5, ITE.rng.createRng(play + 1), null, seen);
+      deck.forEach((q) => {
+        shown.push(q.question_id);
+        seen[q.question_id] = (seen[q.question_id] || 0) + 1;
+      });
+    }
+    assert.equal(new Set(shown).size, 50, "50 answers, 50 different questions");
+    // Play 11 uses the one never-seen question first.
+    const next = Q.drawQuestions(pool, 5, ITE.rng.createRng(99), null, seen);
+    assert.ok(next.some((q) => !seen[q.question_id]));
+    // Without a record the draw stays purely random (older callers).
+    assert.equal(Q.drawQuestions(pool, 5, ITE.rng.createRng(1)).length, 5);
+  });
+  test("questions: least-seen draw keeps a 承上題 right after its question", () => {
+    const pool = [mk(1), mk(2, { stem: "承上題，Q2" }), mk(3), mk(4)];
+    pool[1].stem = "承上題（S-1），再問";
+    for (let s = 1; s < 30; s++) {
+      const deck = Q.drawQuestions(pool, 4, ITE.rng.createRng(s), null, { "S-3": 2, "S-4": 1 });
+      const i = deck.findIndex((q) => q.question_id === "S-2");
+      if (i >= 0 && Q.previousOf(deck[i], deck)) assert.equal(deck[i - 1].question_id, "S-1");
+    }
+  });
+  test("questions: seen counts survive save/load; bad entries are dropped", () => {
+    const S = ITE.save;
+    const store = S.createMemoryStorage();
+    const p = { ...ITE.profile.defaultProfile(ITE.gameData), seen: { "Q-1": 3, "Q-2": 1 } };
+    S.persist(store, { ...S.defaultSave(), profile: p });
+    assert.equal(S.load(store).status, "ok");
+    assert.deepEqual(S.load(store).save.profile.seen, { "Q-1": 3, "Q-2": 1 });
+    store.setItem(S.SAVE_KEY, JSON.stringify({ ...S.defaultSave(), profile: { ...p, seen: { "Q-1": -2, "bad id!": 4, "Q-3": 2 } } }));
+    assert.deepEqual(S.load(store).save.profile.seen, { "Q-3": 2 });
+  });
+})();

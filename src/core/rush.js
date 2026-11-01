@@ -37,9 +37,10 @@
     return ITE.rng.shuffle([q.answer].concat(wrong), rng).map((l) => ({ letter: l, text: text.find((o) => o.letter === l).text }));
   }
 
-  function start(questions, rng) {
+  // seen (optional): least-seen questions first, as in battles.
+  function start(questions, rng, seen) {
     if (!questions.length) return null;
-    const order = ITE.questions.shuffleLinked(questions, rng);
+    const order = ITE.questions.preferUnseen(ITE.questions.shuffleLinked(questions, rng), seen);
     return { order, index: 0, timeMs: RUSH_RULES.startMs, passed: 0, wrong: 0, wrongIds: [], current: { q: order[0], doors: doors(order[0], rng) }, over: false, last: null };
   }
 
