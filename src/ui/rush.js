@@ -39,6 +39,7 @@
     state = R.start(pool, rng());
     if (!state) return;
     flash = null;
+    busy = false;
     app.sfx("stageStart");
     lastTick = Date.now();
     run();
@@ -46,16 +47,29 @@
     timer = root.setInterval(loop, 100);
   }
 
-  function choose(letter) {
-    if (!state || state.over) return;
+  // Going through a door (user 2026-11-01: the runner should go to the chosen
+  // door, with animations that fit): the runner dashes to that lane and into
+  // its gate — ACCESS ✓ with +秒 flying to the clock, or DENIED ✕ with a
+  // knock-back and a shake — then the next question comes.
+  const ANIM_MS = 700;
+  let busy = false;
+  function choose(letter, door) {
+    if (!state || state.over || busy) return;
+    busy = true;
     const q = state.current.q;
-    state = R.choose(state, letter, rng());
-    app.recordAnswer(q, state.last.correct, false);
-    const ans = root.ITE.questions.optionsOf(q).find((o) => o.letter === q.answer).text;
-    flash = { correct: state.last.correct, answerText: ans, key: Date.now() };
-    app.sfx(state.last.correct ? "correct" : "wrong");
-    if (state.over) return finish();
-    run();
+    const correct = letter === q.answer;
+    app.sfx(correct ? "correct" : "wrong");
+    run({ door, correct });
+    root.setTimeout(() => {
+      busy = false;
+      if (!state || state.over) return;
+      state = R.choose(state, letter, rng());
+      app.recordAnswer(q, correct, false);
+      const ans = root.ITE.questions.optionsOf(q).find((o) => o.letter === q.answer).text;
+      flash = { correct, answerText: ans, lane: door };
+      if (state.over) return finish();
+      run();
+    }, ANIM_MS);
   }
 
   let result = null;
@@ -76,8 +90,10 @@
   // Computer-themed run screen (user 2026-11-01: 「欠電腦主題設計」): a RUSH.exe
   // window over a neon data highway, the question as a program window titled
   // with its topic, and the doors as PORT 01–03 server gates.
-  function run() {
+  // anim (optional): { door, correct } while the runner goes through a door.
+  function run(anim) {
     const s = state;
+    const lane = anim ? anim.door : flash ? flash.lane : 1;
     const q = s.current.q;
     const leader = app.getSave().profile.team[0];
     const timePct = Math.round((s.timeMs / RR.maxMs) * 100);
@@ -85,7 +101,7 @@
     app.render(
       h(
         "main",
-        { class: "screen battle rush-run" },
+        { class: `screen battle rush-run${anim ? (anim.correct ? " is-granted" : " is-denied") : ""}` },
         h(
           "section",
           { class: "rush-window" },
@@ -99,7 +115,13 @@
           h(
             "div",
             { class: "rush-hud" },
-            h("div", { class: "rush-time", role: "meter", "aria-label": "剩餘時間" }, h("div", { class: `rush-time-fill${s.timeMs < 10000 ? " low" : ""}`, style: `width:${timePct}%` }), h("span", { class: "rush-time-num" }, `${Math.ceil(s.timeMs / 1000)} 秒`)),
+            h(
+              "div",
+              { class: `rush-time${anim ? (anim.correct ? " gain" : " loss") : ""}`, role: "meter", "aria-label": "剩餘時間" },
+              h("div", { class: `rush-time-fill${s.timeMs < 10000 ? " low" : ""}`, style: `width:${timePct}%` }),
+              h("span", { class: "rush-time-num" }, `${Math.ceil(s.timeMs / 1000)} 秒`),
+              anim ? h("span", { class: `rush-time-delta ${anim.correct ? "ok" : "ng"}` }, anim.correct ? `+${RR.correctMs / 1000}` : `−${RR.wrongMs / 1000}`) : null
+            ),
             h("span", { class: "rush-led" }, `🚪 ${s.passed}`),
             h("span", { class: "rush-led small" }, `×${R.speed(s).toFixed(1)}`)
           ),
@@ -109,8 +131,24 @@
             h("div", { class: "rush-grid", "aria-hidden": "true" }),
             h("div", { class: "rush-bits", "aria-hidden": "true" }, BITS.map((b, i) => h("span", { style: `--i:${i}` }, b))),
             h("div", { class: "rush-lane", "aria-hidden": "true" }, h("span"), h("span"), h("span")),
-            flash ? h("div", { class: `rush-flash ${flash.correct ? "ok" : "ng"}` }, flash.correct ? `+${RR.correctMs / 1000} 秒` : `−${RR.wrongMs / 1000} 秒`) : null,
-            h("div", { class: "rush-runner", html: leader ? sprites.character(leader, flash && !flash.correct ? "speechless" : "happy") : sprites.hero("happy") })
+            // Three gates on the road, one per door (same colours).
+            h(
+              "div",
+              { class: "rush-gates", "aria-hidden": "true" },
+              [0, 1, 2].map((i) =>
+                h(
+                  "div",
+                  { class: `rush-gate gate-${i}${anim && anim.door === i ? (anim.correct ? " granted" : " denied") : ""}` },
+                  h("span", { class: "rush-gate-label" }, anim && anim.door === i ? (anim.correct ? "ACCESS ✓" : "DENIED ✕") : `0${i + 1}`)
+                )
+              )
+            ),
+            anim ? h("div", { class: `rush-flash ${anim.correct ? "ok" : "ng"}` }, anim.correct ? `+${RR.correctMs / 1000} 秒` : `−${RR.wrongMs / 1000} 秒`) : null,
+            anim && anim.correct ? h("div", { class: "rush-burst", style: `--x:${[20, 50, 80][anim.door]}%`, "aria-hidden": "true" }) : null,
+            h(
+              "div",
+              { class: `rush-runner lane-${lane}${anim ? (anim.correct ? " dash" : " bonk") : ""}`, html: leader ? sprites.character(leader, anim ? (anim.correct ? "happy" : "surprised") : flash && !flash.correct ? "speechless" : "happy") : sprites.hero("happy") }
+            )
           )
         ),
         flash && !flash.correct ? h("p", { class: "rush-answer" }, `✖ 正確答案：${flash.answerText}`) : null,
@@ -126,7 +164,7 @@
           s.current.doors.map((d, i) =>
             h(
               "button",
-              { class: `rush-door door-${i}`, onclick: () => choose(d.letter), "aria-label": `門 ${i + 1}：${d.text}` },
+              { class: `rush-door door-${i}${anim ? (anim.door === i ? (anim.correct ? " granted" : " denied") : " dim") : ""}`, onclick: () => choose(d.letter, i), "aria-label": `門 ${i + 1}：${d.text}`, ...(anim ? { disabled: "" } : {}) },
               h("span", { class: "rush-port" }, h("i"), `PORT 0${i + 1}`),
               h("span", { class: "rush-door-text" }, d.text)
             )

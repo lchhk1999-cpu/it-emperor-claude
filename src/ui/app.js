@@ -341,15 +341,16 @@
         limited
           ? h(
               "button",
-              { class: "limited-banner", onclick: () => startBattle(limited) },
-              h("span", { class: "limited-boss", html: sprites.monster(root.ITE.scenes.forWorld(limited.world).monster, "smug", { tier: limited.difficulty }) }),
+              { class: "limited-banner themed", style: `--theme:${limited.theme.color}`, onclick: () => startBattle(limited) },
+              h("span", { class: "limited-icon" }, limited.theme.icon),
               h(
                 "span",
                 { class: "limited-info" },
                 h("span", { class: "limited-tag" }, "今日限定"),
-                h("span", { class: "limited-name" }, limited.chapter.replace("今日限定｜", "")),
-                h("span", { class: "limited-sub" }, limited.description)
-              )
+                h("span", { class: "limited-name" }, limited.theme.name),
+                h("span", { class: "limited-reward" }, `🎁 ${limited.description.split("勝出可得 ")[1] || ""}`)
+              ),
+              h("span", { class: "limited-go" }, "出戰 ›")
             )
           : null,
         root.ITE.installUi ? root.ITE.installUi.homeCard() : null,
@@ -403,6 +404,7 @@
   }
 
   const WORLD_SHORT = { A: "資訊處理", B: "電腦系統", C: "互聯網", D: "程式編寫", E: "社會影響" };
+  let weekPick = null; // 今日限定 calendar: the day whose reward is shown
   // Which DSE world tab is open ("A".."E" or "mix"); kept while the app runs.
   let stageTab = "A";
 
@@ -441,16 +443,39 @@
               h("h2", { class: "section-title" }, "今日限定"),
               h(
                 "button",
-                { class: "limited-banner", onclick: () => startBattle(limited) },
-                h("span", { class: "limited-boss", html: sprites.monster(root.ITE.scenes.forWorld(limited.world).monster, "smug", { tier: limited.difficulty }) }),
+                { class: "limited-banner themed", style: `--theme:${limited.theme.color}`, onclick: () => startBattle(limited) },
+                h("span", { class: "limited-icon" }, limited.theme.icon),
                 h(
                   "span",
                   { class: "limited-info" },
-                  h("span", { class: "limited-name" }, limited.chapter.replace("今日限定｜", "")),
-                  h("span", { class: "limited-sub" }, `${limited.description}｜體力 ${root.ITE.stamina.stageCost(limited)}`),
-                  h("span", { class: "limited-sub" }, stageStatus(limited.id))
-                )
+                  h("span", { class: "limited-name" }, limited.theme.name),
+                  h("span", { class: "limited-reward" }, `🎁 ${limited.description.split("勝出可得 ")[1] || ""}`),
+                  h("span", { class: "limited-sub" }, `${limited.name}｜${limited.questionCount} 題｜體力 ${root.ITE.stamina.stageCost(limited)}｜${stageStatus(limited.id)}`)
+                ),
+                h("span", { class: "limited-go" }, "出戰 ›")
               ),
+              // 7-day plan: what each day gives, so players can plan ahead.
+              (() => {
+                const plan = root.ITE.dungeons.weekPlan(gameData, Date.now());
+                const pick = plan.find((p) => p.weekday === weekPick) || plan.find((p) => p.today);
+                return h(
+                  "div",
+                  { class: "week-plan" },
+                  h(
+                    "div",
+                    { class: "week-strip", role: "tablist", "aria-label": "一週限定獎勵" },
+                    plan.map((p) =>
+                      h(
+                        "button",
+                        { class: `week-day${p.today ? " today" : ""}${p === pick ? " picked" : ""}`, style: `--theme:${p.color}`, role: "tab", "aria-selected": p === pick ? "true" : "false", onclick: () => ((weekPick = p.weekday), showStages()) },
+                        h("span", { class: "week-day-name" }, p.today ? "今日" : `星期${p.day}`),
+                        h("span", { class: "week-day-icon" }, p.icon)
+                      )
+                    )
+                  ),
+                  h("p", { class: "week-note" }, `${pick.today ? "今日" : `星期${pick.day}`}・${pick.name}：${pick.reward}${pick.today ? "" : "（當日才可挑戰）"}`)
+                );
+              })(),
             ]
           : null,
         h("h2", { class: "section-title" }, "DSE 世界"),

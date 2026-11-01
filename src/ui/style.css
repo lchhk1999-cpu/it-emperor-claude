@@ -1119,3 +1119,55 @@ body[data-screen="rush"] { --page-bg: radial-gradient(circle at 50% 0%, #1d3157 
 .mode4-name { margin-top: 2px; font-size: 13px; font-weight: 900; white-space: nowrap; }
 .mode4-sub { font-size: 10.5px; font-weight: 700; color: var(--muted); white-space: nowrap; }
 @media (max-height: 740px) { .rush-scene { height: 112px; } .rush-runner { width: 64px; margin-left: -32px; } .rush-door { min-height: 104px; } }
+/* 答題衝刺: door choice animation (2026-11-01) */
+.rush-runner { left: 50%; transition: left 0.28s ease-out; }
+.rush-runner.lane-0 { left: 20%; }
+.rush-runner.lane-1 { left: 50%; }
+.rush-runner.lane-2 { left: 80%; }
+.rush-runner.dash { animation: rush-dash 0.7s ease-in forwards; }
+.rush-runner.bonk { animation: rush-bonk 0.7s ease-out forwards; }
+.rush-gates { position: absolute; left: 0; right: 0; top: 18%; height: 40%; }
+.rush-gate { position: absolute; top: 0; width: 22%; height: 100%; margin-left: -11%; display: flex; align-items: flex-start; justify-content: center;
+  border: 2px solid var(--gate); border-bottom: none; border-radius: 40px 40px 0 0; background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0)); box-shadow: 0 0 10px var(--gate); transition: background 0.2s; }
+.rush-gate.gate-0 { left: 20%; --gate: var(--neon); }
+.rush-gate.gate-1 { left: 50%; --gate: var(--neon2); }
+.rush-gate.gate-2 { left: 80%; --gate: var(--neon3); }
+.rush-gate-label { margin-top: 6px; font: 900 10px ui-monospace, Menlo, monospace; color: var(--gate); white-space: nowrap; }
+.rush-gate.granted { --gate: var(--neon3); background: linear-gradient(180deg, rgba(157,255,107,0.55), rgba(157,255,107,0.1)); animation: gate-open 0.7s ease-out; }
+.rush-gate.denied { --gate: #ff6b6b; background: repeating-linear-gradient(135deg, rgba(255,107,107,0.6) 0 6px, rgba(255,107,107,0.15) 6px 12px); animation: gate-shake 0.4s ease-in-out; }
+.rush-gate.granted .rush-gate-label, .rush-gate.denied .rush-gate-label { font-size: 11px; padding: 1px 4px; color: #0b1324; background: var(--gate); border-radius: 4px; }
+.rush-burst { position: absolute; left: var(--x); top: 34%; width: 90px; height: 90px; margin: -45px 0 0 -45px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(157,255,107,0.8) 35%, rgba(157,255,107,0) 70%); animation: rush-burst 0.6s ease-out forwards; }
+.is-denied .rush-window { animation: rush-shake 0.4s linear; }
+.rush-time.gain { box-shadow: 0 0 14px var(--neon3); border-color: var(--neon3); }
+.rush-time.loss { box-shadow: 0 0 14px #ff6b6b; border-color: #ff6b6b; animation: gate-shake 0.35s ease-in-out; }
+.rush-time-delta { position: absolute; right: 8px; top: 50%; font: 900 15px ui-monospace, Menlo, monospace; animation: delta-pop 0.7s ease-out forwards; }
+.rush-time-delta.ok { color: var(--neon3); text-shadow: 0 0 6px #0b1324; }
+.rush-time-delta.ng { color: #ff6b6b; text-shadow: 0 0 6px #0b1324; }
+.rush-door.granted { border-color: var(--neon3); box-shadow: 0 0 18px var(--neon3); background: linear-gradient(180deg, #1f4a2e, #0d1526); }
+.rush-door.denied { border-color: #ff6b6b; box-shadow: 0 0 18px #ff6b6b; background: linear-gradient(180deg, #4a1f26, #0d1526); animation: gate-shake 0.4s ease-in-out; }
+.rush-door.dim { opacity: 0.35; }
+.rush-door:disabled { cursor: default; }
+@keyframes rush-dash { 0% { transform: none; } 45% { transform: translateY(-40px) scale(0.75); } 100% { transform: translateY(-70px) scale(0.45); opacity: 0; } }
+@keyframes rush-bonk { 0% { transform: none; } 30% { transform: translateY(-34px) scale(0.8); } 55% { transform: translateY(6px) rotate(-14deg); } 75% { transform: translateY(0) rotate(8deg); } 100% { transform: rotate(0); } }
+@keyframes gate-open { 0% { transform: scaleY(1); } 40% { transform: scaleY(1.08); } 100% { transform: scaleY(1); } }
+@keyframes gate-shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 50% { transform: translateX(5px); } 75% { transform: translateX(-3px); } }
+@keyframes rush-burst { from { transform: scale(0.2); opacity: 1; } to { transform: scale(1.6); opacity: 0; } }
+@keyframes rush-shake { 0%, 100% { transform: none; } 20% { transform: translate(-6px, 2px); } 40% { transform: translate(6px, -2px); } 60% { transform: translate(-4px, 1px); } 80% { transform: translate(3px, 0); } }
+@keyframes delta-pop { from { transform: translateY(-50%) scale(0.6); opacity: 0; } 30% { transform: translateY(-80%) scale(1.3); opacity: 1; } to { transform: translateY(-160%) scale(1); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .rush-runner, .rush-gate, .rush-burst, .rush-time, .rush-time-delta, .rush-door.denied, .is-denied .rush-window { animation: none !important; transition: none !important; } }
+/* 今日限定 weekly themes (2026-11-01) */
+.limited-banner.themed { position: relative; overflow: hidden; border-style: solid; background: linear-gradient(110deg, var(--theme) 0%, #fff6e3 75%); box-shadow: 0 3px 0 var(--ink); }
+.limited-banner.themed::after { content: ""; position: absolute; top: -30%; left: -40%; width: 30%; height: 160%; transform: rotate(20deg); background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent); animation: tile-shine 4s ease-in-out infinite; }
+.limited-icon { flex: none; width: 52px; height: 52px; display: grid; place-items: center; font-size: 30px; background: #fff; border: 2.5px solid var(--ink); border-radius: 50%; animation: hero-bob 1.8s ease-in-out infinite; }
+.limited-reward { font-size: 14px; font-weight: 900; color: #b0471f; }
+.limited-go { flex: none; margin-left: auto; padding: 4px 10px; font-size: 13px; font-weight: 900; background: var(--yellow); border: 2px solid var(--ink); border-radius: 999px; box-shadow: 0 2px 0 var(--ink); }
+.week-plan { margin-top: 8px; }
+.week-strip { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; }
+.week-day { display: flex; flex-direction: column; align-items: center; gap: 1px; padding: 4px 0; min-width: 0; font: inherit; color: var(--ink); background: #fff; border: 2px solid var(--line); border-radius: 10px; cursor: pointer; }
+.week-day.today { border-color: var(--ink); background: var(--theme); }
+.week-day.picked { box-shadow: 0 0 0 2px var(--ink); }
+.week-day-name { font-size: 10px; font-weight: 800; white-space: nowrap; }
+.week-day-icon { font-size: 17px; line-height: 1.2; }
+.week-note { margin: 6px 2px 0; font-size: 12.5px; font-weight: 700; color: var(--muted); }
+@media (prefers-reduced-motion: reduce) { .limited-banner.themed::after, .limited-icon { animation: none; } }

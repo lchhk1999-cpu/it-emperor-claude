@@ -58,29 +58,69 @@
     };
   }
 
+  // 今日限定 themes by HKT weekday (user 2026-11-01: each day should feel
+  // different and worth playing — Saturday lots of coins, Sunday lots of
+  // experience, other days materials). The workbook Events/Stages give each
+  // day's questions; these set the look and the reward. PROTOTYPE balance:
+  // weekday material days give 5 of one material for 5–6 stamina; Friday adds
+  // the rarer 防火牆核心; Saturday +250 coins (≈4× an 究極 win); Sunday +400
+  // experience and a 傳說核心.
+  const LIMITED_THEMES = {
+    1: { icon: "🐍", name: "Python 素材日", color: "#a7d8a0", drops: { "MAT-PY": 5 } },
+    2: { icon: "📊", name: "Excel 素材日", color: "#9fd4b4", drops: { "MAT-EXCEL": 5 } },
+    3: { icon: "🗄", name: "SQL 素材日", color: "#8fc7f0", drops: { "MAT-SQL": 5 } },
+    4: { icon: "🔧", name: "硬件素材日", color: "#c9ced8", drops: { "MAT-HW": 5 } },
+    5: { icon: "🛡", name: "網絡保安日", color: "#c4b0e0", drops: { "MAT-NET": 4, "MAT-SEC": 2 } },
+    6: { icon: "🪙", name: "週六金幣狂歡", color: "#f4d36b", drops: {}, bonus: { coins: 250 } },
+    7: { icon: "⭐", name: "週日經驗狂歡", color: "#f4a3b8", drops: { "MAT-RARE": 1 }, bonus: { exp: 400 } },
+  };
+  const DAY_NAMES = ["", "一", "二", "三", "四", "五", "六", "日"];
+
+  const weekdayOf = (now) => ((new Date(now + 8 * 3600 * 1000).getUTCDay() + 6) % 7) + 1; // 1 = Monday
+
+  // What a theme gives, in words.
+  function themeReward(theme, gameData) {
+    const name = (id) => ((gameData.materials || []).find((m) => m.id === id) || { name: id }).name;
+    const parts = Object.entries(theme.drops || {}).map(([id, n]) => `${name(id)} ×${n}`);
+    if (theme.bonus && theme.bonus.coins) parts.unshift(`金幣 +${theme.bonus.coins}`);
+    if (theme.bonus && theme.bonus.exp) parts.unshift(`經驗 +${theme.bonus.exp}`);
+    return parts.join("、");
+  }
+
+  // The 7-day plan for the calendar strip: [{ weekday, day, icon, name, color, reward, today }].
+  function weekPlan(gameData, now) {
+    const today = weekdayOf(now);
+    return [1, 2, 3, 4, 5, 6, 7].map((w) => {
+      const t = LIMITED_THEMES[w];
+      return { weekday: w, day: DAY_NAMES[w], icon: t.icon, name: t.name, color: t.color, reward: themeReward(t, gameData), today: w === today };
+    });
+  }
+
   // Today's limited stage (HKT weekday), or null when the workbook has none.
   function limitedStage(gameData, now) {
-    const weekday = ((new Date(now + 8 * 3600 * 1000).getUTCDay() + 6) % 7) + 1; // 1 = Monday
+    const weekday = weekdayOf(now);
     const event = (gameData.events || []).find((e) => e.weekday === weekday);
     const st = event && (gameData.eventStages || []).find((s) => s.id === event.stage);
     const material = st && (gameData.materials || []).find((m) => m.id === st.material);
     if (!material) return null;
     const d = DIFFICULTIES[st.difficulty];
     const world = worldOfTopic(st.topic);
+    const theme = LIMITED_THEMES[weekday];
     return {
       id: `limited-${event.id}`,
       kind: "limited",
       world: world ? world.id : null,
       difficulty: st.difficulty,
-      chapter: `今日限定｜${event.name}`,
+      chapter: `今日限定｜${theme.name}`,
       name: st.title,
-      description: `${st.questionCount} 題｜勝出可得 ${material.name} ×${LIMITED_DROPS[material.rarity]}`,
+      description: `${st.questionCount} 題｜勝出可得 ${themeReward(theme, gameData)}`,
       questionCount: st.questionCount,
       topicIds: st.topic === "ALL" ? null : [st.topic],
       questionDifficulties: d.questions,
       staminaCost: st.stamina || 0,
       boss: { name: world ? world.boss : "Bug 王", maxHp: bossHp(st.questionCount, d.hpFactor), attack: d.attack },
-      drops: { pick: [], count: 0, extra: { [material.id]: LIMITED_DROPS[material.rarity] } },
+      drops: { pick: [], count: 0, extra: { ...theme.drops } },
+      theme: { weekday, icon: theme.icon, name: theme.name, color: theme.color, bonus: theme.bonus || {} },
     };
   }
 
@@ -117,7 +157,8 @@
     const base = ITE.profile.dseRewards(summary);
     const d = stage && DIFFICULTIES[stage.difficulty];
     if (!d || summary.outcome !== "won") return base;
-    return { ...base, coins: d.winCoins };
+    const bonus = (stage.theme && stage.theme.bonus) || {};
+    return { ...base, coins: d.winCoins + (bonus.coins || 0), exp: base.exp + (bonus.exp || 0) };
   }
 
   // Materials for a finished battle: { material_id: count }. Losing drops
@@ -138,5 +179,5 @@
     return out;
   }
 
-  ITE.dungeons = { WORLDS, DIFFICULTIES, DIFFICULTY_ORDER, LIMITED_DROPS, worldOfTopic, worldStages, limitedStage, allStages, stagePool, rewards, materialDrops };
+  ITE.dungeons = { LIMITED_THEMES, weekPlan, WORLDS, DIFFICULTIES, DIFFICULTY_ORDER, LIMITED_DROPS, worldOfTopic, worldStages, limitedStage, allStages, stagePool, rewards, materialDrops };
 })(globalThis);

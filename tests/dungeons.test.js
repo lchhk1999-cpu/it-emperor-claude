@@ -84,7 +84,19 @@
     assert.equal(sun.id, "limited-SUN-MIX");
     assert.equal(sun.topicIds, null);
     assert.equal(sun.questionCount, 15);
-    assert.deepEqual(Dg.materialDrops(sun, { outcome: "won" }, data, rng(1)), { "MAT-RARE": 2 });
+    assert.deepEqual(Dg.materialDrops(sun, { outcome: "won" }, data, rng(1)), { "MAT-RARE": 1 });
+    // Weekly themes (2026-11-01): Saturday coins, Sunday experience, materials on other days.
+    const won = { outcome: "won", correct: 10, answered: 15 };
+    assert.equal(Dg.rewards(sun, won).exp, ITE.profile.dseRewards(won).exp + 400);
+    const sat = Dg.limitedStage(data, SUN - 24 * 3600 * 1000);
+    assert.equal(sat.theme.icon, "🪙");
+    assert.equal(Dg.rewards(sat, won).coins, Dg.DIFFICULTIES[sat.difficulty].winCoins + 250);
+    assert.deepEqual(Dg.materialDrops(sat, { outcome: "won" }, data, rng(1)), {}, "Saturday pays coins, not chests");
+    assert.equal(Dg.rewards(sat, { outcome: "lost", correct: 1, answered: 10 }).coins, 0);
+    const plan = Dg.weekPlan(data, MON);
+    assert.deepEqual(plan.map((p) => p.day), ["一", "二", "三", "四", "五", "六", "日"]);
+    assert.equal(plan.filter((p) => p.today).map((p) => p.day).join(), "一");
+    assert.ok(plan[5].reward.includes("金幣 +250") && plan[6].reward.includes("經驗 +400"));
     assert.equal(Dg.limitedStage({ ...data, events: [] }, MON), null);
     const ids = Dg.allStages(data, MON).map((s) => s.id);
     assert.ok(ids.includes("stage-1") && ids.includes("dse-E-ultimate") && ids.includes("limited-MON-MAT"));
