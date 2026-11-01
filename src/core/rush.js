@@ -8,14 +8,17 @@
 (function (root) {
   const ITE = (root.ITE = root.ITE || {});
 
+  // Longer clock (user 2026-11-01: 「時間太短」): 60 s to start, +6 s / −4 s,
+  // and it speeds up only every 10 doors.
   const RUSH_RULES = {
-    startMs: 30000,
-    maxMs: 60000,
-    correctMs: 4000,
-    wrongMs: 5000,
-    // The clock runs faster as the run goes on: +10% per 5 doors, up to 2×.
-    speedPer5: 0.1,
-    maxSpeed: 2,
+    startMs: 60000,
+    maxMs: 90000,
+    correctMs: 6000,
+    wrongMs: 4000,
+    // The clock runs faster as the run goes on: +10% per 10 doors, up to 1.6×.
+    speedEvery: 10,
+    speedStep: 0.1,
+    maxSpeed: 1.6,
     dailyRewards: 3,
     // [doors passed, shards]: the best line reached counts.
     shardSteps: [[5, 1], [10, 2], [15, 3], [20, 4], [30, 5]],
@@ -40,7 +43,7 @@
   }
 
   function speed(state) {
-    return Math.min(RUSH_RULES.maxSpeed, 1 + RUSH_RULES.speedPer5 * Math.floor(state.passed / 5));
+    return Math.min(RUSH_RULES.maxSpeed, 1 + RUSH_RULES.speedStep * Math.floor(state.passed / RUSH_RULES.speedEvery));
   }
 
   // Real time passing; the run ends at zero.

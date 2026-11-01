@@ -70,35 +70,67 @@
     showResult();
   }
 
+  const DIFF = { easy: "簡單", medium: "中等", hard: "困難" };
+  const BITS = ["01", "10", "</>", "0x", "{}", "11", "IP", "&&"];
+
+  // Computer-themed run screen (user 2026-11-01: 「欠電腦主題設計」): a RUSH.exe
+  // window over a neon data highway, the question as a program window titled
+  // with its topic, and the doors as PORT 01–03 server gates.
   function run() {
     const s = state;
+    const q = s.current.q;
     const leader = app.getSave().profile.team[0];
     const timePct = Math.round((s.timeMs / RR.maxMs) * 100);
+    const topic = root.ITE.questions.TOPICS[q.topic_id] || q.topic_id;
     app.render(
       h(
         "main",
         { class: "screen battle rush-run" },
         h(
-          "header",
-          { class: "rush-hud" },
-          h("button", { class: "btn-back", onclick: () => (stop(), finish()), "aria-label": "結束衝刺" }, "‹"),
-          h("div", { class: "rush-time" }, h("div", { class: `rush-time-fill${s.timeMs < 8000 ? " low" : ""}`, style: `width:${timePct}%` }), h("span", { class: "rush-time-num" }, `${Math.ceil(s.timeMs / 1000)} 秒`)),
-          h("span", { class: "rush-count" }, `🚪 ${s.passed}`)
+          "section",
+          { class: "rush-window" },
+          h(
+            "div",
+            { class: "rush-titlebar" },
+            h("span", { class: "rush-dots", "aria-hidden": "true" }, h("i"), h("i"), h("i")),
+            h("span", { class: "rush-title" }, "RUSH.exe ─ 答題衝刺"),
+            h("button", { class: "rush-quit", onclick: () => (stop(), finish()), "aria-label": "結束衝刺" }, "✕")
+          ),
+          h(
+            "div",
+            { class: "rush-hud" },
+            h("div", { class: "rush-time", role: "meter", "aria-label": "剩餘時間" }, h("div", { class: `rush-time-fill${s.timeMs < 10000 ? " low" : ""}`, style: `width:${timePct}%` }), h("span", { class: "rush-time-num" }, `${Math.ceil(s.timeMs / 1000)} 秒`)),
+            h("span", { class: "rush-led" }, `🚪 ${s.passed}`),
+            h("span", { class: "rush-led small" }, `×${R.speed(s).toFixed(1)}`)
+          ),
+          h(
+            "div",
+            { class: "rush-scene" },
+            h("div", { class: "rush-grid", "aria-hidden": "true" }),
+            h("div", { class: "rush-bits", "aria-hidden": "true" }, BITS.map((b, i) => h("span", { style: `--i:${i}` }, b))),
+            h("div", { class: "rush-lane", "aria-hidden": "true" }, h("span"), h("span"), h("span")),
+            flash ? h("div", { class: `rush-flash ${flash.correct ? "ok" : "ng"}` }, flash.correct ? `+${RR.correctMs / 1000} 秒` : `−${RR.wrongMs / 1000} 秒`) : null,
+            h("div", { class: "rush-runner", html: leader ? sprites.character(leader, flash && !flash.correct ? "speechless" : "happy") : sprites.hero("happy") })
+          )
         ),
+        flash && !flash.correct ? h("p", { class: "rush-answer" }, `✖ 正確答案：${flash.answerText}`) : null,
         h(
-          "div",
-          { class: "rush-scene" },
-          h("div", { class: "rush-road", "aria-hidden": "true" }, h("span", {}), h("span", {}), h("span", {})),
-          h("div", { class: "rush-speed" }, `速度 ×${R.speed(s).toFixed(1)}`),
-          flash ? h("div", { class: `rush-flash ${flash.correct ? "ok" : "ng"}` }, flash.correct ? `+${RR.correctMs / 1000} 秒` : `−${RR.wrongMs / 1000} 秒`) : null,
-          h("div", { class: "rush-runner", html: leader ? sprites.character(leader, flash && !flash.correct ? "speechless" : "happy") : sprites.hero("happy") })
+          "section",
+          { class: "rush-qwin" },
+          h("div", { class: "rush-qbar" }, h("span", { class: "rush-chip" }, `📂 ${topic}`), q.difficulty ? h("span", { class: `rush-chip diff-${q.difficulty}` }, DIFF[q.difficulty] || q.difficulty) : null),
+          h("div", { class: "rush-qbody" }, app.prevQuestionBox(q), h("p", { class: "stem" }, q.stem))
         ),
-        flash && !flash.correct ? h("p", { class: "rush-answer" }, `正確答案：${flash.answerText}`) : null,
-        h("section", { class: "question-card rush-q" }, app.prevQuestionBox(s.current.q), h("p", { class: "stem" }, s.current.q.stem)),
         h(
           "div",
           { class: "rush-doors" },
-          s.current.doors.map((d, i) => h("button", { class: `rush-door door-${i}`, onclick: () => choose(d.letter) }, h("span", { class: "rush-door-text" }, d.text)))
+          s.current.doors.map((d, i) =>
+            h(
+              "button",
+              { class: `rush-door door-${i}`, onclick: () => choose(d.letter), "aria-label": `門 ${i + 1}：${d.text}` },
+              h("span", { class: "rush-port" }, h("i"), `PORT 0${i + 1}`),
+              h("span", { class: "rush-door-text" }, d.text)
+            )
+          )
         )
       )
     );

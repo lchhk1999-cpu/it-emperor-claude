@@ -136,6 +136,7 @@
     const c = screen.classList;
     if (!c) return "home";
     if (c.contains("result")) return "result";
+    if (c.contains("rush-run")) return "rush"; // 答題衝刺: dark computer theme
     if (c.contains("battle") || c.contains("raid")) return "battle";
     if (c.contains("drill")) return "stages";
     return PAGE_THEMES.find((t) => c.contains(t)) || "home";
@@ -417,21 +418,42 @@
         h("header", { class: "topbar" }, h("button", { class: "btn-back", onclick: showHome, "aria-label": "返回" }, "‹"), h("h1", {}, "DSE 題庫挑戰")),
         profileBar(),
         // 操練區 and the two UR modes as one row of tiles (2026-11-01: worlds in tabs below).
+        // Three sections (2026-11-01: 「排版開始亂」): 特別玩法 as one row of
+        // uniform icon tiles, 今日限定 as the home page's slim banner, then the
+        // DSE worlds.
+        h("h2", { class: "section-title" }, "特別玩法"),
         h(
           "div",
-          { class: "mode-row" },
-          h("button", { class: "mode-tile drill-tile", onclick: () => root.ITE.drillUi.show() }, h("span", { class: "mode-icon" }, "📝"), h("span", { class: "mode-name" }, "操練區"), h("span", { class: "mode-sub" }, "不扣體力")),
-          root.ITE.trialUi
-            ? h("button", { class: "mode-tile trial-entry", onclick: () => root.ITE.trialUi.show() }, h("span", { class: "mode-icon" }, "👑"), h("span", { class: "mode-name" }, "帝王試煉"), h("span", { class: "mode-sub" }, "UR IT帝"))
-            : null,
-          root.ITE.trialUi
-            ? h("button", { class: "mode-tile demon-entry", onclick: () => root.ITE.trialUi.show("demon") }, h("span", { class: "mode-icon" }, "⏱"), h("span", { class: "mode-name" }, "魔王限時"), h("span", { class: "mode-sub" }, "UR Bug 魔王"))
-            : null,
-          root.ITE.rushUi
-            ? h("button", { class: "mode-tile rush-entry", onclick: () => root.ITE.rushUi.show() }, h("span", { class: "mode-icon" }, "🏃"), h("span", { class: "mode-name" }, "答題衝刺"), h("span", { class: "mode-sub" }, "UR 雷神鍵盤"))
-            : null
+          { class: "mode-row4" },
+          [
+            ["📝", "操練區", "不扣體力", "c-mint", () => root.ITE.drillUi.show()],
+            root.ITE.trialUi ? ["👑", "帝王試煉", "UR IT帝", "c-gold", () => root.ITE.trialUi.show()] : null,
+            root.ITE.trialUi ? ["⏱", "魔王限時", "UR 魔王", "c-red", () => root.ITE.trialUi.show("demon")] : null,
+            root.ITE.rushUi ? ["🏃", "答題衝刺", "UR 鍵盤", "c-blue", () => root.ITE.rushUi.show()] : null,
+          ]
+            .filter(Boolean)
+            .map(([icon, name, sub, color, go]) =>
+              h("button", { class: "mode4", onclick: go }, h("span", { class: `mode4-icon ${color}` }, icon), h("span", { class: "mode4-name" }, name), h("span", { class: "mode4-sub" }, sub))
+            )
         ),
-        limited ? stageCard(limited) : null,
+        limited
+          ? [
+              h("h2", { class: "section-title" }, "今日限定"),
+              h(
+                "button",
+                { class: "limited-banner", onclick: () => startBattle(limited) },
+                h("span", { class: "limited-boss", html: sprites.monster(root.ITE.scenes.forWorld(limited.world).monster, "smug", { tier: limited.difficulty }) }),
+                h(
+                  "span",
+                  { class: "limited-info" },
+                  h("span", { class: "limited-name" }, limited.chapter.replace("今日限定｜", "")),
+                  h("span", { class: "limited-sub" }, `${limited.description}｜體力 ${root.ITE.stamina.stageCost(limited)}`),
+                  h("span", { class: "limited-sub" }, stageStatus(limited.id))
+                )
+              ),
+            ]
+          : null,
+        h("h2", { class: "section-title" }, "DSE 世界"),
         h(
           "div",
           { class: "world-tabs", role: "tablist", "aria-label": "DSE 世界" },
