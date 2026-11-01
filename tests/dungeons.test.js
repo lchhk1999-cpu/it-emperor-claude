@@ -118,6 +118,7 @@
     assert.equal(Dg.materialDrops(st("medium"), won, data, () => 0.09)["MAT-RARE"], undefined);
     assert.equal(Dg.materialDrops(st("hard"), won, data, () => 0.2)["MAT-RARE"], 1);
     assert.equal(Dg.materialDrops(st("easy"), won, data, () => 0)["MAT-RARE"], undefined);
-    assert.equal(Dg.materialDrops(st("ultimate"), won, data, () => 0.99)["MAT-RARE"], 1, "ultimate still always gives one");
+    assert.equal(Dg.materialDrops(st("ultimate"), won, data, () => 0.99)["MAT-RARE"], undefined, "ultimate: 50% since balance 2026-11-01");
+    assert.equal(Dg.materialDrops(st("ultimate"), won, data, () => 0.4)["MAT-RARE"], 1);
   });
 })();

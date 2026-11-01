@@ -156,6 +156,7 @@
     const gems = profile.gems || 0;
     const rates = G.characterRates(data);
     const untilPity = G.drawsUntilPity(profile, data);
+    const untilEquipPity = G.drawsUntilPity(profile, data, "equipment");
     const equipList = G.equipmentCandidates(data);
     const canDraw = gems >= G.GACHA_RULES.cost;
     const nameOf = (entry) => {
@@ -216,6 +217,7 @@
           "section",
           { class: "panel" },
           h("h2", {}, "裝備盲盒"),
+          untilEquipPity !== null ? h("p", { class: "hint" }, `再抽 ${untilEquipPity} 次內必定獲得 SSR 裝備（保底）`) : null,
           h("button", { class: "btn btn-primary", onclick: () => doDraw("equipment"), ...(canDraw ? {} : { disabled: "" }) }, `抽盲盒（${G.GACHA_RULES.cost} 寶石）`),
           (() => {
             const eqRates = G.equipmentRates(data);

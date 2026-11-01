@@ -18,10 +18,10 @@
     unlockShards: 40,
     // attack: lower on long tiers so about a quarter of the answers may be wrong.
     tiers: {
-      beginner: { name: "初級", questionCount: 5, questions: ["easy"], shards: [1, 1], hpFactor: 0.6, attack: 25 },
-      intermediate: { name: "中級", questionCount: 15, questions: ["medium"], shards: [1, 3], hpFactor: 0.7, attack: 20 },
-      advanced: { name: "高級", questionCount: 30, questions: ["hard", "medium"], shards: [2, 4], hpFactor: 0.75, attack: 14 },
-      master: { name: "最難", questionCount: 50, questions: ["hard"], shards: [3, 5], hpFactor: 0.8, attack: 9 },
+      beginner: { name: "初級", questionCount: 5, questions: ["easy"], shards: [1, 1], hpFactor: 0.6, attack: 25, minAccuracy: 60 },
+      intermediate: { name: "中級", questionCount: 15, questions: ["medium"], shards: [1, 3], hpFactor: 0.7, attack: 20, minAccuracy: 70 },
+      advanced: { name: "高級", questionCount: 30, questions: ["hard", "medium"], shards: [2, 4], hpFactor: 0.75, attack: 14, minAccuracy: 75 },
+      master: { name: "最難", questionCount: 50, questions: ["hard"], shards: [3, 5], hpFactor: 0.8, attack: 9, minAccuracy: 80 },
     },
     order: ["beginner", "intermediate", "advanced", "master"],
     boss: "IT帝的影子",
@@ -63,7 +63,7 @@
       difficulty: ["easy", "medium", "hard", "ultimate"][level],
       chapter: R.title,
       name: `${R.title}・${t.name}`,
-      description: `${t.questionCount} 題｜勝出可得${R.shardName} ${n} 個（每週一次）`,
+      description: `${t.questionCount} 題｜勝出${t.minAccuracy ? `並答對 ${t.minAccuracy}% 或以上` : ""}可得${R.shardName} ${n} 個（每週一次）`,
       questionCount: t.questionCount,
       topicIds: null,
       questionDifficulties: t.questions,
@@ -89,9 +89,14 @@
 
   // After a battle: a win on a tier not yet rewarded this week gives shards.
   // Returns { profile, shards } (shards 0 when nothing was given).
-  function claim(profile, key, outcome, now, rng) {
+  // accuracy (optional, %): a tier with minAccuracy gives shards only at or
+  // above it (balance 2026-11-01: a strong team could win while guessing); the
+  // week's claim stays open for another try.
+  function claim(profile, key, outcome, now, rng, accuracy) {
     const R = rulesOf(key);
     if (!R || outcome !== "won" || clearedThisWeek(profile, now).includes(key)) return { profile, shards: 0 };
+    const min = R.tiers[key].minAccuracy;
+    if (min && accuracy !== undefined && accuracy < min) return { profile, shards: 0, belowAccuracy: min };
     const [lo, hi] = R.tiers[key].shards;
     const n = lo + Math.min(hi - lo, Math.floor(rng() * (hi - lo + 1)));
     const id = R.characterId;
