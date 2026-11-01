@@ -28,6 +28,53 @@
       <circle cx="55" cy="44" r="13" fill="#e8f4fb" stroke="${INK}" stroke-width="4"/>
       <path d="M38 42q2-4 4 0M12 40l-4-8M68 40l4-8" fill="none" stroke="${INK}" stroke-width="4" stroke-linecap="round"/>
       <path d="M19 38l6-4M49 38l6-4" stroke="#fff" stroke-width="3" stroke-linecap="round"/>`,
+    // ---- 2026-11-01: R and SSR versions of each type ----
+    // 搜尋小幫手 (R hint): a magnifying glass with a spark.
+    "EQ-SEARCH": `<circle cx="34" cy="34" r="18" fill="#e8f4fb" stroke="${INK}" stroke-width="4"/>
+      <path d="M47 47 L64 64" stroke="${INK}" stroke-width="8" stroke-linecap="round"/><path d="M47 47 L64 64" stroke="#c98e5a" stroke-width="4" stroke-linecap="round"/>
+      <path d="M28 26 q4 -4 10 -2" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+      <path d="M62 14 l2 5 l5 2 l-5 2 l-2 5 l-2 -5 l-5 -2 l5 -2z" fill="#f4d36b" stroke="${INK}" stroke-width="1.5"/>`,
+    // 量子 AI 核心 (SSR hint): a glowing core with orbiting rings.
+    "EQ-QAI": `<circle cx="40" cy="40" r="14" fill="#c4b0e0" stroke="${INK}" stroke-width="4"/>
+      <ellipse cx="40" cy="40" rx="30" ry="11" fill="none" stroke="#8fc7f0" stroke-width="3.5"/>
+      <ellipse cx="40" cy="40" rx="30" ry="11" fill="none" stroke="#f4d36b" stroke-width="3.5" transform="rotate(60 40 40)"/>
+      <ellipse cx="40" cy="40" rx="30" ry="11" fill="none" stroke="#f4a3b8" stroke-width="3.5" transform="rotate(-60 40 40)"/>
+      <text x="40" y="45" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="900" fill="${INK}">AI</text>`,
+    // 能量飲品 (R heal): a drink can with a lightning label.
+    "EQ-DRINK": `<rect x="26" y="16" width="28" height="50" rx="6" fill="#a7d8a0" stroke="${INK}" stroke-width="4"/>
+      <path d="M26 24 h28 M26 58 h28" stroke="${INK}" stroke-width="3"/>
+      <path d="M42 30 l-8 12 h7 l-5 11 l11 -14 h-7 l5 -9z" fill="#f4d36b" stroke="${INK}" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M44 16 v-6 h8" fill="none" stroke="${INK}" stroke-width="3" stroke-linecap="round"/>`,
+    // 急救工具箱 (SSR heal): a first-aid case with a cross.
+    "EQ-MEDKIT": `<rect x="12" y="26" width="56" height="40" rx="8" fill="#fff" stroke="${INK}" stroke-width="4"/>
+      <path d="M30 26 v-8 h20 v8" fill="none" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M34 36 h12 v8 h8 v10 h-8 v8 h-12 v-8 h-8 v-10 h8z" fill="#f08a9c" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round" transform="translate(0 -3) scale(1 0.9)"/>`,
+    // 機械鍵盤 (R damage): a keyboard with keys.
+    "EQ-KEYBOARD": `<rect x="8" y="26" width="64" height="32" rx="6" fill="#d8dde6" stroke="${INK}" stroke-width="4"/>
+      <g fill="#fff" stroke="${INK}" stroke-width="2"><rect x="15" y="32" width="9" height="8" rx="2"/><rect x="27" y="32" width="9" height="8" rx="2"/><rect x="39" y="32" width="9" height="8" rx="2"/><rect x="51" y="32" width="12" height="8" rx="2"/><rect x="15" y="44" width="12" height="8" rx="2"/><rect x="30" y="44" width="22" height="8" rx="2"/><rect x="55" y="44" width="9" height="8" rx="2"/></g>
+      <rect x="39" y="32" width="9" height="8" rx="2" fill="#f4a3b8" stroke="${INK}" stroke-width="2"/>`,
+    // 伺服器機櫃 (SSR damage): a server rack with lights.
+    "EQ-SERVER": `<rect x="20" y="8" width="40" height="64" rx="6" fill="#3d4a66" stroke="${INK}" stroke-width="4"/>
+      <g fill="#5b6488" stroke="${INK}" stroke-width="2"><rect x="25" y="14" width="30" height="12" rx="2"/><rect x="25" y="30" width="30" height="12" rx="2"/><rect x="25" y="46" width="30" height="12" rx="2"/></g>
+      <g><circle cx="30" cy="20" r="2.5" fill="#9fe8e0"/><circle cx="36" cy="20" r="2.5" fill="#f4d36b"/><circle cx="30" cy="36" r="2.5" fill="#9fe8e0"/><circle cx="30" cy="52" r="2.5" fill="#f08a9c"/><circle cx="36" cy="52" r="2.5" fill="#9fe8e0"/></g>
+      <path d="M44 20 h8 M44 36 h8 M44 52 h8" stroke="#c9ced8" stroke-width="2.5" stroke-linecap="round"/>`,
+    // 螢幕保護貼 (R defence): a phone with a shine sheet.
+    "EQ-GUARD": `<rect x="24" y="10" width="32" height="60" rx="7" fill="#3d4a66" stroke="${INK}" stroke-width="4"/>
+      <rect x="29" y="17" width="22" height="44" rx="3" fill="#c9e2f4"/>
+      <path d="M31 40 L47 20 M33 54 L49 34" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>`,
+    // 防火牆 (SSR defence): a brick wall with a flame.
+    "EQ-FIREWALL": `<rect x="10" y="34" width="60" height="34" rx="3" fill="#d2553f" stroke="${INK}" stroke-width="4"/>
+      <path d="M10 45 h60 M10 56 h60 M26 34 v11 M46 34 v11 M18 45 v11 M38 45 v11 M58 45 v11 M26 56 v12 M46 56 v12" stroke="${INK}" stroke-width="2.5"/>
+      <path d="M40 8 C30 20 50 22 40 32 C56 28 54 14 46 10 C48 16 44 18 40 8Z" fill="#f2a541" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/>`,
+    // 計時器 (R time): a stopwatch.
+    "EQ-TIMER": `<circle cx="40" cy="44" r="24" fill="#fff6d8" stroke="${INK}" stroke-width="4"/>
+      <rect x="35" y="10" width="10" height="8" rx="2" fill="${INK}"/>
+      <path d="M40 44 V30 M40 44 L50 50" stroke="${INK}" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M58 22 l5 -5" stroke="${INK}" stroke-width="4" stroke-linecap="round"/>`,
+    // 時光沙漏 (SSR time): an hourglass with gold sand.
+    "EQ-HOURGLASS": `<path d="M22 10 h36 M22 70 h36" stroke="${INK}" stroke-width="5" stroke-linecap="round"/>
+      <path d="M26 12 C26 32 40 34 40 40 C40 46 26 48 26 68 H54 C54 48 40 46 40 40 C40 34 54 32 54 12Z" fill="#e8f4fb" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M31 22 H49 C47 30 42 34 40 37 C38 34 33 30 31 22Z M30 66 C32 56 38 54 40 52 C42 54 48 56 50 66Z" fill="#f4d36b"/>`,
   };
 
   // A generic box for items added to the workbook later without their own art.

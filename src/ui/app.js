@@ -724,6 +724,7 @@
             h("span", { class: "chip" }, Q.TOPICS[q.topic_id]),
             q.review_status !== "approved" ? h("span", { class: "chip chip-warn" }, `狀態：${q.review_status}`) : null
           ),
+          prevQuestionBox(q),
           h("p", { class: "stem" }, q.stem),
           skillBar(s),
           h("div", { class: "options" }, options)
@@ -748,6 +749,12 @@
     }
     if (s.timed && s.phase === "question") startDrain();
     else stopDrain();
+  }
+
+  // A 承上題 shows the question it follows, so it can be read on its own.
+  function prevQuestionBox(q) {
+    const prev = Q.previousOf(q, questionPool);
+    return prev ? h("details", { class: "prev-q", open: "" }, h("summary", {}, "上一題內容"), h("p", {}, prev.stem)) : null;
   }
 
   // ---------- Equipment skills (DSE battle only) ----------
@@ -965,6 +972,7 @@
     render,
     bar,
     questionPool,
+    prevQuestionBox,
     buildMode: BUILD_MODE,
     version: APP_VERSION,
     arena,

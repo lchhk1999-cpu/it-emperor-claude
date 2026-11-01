@@ -14,9 +14,15 @@
   const right = (s) => B.answer(s, B.currentQuestion(s).answer);
   const wrong = (s) => B.answer(s, ITE.questions.ANSWERS.find((l) => l !== B.currentQuestion(s).answer));
 
-  test("equipment: five workbook items with parsed level-1 effects; glasses usable (魔王限時)", () => {
+  test("equipment: 15 workbook items (R/SR/SSR of 5 kinds) with parsed effects; glasses usable (魔王限時)", () => {
     const byId = (id) => E.itemById(data, id);
-    assert.deepEqual(data.equipment.map((e) => e.id), ["EQ-AI", "EQ-EYEDROP", "EQ-COMPUTER", "EQ-ANTIVIRUS", "EQ-GLASSES"]);
+    assert.deepEqual(data.equipment.slice(0, 5).map((e) => e.id), ["EQ-AI", "EQ-EYEDROP", "EQ-COMPUTER", "EQ-ANTIVIRUS", "EQ-GLASSES"]);
+    assert.equal(data.equipment.length, 15);
+    for (const kind of ["hint", "healing", "damage", "defense", "time"]) {
+      assert.deepEqual(data.equipment.filter((e) => e.type === kind).map((e) => e.rarity).sort(), ["R", "SR", "SSR"], kind);
+    }
+    assert.ok(byId("EQ-FIREWALL").levels[0].reduce_pct > byId("EQ-ANTIVIRUS").levels[0].reduce_pct, "SSR stronger than SR");
+    assert.ok(byId("EQ-GUARD").levels[0].reduce_pct < byId("EQ-ANTIVIRUS").levels[0].reduce_pct, "R weaker than SR");
     assert.deepEqual([byId("EQ-AI").levels[0].remove, byId("EQ-AI").levels[0].cooldown], [1, 6]);
     assert.equal(byId("EQ-EYEDROP").levels[0].heal, 20); // balance 2026-11-01 (was 10)
     assert.deepEqual([byId("EQ-COMPUTER").levels[0].cooldown, byId("EQ-COMPUTER").levels[0].bonus], [6, 40]);

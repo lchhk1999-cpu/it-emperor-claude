@@ -1023,3 +1023,18 @@ body[data-screen="guild"] { --page-bg: linear-gradient(180deg, #ebe2f8 0%, #fbf6
   .splash-poster * { animation: none !important; }
   .sp-flash { opacity: 0; }
 }
+/* 承上題 context (2026-11-01) */
+.prev-q { margin: 6px 0 4px; padding: 6px 10px; font-size: 13px; background: #f1ebe3; border: 2px dashed var(--line); border-radius: 12px; }
+.prev-q summary { font-weight: 800; color: var(--muted); cursor: pointer; }
+.prev-q p { margin: 4px 0 0; line-height: 1.5; }
+.team-bonus { margin: 6px 0 0; font-size: 13px; font-weight: 800; color: #3f7f5a; }
+/* 角色詳情 (2026-11-01) */
+.char-detail { position: relative; }
+.cd-sprite { width: 130px; }
+.cd-sprite.not-owned { filter: grayscale(1); opacity: 0.6; }
+.cd-sprite svg { width: 100%; height: auto; display: block; }
+.char-detail h2 { display: flex; align-items: center; gap: 8px; }
+.cd-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; width: 100%; }
+.cd-row { display: flex; justify-content: space-between; align-items: baseline; gap: 6px; padding: 6px 10px; background: #fff; border: 2px solid var(--ink); border-radius: 12px; }
+.cd-k { font-size: 12px; font-weight: 800; color: var(--muted); }
+.cd-v { font-size: 15px; font-weight: 900; text-align: right; }

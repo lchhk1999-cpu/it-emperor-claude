@@ -90,16 +90,25 @@
     assert.ok(counts.SSR / 4000 > 0.02 && counts.SSR / 4000 < 0.06, "SSR about 3% plus pity: " + JSON.stringify(counts));
   });
 
-  test("gacha: equipment draws give usable items with equal chance; duplicates give 1 shard", () => {
-    const list = G.equipmentCandidates(data);
-    assert.deepEqual(list.map((e) => e.id), ["EQ-AI", "EQ-EYEDROP", "EQ-COMPUTER", "EQ-ANTIVIRUS", "EQ-GLASSES"], "glasses usable since 魔王限時 (2026-11-01)");
-    const dupe = G.draw(withGems(10), "equipment", data, fixedRng([0.0]));
-    assert.deepEqual([dupe.result.id, dupe.result.duplicate, dupe.result.shards], ["EQ-AI", true, 1]);
-    assert.deepEqual(dupe.profile.shards, { "EQ-AI": 1 });
-    const fresh = G.draw(withGems(10), "equipment", data, fixedRng([0.7])); // 4th of 5
-    assert.equal(fresh.result.id, "EQ-ANTIVIRUS");
-    assert.ok(fresh.profile.owned.equipment.includes("EQ-ANTIVIRUS"));
-    assert.equal(E.assign(fresh.profile, "CH-ITDOG", "EQ-ANTIVIRUS", data).error, null);
+  test("gacha: equipment draws use the R/SR/SSR pool rates; duplicates give 1 shard", () => {
+    const rates = G.equipmentRates(data);
+    assert.deepEqual(rates.map((r) => [r.rarity, r.pct, r.items.length]), [["R", 75, 5], ["SR", 22, 5], ["SSR", 3, 5]]);
+    assert.equal(G.equipmentCandidates(data).length, 15);
+    // rng 0 → R, first R item
+    const first = G.draw(withGems(10), "equipment", data, fixedRng([0.0]));
+    assert.deepEqual([first.result.id, first.result.rarity, first.result.duplicate], ["EQ-SEARCH", "R", false]);
+    assert.ok(first.profile.owned.equipment.includes("EQ-SEARCH"));
+    assert.equal(E.assign(first.profile, "CH-ITDOG", "EQ-SEARCH", data).error, null);
+    const dupe = G.draw({ ...first.profile, gems: 10 }, "equipment", data, fixedRng([0.0]));
+    assert.deepEqual([dupe.result.duplicate, dupe.result.shards], [true, 1]);
+    assert.deepEqual(dupe.profile.shards, { "EQ-SEARCH": 1 });
+    // rng 0.99 → SSR
+    assert.equal(G.draw(withGems(10), "equipment", data, fixedRng([0.99])).result.rarity, "SSR");
+    // roughly the published rates over many boxes
+    const counts = { R: 0, SR: 0, SSR: 0 };
+    const rng = ITE.rng.createRng(42);
+    for (let i = 0; i < 3000; i++) counts[G.rollBoxes(withGems(10), "equipment", data, rng).boxes[0].rarity] += 1;
+    assert.ok(counts.R / 3000 > 0.7 && counts.SR / 3000 > 0.17 && counts.SSR / 3000 < 0.06, JSON.stringify(counts));
   });
 
   test("gacha: draw history keeps the latest 20", () => {
@@ -147,7 +156,7 @@
     assert.equal(G.openBox(p, rolled, 6, data).error, "unknown_box");
     assert.equal(G.rollBoxes({ ...p, gems: 0 }, "character", data, ITE.rng.createRng(3)).error, "not_enough_gems");
     const eq = G.rollBoxes(p, "equipment", data, ITE.rng.createRng(9));
-    assert.ok(eq.boxes.every((b) => b.type === "equipment" && b.rarity === null));
+    assert.ok(eq.boxes.every((b) => b.type === "equipment" && ["R", "SR", "SSR"].includes(b.rarity)));
   });
 
   test("gacha: on a pity draw every blind box is SSR, and opening one resets the counter", () => {

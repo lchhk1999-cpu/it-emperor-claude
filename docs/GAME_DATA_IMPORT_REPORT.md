@@ -1,8 +1,8 @@
 # 遊戲資料匯入報告（自動產生）
 
 - 來源檔案：`IT_Emperor_DseMcQs.xlsx`
-- SHA-256：`81bcf43f52db06711e890f3c54c28e54fbed75f110bffbebf0ceded002e245fe`
-- 匯入時間：2026-10-31T16:51:03Z
+- SHA-256：`f61cff899ef1d4516bfea497658e23f82b6a539f9f9647bd39e4873b2d414907`
+- 匯入時間：2026-11-01T04:52:30Z
 - 工作表：`Characters`、`GameConfig`、`Missions`、`Titles`、`Equipment`、`Pools`、`Materials`、`Stages`、`Events`（Topics 用作檢查課題）
 
 ## 角色
@@ -103,6 +103,16 @@
 | EQ-COMPUTER | 電腦 | damage | 冷卻 6 題：額外傷害 40 | cooldown=6、bonus=40 | ✅ |
 | EQ-ANTIVIRUS | 防毒軟件 | defense | 受傷害 -15% | reduce_pct=15 | ✅ |
 | EQ-GLASSES | 眼鏡 | time | 每題 +3 秒 | seconds=3 | ✅ |
+| EQ-SEARCH | 搜尋小幫手 | hint | 刪去 1 個錯誤選項；冷卻 8 題 | remove=1、cooldown=8 | ✅ |
+| EQ-QAI | 量子 AI 核心 | hint | 刪去 2 個錯誤選項；冷卻 5 題 | remove=2、cooldown=5 | ✅ |
+| EQ-DRINK | 能量飲品 | healing | 回復 12 HP | heal=12 | ✅ |
+| EQ-MEDKIT | 急救工具箱 | healing | 回復 40 HP | heal=40 | ✅ |
+| EQ-KEYBOARD | 機械鍵盤 | damage | 冷卻 6 題：額外傷害 25 | cooldown=6、bonus=25 | ✅ |
+| EQ-SERVER | 伺服器機櫃 | damage | 冷卻 5 題：額外傷害 70 | cooldown=5、bonus=70 | ✅ |
+| EQ-GUARD | 螢幕保護貼 | defense | 受傷害 -8% | reduce_pct=8 | ✅ |
+| EQ-FIREWALL | 防火牆 | defense | 受傷害 -25% | reduce_pct=25 | ✅ |
+| EQ-TIMER | 計時器 | time | 每題 +2 秒 | seconds=2 | ✅ |
+| EQ-HOURGLASS | 時光沙漏 | time | 每題 +6 秒 | seconds=6 | ✅ |
 
 ## 抽蛋池（只用免費寶石）
 

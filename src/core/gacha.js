@@ -33,8 +33,19 @@
       .filter((r) => r.characters.length);
   }
 
+  // Items the equipment box can give: usable and not UR (UR is earned in play).
   function equipmentCandidates(gameData) {
-    return (gameData.equipment || []).filter((e) => e.supported);
+    return (gameData.equipment || []).filter((e) => e.supported && e.rarity !== "UR");
+  }
+
+  // 裝備稀有度 (2026-11-01): the workbook pool rates by rarity (R/SR/SSR),
+  // with the items of each rarity; equal chance within a rarity. Items without
+  // a rarity (older workbooks) fall back to one equal-chance group.
+  function equipmentRates(gameData) {
+    const items = equipmentCandidates(gameData);
+    const pool = gameData.pools && gameData.pools.equipment;
+    if (!pool || items.some((e) => !e.rarity)) return items.length ? [{ rarity: null, pct: 100, items }] : [];
+    return pool.rates.map((r) => ({ ...r, items: items.filter((e) => e.rarity === r.rarity) })).filter((r) => r.items.length);
   }
 
   function pityThreshold(gameData) {
@@ -75,8 +86,10 @@
       const c = pickOne(rates.find((r) => r.rarity === rarity).characters, rng);
       return { type, id: c.id, name: c.name, rarity };
     }
-    const e = pickOne(equipmentCandidates(gameData), rng);
-    return { type, id: e.id, name: e.name, rarity: null };
+    const rates = equipmentRates(gameData);
+    const rarity = rates.length > 1 ? rollRarity(rates, rng) : rates[0].rarity;
+    const e = pickOne(rates.find((r) => r.rarity === rarity).items, rng);
+    return { type, id: e.id, name: e.name, rarity: e.rarity || null };
   }
 
   // Returns { boxes, pity } or { error }. Nothing is spent until a box is opened.
@@ -137,5 +150,5 @@
     return threshold ? threshold - ((profile.pity && profile.pity.character) || 0) : null;
   }
 
-  ITE.gacha = { GACHA_RULES, BOX_COUNT, characterRates, equipmentCandidates, pityThreshold, rollRarity, rollBoxes, openBox, draw, drawsUntilPity };
+  ITE.gacha = { GACHA_RULES, BOX_COUNT, characterRates, equipmentCandidates, equipmentRates, pityThreshold, rollRarity, rollBoxes, openBox, draw, drawsUntilPity };
 })(globalThis);

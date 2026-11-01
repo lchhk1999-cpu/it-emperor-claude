@@ -217,8 +217,19 @@
           { class: "panel" },
           h("h2", {}, "裝備盲盒"),
           h("button", { class: "btn btn-primary", onclick: () => doDraw("equipment"), ...(canDraw ? {} : { disabled: "" }) }, `抽盲盒（${G.GACHA_RULES.cost} 寶石）`),
-          h("p", { class: "hint" }, `公開機率：${equipList.map((e) => e.name).join("、")}：每件 ${Math.round((100 / equipList.length) * 10) / 10}%`),
-          h("p", { class: "hint" }, `裝備暫未設稀有度，所以每件機率相同。重複裝備換成該裝備的碎片 ×${G.GACHA_RULES.duplicateShards}，用於第三階進化。`)
+          (() => {
+            const eqRates = G.equipmentRates(data);
+            return [
+              h("p", { class: "rates-line" }, eqRates.map((r) => h("span", {}, r.rarity ? h("span", { class: `rarity rarity-${r.rarity}` }, r.rarity) : "", ` ${r.pct}%`))),
+              h(
+                "details",
+                { class: "rates-box" },
+                h("summary", {}, "查看裝備機率"),
+                h("ul", { class: "guide-list" }, eqRates.map((r) => h("li", {}, `${r.rarity || "全部"} ${r.pct}%：${r.items.map((e) => e.name).join("、")}（同稀有度內機率相同）`)))
+              ),
+            ];
+          })(),
+          h("p", { class: "hint" }, `重複裝備換成該裝備的碎片 ×${G.GACHA_RULES.duplicateShards}，用於第三階進化。UR 裝備不會在盲盒出現。`)
         ),
         stage ? null : h(
           "section",
