@@ -1,6 +1,6 @@
 # 試玩版放上網（Netlify，不公開連結）
 
-狀態：2026-11-01 用戶批准放上網給老師及學生試玩。方式：Netlify 免費寄存，網址是一串名稱，不會被搜尋器收錄（已設 noindex 及 robots.txt），只有收到連結的人才知道。
+狀態：2026-11-01 已上載。學生版 https://itdi-trial-k7q2.netlify.app/ ；老師示範版 https://itdi-trial-k7q2.netlify.app/demo/ （Claude 已在瀏覽器實測兩個版本）。方式：Netlify 免費寄存，網址是一串名稱，不會被搜尋器收錄（已設 noindex 及 robots.txt），只有收到連結的人才知道。
 
 > 開帳戶、登入及上載要由你親自做（Claude 不可代你開帳戶或輸入密碼）。全程免費，不需信用卡。
 
@@ -40,6 +40,9 @@ Claude 會用瀏覽器打開兩個版本檢查是否正常。
 - 提醒：用 iPhone 的 Safari 打開，按「分享」→「加入主畫面」，之後像 App 一樣使用，亦可離線玩。
 - 進度只存在各自手機；換手機可用「設定 → 備份進度」。
 - 收集意見：可用 `04_AGE_RATING_AND_TESTFLIGHT.md` 的回饋問題做 Google Form。
+
+## 隱藏「Powered by Netlify」徽章
+Netlify 會在新網站右下角加一個徽章，會遮住遊戲底部分頁的一部分。關閉方法：Netlify 網站頁面 →「Project configuration」→「General」→「Powered by Netlify badge」→ 關閉。（2026 年 8 月起逐步推出，如未見此設定可稍後再看。）
 
 ## 收回或暫停
 Netlify 網站頁面 → 「Site configuration」→ 最底「Delete this site」，連結即時失效。
