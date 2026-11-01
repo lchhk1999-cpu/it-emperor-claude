@@ -338,6 +338,8 @@
             );
           })()
         ),
+        // 知識修練館 (2026-11-01): revision notes, labs and due reviews.
+        root.ITE.revisionUi ? root.ITE.revisionUi.homeBanner() : null,
         limited
           ? h(
               "button",

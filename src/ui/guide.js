@@ -9,6 +9,7 @@
   const Dg = root.ITE.dungeons;
   const T = root.ITE.trial;
   const G = root.ITE.gacha;
+  const R_RULES = () => root.ITE.revision.REVISION_RULES;
 
   // When each item is worth it (strategy, not numbers).
   // When each kind of item is worth it (strategy, not numbers). R / SR / SSR
@@ -84,6 +85,14 @@
         h("header", { class: "topbar" }, h("button", { class: "btn-back", onclick: () => app.showHome(), "aria-label": "返回" }, "‹"), h("h1", {}, "遊戲指南")),
         h("p", { class: "hint center" }, "點標題展開。想重看新手教學，可到「設定」。"),
         section("📝 答題與戰鬥", false, li(["每題 4 個選項，答對就攻擊 Boss，連續答對有 Combo 加成。", "答錯會被反擊扣隊伍 HP，並即時看到解說和提示。", "打倒 Boss 即勝利；HP 歸零或題目用完仍未打倒就失敗。", "每次出題選項次序都會打亂，要真的明白才答得對。"])),
+        section("📚 知識修練館", false, li([
+          "主頁「知識修練館」：47 篇原創溫習筆記，按 A 至 E 五大課題，每篇分概念、例子、易錯及自測卡。",
+          "三個入口：接續上次、今日需複習、按課題探索；亦可搜尋關鍵字，例如 VLOOKUP、MFA、range。",
+          "自測先自己作答再揭曉答案；答錯可按「補回概念」回看相關卡。",
+          "A11、D11、C07 有互動實驗室：改數值即時重算 Excel 公式、逐行追蹤 Python，並做新例子。所有 Python 例子都可以逐步追蹤。",
+          `複習安排在 ${R_RULES().intervalsDays.join("、")} 日後；答對延長，答錯會即日再出現。`,
+          `經驗：第一次完成 +${R_RULES().exp.firstDone}、新例子答對 +${R_RULES().exp.newCorrect}、修正錯誤 +${R_RULES().exp.fixed}、到期複習答對 +${R_RULES().exp.reviewCorrect}；每張卡每日最多 +${R_RULES().cardDailyCap}。`,
+        ])),
         section("📖 故事模式", false, li(["A–E 五個世界共 43 關，按 DSE 課程次序學習。", "每關先練習再挑戰小 Boss；答錯的題目稍後會再出現，直至答對。", "按表現取得 1–3 粒 ★；完成一關才解鎖下一關。", "不扣體力，最適合第一次學習某個課題。"])),
         section("⚔ DSE 挑戰", false,
           li([
