@@ -173,6 +173,11 @@
         out.rush = { day: r.day, plays: Math.min(r.plays, 99), best: Number.isInteger(r.best) && r.best >= 0 ? Math.min(r.best, 9999) : 0 };
       }
     }
+    // 錯題本 (src/core/mistakes.js); damaged entries are dropped.
+    if (raw.mistakes !== undefined && root.ITE.mistakes) {
+      const mk = root.ITE.mistakes.sanitize(raw.mistakes);
+      if (mk) out.mistakes = mk;
+    }
     // 知識修練館 progress (src/core/revision.js); damaged records are dropped.
     if (raw.revision !== undefined && root.ITE.revision) {
       const rv = root.ITE.revision.sanitize(raw.revision);

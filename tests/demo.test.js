@@ -53,3 +53,14 @@
     assert.equal(ITE.save.load(store).status, "ok");
   });
 })();
+(function () {
+  test("demo: the sample 錯題本 has two questions from each world, from the given pool only", () => {
+    const pool = ITE.questions.filterForMode(ITE.questionBank.questions, "release");
+    const s = ITE.demo.seedSave(ITE.gameData, Date.UTC(2026, 10, 3, 4), pool);
+    const list = ITE.mistakes.list(s.profile, pool);
+    assert.equal(list.length, 10);
+    assert.deepEqual(["A", "B", "C", "D", "E"].map((w) => list.filter((e) => ITE.mistakes.worldOf(e.question) === w).length), [2, 2, 2, 2, 2]);
+    assert.ok(list.every((e) => e.question.review_status === "approved"));
+    assert.equal(ITE.demo.seedSave(ITE.gameData, Date.UTC(2026, 10, 3, 4)).profile.mistakes, undefined, "no pool, no sample");
+  });
+})();

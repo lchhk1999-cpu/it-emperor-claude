@@ -89,6 +89,7 @@
           "主頁「知識修練館」：47 篇原創溫習筆記，按 A 至 E 五大課題，每篇分概念、例子、易錯及自測卡。",
           "三個入口：接續上次、今日需複習、按課題探索；亦可搜尋關鍵字，例如 VLOOKUP、MFA、range。",
           "自測先自己作答再揭曉答案；答錯可按「補回概念」回看相關卡。",
+          `📕 錯題本：各模式答錯的題目會自動收集（最多保留最近 ${root.ITE.mistakes.MISTAKE_RULES.keep} 題），可按課題篩選、按「最近答錯」或「錯得最多」排列，自行剔選題目重溫。重溫不扣體力；連續答對 ${root.ITE.mistakes.MISTAKE_RULES.masterStreak} 次即移出。第一次改正每題 +${root.ITE.mistakes.MISTAKE_RULES.fixExp} 經驗，每日最多 +${root.ITE.mistakes.MISTAKE_RULES.dailyExpCap}。`,
           "A11、D11、C07 有互動實驗室：改數值即時重算 Excel 公式、逐行追蹤 Python，並做新例子。所有 Python 例子都可以逐步追蹤。",
           `複習安排在 ${R_RULES().intervalsDays.join("、")} 日後；答對延長，答錯會即日再出現。`,
           `經驗：第一次完成 +${R_RULES().exp.firstDone}、新例子答對 +${R_RULES().exp.newCorrect}、修正錯誤 +${R_RULES().exp.fixed}、到期複習答對 +${R_RULES().exp.reviewCorrect}；每張卡每日最多 +${R_RULES().cardDailyCap}。`,

@@ -39,7 +39,7 @@
   const P = root.ITE.profile;
   const gameData = root.ITE.gameData;
   // A new 老師示範版 save starts with sample progress too (titles, 知識修練館).
-  const demoSeed = DEMO && !save.profile ? root.ITE.demo.seedSave(gameData, Date.now()) : null;
+  const demoSeed = DEMO && !save.profile ? root.ITE.demo.seedSave(gameData, Date.now(), questionPool) : null;
   {
     const fresh = demoSeed ? demoSeed.profile : P.defaultProfile(gameData);
     const base = P.ensureOwned(save.profile || fresh, gameData);
@@ -887,7 +887,10 @@
     sfx(correct ? "correct" : "wrong");
     // Times each question was answered here, so battles draw the least-seen first.
     const seen = q && q.question_id ? { ...(save.profile.seen || {}), [q.question_id]: ((save.profile.seen || {})[q.question_id] || 0) + 1 } : save.profile.seen;
-    save = { ...save, profile: { ...save.profile, ...(seen ? { seen } : {}) }, progress: Mi.recordAnswer(save.progress, q, correct, Date.now(), opts) };
+    let profile = { ...save.profile, ...(seen ? { seen } : {}) };
+    // Wrong answers go into the 錯題本 (its own review records answers itself).
+    if (!correct && !(opts && opts.review) && root.ITE.mistakes) profile = root.ITE.mistakes.recordWrong(profile, q, Date.now());
+    save = { ...save, profile, progress: Mi.recordAnswer(save.progress, q, correct, Date.now(), opts) };
     if (doPersist) persist();
   }
 

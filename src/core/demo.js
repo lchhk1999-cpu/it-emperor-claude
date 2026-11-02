@@ -79,9 +79,28 @@
     return p;
   }
 
+  // 錯題本: two questions from each world A–E, answered wrong 1–3 times in
+  // the past few days, taken from the build's own (approved) questions.
+  function seedMistakes(profile, questions, now) {
+    const Mk = ITE.mistakes;
+    if (!Mk || !questions || !questions.length) return profile;
+    const HOUR = 60 * 60 * 1000;
+    let p = profile;
+    let k = 0;
+    for (const w of ["A", "B", "C", "D", "E"]) {
+      const picks = questions.filter((q) => Mk.worldOf(q) === w && !/^\s*承上題/.test(q.stem || "")).slice(0, 2);
+      for (const q of picks) {
+        for (let i = 0; i <= k % 3; i++) p = Mk.recordWrong(p, q, now - (k + 1) * 7 * HOUR + i);
+        k++;
+      }
+    }
+    return p;
+  }
+
   // The whole starting point of a new demo save: { profile, progress }.
-  function seedSave(gameData, now) {
-    const profile = seedRevision(seedProfile(gameData), now);
+  // questions (optional): the build's question pool, for the sample 錯題本.
+  function seedSave(gameData, now, questions) {
+    const profile = seedMistakes(seedRevision(seedProfile(gameData), now), questions, now);
     return { profile: { ...profile, checkin: { days: 35, lastDay: null } }, progress: seedProgress(now) };
   }
 
