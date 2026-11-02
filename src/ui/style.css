@@ -1281,3 +1281,27 @@ body[data-screen="rush"] { --page-bg: radial-gradient(circle at 50% 0%, #1d3157 
 .title-tier.tier-3 { background: #f4d36b; }
 .title-tier.tier-4 { background: #cfeff2; }
 .title-tier.tier-5 { background: linear-gradient(120deg, #d9f3ff, #f3dcff); }
+/* 錯題本 (2026-11-03) */
+.rv-entries { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.mk-filters { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; }
+.mk-chip { min-width: 44px; min-height: 40px; padding: 4px 12px; font: inherit; font-weight: 800; background: #fff; border: 2px solid var(--line); border-radius: 999px; cursor: pointer; }
+.mk-chip.active { background: var(--yellow); border-color: var(--ink); }
+.mk-chip.active::before { content: "✓ "; }
+.mk-all { width: auto; display: inline-flex; min-height: 40px; padding: 4px 14px; }
+.mk-row { display: flex; gap: 10px; padding: 10px 0; border-top: 1.5px dashed var(--line); }
+.mk-row.picked { background: #fff9e4; }
+.mk-pick { flex: none; display: flex; align-items: flex-start; padding: 4px; }
+.mk-check { width: 24px; height: 24px; accent-color: #d4a017; }
+.mk-main { flex: 1; min-width: 0; }
+.mk-stem { margin: 0 0 4px; font-weight: 800; line-height: 1.5; white-space: pre-wrap; }
+.mk-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin: 0; font-size: 13px; color: var(--muted); }
+.mk-options { margin: 8px 0 4px; padding-left: 0; list-style: none; }
+.mk-options li { padding: 3px 0; white-space: pre-wrap; }
+.mk-right { font-weight: 900; color: #23704a; }
+.mk-explain { margin: 4px 0; padding: 8px 10px; background: #f1f8f4; border-left: 4px solid var(--mint); border-radius: 8px; }
+.mk-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.mk-actions .btn { width: auto; display: inline-flex; min-height: 40px; padding: 4px 12px; }
+.mk-bar { position: sticky; bottom: 84px; display: flex; align-items: center; gap: 10px; margin-top: 10px; padding: 10px 12px; background: #fff; border: 2.5px solid var(--ink); border-radius: 18px; box-shadow: 0 3px 0 var(--ink); }
+.mk-count { flex: none; font-weight: 900; }
+.mk-bar .btn { flex: 1; }
+.mistakes .stem { white-space: pre-wrap; }

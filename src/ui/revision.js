@@ -120,7 +120,14 @@
           { class: "rv-entries" },
           h("button", { class: "rv-entry", onclick: () => (last ? openCard(last.id) : openChapter("A01")), ...(last ? {} : {}) }, h("span", { class: "rv-entry-icon" }, "📖"), h("span", { class: "rv-entry-title" }, "接續上次"), h("span", { class: "rv-entry-sub" }, last ? `${last.id} ${R.chapterById(last.chapterId).title}・${last.title}` : "由 A01 開始")),
           h("button", { class: "rv-entry", onclick: () => ((showDue = true), (query = ""), show()) }, h("span", { class: "rv-entry-icon" }, "⏰"), h("span", { class: "rv-entry-title" }, "今日需複習"), h("span", { class: "rv-entry-sub" }, due.length ? `${due.length} 張卡到期` : "暫時沒有")),
-          h("button", { class: "rv-entry", onclick: () => ((showDue = false), (query = ""), show(), root.document.querySelector(".rv-topics") && root.document.querySelector(".rv-topics").scrollIntoView({ block: "start" })) }, h("span", { class: "rv-entry-icon" }, "🧭"), h("span", { class: "rv-entry-title" }, "按課題探索"), h("span", { class: "rv-entry-sub" }, "A 至 E 五大課題"))
+          h("button", { class: "rv-entry", onclick: () => ((showDue = false), (query = ""), show(), root.document.querySelector(".rv-topics") && root.document.querySelector(".rv-topics").scrollIntoView({ block: "start" })) }, h("span", { class: "rv-entry-icon" }, "🧭"), h("span", { class: "rv-entry-title" }, "按課題探索"), h("span", { class: "rv-entry-sub" }, "A 至 E 五大課題")),
+          // 錯題本 (2026-11-03): wrong questions from every mode, chosen by the student.
+          root.ITE.mistakesUi
+            ? (() => {
+                const n = root.ITE.mistakesUi.count();
+                return h("button", { class: "rv-entry", onclick: () => root.ITE.mistakesUi.show(show) }, h("span", { class: "rv-entry-icon" }, "📕"), h("span", { class: "rv-entry-title" }, "錯題本"), h("span", { class: "rv-entry-sub" }, n ? `${n} 題可重溫` : "暫時沒有錯題"));
+              })()
+            : null
         ),
         search,
         list,
@@ -422,11 +429,12 @@
     const p = profile();
     const due = R.dueCards(p, now()).length;
     const last = R.lastCard(p);
+    const mistakes = root.ITE.mistakesUi ? root.ITE.mistakesUi.count() : 0;
     return h(
       "button",
       { class: "rv-home", onclick: show },
       h("span", { class: "rv-home-icon", "aria-hidden": "true" }, "📚"),
-      h("span", { class: "rv-home-info" }, h("span", { class: "rv-home-title" }, "知識修練館"), h("span", { class: "rv-home-sub" }, due ? `今日有 ${due} 張卡要複習` : last ? `接續：${last.id} ${R.chapterById(last.chapterId).title}` : "47 篇原創筆記・Excel 及 Python 互動練習")),
+      h("span", { class: "rv-home-info" }, h("span", { class: "rv-home-title" }, "知識修練館"), h("span", { class: "rv-home-sub" }, [due ? `今日有 ${due} 張卡要複習` : last ? `接續：${last.id} ${R.chapterById(last.chapterId).title}` : "47 篇原創筆記・Excel 及 Python 互動練習", mistakes ? `・錯題本 ${mistakes} 題` : ""].join(""))),
       h("span", { class: "rv-home-go" }, due ? `⏰ ${due}` : "溫習 ›")
     );
   }
