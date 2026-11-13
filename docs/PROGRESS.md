@@ -505,3 +505,38 @@
 - **Branch:** `feat/teacher-demo`
 - **What changed:** `src/ui/tutorial.js`（12 張）、`src/ui/guide.js`（新）、主頁「指南」、設定頁連結
 - **Verification (actual):** `./scripts/test.sh` 全部通過；瀏覽器 375×667（單機版）逐張檢查 12 張教學卡均無需捲動；指南 11 章節、裝備策略內容正確顯示；主頁三個側按鈕都在場景內
+
+## 週報 — 2026-11-07 至 2026-11-13（Routine C，自動生成）
+- **Branch:** `routine/weekly-20261113`（基於 `origin/main` @ `d3e58a9`；`src/core/battle.js` 已在 main）
+- **資料來源：** `git fetch origin` 後的 `git log --all --since="7 days ago"`、GitHub PR 清單（最近更新的 8 個）、本文件。PR 審閱留言**未逐一讀取（未核實）**。
+- **測試（實際執行）：** 在 `origin/main` 上執行 `./scripts/test.sh`：JS 236 passed／0 failed、Python 36 tests OK、正式版（1236 題全部 approved）、單機版無公會／線上版保留公會、網頁版、示範版檢查全部通過。瀏覽器／真機畫面本週報未重新檢查。
+
+### 本週已完成
+- **過去 7 日（11/06 10:12 UTC 之後）所有分支沒有新的功能或修正 commit，main 亦沒有新合併。** 最近一個 main 變動仍是 PR #50（錯題本，`d3e58a9`，11/03）。
+- 唯一的近期活動是上週週報 commit `87ed35f`（11/06，僅 `docs/PROGRESS.md`），見草稿 PR #51。
+- 沒有證據顯示本週有其他開發；不聲稱任何新增功能。
+
+### 未完成
+- 草稿 PR #51（上週週報）仍開放，未見合併或審閱證明（審閱留言未核實）。
+- 承上週：Run 52–56 的逐次 PROGRESS 紀錄仍缺；錯題本與知識修練館的 375px 真機／瀏覽器實測**未核實**。
+- 網頁版寄存方式、App 圖示、Excel 名稱同步、在線公會／好友／排行榜（仍只是提案）均無進展證據。
+- 殘留遠端分支（`docs/approval-records`、`docs/online-backend-proposal`、`docs/release-checklist`、`feat/monsters-backgrounds`、`feat/page-backgrounds`、`chore/backlog-refresh`、`release/prep` 等）與 main 的差異未核實。
+
+### 風險
+- 開發停頓一週：試玩回饋與數值調整未跟進。
+- 原型數值（衝刺、每日限定、裝備保底、Boss 成長）仍缺乏足夠學生數據。
+- 週報 PR 累積（#51 未處理，本 PR 為新增）；若不處理，PROGRESS 會分散於多個分支。
+- 試玩站使用 Netlify（含徽章），上架前需重新評估；驗證碼／備份碼只是輕量機制。
+
+### 需要老師／用戶決定的事項
+1. 是否繼續開發？下一輪優先項目（老師試玩回饋、上架準備、在線功能）為何。
+2. 網頁版／試玩站寄存方式；App 圖示揀選；iOS 上架時程。
+3. 是否啟動在線功能（好友、排行榜、學校公會）及校方授權、私隱要求。
+4. 殘留分支與草稿 PR #51 是否可合併／清理（本流程不會自行合併）。
+
+### 下週三項重點（建議）
+1. 合併或關閉週報 PR（#51 及本 PR），補寫 Run 52–56 的 PROGRESS。
+2. 在 375px 實測錯題本與知識修練館，收集老師試玩回饋。
+3. 依回饋做第三輪數值微調（`tools/balance_sim.js`），並審視 `release/prep` 與殘留分支。
+
+**Human-approval requests:** 上述第 1、3 項需用戶決定；本週報未合併、部署或發佈任何內容。
